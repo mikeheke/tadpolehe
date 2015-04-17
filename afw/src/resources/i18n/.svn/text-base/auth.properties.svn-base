@@ -1,0 +1,11 @@
+Exp.1201-0001=\u8BE5\u7CFB\u7EDF\u4FE1\u606F\u4E0D\u5B58\u5728
+Exp.1201-0002=\u8BE5\u7CFB\u7EDF\u5DF2\u7ECF\u505C\u6B62\u4F7F\u7528
+Exp.1201-0003=\u7528\u6237\u57FA\u672C\u4FE1\u606F\u4E0D\u5B8C\u6574\uFF0C\u8BF7\u8054\u7CFB\u7BA1\u7406\u5458
+Exp.1201-0004=\u60A8\u767B\u5F55\u9519\u8BEF\u6B21\u6570\u8D85\u8FC7\u9650\u5236\uFF0C\u5E10\u53F7\u88AB\u51BB\u7ED3\uFF0C\u8BF7\u8054\u7CFB\u7BA1\u7406\u5458\u5904\u7406
+Exp.1201-0005=\u8BE5\u7528\u6237\u5DF2\u88AB\u5217\u4E3A\u9ED1\u540D\u5355
+
+ejb.weblogic.initial.context.factory=weblogic.jndi.WLInitialContextFactory
+ejb.weblogic.security.principal=weblogic
+ejb.weblogic.security.credentials=weblogic1
+ejb.weblogic.provider.url=t3://10.140.208.218:7003
+ejb.auth_interface_name=com.amway.frm.authentication.IAuthenticator

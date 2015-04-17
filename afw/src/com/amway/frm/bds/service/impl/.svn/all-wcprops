@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/bds/service/impl
+END
+BdsXmlDataImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/bds/service/impl/BdsXmlDataImpl.java
+END
+BaseDataSourceServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/bds/service/impl/BaseDataSourceServiceImpl.java
+END
+BdsXmlStructureImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/bds/service/impl/BdsXmlStructureImpl.java
+END
+BdsSchemaInforImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/bds/service/impl/BdsSchemaInforImpl.java
+END

@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/afw/service
+END
+RoleRightService.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/afw/service/RoleRightService.java
+END
+RoleService.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/afw/service/RoleService.java
+END
+ExportConfigService.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/afw/service/ExportConfigService.java
+END
+LoginService.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/afw/service/LoginService.java
+END
+ApplicationPlusService.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/afw/service/ApplicationPlusService.java
+END
+ModuleService.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/afw/service/ModuleService.java
+END
+BlackListService.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/afw/service/BlackListService.java
+END
+UserProfileService.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/afw/service/UserProfileService.java
+END
+ApplicationService.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/afw/service/ApplicationService.java
+END
+RoleUserService.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/afw/service/RoleUserService.java
+END
+DepartmentService.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/afw/service/DepartmentService.java
+END

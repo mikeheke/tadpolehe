@@ -1,0 +1,125 @@
+package com.amway.frm.sms.service.impl;
+
+import java.io.IOException;
+import java.sql.SQLException;
+import java.util.Map;
+
+import org.springframework.transaction.annotation.Transactional;
+
+import com.amway.frm.base.service.impl.BaseImpl;
+import com.amway.frm.base.util.DataValidater;
+import com.amway.frm.base.util.TemplateUtil;
+import com.amway.frm.base.vo.ReturnMessage;
+import com.amway.frm.sms.dao.ISmsSendRecordDao;
+import com.amway.frm.sms.entity.SmsBasicPara;
+import com.amway.frm.sms.entity.SmsTemplate;
+import com.amway.frm.sms.exception.SmsSysException;
+import com.amway.frm.sms.service.SmsService;
+import com.amway.frm.sms.util.SmsConstant;
+
+/**
+ * Created by IntelliJ IDEA.
+ * @author huangweijin
+ * Date: 2011-3-22
+ * Time: 10:47:54
+ * Declare：短信Service，适用于实现业务逻辑，包括获得,保存短信记录
+ */
+public class SmsServiceImpl  extends BaseImpl implements SmsService {
+	
+    //短信发送DAO
+    private ISmsSendRecordDao smsSendRecordDao;
+
+    private int validate(SmsBasicPara smsBasicPara){
+    	
+    	if(DataValidater.isStrEmpty(smsBasicPara.getSmsTo())){
+    		return SmsConstant.SMS_TO_EMPTY_CODE;
+    	}
+    	//if(DataValidater.isStrEmpty(smsBasicPara.getMailContent())){
+    	//	return -2002;
+    	//}
+    	
+    	return 0;
+    }
+    
+    @Transactional
+    @Override
+    public ReturnMessage<SmsBasicPara> sendSms(SmsBasicPara smsBasicPara) {
+        
+    	ReturnMessage<SmsBasicPara> returnMessage = new ReturnMessage<SmsBasicPara>();
+    	
+    	 //参数校验
+    	int result = validate(smsBasicPara);
+    	if(result != 0){
+    		returnMessage.setReturnCode(result);
+    		return returnMessage;
+    	}
+        
+        try {
+        	SmsBasicPara smsBasicParaRet = smsSendRecordDao.saveRecord(smsBasicPara);
+			
+			returnMessage.setReturnObject(smsBasicParaRet);
+			returnMessage.setReturnCode(ReturnMessage.SUCCESS_CODE);
+		} catch (SQLException e) {
+			throw new SmsSysException(e);
+		}
+        
+        return returnMessage;
+    }
+    
+    //获得模板
+    private SmsTemplate getSmsTemplate(SmsBasicPara smsBasicPara){
+    	
+    	String templateCode = smsBasicPara.getTemplateCode();
+    	if(DataValidater.isStrEmpty(templateCode)){
+    		return null;
+    	}
+    	SmsTemplate smsTemplate = new SmsTemplate();
+    	smsTemplate.setTemplateCode(templateCode);
+    	smsTemplate = (SmsTemplate) this.querySingle(smsTemplate);
+    	
+    	return smsTemplate;
+    }
+    
+    @Transactional
+    @Override
+	public ReturnMessage<SmsBasicPara> sendSms(SmsBasicPara smsBasicPara,
+			Map<String, Object> variableMap) {
+       
+		ReturnMessage<SmsBasicPara> returnMessage = new ReturnMessage<SmsBasicPara>();
+		
+		int result = validate(smsBasicPara);
+    	if(result != 0){
+    		returnMessage.setReturnCode(result);
+    		return returnMessage;
+    	}
+    	
+        //获得短信模板
+        SmsTemplate smsTemplate = getSmsTemplate(smsBasicPara);
+        if (smsTemplate != null){
+        	smsBasicPara.setSmsContent(smsTemplate.getSmsTemplateContent());
+        }
+        
+    	try {
+    		//替换变量
+    		String smsContent = TemplateUtil.replaceTemplateVars(smsBasicPara.getSmsContent(), variableMap);
+    		smsBasicPara.setSmsContent(smsContent);
+		} catch (IOException e) {
+			throw new SmsSysException(e);
+		}
+        
+		try {
+			SmsBasicPara smsBasicParaRet = smsSendRecordDao.saveRecord(smsBasicPara);
+			
+			returnMessage.setReturnCode(ReturnMessage.SUCCESS_CODE);
+			returnMessage.setReturnObject(smsBasicParaRet);
+		} catch (SQLException e) {
+			throw new SmsSysException(e);
+		}
+        
+        return returnMessage;
+    }
+
+	public void setSmsSendRecordDao(ISmsSendRecordDao smsSendRecordDao) {
+		this.smsSendRecordDao = smsSendRecordDao;
+	}
+}

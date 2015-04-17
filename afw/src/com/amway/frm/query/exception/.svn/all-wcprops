@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/query/exception
+END
+QuerySysException.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/query/exception/QuerySysException.java
+END
+QueryInfoException.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/query/exception/QueryInfoException.java
+END
+QueryBizException.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/query/exception/QueryBizException.java
+END

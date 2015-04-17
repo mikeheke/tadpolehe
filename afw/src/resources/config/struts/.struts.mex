@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Struts2Diagram version="2.0">
+  <package name="default" location="165,10" size="280,245">
+    <action name="default" location="65,57" size="150,41">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="noPage.jsp" />
+      </result>
+    </action>
+    <action name="login" location="65,152" size="150,62">
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="login.jsp" />
+      </result>
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="index.jsp" />
+      </result>
+    </action>
+    <action name="test" location="0,0" size="0,0">
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="test.jsp" />
+      </result>
+    </action>
+  </package>
+  <webResource name="noPage.jsp" path="/noPage.jsp" location="10,30" size="150,55" />
+  <webResource name="login.jsp" path="/login.jsp" location="500,135" size="150,55" />
+  <webResource name="index.jsp" path="/index.jsp" location="255,310" size="150,55" />
+  <webResource name="noPage.jsp" path="http://localhost:8080/afw/noPage.jsp" location="0,0" size="0,0" />
+  <webResource name="login.jsp" path="http://localhost:8080/afw/login.jsp" location="0,0" size="0,0" />
+  <webResource name="index.jsp" path="http://localhost:8080/afw/index.jsp" location="0,0" size="0,0" />
+  <webResource name="test.jsp" path="/test.jsp" location="0,0" size="0,0" />
+  <include file="struts-default.xml" location="20,485" size="150,30" />
+  <include file="struts-plugin.xml" location="265,485" size="150,30" />
+  <include file="struts-plugin.xml" location="265,485" size="150,30" />
+</Struts2Diagram>
+

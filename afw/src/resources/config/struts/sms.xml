@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN"
+        "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+    <package name="sms" namespace="/" extends="default">
+
+        <!--邮件模板 start-->
+        <action name="smsTemplateAction" class="SmsTemplateAction" >
+            <result name="initAddSuccess" >/sms/smsTemplate.jsp</result>
+			<result name="initAddInput" >/sms/smsTemplate.jsp</result>
+			<result name="addSuccess" >/sms/smsTemplate.jsp</result>
+			<result name="addInput" >/sms/smsTemplate.jsp</result>
+			<result name="initModifySuccess" >/sms/smsTemplate.jsp</result>
+			<result name="initModifyInput" >/sms/smsTemplate.jsp</result>
+			<result name="mdfSuccess" >/sms/smsTemplate.jsp</result>
+			<result name="mdfInput" >/sms/smsTemplate.jsp</result>
+        </action>
+        <!--邮件模板 end-->
+
+    </package>
+
+</struts>

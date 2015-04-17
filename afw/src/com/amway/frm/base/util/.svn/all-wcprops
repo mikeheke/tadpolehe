@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/base/util
+END
+TemplateUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/base/util/TemplateUtil.java
+END
+ContextFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/base/util/ContextFactory.java
+END
+FileHelper.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/base/util/FileHelper.java
+END
+XMLDomHelper.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/base/util/XMLDomHelper.java
+END
+JDBCHelper.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/base/util/JDBCHelper.java
+END
+DataConverter.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/base/util/DataConverter.java
+END
+MD5EncodeUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/base/util/MD5EncodeUtil.java
+END
+AppConstant.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/base/util/AppConstant.java
+END
+DataValidater.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/base/util/DataValidater.java
+END

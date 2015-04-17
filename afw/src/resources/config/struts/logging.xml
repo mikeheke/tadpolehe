@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+ 
+  <package name="logging" namespace="/" extends="default">
+  
+	  <action name="logAction" class="LogAction">
+	      <result name="initSuccess">/log/log.jsp</result>
+	      <result name="initInput">/log/log.jsp</result>
+	       <result name="qrySuccess">/log/log.jsp</result>
+	      <result name="qryInput">/log/log.jsp</result>
+	      <result name="initModifySuccess">/log/logModify.jsp</result>
+	      <result name="initModifyInput">/log/logModify.jsp</result>
+	      <result name="mdfSuccess">/log/logModify.jsp</result>	
+	      <result name="mdfInput">/log/logModify.jsp</result>			
+	  </action>
+  </package>
+</struts>    

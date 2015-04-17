@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/org/extremecomponents/table/bean
+END
+TableDefaults.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/org/extremecomponents/table/bean/TableDefaults.java
+END
+Table.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/org/extremecomponents/table/bean/Table.java
+END
+RowDefaults.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/org/extremecomponents/table/bean/RowDefaults.java
+END
+Row.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/org/extremecomponents/table/bean/Row.java
+END
+ColumnDefaults.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/org/extremecomponents/table/bean/ColumnDefaults.java
+END
+Attributes.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/org/extremecomponents/table/bean/Attributes.java
+END
+ExportDefaults.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/org/extremecomponents/table/bean/ExportDefaults.java
+END
+Column.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/org/extremecomponents/table/bean/Column.java
+END
+Export.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/org/extremecomponents/table/bean/Export.java
+END

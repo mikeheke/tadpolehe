@@ -1,0 +1,291 @@
+package com.amway.frm.afw.service.impl;
+
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
+import java.io.PrintWriter;
+import java.util.Collection;
+import java.util.Date;
+import java.util.Hashtable;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Map.Entry;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.apache.struts2.ServletActionContext;
+
+import com.amway.frm.afw.authentication.IFWAuthenticator;
+import com.amway.frm.afw.authentication.principal.Credentials;
+import com.amway.frm.afw.entity.Application;
+import com.amway.frm.afw.entity.BlackList;
+import com.amway.frm.afw.entity.UserProfile;
+import com.amway.frm.afw.service.LoginService;
+import com.amway.frm.afw.service.UserProfileService;
+import com.amway.frm.afw.util.AfwConstant;
+import com.amway.frm.afw.vo.LoginVo;
+import com.amway.frm.authentication.IAuthenticator;
+import com.amway.frm.base.service.impl.BaseImpl;
+import com.amway.frm.base.util.AppConstant;
+import com.amway.frm.base.util.ContextFactory;
+import com.amway.frm.base.util.DataValidater;
+import com.amway.frm.base.vo.ReturnMessage;
+import com.amway.frm.exception.exception.AmwayBizException;
+
+/**
+ * 登录验证实现类
+ * @author huangweijin
+ * 
+ */
+class LoginServiceImpl extends BaseImpl implements LoginService {
+	
+	// IFWAuthenticator不同实现的映射
+	private Map<String, IFWAuthenticator> adaptors;
+	
+	private UserProfileService userProfileService;
+	
+	protected Log logger = LogFactory.getLog(getClass());
+
+	public ReturnMessage<Credentials> authenticate(Credentials credentials){
+		
+		ReturnMessage<Credentials> returnMessage = null;
+		
+		IFWAuthenticator authenticator = null;
+	
+		if(null != credentials.getUserType()
+				&& credentials.getUserType().intValue() == AfwConstant.AD_ACCOUNT.intValue()){
+			authenticator = selectAdaptor(AfwConstant.FWD_LDAP);
+			returnMessage = authenticator.authenticate(credentials);
+			
+			// AD账号LDAP验证失败后，本地不再验证
+			if(!returnMessage.isSuccess()){
+				if (DataValidater.isStrEmptyOrNull(returnMessage.getReturnMsg())) {
+					final String msg = "用户名或密码不正确";
+					returnMessage.setReturnMsg(msg);
+				}
+			}
+		}else{
+			authenticator = selectAdaptor(AfwConstant.FWD_DB);
+			returnMessage = authenticator.authenticate(credentials);
+		}
+		
+		return returnMessage;
+	}
+	
+	
+	private Map<String, Object> externalAuthenticate(LoginVo loginVo,
+			Application application) throws AmwayBizException {
+
+		Map<String, Object> map = null;
+		IAuthenticator ia = null;
+		Hashtable<String, String> env = new Hashtable<String, String>();
+
+		Object o = null;
+		try {
+			Context ctx = new InitialContext(env);
+			o = ctx.lookup((application.getEjbAuthStateless() + "#" + ContextFactory
+					.getI18nValue("ejb.auth_interface_name")));
+			ia = (IAuthenticator) o;
+			map = ia.authenticate(loginVo.getUserCode(), loginVo.getPassword());
+
+		} catch (Exception e) {
+			throw new AmwayBizException(e + "外部认证失败" + e.getMessage());
+		}
+		return map;
+	}
+	
+	
+	public ReturnMessage<Credentials> webLogin(LoginVo loginVo) {
+		
+		ReturnMessage<Credentials> returnMessage = new ReturnMessage<Credentials>();
+		
+		Application application = getApplication(loginVo);
+		if(null == application){
+			final String msg = "该系统信息不存在";
+			returnMessage.setReturnMsg(msg);
+			return returnMessage;
+		}
+		if(null != application.getState()
+				&& application.getState().intValue() == AppConstant.STOP.intValue()){
+			final String msg = "该系统已经停止使用";
+			returnMessage.setReturnMsg(msg);
+			return returnMessage;
+		}
+		
+		/*
+		 *增加外部认证
+		 *黄波
+		 *2013-11-18
+		 */
+		UserProfile userProfile = null;
+		if(null != application.getAuthenticateType()
+				&& application.getAuthenticateType().intValue() == AppConstant.AUTHENTICATE_EXTERNAL.intValue()){
+			
+			final String userCode = loginVo.getUserCode();
+			if(userCode.indexOf(AppConstant.AUTHENTICATE_ADMIN_REMARK) == -1){
+				Map<String, Object> res = null;
+				try{
+					
+					res = externalAuthenticate(loginVo, application);
+				}catch(Exception e){
+					
+					returnMessage.setReturnMsg(e.getMessage());
+					return returnMessage;
+				}
+				
+				Object suc = res.get(IAuthenticator.AUTHEN_RESULT);
+				if(suc != null && ((Integer)suc).intValue() == IAuthenticator.AUTHEN_SUCESS){
+					
+					UserProfile uf = new UserProfile();
+					uf.setUserProfileId(Long.valueOf(application.getMatchInnerUser()));
+					userProfile = userProfileService.getUniqueUserProfile(uf);
+					
+					if(userProfile != null){
+						for (String key : res.keySet()) {
+							if(IAuthenticator.AUTHEN_RESULT.equals(key)){
+								continue;
+							}
+							
+							userProfile.setShopId(String.valueOf(res.get(key)));
+						}
+					}
+					
+					ServletActionContext.getRequest().setAttribute(
+							AppConstant.AUTHENTICATE_SHOP_REMARK,
+							userProfile.getShopId());
+				}
+				
+			}
+			
+		}else{
+			userProfile = getUserProfile(loginVo);
+		}
+		
+		if(null == userProfile){
+			final String msg = "用户基本信息不完整，请联系管理员";
+			returnMessage.setReturnMsg(msg);
+			return returnMessage;
+		}
+		if(null != userProfile.getState()
+				&& userProfile.getState().intValue() == AppConstant.STOP.intValue()){
+			final String msg = "您登录错误次数超过限制，帐号被冻结，请联系管理员处理";
+			returnMessage.setReturnMsg(msg);
+			return returnMessage;
+		}
+		BlackList blackList = getBlackList(application, userProfile);
+		if(null != blackList){
+			final String msg = "该用户已被列为黑名单";
+			returnMessage.setReturnMsg(msg);
+			return returnMessage;
+		}
+		
+		Credentials credentials = generateCredentials(userProfile, loginVo);
+		returnMessage = authenticate(credentials);
+		
+		if(!returnMessage.isSuccess()){
+			lockLogin(application, userProfile);
+		}else{
+			updateLogin(userProfile);
+		}
+	
+		return returnMessage;
+	}
+	
+	private void lockLogin(Application application, UserProfile userProfile){
+		
+		Integer maxFailNum = application.getFailNum();
+		if(null == maxFailNum
+				|| 0 == maxFailNum){
+			return;
+		}
+		Integer userFailNum = userProfile.getFailNum();
+		if(null == userFailNum){
+			userFailNum = 0;
+		}
+		userProfile.setFailNum(++userFailNum);
+		if(userFailNum >= maxFailNum){
+			userProfile.setState(AppConstant.STOP);
+		}
+		userProfileService.update(userProfile);
+	}
+	
+	private void updateLogin(UserProfile userProfile){
+		
+		userProfile.setFailNum(0);
+		userProfile.setState(AppConstant.START);
+		userProfile.setLastLoginIp(userProfile.getLoginIp());
+		userProfile.setLastLoginTime(userProfile.getLoginTime());
+		userProfile.setLoginIp(ContextFactory.getRemoteAddr());
+		userProfile.setLoginTime(new Date());
+		Integer loginNum = userProfile.getLoginNum();
+		userProfile.setLoginNum(++loginNum);
+		userProfileService.update(userProfile);
+	}
+	
+	private Application getApplication(LoginVo loginVo){
+		
+		Application application = new Application();
+		application.setApplicationCode(loginVo.getApplicationCode());
+		
+		application = (Application) userProfileService.querySingle(application);
+		
+		return application;
+	}
+	
+	private UserProfile getUserProfile(LoginVo loginVo){
+		
+		UserProfile userProfile = new UserProfile();
+		userProfile.setEmpNumber(loginVo.getUserCode());
+		UserProfile userProfileRet = (UserProfile) userProfileService.querySingle(userProfile);
+		if(null == userProfileRet){
+			userProfile.setEmpNumber(loginVo.getUserCode().toUpperCase());
+			userProfile.setAccountType(AfwConstant.AD_ACCOUNT);
+			userProfileRet = (UserProfile)userProfileService.querySingle(userProfile);
+		}
+		
+		return userProfileRet;
+	}
+	
+	private BlackList getBlackList(Application application, UserProfile userProfile){
+		
+		BlackList blackList = new BlackList();
+		blackList.setApplication(application);
+		blackList.setUserProfile(userProfile);
+		
+		blackList = (BlackList) userProfileService.querySingle(blackList);
+		
+		return blackList;
+		
+	}
+	
+	private Credentials generateCredentials(UserProfile userProfile,
+			LoginVo loginVo) {
+		
+		Credentials credentials = new Credentials();
+		credentials.setPassword(loginVo.getPassword());
+		credentials.setUserCode(userProfile.getEmpNumber());
+		credentials.setUserType(userProfile.getAccountType());
+		credentials.setApplicationCode(loginVo.getApplicationCode());
+		
+		return credentials;
+	}
+
+	@Override
+	public IFWAuthenticator selectAdaptor(String adaptorCode) {
+		return adaptors.get(adaptorCode);
+	}
+
+	public void setAdaptors(Map<String, IFWAuthenticator> adaptors) {
+		this.adaptors = adaptors;
+	}
+
+	public void setUserProfileService(UserProfileService userProfileService) {
+		this.userProfileService = userProfileService;
+	}
+
+}

@@ -1,0 +1,259 @@
+package com.amway.frm.afw.web.action;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.struts2.ServletActionContext;
+
+import com.amway.frm.afw.service.ExportConfigService;
+import com.amway.frm.base.vo.ReturnMessage;
+import com.amway.frm.base.web.action.BaseAction;
+
+/**
+ * 配置导入导出Action
+ * @author hyc
+ */
+public class ExportConfigAction extends BaseAction {
+	
+	private static final long serialVersionUID = -2891775900107049963L;
+	
+	//配置导入服务类
+	private ExportConfigService exportConfigService;
+	//应用id
+	private String applicationId;
+	//模块
+	private String[] module={"MSTB_APPLICATION","MSTB_MODULE","MSTB_ROLE","MSTB_ROLE_RIGHT"
+	                         ,"MSTB_QUERY_INDEX","MSTB_QUERY_SELECT","MSTB_QUERY_FROM","MSTB_QUERY_WHERE"
+	                         ,"MSTB_QUERY_GROUPBY","MSTB_QUERY_ORDERBY","MSTB_QUERY_BUTTON","MSTB_BDS_SCHEMAINFOR"
+	                         ,"MSTB_BDS_XML_DATA"};
+	//开始日期
+	private String startdate;
+	//终了日期
+	private String enddate;
+	//sql文件
+	private File sqlfile;
+	
+	/**
+     * Declare：导入sql
+     *
+     * @return String 返回信息 
+     * @throws Exception 
+     */
+	public String importSql() throws Exception{
+		
+		List<String> sqlList=new ArrayList<String>();
+		
+		List<HashMap> importResultList=new ArrayList<HashMap>();
+		
+		BufferedReader reader = null;
+		
+		String sql="";
+		
+        try {
+            //System.out.println("以行为单位读取文件内容，一次读一整行：");
+            reader = new BufferedReader(new InputStreamReader(new FileInputStream(sqlfile),"UTF-8")); 
+            String tempString = null;
+            
+            int index=0;
+            
+            // 一次读入一行，直到读入null为文件结束
+            while ((tempString = reader.readLine()) != null) {
+            	
+            	if(((!tempString.startsWith("update"))&&(!tempString.startsWith("insert")))||index==0){
+            		
+            		//文件头特殊字符处理
+            		if(index==0){
+            			if(tempString.indexOf("update")!=-1){
+            				tempString="update".concat(tempString.substring(tempString.indexOf(" ")));
+            			}
+            			else{
+            				tempString="insert".concat(tempString.substring(tempString.indexOf(" ")));
+            			}
+            		}
+
+            		sql=sql.concat(tempString);
+            		
+            	}
+            	else{
+            		sqlList.add(sql.substring(0, sql.length()-1));
+            		sql=tempString;
+            	}
+            	index++;
+            }
+            sqlList.add(sql.substring(0, sql.length()-1));
+            reader.close();
+        } catch (Exception e) {
+        	throw e;
+        } finally {
+        	
+            if (reader != null) {
+                try {
+                    reader.close();
+                } catch (IOException e1) {
+                	throw e1;
+                }
+            }
+        }
+
+        importResultList=this.exportConfigService.importSql(sqlList);
+
+        this.setMessage(RET_OBJ,importResultList);
+		
+		return ADD_SUCCESS;
+	}
+
+	/**
+     * Declare：导出sql
+     *
+     * @return String 返回信息 
+     * @throws Exception 
+     */
+	public String export() throws Exception{
+		
+		List<String> allsql =new ArrayList<String>();
+		
+		//逐个模块生成sql
+		for(String strModule:module){
+			List<String> sqls=exportConfigService.generateExportSqls(strModule, applicationId,startdate,enddate);
+			
+			allsql.addAll(sqls);
+		}
+		
+		exportConfigService.markExportTime(applicationId);
+		
+		OutputStream outputStream = genExportOs();
+		
+		StringBuffer sbf = new StringBuffer();
+		
+		for(String sql:allsql){
+			sbf.append(sql);
+			sbf.append(";");
+			sbf.append("\r\n");
+		}
+		
+		writeContent(outputStream,sbf);
+		
+		outputStream.close();
+		
+		return NONE;
+	}
+	
+	/**
+     * Declare：根据应用id取得最近10次导出时间
+     *
+     * @return String 返回信息 
+     * @throws Exception 
+     */
+	public String fetchExportDate() throws Exception{
+		
+		ReturnMessage<String> result=exportConfigService.fetchExportDate(applicationId);
+		
+		HttpServletResponse response = ServletActionContext.getResponse();
+		response.setContentType("text/html;charset=UTF-8");
+		
+		OutputStream outputStream = response.getOutputStream();
+		
+		StringBuffer sbf = new StringBuffer();
+		
+		if(result.getReturnObject()==null){
+			sbf.append("");
+		}
+		else{
+			sbf.append(result.getReturnObject());
+		}
+		
+		writeContent(outputStream,sbf);
+		
+		outputStream.close();
+		
+		return NONE;
+	}
+	
+	/**
+     * Declare：初始化下载参数
+     *
+     * @return OutputStream 
+     * @throws IOException 
+     */
+	protected OutputStream genExportOs() 
+			throws IOException{
+			
+		HttpServletResponse response = ServletActionContext.getResponse();
+		response.setContentType("application/x-msdownload");
+		response.setContentType("text/html;charset=UTF-8");
+		response.setHeader("Content-Disposition", "attachment;filename="
+				+"\""+"appsql.sql"+"\"");
+		response.setHeader("Cache-Control", "must-revalidate, post-check=0, pre-check=0");
+		response.setHeader("Pragma", "public");
+		final Integer EXPORT_EXPIRES = 3000000;
+		response.setDateHeader("Expires", (System.currentTimeMillis() + EXPORT_EXPIRES));
+		
+		return response.getOutputStream();
+	}
+	
+	protected void writeContent(OutputStream os, Object dataView) throws Exception{
+		
+		StringBuffer sbf = (StringBuffer)dataView;
+		os.write(sbf.toString().getBytes("UTF-8"));
+		os.flush();
+		
+	}
+
+	public String getApplicationId() {
+		return applicationId;
+	}
+
+	public void setApplicationId(String applicationId) {
+		this.applicationId = applicationId;
+	}
+
+	public String[] getModule() {
+		return module;
+	}
+
+	public void setModule(String[] module) {
+		this.module = module;
+	}
+
+	public String getStartdate() {
+		return startdate;
+	}
+
+	public void setStartdate(String startdate) {
+		this.startdate = startdate;
+	}
+
+	public String getEnddate() {
+		return enddate;
+	}
+
+	public void setEnddate(String enddate) {
+		this.enddate = enddate;
+	}
+
+	public ExportConfigService getExportConfigService() {
+		return exportConfigService;
+	}
+
+	public void setExportConfigService(ExportConfigService exportConfigService) {
+		this.exportConfigService = exportConfigService;
+	}
+
+	public File getSqlfile() {
+		return sqlfile;
+	}
+
+	public void setSqlfile(File sqlfile) {
+		this.sqlfile = sqlfile;
+	}
+
+}

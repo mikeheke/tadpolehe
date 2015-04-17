@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/OA_Sappfwk_src/!svn/ver/6417/trunk/source/amway_app/amway-afw/src/com/amway/frm/afw/dao
+END
+IBlackListDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/afw/dao/IBlackListDao.java
+END
+IModuleDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/afw/dao/IModuleDao.java
+END
+IUserProfileDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/afw/dao/IUserProfileDao.java
+END
+IApplicationDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/afw/dao/IApplicationDao.java
+END
+IRoleUserDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/afw/dao/IRoleUserDao.java
+END
+IDepartmentDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/afw/dao/IDepartmentDao.java
+END
+IRoleRightDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/afw/dao/IRoleRightDao.java
+END
+IExportConfigDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/afw/dao/IExportConfigDao.java
+END
+IRoleDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/afw/dao/IRoleDao.java
+END
+IApplicationPlusDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/afw/dao/IApplicationPlusDao.java
+END

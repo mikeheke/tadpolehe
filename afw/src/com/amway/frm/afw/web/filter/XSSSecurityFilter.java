@@ -1,0 +1,305 @@
+package com.amway.frm.afw.web.filter;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Enumeration;
+import java.util.Properties;
+
+import javax.servlet.Filter;
+import javax.servlet.FilterChain;
+import javax.servlet.FilterConfig;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.commons.lang.StringUtils;
+
+import com.amway.frm.afw.exception.AuthSysException;
+import com.amway.frm.afw.web.servlet.XSSRequestWrapper;
+
+/**
+ * 	XSS 攻击过滤器.<br/>
+ *  将请求的script脚本进行处理
+ *  @author huangbo
+ */
+public class XSSSecurityFilter implements Filter {
+
+	public static final String SPLIT_MARK = ",";
+	public static final String XSS_FILTER_URLS = "XSSFilterUrls";
+	public static final String XSS_REPLACE_NAME = "XSSReplaceName";
+	public static final String XSS_REPLACE_VALUE = "XSSReplaceValue";
+	public static final String XSS_URLS_FILE_NAME = "filterXSSUrlsFileName";
+
+	private static final String SREGEXL = "<script";
+	public static final String SCRIPT = "script";
+	public static final String EREGEX = "</script";
+	public static final String EREGEXL = "</script>";
+	private static final String ONERROR = "onerror";
+
+	// 当等于true表示替换,等于false表示注释掉
+	private boolean isReplaceOrAnnotation = false;
+	// 当配置的是替换XSS攻击的特定字符时(即isReplaceOrAnnotation is true),那么其表示替换的字符值
+	private static String replaceCharacter = "#";
+	// 需要拦截的url配置文件
+	private String filterXSSUrlsFileName = "/resources/config/authen/XSSless.properties";
+	// 需要拦截的url
+	private static Properties filterXSSUrls = new Properties();
+	
+	@Override
+	public void init(FilterConfig config) throws ServletException {
+		String fileName = config.getInitParameter(XSS_URLS_FILE_NAME);
+		if(!StringUtils.isEmpty(fileName)){
+			filterXSSUrlsFileName = fileName;
+		}
+		String isReplace = config.getInitParameter(XSS_REPLACE_NAME);
+		if (!StringUtils.isEmpty(isReplace)) {
+			isReplaceOrAnnotation = Boolean.valueOf(isReplace);
+		}
+
+		String replaceValue = config.getInitParameter(XSS_REPLACE_VALUE);
+		if (!StringUtils.isEmpty(replaceValue)) {
+			replaceCharacter = replaceValue;
+		}
+		
+		loadFilterXSSUrls();
+	}
+
+	@Override
+	public void destroy() {
+		filterXSSUrls.clear();
+	}
+
+	@SuppressWarnings("rawtypes")
+	@Override
+	public void doFilter(ServletRequest request, ServletResponse response,
+			FilterChain chain) throws IOException, ServletException {
+
+		HttpServletRequest httpRequest = (HttpServletRequest) request;
+		HttpServletResponse httpResponse = (HttpServletResponse) response;
+
+		Enumeration names = httpRequest.getParameterNames();
+//		if (names == null || !names.hasMoreElements()) {
+//			chain.doFilter(httpRequest, httpResponse);
+//			return;
+//		}
+		if(!neetFilterXSS(httpRequest)){
+			chain.doFilter(httpRequest, httpResponse);
+			return;
+		}
+		
+		
+		String name = null;
+		String[] values = null;
+
+		XSSRequestWrapper requestWrapper = new XSSRequestWrapper(httpRequest) ;
+		while (names.hasMoreElements()) {
+			name = (String) names.nextElement();
+			values = httpRequest.getParameterValues(name);
+
+			if (values != null && values.length > 0) {
+				values = filterXSS(values);
+				if (values != null) {
+					for (String value : values) {
+						requestWrapper.setParameter(name, value);
+					}
+				}
+			}
+		}
+		
+		//request.setCharacterEncoding("UTF-8");
+		
+		chain.doFilter(requestWrapper, httpResponse);
+	}
+
+	/**
+	 * 检查本次请求是否需要进行XSS处理
+	 */
+	public static boolean neetFilterXSS(HttpServletRequest httpRequest) {
+		boolean result = false;
+		String url = httpRequest.getServletPath();
+		result = filterXSSUrls.containsKey(url);
+		return result;
+	}
+
+	/**
+	 *  处理请求所有的参数，当发现有XSS攻击的脚本，
+	 *  将参数的值进行注释或者替换
+	 */
+	private String[] filterXSS(String[] values) {
+		if (values == null || values.length == 0) {
+			return values;
+		}
+		String val = null;
+		String[] res = new String[values.length];
+		StringBuilder str = new StringBuilder("");
+		
+		try {
+			for (int i = 0, len = values.length; i < len; i++) {
+				
+					val = java.net.URLDecoder.decode(values[i], "UTF-8");
+				
+				if (StringUtils.isEmpty(val)) {
+					res[i] = val;
+					continue;
+				}
+				str.delete(0, str.length());
+	
+				if (isReplaceOrAnnotation) {
+					filterXSSReplace(val, str);
+				} else {
+					filterXSSAnnotation(val, str);
+				}
+				res[i] = str.toString();
+			}
+		} catch (Exception e) {
+			res = null;
+		}
+		return res;
+	}
+
+	/**
+	 * 替换XSS脚本特殊字符
+	 */
+	public boolean filterXSSReplace(String val, StringBuilder str) {
+		if (StringUtils.isEmpty(val)) {
+			return false;
+		}
+		String temp = null;
+
+		int e = EREGEX.length();
+		int s = SREGEXL.length();
+		int o = ONERROR.length();
+		String eregex = EREGEX.replaceAll("<", replaceCharacter);
+
+		temp = val.toLowerCase();
+		if (temp.indexOf(SREGEXL) < 0 && temp.indexOf(ONERROR) < 0) {
+			str.append(val);
+			return false;
+		}
+		
+		if(temp.indexOf(ONERROR) > -1){
+			str.append("");
+			return false;
+		}
+		
+//		else{
+//		str.append(StringEscapeUtils.escapeHtml4(val));
+//		return;
+//		}
+		boolean flag = false;
+		char c;
+		for (int j = 0; j < temp.length(); j++) {
+			c = temp.charAt(j);
+			if (flag) {
+				if ('>' == c) {
+					str.append(replaceCharacter);
+					flag = false;
+					continue;
+				}
+			}
+
+			if ('<' == c) {
+				if (EREGEX.equals(temp.substring(j, (j + e)))) {
+					flag = true;
+					str.append(eregex);
+					j += (e - 1);
+				} else if (SREGEXL.equals(temp.substring(j, (j + s)))) {
+					flag = true;
+					str.append(replaceCharacter);
+				}else{
+					str.append(val.charAt(j));
+				}
+			} else if('o' == c || 'O' == c){
+				if(ONERROR.equals(temp.substring(j, (j + o)))){
+					str.append(replaceCharacter);
+				}
+				str.append(c);
+			}else {
+				str.append(val.charAt(j));
+			}
+		}
+		return true;
+	}
+
+	/**
+	 * 注释XSS攻击脚本
+	 */
+	public static boolean filterXSSAnnotation(String val, StringBuilder str) {
+		if (StringUtils.isEmpty(val)) {
+			return false;
+		}
+		String temp = null;
+
+		int e = EREGEX.length();
+		int s = SREGEXL.length();
+		int o = ONERROR.length();
+		
+		temp = val.toLowerCase();
+		if (temp.indexOf(SREGEXL) < 0 && temp.indexOf(ONERROR) < 0) {
+			str.append(val);
+			return false;
+		}
+		
+		if(temp.indexOf(ONERROR) > -1){
+			str.append("");
+			return false;
+		}
+		
+
+		boolean flag = false;
+		char c;
+		for (int j = 0; j < temp.length(); j++) {
+			c = temp.charAt(j);
+			if (flag) {
+				if ('>' == c) {
+					str.append(val.charAt(j));
+					str.append("-->");
+					flag = false;
+					continue;
+				}
+			}
+
+			if ('<' == c) {
+				if (EREGEX.equals(temp.substring(j, (j + e)))) {
+					flag = true;
+					str.append(EREGEX);
+
+					j += (e - 1);
+				} else if (SREGEXL.equals(temp.substring(j, (j + s)))) {
+					str.append("<!--");
+					str.append(val.charAt(j));
+				}else{
+					str.append(val.charAt(j));
+				}
+				
+			}else if('o' == c || 'O' == c){
+				if(ONERROR.equals(temp.substring(j, (j + o)))){
+					str.append(replaceCharacter);
+				}
+				str.append(c);
+			} else {
+				str.append(val.charAt(j));
+			}
+		}
+		return true;
+	}
+
+	private void loadFilterXSSUrls() {
+		loadInputStream(filterXSSUrls,
+				getClass().getResourceAsStream(filterXSSUrlsFileName));
+	}
+
+	private void loadInputStream(Properties noAuthenUrls, InputStream noAuthenIs) {
+		if (null == noAuthenIs) {
+			return;
+		}
+		try {
+			noAuthenUrls.load(noAuthenIs);
+		} catch (IOException e) {
+			throw new AuthSysException(e);
+		}
+	}
+
+}

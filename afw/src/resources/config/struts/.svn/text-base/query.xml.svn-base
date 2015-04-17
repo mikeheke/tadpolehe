@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+
+	<package name="query" namespace="/" extends="default">
+		<action name="queryAction" class="QueryAction">
+			<result name="success" type="chain">show?queryCode=${param.queryCode }</result>
+			<result name="input" type="chain">show?queryCode=${param.queryCode }</result>
+		</action>
+
+		<action name="configAction" class="ConfigAction" />
+
+		<action name="baseAction" class="QBaseAction">
+			<result name="initSuccess" type="dispatcher">/query/navigation.jsp?ids=${ids}</result>
+			<result name="success" type="dispatcher">/query/base.jsp</result>
+			<result name="input" type="dispatcher">/query/base.jsp</result>
+			<result name="copyQueryInput" type="dispatcher">/query/copyQuery.jsp</result>
+			<result name="copyQuerySuccess" type="dispatcher">/query/copyQuery.jsp</result>
+		</action>
+
+		<action name="fromAction" class="FromAction">
+			<result name="success" type="dispatcher">/query/from.jsp</result>
+			<result name="input" type="dispatcher">/query/from.jsp</result>
+			<result name="popupSelTbName" type="dispatcher">/query/fromTbNamePopup.jsp</result>
+			<result name="popupSelFieldName" type="dispatcher">/query/popupSelFieldName.jsp</result>
+		</action>
+
+		<action name="selectAction" class="SelectAction">
+			<result name="success" type="dispatcher">/query/select.jsp</result>
+			<result name="input" type="dispatcher">/query/select.jsp</result>
+		</action>
+
+		<action name="whereAction" class="WhereAction">
+			<result name="success" type="dispatcher">/query/where.jsp</result>
+			<result name="input" type="dispatcher">/query/where.jsp</result>
+		</action>
+
+		<action name="orderByAction" class="OrderByAction">
+			<result name="success" type="dispatcher">/query/orderBy.jsp</result>
+			<result name="input" type="dispatcher">/query/orderBy.jsp</result>
+		</action>
+
+		<action name="groupByAction" class="GroupByAction">
+			<result name="success" type="dispatcher">/query/groupBy.jsp</result>
+			<result name="input" type="dispatcher">/query/groupBy.jsp</result>
+		</action>
+
+		<action name="buttonAction" class="ButtonAction">
+			<result name="success" type="dispatcher">/query/button.jsp</result>
+			<result name="input" type="dispatcher">/query/button.jsp</result>
+		</action>
+
+		<action name="reviewAction" class="ReviewAction">
+			<result name="success" type="dispatcher">/query/review.jsp</result>
+			<result name="input" type="dispatcher">/query/review.jsp</result>
+		</action>
+
+		<action name="showAction" class="ShowAction">
+			<result name="success" type="dispatcher">/query/show.jsp</result>
+			<result name="input" type="dispatcher">/query/show.jsp</result>
+		</action>
+		
+		<!-- new add by Mike.He in 2013 -->
+		<action name="showTwoPageAction" class="ShowTwoPageAction">
+			<!-- 显示查询条件页面 -->
+			<result name="showCondition" type="dispatcher">/query/showCondition.jsp</result>
+			<!-- 显示查询结果页面 -->
+			<result name="showResult" type="dispatcher">/query/showResult.jsp</result>
+		</action>
+		
+		<action name="exportShowAction" class="ExportShowAction">
+			<result name="success" type="dispatcher">/query/show.jsp</result>
+			<result name="input" type="dispatcher">/query/show.jsp</result>
+		</action>
+	</package>
+
+</struts>    

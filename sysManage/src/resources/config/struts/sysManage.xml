@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+  
+<package name="mvnApp" namespace="/" extends="struts-default">
+
+	<action name="mvnTmpAPP" class="mvnTemplateApp">
+			<!--  <param name="maximumSize">2048000</param>-->
+			<result name="downLoadFile" type="stream">
+				<param name="contentDisposition">attachment;filename="${downLoadFileName}"</param>
+			</result>
+		</action>
+</package>
+</struts>    

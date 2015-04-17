@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/afw/vo
+END
+RoleRightVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/afw/vo/RoleRightVo.java
+END
+RoleVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/afw/vo/RoleVo.java
+END
+RightBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/afw/vo/RightBean.java
+END
+SysInfoBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/afw/vo/SysInfoBean.java
+END
+RoleUserVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/afw/vo/RoleUserVo.java
+END
+ApplicationVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/afw/vo/ApplicationVo.java
+END
+UserProfileVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/afw/vo/UserProfileVo.java
+END
+BlackListVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/afw/vo/BlackListVo.java
+END
+ModuleVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/afw/vo/ModuleVo.java
+END
+ApplicationPlusVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/afw/vo/ApplicationPlusVo.java
+END
+LoginVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/afw/vo/LoginVo.java
+END

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+   
+   <!-- 保存上下文于Bean工厂类 BeanFactory-->
+   <bean class="com.amway.frm.base.util.ContextFactory"  />
+   
+   <bean id="ActionTemplate" abstract="true">
+   		<property name="baseService" ref="BaseService" />
+   </bean>
+  
+   <bean id="ServiceTemplate" abstract="true">
+   		<property name="baseDao" ref="BaseDao" />
+   </bean>
+   
+   <bean id="BaseService" class="com.amway.frm.base.service.impl.BaseImpl">
+   		<property name="baseDao" ref="BaseDao" />
+   </bean>
+   
+   <bean id="BaseDao" class="com.amway.frm.base.dao.impl.BaseDao" />
+   
+</beans>

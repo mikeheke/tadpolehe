@@ -1,0 +1,64 @@
+10
+
+dir
+6653
+https://cnnt034.na.intranet.msd/svn/OA_Sappfwk_src/trunk/source/amway_app/amway-afw/src/com/amway/frm
+https://cnnt034.na.intranet.msd/svn/OA_Sappfwk_src
+
+
+
+2014-06-23T09:23:08.302507Z
+6419
+CN087773
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+240537e3-ccb5-794b-ba6a-e87a93a2aae1
+
+afw
+dir
+
+base
+dir
+
+bds
+dir
+
+email
+dir
+
+exception
+dir
+
+job
+dir
+
+logging
+dir
+
+mnu
+dir
+
+query
+dir
+
+report
+dir
+
+sms
+dir
+
+tag
+dir
+

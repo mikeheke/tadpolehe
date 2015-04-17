@@ -1,0 +1,30 @@
+.ztree * {padding:0; margin:0; font-size:10pt;}
+.ztree {margin:0; padding:5px; color:#000000}
+
+.ztree li a {	
+cursor:pointer; height:16px; color:#000000; background-color: transparent;
+	text-decoration:none; vertical-align:top; display: inline-block }
+.ztree li a:hover {text-decoration:underline;color:#FF6600 ;}
+.ztree li a.curSelectedNode{text-decoration:none;background-color:#fff; color:#000;border:0;border-bottom:#CCC 1px dotted;}
+.firstNode li a:hover {text-decoration:none;background-color:highlight;color: highlighttext;opacity:0.4; filter:alpha(opacity=40) ;}
+.firstNode li a.curSelectedNode {background-color:highlight; color:highlighttext; border:1px highlight solid;}
+.firstNode li a.curSelectedNode_Edit {background-color:highlight; color:highlighttext; opacity:0.8;}
+
+.ztree li a.tmpTargetNode {	padding-top:0px; background-color:#316AC5; color:white; border:1px #316AC5 solid;opacity:0.8; filter:alpha(opacity=80)	}	
+.ztree li button.pIcon_ico_open{
+		margin-right:2px; 
+		background: url(./img/ico_nohave.gif) no-repeat scroll 0 0 transparent;
+	 	vertical-align:bottom; 
+	 	*vertical-align:bottom
+}
+.ztree li button.pIcon_ico_close{
+	margin-right:2px; 
+	background: url(./img/ico_have.gif) no-repeat scroll 0 0 transparent; 
+	vertical-align:bottom; 
+	*vertical-align:bottom
+}
+.ztree li button.switch {visibility:hidden; width:1px;}
+.ztree li button.switch.roots_docu {visibility:visible; width:16px;}
+.ztree li button.switch.center_docu {visibility:visible; width:16px;}
+.ztree li button.switch.bottom_docu {visibility:visible; width:16px;}
+.ztree li ul.line{background:url(./img/line_conn.gif);}

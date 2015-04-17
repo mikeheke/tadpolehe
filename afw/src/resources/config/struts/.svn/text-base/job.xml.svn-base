@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	
+	<package name="job" namespace="/" extends="default">
+		<!-- 定时任务配置 -->
+		<action name="timeingJobAction" class="TimeingJobAction">
+			<result name="initAddSuccess">/job/timeingJob.jsp</result>
+			<result name="initAddInput">/job/timeingJob.jsp</result>
+			<result name="initModifySuccess">/job/timeingJob.jsp</result>
+			<result name="initModifyInput">/job/timeingJob.jsp</result>
+			<result name="addSuccess">/job/timeingJob.jsp</result>
+			<result name="addInput">/job/timeingJob.jsp</result>
+			<result name="mdfSuccess">/job/timeingJob.jsp</result>
+			<result name="mdfInput">/job/timeingJob.jsp</result>
+		</action>
+		
+		<action name="jobTriggerAction" class="JobTriggerAction"></action>
+	</package>
+
+
+</struts>    

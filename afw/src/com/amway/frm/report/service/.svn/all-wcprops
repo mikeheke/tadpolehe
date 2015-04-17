@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/report/service
+END
+ReportSqlService.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/report/service/ReportSqlService.java
+END
+ReportShowService.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/report/service/ReportShowService.java
+END
+ReportInfoService.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/report/service/ReportInfoService.java
+END
+ReportParaService.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/report/service/ReportParaService.java
+END

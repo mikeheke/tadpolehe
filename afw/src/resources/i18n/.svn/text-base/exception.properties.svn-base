@@ -1,0 +1,10 @@
+exception.title=\u5F02\u5E38\u914D\u7F6E\u9875\u9762
+exception.code=\u5F02\u5E38\u7F16\u7801
+exception.name=\u5F02\u5E38\u540D\u79F0
+exception.applicationId=\u6240\u5C5E\u5E94\u7528
+exception.isSendEmail=\u662F\u5426\u53D1\u9001\u90AE\u4EF6
+exception.emailList=Email\u7528\u6237
+exception.useState=\u72B6\u6001
+exception.remark=\u5907\u6CE8
+exception.attention=[\u6CE8]\u5E26{0}\u4E3A\u5FC5\u9009\u9879.
+exception.noChooseTip=\u8BF7\u9009\u62E9Email\u7528\u6237

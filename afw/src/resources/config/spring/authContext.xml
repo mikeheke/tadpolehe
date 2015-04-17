@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">  
+  
+   <!-- 登录配置 -->
+   <bean id="LoginAction" class="com.amway.frm.afw.web.action.LoginAction" parent="ActionTemplate" scope="prototype" >
+       <property name="loginService" ref="LoginService" />
+       <property name="authorization" ref="FWAuthorization" />
+   </bean>
+   <bean id="LoginService" class="com.amway.frm.afw.service.impl.LoginServiceImpl" parent="ServiceTemplate">
+		<property name="adaptors">
+			<map>
+				<entry>
+					<key><value>LDAP</value></key>
+					<ref bean="FWLDAPAdapter"/>
+				</entry>
+				<entry>
+					<key><value>DB</value></key>
+					<ref bean="FWDBAdapter"/>
+				</entry>
+				<!-- 
+				<entry>
+					<key><value>SSO</value></key>
+					<ref bean="FWSSOAdapter"/>
+				</entry>
+				 -->
+			</map>
+		</property>
+		<property name="userProfileService" ref="UserProfileService" />
+   </bean>
+   
+   <!-- 登录适配器 -->
+   <bean id="FWLDAPAdapter" class="com.amway.frm.afw.adapters.FWLDAPAdapter">
+		<property name="logService" ref="LogService"/>
+   </bean>
+   <bean id="FWDBAdapter" class="com.amway.frm.afw.adapters.FWDBAdapter" >
+        <property name="userProfileService" ref="UserProfileService" />
+   </bean>
+   <!-- <bean id="FWSSOAdapter" class="com.amway.frm.afw.adapters.FWSSOAdapter" /> -->
+   
+   <!-- 授权配置 -->
+   <bean id="FWAuthorization" class="com.amway.frm.afw.authorization.impl.FWAuthorization" >
+       <property name="roleRightService" ref="RoleRightService" />
+       <property name="roleUserService" ref="RoleUserService" />
+       <property name="applicationService" ref="ApplicationService" />
+   </bean>
+</beans>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="SelectTagAction" class="com.amway.frm.tag.web.action.SelectTagAction" scope="prototype">
+		<property name="selectTagService" ref="SelectTagService" />
+	</bean>
+	<bean id="SelectTagService" class="com.amway.frm.tag.service.impl.SelectTagImpl" 
+		parent="ServiceTemplate">
+		<property name="baseDataSourceService" ref="BaseDataSourceService" />
+	</bean>
+	<bean id="AutoCompleteTagAction" class="com.amway.frm.tag.web.action.AutoCompleteTagAction" scope="prototype">
+		<property name="autoCompleteTagService" ref="AutoCompleteTagService" />
+	</bean>
+	<bean id="AutoCompleteTagService" class="com.amway.frm.tag.service.impl.AutoCompleteTagImpl" 
+		parent="ServiceTemplate">
+		<property name="baseDataSourceService" ref="BaseDataSourceService" />
+	</bean>
+
+	<!-- 上传下载 -->
+	<bean id="FileUpDownloadAction" class="com.amway.frm.tag.web.action.FileUpDownloadAction" scope="prototype">
+		<property name="fileUpDownloadTagService" ref="FileUpDownloadTagService" />
+	</bean>
+	<bean id="FileUpDownloadTagService" class="com.amway.frm.tag.service.impl.FileUpDownloadTagImpl"
+		parent="ServiceTemplate" >
+		<property name="baseDataSourceService" ref="BaseDataSourceService" />
+	</bean>
+</beans>

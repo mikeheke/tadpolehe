@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="email" namespace="/" extends="default">
+		<!--邮件模板 start-->
+		<action name="emailTemplateAction" class="EmailTemplateAction">
+			<result name="initAddSuccess" >/email/emailTemplate.jsp</result>
+			<result name="initAddInput" >/email/emailTemplate.jsp</result>
+			<result name="addSuccess" >/email/emailTemplate.jsp</result>
+			<result name="addInput" >/email/emailTemplate.jsp</result>
+			<result name="initModifySuccess" >/email/emailTemplate.jsp</result>
+			<result name="initModifyInput" >/email/emailTemplate.jsp</result>
+			<result name="mdfSuccess" >/email/emailTemplate.jsp</result>
+			<result name="mdfInput" >/email/emailTemplate.jsp</result>
+		</action>
+		<!--邮件模板 end-->
+		<action name="testEmailAction" class="com.amway.frm.email.web.action.TestEmailSendAction"></action>
+	</package>
+
+</struts>    

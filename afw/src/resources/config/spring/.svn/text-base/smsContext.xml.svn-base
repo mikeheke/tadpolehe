@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+        xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:p="http://www.springframework.org/schema/p"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <!--邮件发送-->
+    <bean id="SmsService" class="com.amway.frm.sms.service.impl.SmsServiceImpl" parent="ServiceTemplate">
+        <property name="smsSendRecordDao" ref="SmsSendRecordDao"/>
+    </bean>
+    <bean id="SmsSendRecordDao" class="com.amway.frm.sms.dao.impl.SmsSendRecordDao"/>
+
+    <!--邮件模板-->
+    <bean id="SmsTemplateAction" class="com.amway.frm.sms.web.action.SmsTemplateAction">
+        <property name="smsTemplateService" ref="SmsTemplateService"/>
+    </bean>
+    <bean id="SmsTemplateService" class="com.amway.frm.sms.service.impl.SmsTemplateServiceImpl" parent="ServiceTemplate">
+        <property name="SmsTemplateDao" ref="SmsTemplateDao"/> 
+    </bean>
+	<bean id="SmsTemplateDao" class="com.amway.frm.sms.dao.impl.SmsTemplateDao"/>
+
+</beans>
+
+

@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/OA_Sappfwk_src/!svn/ver/6401/trunk/source/amway_app/amway-afw/src/com/amway/frm/afw/web/filter
+END
+AuthenticationFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/afw/web/filter/AuthenticationFilter.java
+END
+XSSSecurityFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/OA_Sappfwk_src/!svn/ver/6396/trunk/source/amway_app/amway-afw/src/com/amway/frm/afw/web/filter/XSSSecurityFilter.java
+END
+CharacterEncodingFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/OA_Sappfwk_src/!svn/ver/6401/trunk/source/amway_app/amway-afw/src/com/amway/frm/afw/web/filter/CharacterEncodingFilter.java
+END
+AuthorizationFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/afw/web/filter/AuthorizationFilter.java
+END

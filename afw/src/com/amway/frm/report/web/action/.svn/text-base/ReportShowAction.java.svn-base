@@ -1,0 +1,167 @@
+/**
+ * 
+ */
+package com.amway.frm.report.web.action;
+
+import java.io.IOException;
+import java.io.OutputStream;
+import java.util.Collections;
+import java.util.Date;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.struts2.ServletActionContext;
+
+import com.amway.frm.base.util.AppConstant;
+import com.amway.frm.base.util.ContextFactory;
+import com.amway.frm.base.util.DataConverter;
+import com.amway.frm.base.util.DataValidater;
+import com.amway.frm.base.vo.ReturnMessage;
+import com.amway.frm.base.web.action.BaseAction;
+import com.amway.frm.report.entity.ReportCache;
+import com.amway.frm.report.entity.ReportInfo;
+import com.amway.frm.report.entity.ReportPara;
+import com.amway.frm.report.exception.ReportInfoException;
+import com.amway.frm.report.service.ReportShowService;
+import com.amway.frm.report.util.ReportConstant;
+
+/**
+ * @author huangweijin
+ *
+ * 2011-9-16 上午11:39:52
+ */
+public class ReportShowAction extends BaseAction {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2598973468439294597L;
+
+	
+	
+	private ReportShowService reportShowService;
+	
+	private String reportCode;
+	
+	@Override
+	public String execute() throws Exception {
+		
+		if(DataValidater.isStrEmpty(reportCode)){
+			throw new ReportInfoException(ReportConstant.REPORT_INFO_EXP_0006);
+		}
+		
+		ReportInfo reportInfoRet = getEntity(reportCode);
+		if(null == reportInfoRet){
+			throw new ReportInfoException(ReportConstant.REPORT_INFO_EXP_0007);
+		}
+		ReportPara reportPara = new ReportPara();
+		reportPara.setReportInfo(reportInfoRet);
+		ReturnMessage<ReportPara> returnMessage = reportShowService.query(reportPara);
+		Collections.sort(returnMessage.getReturnObjects());
+		
+		String result = setReturnMessage(returnMessage);
+		
+		setMessage(ReportConstant.REPORT_INFO, reportInfoRet);
+		
+		return result;
+	}
+
+	public String make() throws Exception {
+	
+		String result = NONE;
+		
+		if(DataValidater.isStrEmpty(reportCode)){
+			throw new ReportInfoException(ReportConstant.REPORT_INFO_EXP_0006);
+		}
+		
+		ReportInfo reportInfo = getEntity(reportCode);
+		if(null == reportInfo){
+			throw new ReportInfoException(ReportConstant.REPORT_INFO_EXP_0007);
+		}
+		
+		Map<String, Object> params = getRequestParamNameValues();
+		
+		if(null != reportInfo.getReportType()
+				&& ReportConstant.REPORT_TYPE_CACHE.intValue() == reportInfo.getReportType().intValue()){
+			makeCache(reportInfo, params);
+		}else{
+			OutputStream outputStream = getOutputStream(reportInfo, params);
+			reportShowService.makeOnce(reportInfo, params, outputStream);
+		}
+	
+		return result;
+	}
+	
+	private void makeCache(ReportInfo reportInfo, Map<String, Object> params){
+		
+		ReportCache reportCache = new ReportCache();
+		reportCache.setReportCode(reportInfo.getReportCode());
+		reportCache.setReportParas(DataConverter.convertMapToStr(params));
+		reportCache.setFilePath(ContextFactory.getBasePath()
+				+ReportConstant.UNIX_SEP+reportShowService.getCacheReportFilePath(reportInfo, params));
+		reportCache.setFileRPath(ContextFactory.getContextRealPath()
+				+reportShowService.getCacheReportFilePath(reportInfo, params));
+		reportCache.setCreatedTime(new Date());
+		reportCache.setCreatedUserId(getSysInfo().getUserProfile().getEmpNumber());
+		
+		reportShowService.addOrUpdate(reportCache);
+
+	}
+	
+	private OutputStream getOutputStream(ReportInfo reportInfo,
+			Map<String, Object> params) throws IOException {
+
+		OutputStream outputStream = null;
+		HttpServletResponse response = ServletActionContext.getResponse();
+		String reportMakeType = ((String[]) params.get(ReportConstant.REPORT_MAKE_TYPE_NAME))[0];
+		String methodType = getParam(ReportConstant.REPORT_METHOD_TYPE_NAME);
+		if(!DataValidater.isStrEmpty(methodType) && ReportConstant.VIEW.equals(methodType)){
+			methodType = ReportConstant.INLINE;
+		}else{
+			methodType = ReportConstant.ATTACHMENT;
+		}
+		String saveAsName = DataConverter.strGbkToIso(reportInfo.getReportName());
+		if(ReportConstant.REPORT_MAKE_TYPE_PDF.equals(reportMakeType)){
+			response.setContentType(ReportConstant.APP_PDF_FMT);
+			response.setHeader(ReportConstant.CONTENT_DISPOSITION, methodType+ReportConstant.FILE_NAME
+					+saveAsName+ReportConstant.PDF_DOT);
+			//response.setContentLength(bytes.length);
+		}else{
+			response.setContentType(ReportConstant.APP_VND_FMT);
+			response.setHeader(ReportConstant.CONTENT_DISPOSITION,methodType+ReportConstant.FILE_NAME
+					+saveAsName+ReportConstant.XLS_DOT);
+		}
+		outputStream = response.getOutputStream();
+		
+		return outputStream;
+	}
+
+	@Override
+	protected ReportInfo getEntity(String reportCode) {
+		
+		ReportInfo reportInfo = new ReportInfo();
+		reportInfo.setReportCode(reportCode);
+		reportInfo.setState(AppConstant.START);
+		ReportInfo reportInfoRet = (ReportInfo) reportShowService.querySingle(reportInfo);
+		
+		return reportInfoRet;
+	}
+	
+	private Map<String, Object> getRequestParamNameValues(){
+		return ServletActionContext.getRequest().getParameterMap();
+	}
+
+	public void setReportShowService(ReportShowService reportShowService) {
+		this.reportShowService = reportShowService;
+	}
+
+	public String getReportCode() {
+		return reportCode;
+	}
+
+	public void setReportCode(String reportCode) {
+		this.reportCode = reportCode;
+	}
+	
+}
