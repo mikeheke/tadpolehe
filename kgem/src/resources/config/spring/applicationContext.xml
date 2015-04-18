@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+     
+     <bean id="jdbcamway" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		  <property name="driverClassName">
+		   <value>oracle.jdbc.OracleDriver</value>   <!-- 这里的值要通过${}进行转义，其driverClassName参数要在上面的文件中指定 -->
+		  </property>
+		  <property name="url">
+		   <value>jdbc:oracle:thin:@127.0.0.1:21521:XE</value>
+		  </property>
+		  <property name="username" value="amway"></property>
+		  <property name="password" value="amway"></property>
+	 </bean> 
+     
+   
+   <!-- 加spring配置文件 -->
+   <import resource="coreContext.xml"/>
+   <import resource="sysContext.xml"/>
+   <import resource="authContext.xml"/>
+   <import resource="bdsContext.xml"/>
+   <import resource="tagContext.xml"/>
+   <import resource="loggingContext.xml"/>
+   <import resource="exceptionContext.xml"/>
+   <import resource="mnuContext.xml"/>
+   <import resource="emailContext.xml"/>
+   <import resource="smsContext.xml"/>
+   <import resource="queryContext.xml"/>
+   <import resource="reportContext.xml"/>
+   <import resource="jobContext.xml"/>
+   <import resource="kgemContext.xml"/>
+   
+   
+</beans>

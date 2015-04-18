@@ -43,7 +43,8 @@ public class BaseDao<T extends Object, PK extends Serializable> implements
 
 	private Class<T> entityClass;
 	
-	@Resource(mappedName = AppConstant.DATASOURCE_NAME)
+	//@Resource(mappedName = AppConstant.DATASOURCE_NAME)
+	@Resource(name = AppConstant.DATASOURCE_NAME)
 	private DataSource dataSource;
 
 	@PersistenceContext(unitName = AppConstant.JPA_DB_UNIT)

@@ -19,4 +19,33 @@ ajax 文件框　需要优化
 
 6. 通用查询
 showAction.action?queryCode=afw_role
+../sysManage/showAction.action?queryCode=afw_role
+
+7.
+dataBaseContext.xml
+<property name="persistenceXmlLocation" value="classpath:resources/config/jpa/persistence.xml" />
+
+
+8.
+<script type="text/javascript" src="${_sysApplication_.goToUrl}/common/js/jquery-1.4.4.min.js"></script>
+	public String getGoToUrl(){
+		//return AfwConstant.LINK_HTTP + deployServer + ":" + port + "/" + context;
+		StringBuffer goToUrl = new StringBuffer();
+		goToUrl.append(ContextFactory.getHttpDomain());
+		goToUrl.append(AppConstant.UNIX_SEP);
+		goToUrl.append(context);
+		
+		return goToUrl.toString();
+	}
+${_sysApplication_.goToUrl}   sysManage
+${_application_.layout }      currentSys
+
+		Application application = sysInfo.getApplication();
+		Application sysApplication = sysInfo.getSysApplication();
+
+9.　页面框架布局
+mnu/layout/...
+ex:
+index.jsp ---> tree.jsp ---> ...
+
 

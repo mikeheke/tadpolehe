@@ -41,6 +41,8 @@
 	</c:choose>
 </div>
 <div class="ind1_top_title">
+	<!-- modify by Mike He 20150417
 	<span class="blue s14 b">${_application_.applicationName }</span><br />
+	 -->
 	<span class="blue s12 b">&nbsp;</span>
 </div>

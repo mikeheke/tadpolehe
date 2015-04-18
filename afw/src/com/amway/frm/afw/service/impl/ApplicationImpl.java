@@ -586,7 +586,8 @@ public class ApplicationImpl extends BaseImpl implements ApplicationService{
 			returnMessage.setReturnObjects(applications);
 			returnMessage.setReturnCode(ReturnMessage.SUCCESS_CODE);
 			returnMessage.setQryReturnMsg();
-		} catch (SQLException e) {
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
 			throw new AmwaySysException(e);
 		}
 		

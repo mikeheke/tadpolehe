@@ -184,7 +184,7 @@ h3{
 
 #ind_menu_box li{
 	float:left;
-	width:116px;
+	width:156px;
 	text-align:center;
 	height:30px;
 	margin-right:40px;
@@ -193,7 +193,7 @@ h3{
 
 #ind_menu_box li a{
 	display:block;
-	width:116px;
+	width:156px;/*modify by Mike He 20150417*/
 	height:30px;
 	color:#fff;
 	font-size:18px;
@@ -202,7 +202,7 @@ h3{
 
 #ind_menu_box li a:hover{
 	border-bottom:#F00 4px solid;
-	width:116px;
+	width:156px;
 	color:#00426c;
 	font-size:18px;
 	font-weight:bold;
@@ -614,6 +614,10 @@ h3{
 .eXtremeTable .filterButtons {
 	background-color: #efefef;
 	text-align: right;
+}
+
+.eXtremeTable .filterButtons a {
+	margin-right: 15px;
 }
 
 .eXtremeTable .title {

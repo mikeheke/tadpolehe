@@ -1,0 +1,4 @@
+../sysManage/showAction.action?queryCode=kgem_root_km_klist
+知识列表
+
+kgem_root_km_klist_initAdd
