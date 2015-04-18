@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context" xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"  
+    xsi:schemaLocation="http://www.springframework.org/schema/beans    
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd    
+	http://www.springframework.org/schema/context    
+	http://www.springframework.org/schema/context/spring-context-3.0.xsd    
+	http://www.springframework.org/schema/tx    
+	http://www.springframework.org/schema/tx/spring-tx-3.0.xsd    
+	http://www.springframework.org/schema/aop     
+	http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+	
+   <bean id="jdbcamway" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		  <property name="driverClassName">
+		   <value>oracle.jdbc.OracleDriver</value>   <!-- 这里的值要通过${}进行转义，其driverClassName参数要在上面的文件中指定 -->
+		  </property>
+		  <property name="url">
+		   <value>jdbc:oracle:thin:@127.0.0.1:21521:XE</value>
+		  </property>
+		  <property name="username" value="amway"></property>
+		  <property name="password" value="amway"></property>
+	 </bean>  
+	
+	<bean id="entityManagerFactory" 
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean" >
+		<property name="persistenceUnitName" value="DB2PU"  />
+		<property name="persistenceXmlLocation" value="classpath:persistence_test.xml" />
+    </bean>
+    
+    
+	<bean id="transactionManager"  
+        class="org.springframework.orm.jpa.JpaTransactionManager">  
+        <property name="entityManagerFactory"  ref="entityManagerFactory" />  
+    </bean>
+ 
+ 	<context:annotation-config />
+ 	<tx:annotation-driven transaction-manager="transactionManager" />
+ 	 
+ 	<bean id="throwsAdvice" class="com.amway.frm.exception.advice.AmwayExceptionAdvice" />
+ 	<bean class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+		<property name="beanNames">
+			<list>
+				<value>*Service</value>
+			 </list>
+		</property>
+		<property name="interceptorNames">
+			<value>throwsAdvice</value>
+		 </property>
+	</bean>
+ 	
+ 	<context:component-scan base-package="com.amway" />
+ 	<aop:aspectj-autoproxy />
+ 	
+ 	
+ 	
+ 	
+ 	<!-- ************************************************************************************* -->
+ 	   <!-- 加spring配置文件 -->
+   <import resource="classpath:resources/config/spring/baseContext.xml"/>
+   <import resource="classpath:resources/config/spring/sysContext.xml"/>
+   <import resource="classpath:resources/config/spring/authContext.xml"/>
+   <import resource="classpath:resources/config/spring/bdsContext.xml"/>
+   <import resource="classpath:resources/config/spring/tagContext.xml"/>
+   <import resource="classpath:resources/config/spring/loggingContext.xml"/>
+   <import resource="classpath:resources/config/spring/exceptionContext.xml"/>
+   <import resource="classpath:resources/config/spring/mnuContext.xml"/>
+   <import resource="classpath:resources/config/spring/emailContext.xml"/>
+   <import resource="classpath:resources/config/spring/smsContext.xml"/>
+   <import resource="classpath:resources/config/spring/queryContext.xml"/>
+   <import resource="classpath:resources/config/spring/reportContext.xml"/>
+   <import resource="classpath:resources/config/spring/jobContext.xml"/>
+ 	
+ 	
+ 	
+ 	
+</beans>

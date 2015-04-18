@@ -17,6 +17,8 @@ import com.amway.frm.base.util.AppConstant;
 import com.amway.frm.base.util.ContextFactory;
 import com.amway.frm.base.vo.ReturnMessage;
 import com.amway.frm.exception.exception.AmwaySysException;
+import com.amway.frm.logging.service.LogService;
+import com.amway.frm.logging.util.LogFactory;
 
 /**
  * @author huangweijin
@@ -24,6 +26,8 @@ import com.amway.frm.exception.exception.AmwaySysException;
  * 2011-4-13 上午10:13:34
  */
 public class BaseImpl<T extends Object> implements BaseService<T> {
+	
+	//private static LogService logger = LogFactory.getLogger(BaseImpl.class);
 	
 	private IBaseDao<T, Serializable> baseDao;
 

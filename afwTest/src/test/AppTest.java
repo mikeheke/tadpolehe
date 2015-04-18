@@ -12,17 +12,20 @@ public class AppTest {
 	@Test
 	public void test() {
 		
-		ApplicationContext ctx = 
-				new FileSystemXmlApplicationContext("classpath:resources/config/spring/applicationContext.xml");
+//		ApplicationContext ctx = 
+//				new FileSystemXmlApplicationContext("classpath:resources/config/spring/applicationContext.xml");
 		
+		ApplicationContext ctx = 
+				new FileSystemXmlApplicationContext("classpath:applicationContext_test.xml");
+		System.out.println("=========> ctx: "+ctx);
 		
 		ApplicationService s = (ApplicationService)ctx.getBean("ApplicationService");
 		
 		System.out.println(s);
 		
-//		System.out.println(
-//		s.getApplicationsJDBC().getReturnObjects().get(0).getApplicationName()
-//				);
+		System.out.println(
+		s.getApplicationsJDBC().getReturnObjects().get(0).getApplicationName()
+				);
 		
 		System.out.println(
 		s.getApplications(new Application()).getReturnObjects().get(0).getApplicationName());

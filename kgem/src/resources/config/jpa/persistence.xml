@@ -1,81 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>  
 <persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
     <persistence-unit name="DB2PU" transaction-type="RESOURCE_LOCAL">  
-        
-           <provider>org.hibernate.ejb.HibernatePersistence</provider>
-
-            
-           <!-- ************************* entity start *************************--> 
-           <!-- afw --> 
-           <class>com.amway.frm.afw.entity.Application</class>
-           <class>com.amway.frm.afw.entity.ApplicationPlus</class>
-           <class>com.amway.frm.afw.entity.BlackList</class>
-           <class>com.amway.frm.afw.entity.Config</class>
-           <class>com.amway.frm.afw.entity.Department</class>
-           <class>com.amway.frm.afw.entity.Module</class>
-           <class>com.amway.frm.afw.entity.Role</class>
-           <class>com.amway.frm.afw.entity.RoleRight</class>
-           <class>com.amway.frm.afw.entity.RoleUser</class>
-           <class>com.amway.frm.afw.entity.Sequence</class>
-           <class>com.amway.frm.afw.entity.UserProfile</class>
-           
-           <!-- bds -->
-           <class>com.amway.frm.bds.entity.BdsSchemaInfor</class>
-           <class>com.amway.frm.bds.entity.BdsXmlData</class>
-            
-           <!-- email -->
-           <class>com.amway.frm.email.entity.EmailTemplate</class>
-            
-           <!-- exception --> 
-           <class>com.amway.frm.exception.entity.ExceptionCfg</class>
-           
-           <!-- TimeingJob -->
-           <class>com.amway.frm.job.entity.TimeingJob</class>
-           
-           <!-- logging -->
-           <class>com.amway.frm.logging.entity.LogOperation</class>
-           <class>com.amway.frm.logging.entity.LogPerformance</class>
-           <class>com.amway.frm.logging.entity.LogSystem</class>
-           
-           <!-- query -->
-           <class>com.amway.frm.query.entity.Button</class>
-           <class>com.amway.frm.query.entity.DataCoding</class>
-           <class>com.amway.frm.query.entity.From</class>
-           <class>com.amway.frm.query.entity.GroupBy</class>
-           <class>com.amway.frm.query.entity.OrderBy</class>
-           <class>com.amway.frm.query.entity.Query</class>
-           <class>com.amway.frm.query.entity.Select</class>
-           <class>com.amway.frm.query.entity.SysTable</class>
-           <class>com.amway.frm.query.entity.SysTableField</class>
-           <class>com.amway.frm.query.entity.Where</class>
-           
-            <!-- report -->
-            <class>com.amway.frm.report.entity.ReportCache</class>
-            <class>com.amway.frm.report.entity.ReportInfo</class>
-            <class>com.amway.frm.report.entity.ReportPara</class>
-            <class>com.amway.frm.report.entity.ReportSql</class>
-            
-            <!-- sms -->
-            <class>com.amway.frm.sms.entity.SmsTemplate</class>
-            
-            <!-- tag -->
-            <class>com.amway.frm.tag.entity.TagFileUpload</class>
-            <class>com.amway.frm.tag.file.entity.NewFileUploadTagEntity</class>
-            <!-- ************************* entity end *************************--> 
-            
-            
-           <properties>  
-		    <property name="hibernate.dialect" value="org.hibernate.dialect.OracleDialect" />  
-		    <property name="hibernate.connection.driver_class" value="oracle.jdbc.OracleDriver" />  
-		    <property name="hibernate.connection.username" value="amway" />  
-		    <property name="hibernate.connection.password" value="amway" />  
-		    <property name="hibernate.connection.url" value="jdbc:oracle:thin:@127.0.0.1:21521:XE" />  
-		    <property name="hibernate.max_fetch_depth" value="3" />  
-		    <property name="hibernate.show_sql" value="true" />  
-		    <!-- 
-		    <property name="hibernate.hbm2ddl.auto" value="create-drop"/>  
-		     -->
-		   </properties>  
- 
+        <provider>org.hibernate.ejb.HibernatePersistence</provider>  
+        <jta-data-source>jdbcamway</jta-data-source>
+        <jar-file>WEB-INF/lib/afw.jar</jar-file>
+        <properties>
+            <!--<property name="hibernate.dialect" value="org.hibernate.dialect.SQLServerDialect"/>-->
+		    <property name="hibernate.show_sql" value="false"/>
+		    <property name="hibernate.format_sql" value="false"/>
+		    <!--<property name="hibernate.hbm2ddl.auto" value="update"/>-->
+        </properties>
     </persistence-unit>
 </persistence>

@@ -14,7 +14,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import javax.annotation.Resource;
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NameNotFoundException;
+import javax.naming.NoInitialContextException;
 import javax.persistence.Column;
 import javax.persistence.EntityManager;
 import javax.persistence.Id;
@@ -24,14 +27,15 @@ import javax.persistence.Query;
 import javax.persistence.Transient;
 import javax.sql.DataSource;
 
-import com.amway.frm.afw.entity.Config;
-import com.amway.frm.afw.entity.Sequence;
 import com.amway.frm.afw.util.AfwConstant;
 import com.amway.frm.afw.vo.SysInfoBean;
 import com.amway.frm.base.dao.IBaseDao;
 import com.amway.frm.base.util.AppConstant;
+import com.amway.frm.base.util.ContextFactory;
 import com.amway.frm.base.util.JDBCHelper;
 import com.amway.frm.base.vo.UniqueKey;
+import com.amway.frm.logging.service.LogService;
+import com.amway.frm.logging.util.LogFactory;
 
 /**
  * 
@@ -40,13 +44,11 @@ import com.amway.frm.base.vo.UniqueKey;
  */
 public class BaseDao<T extends Object, PK extends Serializable> implements
 		IBaseDao<T, PK> {
+	
+	//private LogService logger = LogFactory.getLogger(BaseDao.class);
 
 	private Class<T> entityClass;
 	
-	//@Resource(mappedName = AppConstant.DATASOURCE_NAME)
-	@Resource(name = AppConstant.DATASOURCE_NAME)
-	private DataSource dataSource;
-
 	@PersistenceContext(unitName = AppConstant.JPA_DB_UNIT)
 	private EntityManager entityManager;
 
@@ -780,8 +782,51 @@ public class BaseDao<T extends Object, PK extends Serializable> implements
 		return entityClass;
 	}
 
+	//-------------------------------------------------------------------------------------------------------------
+	//modify by Mike He 20140418 (不使用自动注入datasource)
+	//@Resource(mappedName = AppConstant.DATASOURCE_NAME)
+	//@Resource(name = AppConstant.DATASOURCE_NAME)
+	private DataSource dataSource;
+
+	//public DataSource getDataSource() {
+	//	return dataSource;
+	//}
+	
 	public DataSource getDataSource() {
+
+		String jndi = AppConstant.DATASOURCE_NAME;
+
+		try {
+			Context initCtx = new InitialContext();
+			Object obj = null;
+			try {
+				//一般是测试或生产环境
+				obj = (Object) initCtx.lookup(jndi);
+				LogFactory.getLogger(this.getClass()).info("get dataSource success! jndi: "+jndi);
+			} catch (NameNotFoundException e) {
+				//一般适用与开发环境
+				obj = (Object) initCtx.lookup("java:comp/env/" + jndi);// for tomcat	
+				LogFactory.getLogger(this.getClass()).info("get dataSource from tomcat success! jndi: "+"java:comp/env/" + jndi);
+			} catch (NoInitialContextException ee) {
+				//从spring容器中获取，适用于单元测试 thanks
+				obj = ContextFactory.getBean(AppConstant.DATASOURCE_NAME);  //for java app(not web app)
+				LogFactory.getLogger(this.getClass()).info("get dataSource from spring context success! jndi: "+jndi);
+			}
+			
+			if (obj == null) {
+				throw new Exception("Can't lookup " + jndi);
+			}
+			
+			//javax.sql.DataSource ds = (javax.sql.DataSource) obj;
+			dataSource = (javax.sql.DataSource) obj;
+
+		} catch (Exception e) {
+			LogFactory.getLogger(this.getClass()).info("get dataSource fail! jndi: "+jndi+"; error: "+e.getMessage());
+			throw new RuntimeException("can't get dataSource! "+e.getMessage());
+		}
+
 		return dataSource;
 	}
+	//-------------------------------------------------------------------------------------------------------------
 
 }
