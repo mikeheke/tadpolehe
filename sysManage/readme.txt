@@ -48,4 +48,14 @@ mnu/layout/...
 ex:
 index.jsp ---> tree.jsp ---> ...
 
+10. logger.info("login"); 之后
+log模块才生效　tx
+
+11.
+功能菜单--连接URL:   =========关系=======  通用查询: 按钮－－提交Url：
+注意：对应关系
+
+12. important
+persistence.xml
+<class>mikeheke.kgem.entity.Knowledge</class>
 

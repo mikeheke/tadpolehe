@@ -36,6 +36,8 @@ public class Knowledge implements Serializable {
 	
 	//自动生成ID
 	@Id
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="MSSQ_KGEM_KNOWLEDGE_OR")
+	@SequenceGenerator(name="MSSQ_KGEM_KNOWLEDGE_OR", sequenceName="MSSQ_KGEM_KNOWLEDGE", initialValue=1, allocationSize=1)
 	@Column(name = "KNOWLEDGE_ID")
     private Long knowledgeId;
 	

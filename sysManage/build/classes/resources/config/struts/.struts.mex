@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Struts2Diagram version="2.0">
+  <include file="struts-default.xml" location="10,10" size="150,30" />
+  <include file="struts-plugin.xml" location="255,10" size="150,30" />
+  <include file="core.xml" location="500,10" size="150,30" />
+  <include file="sys.xml" location="0,0" size="0,0" />
+  <include file="auth.xml" location="10,115" size="150,30" />
+  <include file="tag.xml" location="255,115" size="150,30" />
+  <include file="bds.xml" location="500,115" size="150,30" />
+  <include file="mnu.xml" location="10,220" size="150,30" />
+  <include file="logging.xml" location="255,220" size="150,30" />
+  <include file="exception.xml" location="500,220" size="150,30" />
+  <include file="email.xml" location="10,325" size="150,30" />
+  <include file="sms.xml" location="255,325" size="150,30" />
+  <include file="resources/config/struts/query.xml" location="0,0" size="0,0" />
+  <include file="report.xml" location="0,0" size="0,0" />
+  <include file="job.xml" location="0,0" size="0,0" />
+  <include file="sysManage.xml" location="0,0" size="0,0" />
+</Struts2Diagram>
+

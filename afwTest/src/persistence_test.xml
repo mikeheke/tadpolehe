@@ -5,7 +5,7 @@
            <provider>org.hibernate.ejb.HibernatePersistence</provider>
 
             
-           <!-- ************************* entity start *************************--> 
+           <!-- ************************* fw entity start *************************--> 
            <!-- afw --> 
            <class>com.amway.frm.afw.entity.Application</class>
            <class>com.amway.frm.afw.entity.ApplicationPlus</class>
@@ -61,7 +61,10 @@
             <!-- tag -->
             <class>com.amway.frm.tag.entity.TagFileUpload</class>
             <class>com.amway.frm.tag.file.entity.NewFileUploadTagEntity</class>
-            <!-- ************************* entity end *************************--> 
+            <!-- ************************* fw entity end *************************--> 
+            
+            
+            <class>mikeheke.kgem.entity.Knowledge</class>
             
             
            <properties>  

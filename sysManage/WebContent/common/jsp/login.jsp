@@ -113,7 +113,7 @@
     							<td height="35" align="right" class="white">密码：</td>
     							<td colspan="2">
     								<input type="password" id="password" name="loginVo.password"  
-    									size="25" style="width:160px" 
+    									size="25" style="width:160px" value="111111"
     									dataType="Require" maxlength="20" msg="密码不能为空！" class="login_input" />
     								<div class="input_msg">${passwordMsg }</div>
     							</td>

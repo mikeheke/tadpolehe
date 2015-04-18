@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/OA_Sappfwk_src/!svn/ver/6311/trunk/source/amway_app/amway-afw-sysManage/src/main/resources/resources/config/authen
+END
+XSSless.properties
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/OA_Sappfwk_src/!svn/ver/6311/trunk/source/amway_app/amway-afw-sysManage/src/main/resources/resources/config/authen/XSSless.properties
+END
+appLoginless.properties
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/OA_Sappfwk_src/!svn/ver/6311/trunk/source/amway_app/amway-afw-sysManage/src/main/resources/resources/config/authen/appLoginless.properties
+END
+appRightless.properties
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/OA_Sappfwk_src/!svn/ver/6311/trunk/source/amway_app/amway-afw-sysManage/src/main/resources/resources/config/authen/appRightless.properties
+END

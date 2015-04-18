@@ -6,6 +6,7 @@ import org.springframework.context.support.FileSystemXmlApplicationContext;
 
 import com.amway.frm.afw.entity.Application;
 import com.amway.frm.afw.service.ApplicationService;
+import com.amway.frm.logging.util.LogFactory;
 
 public class AppTest {
 
@@ -17,7 +18,8 @@ public class AppTest {
 		
 		ApplicationContext ctx = 
 				new FileSystemXmlApplicationContext("classpath:applicationContext_test.xml");
-		System.out.println("=========> ctx: "+ctx);
+		
+		LogFactory.getLogger(this.getClass()).info("=========> ctx: "+ctx);
 		
 		ApplicationService s = (ApplicationService)ctx.getBean("ApplicationService");
 		

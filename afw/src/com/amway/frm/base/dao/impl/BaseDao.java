@@ -802,15 +802,15 @@ public class BaseDao<T extends Object, PK extends Serializable> implements
 			try {
 				//一般是测试或生产环境
 				obj = (Object) initCtx.lookup(jndi);
-				LogFactory.getLogger(this.getClass()).info("get dataSource success! jndi: "+jndi);
+				//LogFactory.getLogger(this.getClass()).info("get dataSource success! jndi: "+jndi);
 			} catch (NameNotFoundException e) {
 				//一般适用与开发环境
 				obj = (Object) initCtx.lookup("java:comp/env/" + jndi);// for tomcat	
-				LogFactory.getLogger(this.getClass()).info("get dataSource from tomcat success! jndi: "+"java:comp/env/" + jndi);
+				//LogFactory.getLogger(this.getClass()).info("get dataSource from tomcat success! jndi: "+"java:comp/env/" + jndi);
 			} catch (NoInitialContextException ee) {
 				//从spring容器中获取，适用于单元测试 thanks
 				obj = ContextFactory.getBean(AppConstant.DATASOURCE_NAME);  //for java app(not web app)
-				LogFactory.getLogger(this.getClass()).info("get dataSource from spring context success! jndi: "+jndi);
+				//LogFactory.getLogger(this.getClass()).info("get dataSource from spring context success! jndi: "+jndi);
 			}
 			
 			if (obj == null) {
@@ -821,7 +821,7 @@ public class BaseDao<T extends Object, PK extends Serializable> implements
 			dataSource = (javax.sql.DataSource) obj;
 
 		} catch (Exception e) {
-			LogFactory.getLogger(this.getClass()).info("get dataSource fail! jndi: "+jndi+"; error: "+e.getMessage());
+			//LogFactory.getLogger(this.getClass()).info("get dataSource fail! jndi: "+jndi+"; error: "+e.getMessage());
 			throw new RuntimeException("can't get dataSource! "+e.getMessage());
 		}
 

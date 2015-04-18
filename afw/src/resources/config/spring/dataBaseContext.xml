@@ -37,6 +37,9 @@
 	</bean>
  	
  	<context:component-scan base-package="com.amway" />
+ 	<!-- add by Mike He 20150418 -->
+ 	<context:component-scan base-package="mikeheke" />
+ 	
  	<aop:aspectj-autoproxy />
  	
 </beans>

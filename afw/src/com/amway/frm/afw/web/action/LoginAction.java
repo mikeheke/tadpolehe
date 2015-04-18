@@ -47,6 +47,9 @@ public class LoginAction extends BaseAction {
 	 */
 	public String login() {
 		
+		//logger.info("") 调用了之后，　logback才生效
+		logger.info("login...");
+		
 		String result = SUCCESS;
 		
 		if(!validateData()){

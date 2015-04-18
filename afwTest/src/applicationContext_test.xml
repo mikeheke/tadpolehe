@@ -48,6 +48,8 @@
 	</bean>
  	
  	<context:component-scan base-package="com.amway" />
+ 	<context:component-scan base-package="mikeheke" />
+ 	
  	<aop:aspectj-autoproxy />
  	
  	
@@ -69,7 +71,8 @@
    <import resource="classpath:resources/config/spring/reportContext.xml"/>
    <import resource="classpath:resources/config/spring/jobContext.xml"/>
  	
- 	
+ 	<!--  -->
+   <import resource="classpath:resources/config/spring/kgemContext.xml"/>
  	
  	
 </beans>

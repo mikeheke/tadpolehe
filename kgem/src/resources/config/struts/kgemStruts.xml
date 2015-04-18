@@ -5,6 +5,24 @@
   
 <package name="kgem" namespace="/" extends="struts-default">
 
+		<action name="knowledgeAction" class="knowledgeAction">
+			<result name="initAddSuccess">/kgem/knowledge.jsp</result>
+			
+			<!-- 
+			<result name="addSuccess">/kgem/knowledge.jsp</result>
+			<result name="initModifySuccess">/kgem/knowledge.jsp</result>
+			<result name="mdfSuccess">/kgem/knowledge.jsp</result>
+			 -->
+			
+			<!-- 
+			<result name="addInput">/sysManage/role.jsp</result>
+			<result name="initAddInput">/sysManage/role.jsp</result>
+			<result name="initModifyInput">/sysManage/role.jsp</result>
+			<result name="mdfInput">/sysManage/role.jsp</result>
+			 -->
+		</action>
+	
+
 </package>
 
 

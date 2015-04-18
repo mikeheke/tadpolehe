@@ -7,7 +7,25 @@
     http://www.springframework.org/schema/task   
     http://www.springframework.org/schema/task/spring-task-3.0.xsd"> 
     
-    <!-- dao -->
-    <!-- service -->
+   <!-- ************************************* action ************************************* -->
+   <bean id="knowledgeAction" class="mikeheke.kgem.web.action.KnowledgeAction">
+   		<!-- 
+       <property name="roleService" ref="RoleService" />
+        -->
+   </bean>
+    
+    
+    <!-- ************************************* dao ************************************* -->
+    <bean id="knowledgeDao" class="mikeheke.kgem.dao.impl.KnowledgeDaoImpl">
+    </bean>
+    
+    
+    <!-- ************************************* service ************************************* -->
+    <bean id="knowledgeService" class="mikeheke.kgem.service.impl.KnowledgeServiceImpl" parent="ServiceTemplate">
+    	<!-- 
+    	<property name="knowledgeDao" ref="knowledgeDao" />
+    	 -->
+    </bean>
+    
     
 </beans>
