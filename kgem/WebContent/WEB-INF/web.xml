@@ -55,6 +55,19 @@
 	<!-- Spring config end -->
  
  
+ 	<filter>
+ 		<filter-name>CharacterEncodingFilter</filter-name>
+ 		<filter-class>com.amway.frm.afw.web.filter.CharacterEncodingFilter</filter-class>
+ 	</filter>
+ 	<filter-mapping>
+		<filter-name>CharacterEncodingFilter</filter-name>
+		<url-pattern>*.action</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>CharacterEncodingFilter</filter-name>
+		<url-pattern>*.jsp</url-pattern>
+	</filter-mapping>
+ 
  	<!-- StrutsPrepareFilter start -->
 	<filter>
 		<filter-name>StrutsPrepareFilter</filter-name>
@@ -86,23 +99,27 @@
 			<param-name>enable</param-name>
 			<param-value>yes</param-value>
 		</init-param>
+		<!-- 登录页面路径 -->
 		<init-param>
 			<param-name>login</param-name>
 			<param-value>/common/jsp/login.jsp</param-value>
 		</init-param>
+		<!-- 提示页面路径 -->
 		<init-param>
 			<param-name>right</param-name>
 			<param-value>/common/jsp/info.jsp</param-value>
 		</init-param>
+		<!-- 错误页面路径 -->
 		<init-param>
 			<param-name>error</param-name>
 			<param-value>/common/jsp/error.jsp</param-value>
 		</init-param>
+		<!-- 无需登录过滤－配置文件路径 -->
 		<init-param>
 			<param-name>noLoginAuthen</param-name>
 			<param-value>/resources/config/authen/loginless.properties</param-value>
 		</init-param>
-				<init-param>
+		<init-param>
 			<param-name>noAppLoginAuthen</param-name>
 			<param-value>/resources/config/authen/appLoginless.properties</param-value>
 		</init-param>

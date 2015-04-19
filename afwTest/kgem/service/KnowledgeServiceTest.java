@@ -4,8 +4,8 @@ package service;
 
 
 import java.sql.SQLException;
+import java.util.Date;
 
-import mikeheke.kgem.dao.KnowledgeDao;
 import mikeheke.kgem.entity.Knowledge;
 import mikeheke.kgem.service.KnowledgeService;
 
@@ -16,7 +16,6 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
-import org.springframework.util.Assert;
 
 public class KnowledgeServiceTest {
 	
@@ -62,9 +61,12 @@ public class KnowledgeServiceTest {
 		Knowledge k = new Knowledge();
 		k.setTitle("aaaaa");
 		k.setContent("bbbb");
+		k.setCreatedTime(new Date());
 		
 		//knowledgeService.add(k);
 		knowledgeService.addOrUpdate(k);
+		
+		
 	}
 
 }

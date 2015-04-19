@@ -74,6 +74,10 @@ public class Knowledge implements Serializable {
 	
 	public Knowledge(){}
 
+	public Knowledge(Long knowledgeId) {
+		this.knowledgeId = knowledgeId;
+	}
+
 	public Long getKnowledgeId() {
 		return knowledgeId;
 	}

@@ -245,9 +245,11 @@ function selfOpenWin(curEle, url){
             data: $("#ec").serialize(),
 			type: "POST",
 			error: function(request) {
+				//alert(request);
 				alert("表单提交出错，请稍候再试");
 			},
             success: function(data) {
+            	//alert(data);
 				var retMsg = data.jsonValue.toUpperCase();
 				if(retMsg.indexOf("SUCCESS")==-1){
 					if(retMsg.indexOf("INPUT")==-1){

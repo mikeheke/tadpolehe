@@ -3,17 +3,23 @@
 <struts>
   
   
-<package name="kgem" namespace="/" extends="struts-default">
+<package name="kgem" namespace="/" extends="default">
 
 		<action name="knowledgeAction" class="knowledgeAction">
+			<!-- 增加初始化成功视图 -->
 			<result name="initAddSuccess">/kgem/knowledge.jsp</result>
+			<result name="addSuccess">/kgem/knowledge.jsp</result>
+			<result name="addInput">/kgem/knowledge.jsp</result>
+			<result name="initModifySuccess">/kgem/knowledge.jsp</result>
+			<result name="mdfSuccess">/kgem/knowledge.jsp</result>
+			<result name="mdfInput">/kgem/knowledge.jsp</result>
+			
 			
 			<!-- 
 			<result name="addSuccess">/kgem/knowledge.jsp</result>
 			<result name="initModifySuccess">/kgem/knowledge.jsp</result>
 			<result name="mdfSuccess">/kgem/knowledge.jsp</result>
 			 -->
-			
 			<!-- 
 			<result name="addInput">/sysManage/role.jsp</result>
 			<result name="initAddInput">/sysManage/role.jsp</result>

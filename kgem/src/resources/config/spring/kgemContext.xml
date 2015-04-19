@@ -9,9 +9,7 @@
     
    <!-- ************************************* action ************************************* -->
    <bean id="knowledgeAction" class="mikeheke.kgem.web.action.KnowledgeAction">
-   		<!-- 
-       <property name="roleService" ref="RoleService" />
-        -->
+       <property name="knowledgeService" ref="knowledgeService" />
    </bean>
     
     

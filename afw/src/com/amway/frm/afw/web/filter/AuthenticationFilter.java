@@ -33,6 +33,7 @@ import com.amway.frm.base.util.ContextFactory;
 import com.amway.frm.base.util.DataConverter;
 import com.amway.frm.base.util.DataValidater;
 import com.amway.frm.base.web.action.BaseAction;
+import com.amway.frm.logging.util.LogFactory;
 
 /**
  * 登录验证过滤器
@@ -349,6 +350,8 @@ public class AuthenticationFilter extends HttpServlet implements Filter {
 	}
 
 	public void init(FilterConfig config) {
+		
+		LogFactory.getLogger(this.getClass()).info("init AuthenticationFilter...");
 		
 		enable = config.getInitParameter(AfwConstant.ENABLE_KEY);
 		loginPage = config.getInitParameter(AfwConstant.LOGIN_KEY);

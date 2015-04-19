@@ -59,3 +59,61 @@ log模块才生效　tx
 persistence.xml
 <class>mikeheke.kgem.entity.Knowledge</class>
 
+13. web 范围：
+ApplicationContext/ServletContext
+Session
+Request
+PageContext
+
+14. 
+com.amway.frm.afw.web.filter.AuthenticationFilter
+
+15. common query
+<input type='checkbox' name='ids' value='$0'/>
+<input type='checkbox' name='roleVo.roleIds' value='$0'/>
+<input type='checkbox' name='knowledgeVo.knowledgeIds' value='$0'/>
+
+delete 无窗口
+checkDelete(1)
+
+16. Entity---注解
+	@Column(name="CREATED_TIME",updatable=false)
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date createdTime;
+
+17. 
+struts2==> extends="default"
+<package name="kgem" namespace="/" extends="default">
+
+18. s2sh ajax json 注意事项：
++
+	@Override
+	public String getJsonValue() {
+		return super.getJsonValue();
+	}
+	
+这个错误是因为我的Service层在注入Action的时候让自动生成了Get、Set方法，问题就出在Get方法上。返回的JSON对象也将这个Get方法当作类实体的属性来返回。
+
+就会报错：org.apache.struts2.json.JSONException: org.apache.struts2.json.JSONException: org.apache.struts2.json.JSONException: org.apache.struts2.json.JSONException: org.apache.struts2.json.JSONException: org.apache.struts2.json.JSONException: org.apache.struts2.json.JSONException: org.apache.struts2.json.JSONException: org.apache.struts2.json.JSONException: org.apache.struts2.json.JSONException: java.lang.reflect.InvocationTargetException
+ org.apache.struts2.json.JSONWriter.bean(JSONWriter.java:243)
+ org.apache.struts2.json.JSONWriter.process(JSONWriter.java:165)
+ org.apache.struts2.json.JSONWriter.value(JSONWriter.java:131)
+ org.apache.struts2.json.JSONWriter.write(JSONWriter.java:99)
+ org.apache.struts2.json.JSONUtil.serialize(JSONUtil.java:112)
+ org.apache.struts2.json.JSONResult.execute(JSONResult.java:198)
+ com.opensymphony.xwork2.DefaultActionInvocation.executeResult(DefaultActionInvocation.java:362)
+ com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:266)
+ com.opensymphony.xwork2.interceptor.Defaul…
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ 最后将这个Get方法去掉，OK运行正常。
+
+  折腾了我半天 记录下
+  
+  
+  
+  
+  
+  	
+
+

@@ -6,7 +6,10 @@
 <html>
   <head>
     
+    <%-- 
     <title><s:text name="role.page.title" /></title>
+     --%>
+    <title>知识信息页面</title>
     <meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">
@@ -19,7 +22,11 @@
   <form action="${pageContext.request.contextPath}/knowledgeAction!${oprt }.action?oprt=${oprt }" 
   		method="post" onsubmit="return Validator.Validate(this,4);" >
   	  <table id="formTable" class="form_item" cellspacing="1" cellpadding="1" bgcolor="#c7c7c5" >
-  	  	<caption>知识信息</caption>
+  	  	<caption>
+  	  		知识信息
+  	  		<c:if test="${oprt=='add'}">-新增</c:if>
+  	  		<c:if test="${oprt=='modify'}">-修改</c:if>
+  	  	</caption>
 		<tbody>
 		
 			<!-- ************************** input start ************************** -->
@@ -102,7 +109,39 @@
 				</td>
 			</tr>
 			--%>
+			
+			
+			
+			
+			<!-- id,msg info -->
+			<tr>
+				<td colspan="2">
+					<input type="hidden" id="knowledgeId" name="knowledgeVo.knowledgeId" value="${retObjs[0].knowledgeId}">
+					<div class="input_msg">${idMsg }${knowledgeIdMsg }${retInfo }</div>
+				</td>
+			</tr>
+			<!-- input items -->
+			<tr>
+				<th align="right">标题:</th>
+				<td>
+					<!-- dataType="Require" -->
+					<amway:textfield id="title" name="knowledgeVo.title" value="${retObjs[0].title }"  msg="请填写知识标题" style="width: 450px" maxLine="128"></amway:textfield>
+					<font color="red">*</font>
+					<div class="input_msg">${titleMsg }</div>
+				</td>
+			</tr>
+			<tr>
+				<th align="right">内容:
+				</th>
+				<td>
+					<amway:textarea rows="5" cols="40" id="content" name="knowledgeVo.content" value="${retObjs[0].content }"
+									style="width:450px" maxLine="255" dataType="LimitB" max="255" msg="内容长度不能超过255个字符"></amway:textarea>
+					<div class="input_msg">${contentMsg }</div>
+				</td>
+			</tr>
+			
 			<!-- ************************** input end ************************** -->
+			
 			
 			
 			<!-- ************************** operation button start ************************** -->
