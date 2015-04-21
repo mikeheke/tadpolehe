@@ -1,3 +1,5 @@
+jee应用开发框架系统
+
 1. 
 src/resources/config/jpa/persistence.xml
 <jar-file>WEB-INF/lib/afw.jar</jar-file>
@@ -10,9 +12,14 @@ CharacterEncodingFilter
 3.
 风格4 支持firefox
 
-4. db:
-	<!-- small app qa db -->
+4. 
+tomcat context.xml:
+db:
+<!-- small app qa db -->
 <Resource auth="Container" driverClassName="oracle.jdbc.OracleDriver" maxActive="100" maxIdle="30" maxWait="10000" name="jdbcamway" password="amway" type="javax.sql.DataSource" url="jdbc:oracle:thin:@10.143.170.73:1521:sappqa" username="amway"/>
+<!-- mikevm -->
+<Resource auth="Container" driverClassName="oracle.jdbc.OracleDriver" maxActive="100" maxIdle="30" maxWait="10000" name="jdbcamway" password="amway" type="javax.sql.DataSource" url="jdbc:oracle:thin:@127.0.0.1:21521:XE" username="amway"/>
+
 
 5.
 ajax 文件框　需要优化
@@ -110,10 +117,26 @@ struts2==> extends="default"
 
   折腾了我半天 记录下
   
+19. view detail:
+knowledgeAction!initModify.action?knowledgeVo.knowledgeIds=$0
   
   
-  
-  
+20. auto generate id:
+	//自动生成ID
+	@Id
+	@GenericGenerator(name="systemUUID",strategy="uuid")
+	@GeneratedValue(generator="systemUUID")
+	@Column(name = "KNOWLEDGE_ID")
+    private String knowledgeId;
+
+	//主键
+	@Id
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="HSSQ_LOG_PERFORMANCE_OR")
+	@SequenceGenerator(name="HSSQ_LOG_PERFORMANCE_OR", sequenceName="HSSQ_LOG_PERFORMANCE", 
+			initialValue=1, allocationSize=1)
+	@Column(name="LOG_PERFORMANCE_ID")
+	private Long logPerformanceId;
+
   	
 
 

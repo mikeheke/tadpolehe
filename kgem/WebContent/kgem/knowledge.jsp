@@ -124,10 +124,15 @@
 			<tr>
 				<th align="right">标题:</th>
 				<td>
+					<c:if test="${oprt!='view'}">
 					<!-- dataType="Require" -->
-					<amway:textfield id="title" name="knowledgeVo.title" value="${retObjs[0].title }"  msg="请填写知识标题" style="width: 450px" maxLine="128"></amway:textfield>
+					<amway:textfield id="title" name="knowledgeVo.title" value="${retObjs[0].title }" dataType="Require" msg="请填写知识标题" style="width: 550px" maxLine="128"></amway:textfield>
 					<font color="red">*</font>
 					<div class="input_msg">${titleMsg }</div>
+					</c:if>
+					<c:if test="${oprt=='view'}">
+					${retObjs[0].title }
+					</c:if>
 				</td>
 			</tr>
 			<tr>
@@ -135,7 +140,8 @@
 				</th>
 				<td>
 					<amway:textarea rows="5" cols="40" id="content" name="knowledgeVo.content" value="${retObjs[0].content }"
-									style="width:450px" maxLine="255" dataType="LimitB" max="255" msg="内容长度不能超过255个字符"></amway:textarea>
+									style="width:550px" maxLine="255" dataType="LimitB" max="255" msg="内容长度不能超过255个字符" 
+									></amway:textarea>
 					<div class="input_msg">${contentMsg }</div>
 				</td>
 			</tr>
@@ -148,8 +154,10 @@
 			<tr><td colspan="2">&nbsp;</td></tr>
 			<tr  align="center">
 				<td colspan="2">
+					<c:if test="${oprt!='view'}">
 					<input type="submit" value="<s:text name="common.save"></s:text>" />&nbsp;&nbsp;
 					<input type="reset" value="<s:text name="common.reset"></s:text>" />&nbsp;&nbsp;
+					</c:if>
 					<input type="button" value="<s:text name="common.cancel"></s:text>" onclick="window.close();"/>
 				</td>
 			</tr>

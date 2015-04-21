@@ -7,18 +7,14 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.persistence.Transient;
 
-import com.amway.frm.afw.util.AfwConstant;
+import org.hibernate.annotations.GenericGenerator;
+
 import com.amway.frm.base.util.AppConstant;
-import com.amway.frm.base.util.ContextFactory;
-import com.amway.frm.base.util.DataConverter;
 import com.amway.frm.base.util.DataValidater;
 import com.amway.frm.base.vo.UniqueKey;
 
@@ -34,12 +30,20 @@ public class Knowledge implements Serializable {
 
 	private static final long serialVersionUID = -5421549791044368962L;
 	
+//	//自动生成ID
+//	@Id
+//	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="MSSQ_KGEM_KNOWLEDGE_OR")
+//	@SequenceGenerator(name="MSSQ_KGEM_KNOWLEDGE_OR", sequenceName="MSSQ_KGEM_KNOWLEDGE", initialValue=1, allocationSize=1)
+//	@Column(name = "KNOWLEDGE_ID")
+//    private String knowledgeId;
+	
 	//自动生成ID
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="MSSQ_KGEM_KNOWLEDGE_OR")
-	@SequenceGenerator(name="MSSQ_KGEM_KNOWLEDGE_OR", sequenceName="MSSQ_KGEM_KNOWLEDGE", initialValue=1, allocationSize=1)
+	@GenericGenerator(name="systemUUID",strategy="uuid")
+	@GeneratedValue(generator="systemUUID")
 	@Column(name = "KNOWLEDGE_ID")
-    private Long knowledgeId;
+    private String knowledgeId;
+
 	
 	//title
     @Column(name="TITLE")
@@ -74,15 +78,15 @@ public class Knowledge implements Serializable {
 	
 	public Knowledge(){}
 
-	public Knowledge(Long knowledgeId) {
+	public Knowledge(String knowledgeId) {
 		this.knowledgeId = knowledgeId;
 	}
 
-	public Long getKnowledgeId() {
+	public String getKnowledgeId() {
 		return knowledgeId;
 	}
 
-	public void setKnowledgeId(Long knowledgeId) {
+	public void setKnowledgeId(String knowledgeId) {
 		this.knowledgeId = knowledgeId;
 	}
 

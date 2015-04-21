@@ -1,0 +1,16 @@
+从oracle迁移到mysql
+
+1. 解决数据库表序列生成问题(通过代码统一控制序列的生成的)
+
+2. 通用查询－数据库元字典表问题  
+example: 
+USER_TAB_COLUMNS 
+...
+配置基础数据服务即可： ds_table_col　
+
+3. 
+oracleSysTable
+oracleTableField
+
+mysqlSysTable
+mysqlTableField

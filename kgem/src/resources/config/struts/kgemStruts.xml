@@ -13,6 +13,7 @@
 			<result name="initModifySuccess">/kgem/knowledge.jsp</result>
 			<result name="mdfSuccess">/kgem/knowledge.jsp</result>
 			<result name="mdfInput">/kgem/knowledge.jsp</result>
+			<result name="view">/kgem/knowledge.jsp</result>
 			
 			
 			<!-- 

@@ -49,7 +49,8 @@ public class KnowledgeAction extends BaseAction {
 		
 		Knowledge k = new Knowledge();
 		
-		k.setKnowledgeId(DataConverter.stringToLong(knowledgeVo.getKnowledgeId()));
+		//k.setKnowledgeId(DataConverter.stringToLong(knowledgeVo.getKnowledgeId()));
+		k.setKnowledgeId(knowledgeVo.getKnowledgeId());
 		k.setTitle(knowledgeVo.getTitle());
 		k.setContent(knowledgeVo.getContent());
 		k.setCreatedUserId(this.getSysInfo().getUserProfile().getEmpNumber());
@@ -64,7 +65,8 @@ public class KnowledgeAction extends BaseAction {
 	protected Knowledge getEntity(String KnowledgeId) {
 		
 		Knowledge k = new Knowledge();
-		k.setKnowledgeId(DataConverter.stringToLong(KnowledgeId));
+		//k.setKnowledgeId(DataConverter.stringToLong(KnowledgeId));
+		k.setKnowledgeId(KnowledgeId);
 		
 		return k;
 	}
@@ -76,7 +78,8 @@ public class KnowledgeAction extends BaseAction {
 		
 		for(String knowledgeId: knowledgeIds){
 			Knowledge knowledge = new Knowledge();
-			knowledge.setKnowledgeId((DataConverter.stringToLong(knowledgeId)));
+			//knowledge.setKnowledgeId((DataConverter.stringToLong(knowledgeId)));
+			knowledge.setKnowledgeId((knowledgeId));
 			knowledges.add(knowledge);
 		}
 		
@@ -197,7 +200,8 @@ public class KnowledgeAction extends BaseAction {
 			return this.MDF_INPUT;
 		}
 		
-		Knowledge qKnowledge = new Knowledge(DataConverter.stringToLong(knowledgeIds[0]));
+		//Knowledge qKnowledge = new Knowledge(DataConverter.stringToLong(knowledgeIds[0]));
+		Knowledge qKnowledge = new Knowledge(knowledgeIds[0]);
 		ReturnMessage<Knowledge> returnMessage = knowledgeService.query(qKnowledge);
 		
 		result = setReturnMessage(returnMessage, INIT_MODIFY_SUCCESS, INIT_MODIFY_INPUT);
@@ -323,7 +327,30 @@ public class KnowledgeAction extends BaseAction {
 		return JSON;
 	}
 
-
+	/**
+	 * 查看记录明细
+	 * @return
+	 */
+	public String view() {
+		String result = "view";
+		this.setMessage(AppConstant.OPRT, "view");
+		
+		String [] knowledgeIds = null;
+		if(null != knowledgeVo){
+			knowledgeIds = knowledgeVo.getKnowledgeIds();
+		}
+		if(!validateIds0(knowledgeIds)){
+			return result;
+		}
+		
+		//Knowledge qKnowledge = new Knowledge(DataConverter.stringToLong(knowledgeIds[0]));
+		Knowledge qKnowledge = new Knowledge(knowledgeIds[0]);
+		ReturnMessage<Knowledge> returnMessage = knowledgeService.query(qKnowledge);
+		
+		result = setReturnMessage(returnMessage, result, result);
+		
+		return result;
+	}
 
 
 	@Override
@@ -331,6 +358,7 @@ public class KnowledgeAction extends BaseAction {
 		return super.getJsonValue();
 	}
 
+	//此处会引起json 返回抛异常
 //	public KnowledgeService getKnowledgeService() {
 //		return knowledgeService;
 //	}
