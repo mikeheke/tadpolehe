@@ -5,7 +5,7 @@ import com.amway.frm.exception.exception.AmwayInfoException;
 
 /**
  * Created by IntelliJ IDEA. 
- * @author huangweijin
+ * 
  */
 
 public class EmailInfoException extends AmwayInfoException {

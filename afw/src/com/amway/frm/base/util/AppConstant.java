@@ -5,7 +5,7 @@ package com.amway.frm.base.util;
 
 /**
  * Created by MyElipse
- * @author huangweijin
+ * 
  * Date: 2011-3-22
  * Time: 10:47:54
  * Declare：应用常量接口
@@ -13,7 +13,8 @@ package com.amway.frm.base.util;
 public interface AppConstant {
 	
 	//默认Schema
-	public static final String APP_DEAULT_SCHEMA = "amway";
+	//public static final String APP_DEAULT_SCHEMA = "amway";
+	public static final String APP_DEAULT_SCHEMA = "amway2";
 	
 	//Db2数据库用户
 	public static final String DB2_USER = "DB2ADMIN";

@@ -13,7 +13,7 @@ import com.amway.frm.base.dao.IBaseDao;
  * @author lenovo
  *
  */
-public interface IModuleDao extends IBaseDao<Module, Long> {
+public interface IModuleDao extends IBaseDao<Module, String> {
 
 	/**
 	 * Declare：取角色权限结果集

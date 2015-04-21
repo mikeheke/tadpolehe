@@ -19,7 +19,7 @@ import com.amway.frm.query.vo.WhereVo;
 
 /**
  * Created by MyElipse
- * @author huangweijin
+ * 
  * Date: 2011-3-22
  * Time: 10:47:54
  * Declare：条件Action类
@@ -63,7 +63,7 @@ public class WhereAction extends ConfigAction {
 		}
 		
 		Where where = this.getEntity();
-		where.setWhereId(System.currentTimeMillis());
+		where.setWhereId(System.currentTimeMillis()+"");
 		where.setOprtFlag(QueryConstant.ADD_OPRT);		//增加操作
 		
 		if(validateAddRepeat(where)){
@@ -102,7 +102,7 @@ public class WhereAction extends ConfigAction {
 			String[] whereIdArr = whereId.split(QueryConstant.OPRT_SEP);
 			
 			Where where = new Where();
-			where.setWhereId(DataConverter.stringToLong(whereIdArr[0]));
+			where.setWhereId((whereIdArr[0]));
 			where.setOprtFlag(whereIdArr[1]);
 			query.getWheres().remove(where);
 			if(!QueryConstant.ADD_OPRT.equals(where.getOprtFlag())){
@@ -140,7 +140,7 @@ public class WhereAction extends ConfigAction {
 		
 		String[] whereIdArr = whereIds[0].split(QueryConstant.OPRT_SEP);
 		Where where = this.getEntity();
-		where.setWhereId(DataConverter.stringToLong(whereIdArr[0]));
+		where.setWhereId((whereIdArr[0]));
 		where.setOprtFlag(whereIdArr[1]);
 		
 		if(validateMdfRepeat(where)){

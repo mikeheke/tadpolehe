@@ -10,7 +10,7 @@ import com.amway.frm.base.util.DataConverter;
 import com.amway.frm.query.util.QueryConstant;
 
 /**
- * @author huangweijin
+ * 
  *
  * 2011-4-30 上午11:47:45
  */

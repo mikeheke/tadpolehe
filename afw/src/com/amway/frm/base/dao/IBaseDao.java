@@ -11,7 +11,7 @@ import javax.sql.DataSource;
 
 /**
  * Created by MyElipse
- * @author huangweijin
+ * 
  * Date: 2011-3-22
  * Time: 10:47:54
  * Declare：Dao基类
@@ -304,6 +304,6 @@ public interface IBaseDao <T extends Object, PK extends Serializable> {
 	 */
 	int executeJpl(String jql, Map<String, Object> parVals);
 	
-	Long generateSequence(String module);
+	//Long generateSequence(String module);
 }
 

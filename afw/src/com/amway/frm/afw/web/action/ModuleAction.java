@@ -20,7 +20,7 @@ import com.amway.frm.logging.util.LogFactory;
 
 /**
  * 模块信息Action
- * @author huangweijin
+ * 
  */
 
 public class ModuleAction extends BaseAction{
@@ -178,13 +178,13 @@ public class ModuleAction extends BaseAction{
 	protected Module getEntity() {
 		
 		Module module = new Module();
-		module.setModuleId(DataConverter.stringToLong(moduleVo.getModuleId()));
+		module.setModuleId((moduleVo.getModuleId()));
 		String moduleCode = moduleVo.getModuleCode();
 		module.setModuleCode(moduleCode);
 		module.setModuleName(moduleVo.getModuleName());
 		module.setIsModuleOrButton(Integer.parseInt(moduleVo.getIsModuleOrButton()));
 		Application application = new Application();
-		application.setApplicationId(DataConverter.stringToLong(moduleVo.getApplicationId()));
+		application.setApplicationId((moduleVo.getApplicationId()));
 		module.setApplication(application);
 		module.setIco(moduleVo.getIco());
 		module.setLink(moduleVo.getLink());
@@ -220,7 +220,7 @@ public class ModuleAction extends BaseAction{
 		
 		for(String moduleId: moduleIds){
 			Module module = new Module();
-			module.setModuleId(DataConverter.stringToLong(moduleId));
+			module.setModuleId((moduleId));
 			modules.add(module);
 		}
 		return modules;
@@ -267,7 +267,7 @@ public class ModuleAction extends BaseAction{
 	protected Module getEntity(String moduleId) {
 		
 		Module module = new Module();
-		module.setModuleId(DataConverter.stringToLong(moduleId));
+		module.setModuleId((moduleId));
 		return module;
 	}
 

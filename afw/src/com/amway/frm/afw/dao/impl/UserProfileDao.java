@@ -12,7 +12,7 @@ import com.amway.frm.base.dao.impl.BaseDao;
  * @author lenovo
  *
  */
-public class UserProfileDao extends BaseDao<UserProfile, Long> implements  IUserProfileDao{
+public class UserProfileDao extends BaseDao<UserProfile, String> implements  IUserProfileDao{
 
 
 	

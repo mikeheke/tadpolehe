@@ -17,7 +17,7 @@ import com.amway.frm.base.util.JDBCHelper;
  * Time: 11:11:33
  * Declare: 配置导入 导出
  */
-public class ExportConfigDao extends BaseDao<Object, Long> implements IExportConfigDao {
+public class ExportConfigDao extends BaseDao<Object, String> implements IExportConfigDao {
    
 	/**
      * Declare：根据表名获得列信息

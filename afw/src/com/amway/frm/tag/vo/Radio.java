@@ -7,7 +7,7 @@ import com.opensymphony.xwork2.util.ValueStack;
 
 /**
  * 单选标签
- * @author huangweijin
+ * 
  */
 public class Radio extends Select {
 	/**

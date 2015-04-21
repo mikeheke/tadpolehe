@@ -13,7 +13,7 @@ import com.amway.frm.report.entity.ReportPara;
 import com.amway.frm.report.service.ReportParaService;
 
 /**
- * @author huangweijin
+ * 
  *
  * 2011-9-6 下午05:28:26
  */

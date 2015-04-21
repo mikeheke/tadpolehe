@@ -34,7 +34,7 @@ import com.amway.frm.bds.vo.BaseDataSourceVo;
 
 /**
  * 供内外部调用的基础数据服务实现类
- * @author huangweijin
+ * 
  */
 public class BaseDataSourceServiceImpl extends BaseImpl<Object> implements
 		BaseDataSourceService {

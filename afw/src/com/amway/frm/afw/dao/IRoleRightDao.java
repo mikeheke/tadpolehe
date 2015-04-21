@@ -9,12 +9,12 @@ import com.amway.frm.base.dao.IBaseDao;
 
 /**
  * Created by MyElipse
- * @author huangweijin
+ * 
  * Date: 2011-3-22
  * Time: 10:47:54
  * Declare：角色权限Dao接口
  */
-public interface IRoleRightDao extends IBaseDao<RoleRight, Long>{
+public interface IRoleRightDao extends IBaseDao<RoleRight, String> {
 	
 	/**
 	 * Declare：删除角色所有权限

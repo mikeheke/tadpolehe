@@ -6,21 +6,21 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import org.hibernate.annotations.GenericGenerator;
 
 import com.amway.frm.base.util.AppConstant;
 import com.amway.frm.base.vo.UniqueKey;
 
 /**
  * 本地基础数据表实体类
- * @author huangweijin
+ * 
  */
 @Entity
 @Table(name = "MSTB_BDS_XML_DATA", schema =AppConstant.APP_DEAULT_SCHEMA)
@@ -30,8 +30,10 @@ public class BdsXmlData implements java.io.Serializable {
 
 	//自动生成ID
 	@Id
+	@GenericGenerator(name="systemUUID",strategy="uuid")
+	@GeneratedValue(generator="systemUUID")
 	@Column(name = "BDS_XML_DATA_ID")
-	private Long bdsXmlDataId;
+	private String bdsXmlDataId;
 	
 	//编码
 	@Column(name = "CODE")
@@ -85,11 +87,11 @@ public class BdsXmlData implements java.io.Serializable {
 	@UniqueKey
 	private BdsSchemaInfor bdsSchemaInfor;
 
-	public Long getBdsXmlDataId() {
+	public String getBdsXmlDataId() {
 		return this.bdsXmlDataId;
 	}
 
-	public void setBdsXmlDataId(Long bdsXmlDataId) {
+	public void setBdsXmlDataId(String bdsXmlDataId) {
 		this.bdsXmlDataId = bdsXmlDataId;
 	}
 

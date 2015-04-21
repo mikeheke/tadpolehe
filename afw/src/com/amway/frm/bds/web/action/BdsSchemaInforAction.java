@@ -23,7 +23,7 @@ import com.amway.frm.logging.util.LogFactory;
 
 /**
  * 基础数据服务ACTION类
- * @author huangweijin
+ * 
  */
 public class BdsSchemaInforAction  extends BaseAction {
 
@@ -196,9 +196,9 @@ public class BdsSchemaInforAction  extends BaseAction {
 	public BdsSchemaInfor getEntity() {
 		
 		BdsSchemaInfor bdsSchemaInfor = new BdsSchemaInfor();
-        bdsSchemaInfor.setBdsSchemaInforId(DataConverter.stringToLong(bdsSchemaInforVo.getBdsSchemaInforId()));
+        bdsSchemaInfor.setBdsSchemaInforId((bdsSchemaInforVo.getBdsSchemaInforId()));
 		Application app = new Application();
-		app.setApplicationId(DataConverter.stringToLong(bdsSchemaInforVo.getApplicationId()));
+		app.setApplicationId((bdsSchemaInforVo.getApplicationId()));
 		bdsSchemaInfor.setApplication(app);
 		bdsSchemaInfor.setBdsSchemaInforCode(bdsSchemaInforVo.getBdsSchemaInforCode());
 		bdsSchemaInfor.setBdsSchemaInforNameCna(bdsSchemaInforVo.getBdsSchemaInforNameCna());
@@ -233,7 +233,7 @@ public class BdsSchemaInforAction  extends BaseAction {
 	public BdsSchemaInfor getEntity(String id) {
 		
 		BdsSchemaInfor bdsSchemaInfor = new BdsSchemaInfor();
-		bdsSchemaInfor.setBdsSchemaInforId(DataConverter.stringToLong(id));
+		bdsSchemaInfor.setBdsSchemaInforId((id));
 		bdsSchemaInfor.setUpdatedUserId(getSysInfo().getUserProfile().getEmpNumber());
 		bdsSchemaInfor.setUpdatedTime(new Date());
 		
@@ -251,7 +251,7 @@ public class BdsSchemaInforAction  extends BaseAction {
 		
 		for(String id: ids){
 			BdsSchemaInfor bdsSchemaInfor = new BdsSchemaInfor();
-			bdsSchemaInfor.setBdsSchemaInforId((DataConverter.stringToLong(id)));
+			bdsSchemaInfor.setBdsSchemaInforId(((id)));
 			bdsSchemaInfors.add(bdsSchemaInfor);
 		}
 		

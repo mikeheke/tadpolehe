@@ -6,7 +6,7 @@ package com.amway.frm.report.util;
 import com.amway.frm.base.util.AppConstant;
 
 /**
- * @author huangweijin
+ * 
  *
  * 2011-9-16 下午06:06:00
  */

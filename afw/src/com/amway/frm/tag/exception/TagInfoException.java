@@ -7,7 +7,7 @@ import com.amway.frm.base.util.AppConstant;
 import com.amway.frm.exception.exception.AmwayInfoException;
 
 /**
- * @author huangweijin
+ * 
  *
  * 2011-10-19 下午04:16:02
  */

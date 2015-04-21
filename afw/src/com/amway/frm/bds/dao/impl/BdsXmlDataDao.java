@@ -35,7 +35,7 @@ import com.amway.frm.bds.vo.UTF8PostMethod;
  * @author lenovo
  *
  */
-public class BdsXmlDataDao extends BaseDao<BdsXmlData, Long> implements
+public class BdsXmlDataDao extends BaseDao<BdsXmlData, String> implements
 		IBdsXmlDataDao {
 
 	@Override
@@ -94,7 +94,7 @@ public class BdsXmlDataDao extends BaseDao<BdsXmlData, Long> implements
 			addFilterParams(filterParams, params);
 			
 			List<String> pStmtValues = new ArrayList<String>();
-			pStmtValues.add(DataConverter.LongToString(bdsSchemaInfor.getBdsSchemaInforId()));
+			pStmtValues.add((bdsSchemaInfor.getBdsSchemaInforId()));
 			String whereParams = jdbcHelper.getWhereParamUsedLikeCompare(params,
 					pStmtValues, BdsConstant.EMPTY_STR, joinOperator);
 			String linker = DataValidater.isStrEmpty(whereParams)?BdsConstant.EMPTY_STR
@@ -158,7 +158,7 @@ public class BdsXmlDataDao extends BaseDao<BdsXmlData, Long> implements
 	private BdsXmlData getXmlData(JDBCHelper jdbcHelper) throws SQLException {
 		
 		BdsXmlData xmlData = new BdsXmlData();
-		xmlData.setBdsXmlDataId(jdbcHelper.getItemLongValue(BdsConstant.BDS_XML_DATA_ID));
+		xmlData.setBdsXmlDataId(jdbcHelper.getItemTrueValue(BdsConstant.BDS_XML_DATA_ID));
 		xmlData.setCode(jdbcHelper.getItemTrueValue(BdsConstant.CODE));
 		xmlData.setDisplayname(jdbcHelper.getItemTrueValue(BdsConstant.DISPLAYNAME));
 		xmlData.setDisplaynameEn(jdbcHelper.getItemTrueValue(BdsConstant.DISPLAYNAME_EN));

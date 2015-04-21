@@ -8,7 +8,7 @@ import com.amway.frm.bds.exception.BdsBizException;
 import com.amway.frm.bds.vo.BaseDataSourceVo;
 /**
  * 供内外部调用的基础数据服务接口类
- * @author huangweijin
+ * 
  */
 public interface BaseDataSourceService extends  BaseService<Object>{
 	

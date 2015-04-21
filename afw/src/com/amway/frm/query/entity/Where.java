@@ -9,21 +9,21 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
+
+import org.hibernate.annotations.GenericGenerator;
 
 import com.amway.frm.base.util.AppConstant;
 import com.amway.frm.base.util.DataValidater;
 import com.amway.frm.query.util.QueryConstant;
 
 /**
- * @author huangweijin
+ * 
  *
  * 2011-2-15 下午04:13:03
  */
@@ -38,8 +38,10 @@ public class Where implements Serializable, Comparable<Where> {
 
 	//主键
 	@Id
+	@GenericGenerator(name="systemUUID",strategy="uuid")
+	@GeneratedValue(generator="systemUUID")
 	@Column(name="WHERE_ID")
-	private Long whereId;
+	private String whereId;
 	
 	//查询ID
 	@ManyToOne()
@@ -153,11 +155,11 @@ public class Where implements Serializable, Comparable<Where> {
 	@Transient
 	private String globalWhere = new String();
 
-	public Long getWhereId() {
+	public String getWhereId() {
 		return whereId;
 	}
 
-	public void setWhereId(Long whereId) {
+	public void setWhereId(String whereId) {
 		this.whereId = whereId;
 	}
 

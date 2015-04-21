@@ -18,7 +18,7 @@ import com.amway.frm.query.vo.OrderByVo;
 
 /**
  * Created by MyElipse
- * @author huangweijin
+ * 
  * Date: 2011-3-22
  * Time: 10:47:54
  * Declare：排序Action类
@@ -54,7 +54,7 @@ public class OrderByAction extends ConfigAction {
 		}
 		
 		OrderBy orderByObj = this.getEntity();
-		orderByObj.setOrderById(System.currentTimeMillis());
+		orderByObj.setOrderById(System.currentTimeMillis()+"");
 		orderByObj.setOprtFlag(QueryConstant.ADD_OPRT);		//增加操作
 		
 		if(validateAddRepeat(orderByObj)){
@@ -93,7 +93,7 @@ public class OrderByAction extends ConfigAction {
 			String[] orderByArr = orderBy.split(QueryConstant.OPRT_SEP);
 			
 			OrderBy orderByObj = new OrderBy();
-			orderByObj.setOrderById(DataConverter.stringToLong(orderByArr[0]));
+			orderByObj.setOrderById((orderByArr[0]));
 			orderByObj.setOprtFlag(orderByArr[1]);
 			query.getOrderBys().remove(orderByObj);
 			if(!QueryConstant.ADD_OPRT.equals(orderByObj.getOprtFlag())){
@@ -132,7 +132,7 @@ public class OrderByAction extends ConfigAction {
 		String[] orderByArr = orderByIds[0].split(QueryConstant.OPRT_SEP);
 		
 		OrderBy orderByObj = this.getEntity();
-		orderByObj.setOrderById(DataConverter.stringToLong(orderByArr[0]));
+		orderByObj.setOrderById((orderByArr[0]));
 		orderByObj.setOprtFlag(orderByArr[1]);
 		
 		if(validateMdfRepeat(orderByObj)){

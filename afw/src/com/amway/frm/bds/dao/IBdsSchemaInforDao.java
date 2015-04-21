@@ -10,9 +10,9 @@ import com.amway.frm.bds.entity.BdsSchemaInfor;
 
 /**
  * 基础数据服务数据持久化接口类
- * @author huangweijin
+ * 
  */
-public interface IBdsSchemaInforDao extends IBaseDao<BdsSchemaInfor, Long> {
+public interface IBdsSchemaInforDao extends IBaseDao<BdsSchemaInfor, String> {
 
 	/**
 	 * 以JDBC方式查询并返回BdsSchemaInfor实体

@@ -79,11 +79,11 @@ public class RoleRightImpl extends BaseImpl implements RoleRightService{
 			roleRightDao.deleteRightsByRole(role);
 			List<RoleRight> roleRightAdds = this.getRoleRightList(role, modules);
 			
-			for(RoleRight rr:roleRightAdds){
-				if(rr.getRoleRightId()==null){
-					rr.setRoleRightId(roleRightDao.generateSequence("MSTB_ROLE_RIGHT"));
-				}
-			}
+//			for(RoleRight rr:roleRightAdds){
+//				if(rr.getRoleRightId()==null){
+//					rr.setRoleRightId(roleRightDao.generateSequence("MSTB_ROLE_RIGHT"));
+//				}
+//			}
 			
 			List<RoleRight> roleRightRets = roleRightDao.saveOrUpdateList(roleRightAdds);
 			

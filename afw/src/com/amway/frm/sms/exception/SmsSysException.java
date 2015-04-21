@@ -5,7 +5,7 @@ import com.amway.frm.exception.exception.AmwaySysException;
 
 /**
  * Created by IntelliJ IDEA.
- * @author huangweijin
+ * 
  * Date: 2011-3-18
  * Time: 17:07:16
  * Declare：会议室Exception

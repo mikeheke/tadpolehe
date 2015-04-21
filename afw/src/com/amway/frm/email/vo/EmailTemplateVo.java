@@ -3,7 +3,7 @@ package com.amway.frm.email.vo;
 
 /**
  * Created by IntelliJ IDEA.
- * @author huangweijin
+ * 
  * Date: 2011-3-22
  * Time: 11:50:52
  * VO

@@ -9,6 +9,6 @@ import com.amway.frm.base.dao.IBaseDao;
  * @author mike
  *
  */
-public interface KnowledgeDao extends IBaseDao<Knowledge, Long> {
+public interface KnowledgeDao extends IBaseDao<Knowledge, String> {
 
 }

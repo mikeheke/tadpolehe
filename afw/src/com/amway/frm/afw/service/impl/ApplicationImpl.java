@@ -141,7 +141,7 @@ public class ApplicationImpl extends BaseImpl implements ApplicationService{
 	@Transactional
 	public ReturnMessage<Application> addCom(Application applicationIn) {
 		
-		applicationIn.setApplicationId(applicationDao.generateSequence("MSTB_APPLICATION"));
+		//applicationIn.setApplicationId(applicationDao.generateSequence("MSTB_APPLICATION"));
 		
 		ReturnMessage<Application> returnMessage = super.addCom(applicationIn);
 		
@@ -153,11 +153,11 @@ public class ApplicationImpl extends BaseImpl implements ApplicationService{
 			
 			List<Role> roleList=generateRoles(application);
 			
-			for(Role r : roleList){
-				if(r.getRoleId()==null){
-					r.setRoleId(applicationDao.generateSequence("MSTB_ROLE"));
-				}
-			}
+//			for(Role r : roleList){
+//				if(r.getRoleId()==null){
+//					r.setRoleId(applicationDao.generateSequence("MSTB_ROLE"));
+//				}
+//			}
 		
 			addComList(roleList);
 			
@@ -243,7 +243,7 @@ public class ApplicationImpl extends BaseImpl implements ApplicationService{
 		for(Module module:moduleList){
 			RoleRight rr=new RoleRight();
 			
-			rr.setRoleRightId(applicationDao.generateSequence("MSTB_ROLE_RIGHT"));
+			//rr.setRoleRightId(applicationDao.generateSequence("MSTB_ROLE_RIGHT"));
 			
 			rr.setRoleId(developeRole.getRoleId());
 			
@@ -263,7 +263,7 @@ public class ApplicationImpl extends BaseImpl implements ApplicationService{
 	private List<Module> generateDevlopeModules(Application application) {
 		//root
 		Module moduleRoot = new Module();
-		moduleRoot.setModuleId(applicationDao.generateSequence("MSTB_MODULE"));		
+//		moduleRoot.setModuleId(applicationDao.generateSequence("MSTB_MODULE"));		
 		moduleRoot.setModuleCode(application.getApplicationCode()+"_root");
 		moduleRoot.setModuleName(application.getApplicationName());
 		moduleRoot.setIsModuleOrButton(0);
@@ -281,7 +281,7 @@ public class ApplicationImpl extends BaseImpl implements ApplicationService{
 		
 		//menuroot
 		Module moduleMenuRoot = new Module();
-		moduleMenuRoot.setModuleId(applicationDao.generateSequence("MSTB_MODULE"));		
+//		moduleMenuRoot.setModuleId(applicationDao.generateSequence("MSTB_MODULE"));		
 		moduleMenuRoot.setModuleCode(application.getApplicationCode()+"_menuroot");
 		moduleMenuRoot.setModuleName("应用管理");
 		moduleMenuRoot.setIsModuleOrButton(0);
@@ -298,7 +298,7 @@ public class ApplicationImpl extends BaseImpl implements ApplicationService{
 		
 		//应用设置维护
 		Module moduleApp = new Module();
-		moduleApp.setModuleId(applicationDao.generateSequence("MSTB_MODULE"));		
+//		moduleApp.setModuleId(applicationDao.generateSequence("MSTB_MODULE"));		
 		moduleApp.setModuleCode(application.getApplicationCode()+"_app");
 		moduleApp.setModuleName("应用设置维护");
 		moduleApp.setIsModuleOrButton(0);
@@ -315,7 +315,7 @@ public class ApplicationImpl extends BaseImpl implements ApplicationService{
 		
 		//功能信息维护
 		Module moduleFunction = new Module();
-		moduleFunction.setModuleId(applicationDao.generateSequence("MSTB_MODULE"));		
+//		moduleFunction.setModuleId(applicationDao.generateSequence("MSTB_MODULE"));		
 		moduleFunction.setModuleCode(application.getApplicationCode()+"_module");
 		moduleFunction.setModuleName("功能信息维护");
 		moduleFunction.setIsModuleOrButton(0);
@@ -332,7 +332,7 @@ public class ApplicationImpl extends BaseImpl implements ApplicationService{
 		
 		//角色信息维护
 		Module moduleRole = new Module();
-		moduleRole.setModuleId(applicationDao.generateSequence("MSTB_MODULE"));		
+//		moduleRole.setModuleId(applicationDao.generateSequence("MSTB_MODULE"));		
 		moduleRole.setModuleCode(application.getApplicationCode()+"_role");
 		moduleRole.setModuleName("角色信息维护");
 		moduleRole.setIsModuleOrButton(0);
@@ -349,7 +349,7 @@ public class ApplicationImpl extends BaseImpl implements ApplicationService{
 		
 		//角色分配用户
 		Module moduleRoleUser = new Module();
-		moduleRoleUser.setModuleId(applicationDao.generateSequence("MSTB_MODULE"));		
+//		moduleRoleUser.setModuleId(applicationDao.generateSequence("MSTB_MODULE"));		
 		moduleRoleUser.setModuleCode(application.getApplicationCode()+"_roleuser");
 		moduleRoleUser.setModuleName("角色分配用户");
 		moduleRoleUser.setIsModuleOrButton(0);
@@ -366,7 +366,7 @@ public class ApplicationImpl extends BaseImpl implements ApplicationService{
 		
 		//角色授权维护
 		Module moduleRoleRight = new Module();
-		moduleRoleRight.setModuleId(applicationDao.generateSequence("MSTB_MODULE"));		
+//		moduleRoleRight.setModuleId(applicationDao.generateSequence("MSTB_MODULE"));		
 		moduleRoleRight.setModuleCode(application.getApplicationCode()+"_roleright");
 		moduleRoleRight.setModuleName("角色授权维护");
 		moduleRoleRight.setIsModuleOrButton(0);
@@ -383,7 +383,7 @@ public class ApplicationImpl extends BaseImpl implements ApplicationService{
 		
 		//扩展应用配置
 		Module moduleExtApp = new Module();
-		moduleExtApp.setModuleId(applicationDao.generateSequence("MSTB_MODULE"));		
+//		moduleExtApp.setModuleId(applicationDao.generateSequence("MSTB_MODULE"));		
 		moduleExtApp.setModuleCode(application.getApplicationCode()+"_extapp");
 		moduleExtApp.setModuleName("扩展应用配置");
 		moduleExtApp.setIsModuleOrButton(0);
@@ -400,7 +400,7 @@ public class ApplicationImpl extends BaseImpl implements ApplicationService{
 		
 		//日志配置
 		Module moduleLog = new Module();
-		moduleLog.setModuleId(applicationDao.generateSequence("MSTB_MODULE"));		
+//		moduleLog.setModuleId(applicationDao.generateSequence("MSTB_MODULE"));		
 		moduleLog.setModuleCode(application.getApplicationCode()+"_log");
 		moduleLog.setModuleName("日志配置");
 		moduleLog.setIsModuleOrButton(0);
@@ -417,7 +417,7 @@ public class ApplicationImpl extends BaseImpl implements ApplicationService{
 		
 		//邮件模板配置
 		Module moduleMailTemplate = new Module();
-		moduleMailTemplate.setModuleId(applicationDao.generateSequence("MSTB_MODULE"));		
+//		moduleMailTemplate.setModuleId(applicationDao.generateSequence("MSTB_MODULE"));		
 		moduleMailTemplate.setModuleCode(application.getApplicationCode()+"_mailtemplate");
 		moduleMailTemplate.setModuleName("邮件模板配置");
 		moduleMailTemplate.setIsModuleOrButton(0);
@@ -434,7 +434,7 @@ public class ApplicationImpl extends BaseImpl implements ApplicationService{
 		
 		//短信模板配置
 		Module moduleShortMessageTemplate = new Module();
-		moduleShortMessageTemplate.setModuleId(applicationDao.generateSequence("MSTB_MODULE"));		
+//		moduleShortMessageTemplate.setModuleId(applicationDao.generateSequence("MSTB_MODULE"));		
 		moduleShortMessageTemplate.setModuleCode(application.getApplicationCode()+"_shortmessage");
 		moduleShortMessageTemplate.setModuleName("短信模板配置");
 		moduleShortMessageTemplate.setIsModuleOrButton(0);
@@ -451,7 +451,7 @@ public class ApplicationImpl extends BaseImpl implements ApplicationService{
 		
 		//通用查询
 		Module moduleCommonQuery = new Module();
-		moduleCommonQuery.setModuleId(applicationDao.generateSequence("MSTB_MODULE"));		
+//		moduleCommonQuery.setModuleId(applicationDao.generateSequence("MSTB_MODULE"));		
 		moduleCommonQuery.setModuleCode(application.getApplicationCode()+"_commonquery");
 		moduleCommonQuery.setModuleName("通用查询");
 		moduleCommonQuery.setIsModuleOrButton(0);
@@ -468,7 +468,7 @@ public class ApplicationImpl extends BaseImpl implements ApplicationService{
 		
 		//基础数据服务
 		Module moduleBDS = new Module();
-		moduleBDS.setModuleId(applicationDao.generateSequence("MSTB_MODULE"));		
+//		moduleBDS.setModuleId(applicationDao.generateSequence("MSTB_MODULE"));		
 		moduleBDS.setModuleCode(application.getApplicationCode()+"_bds");
 		moduleBDS.setModuleName("基础数据服务");
 		moduleBDS.setIsModuleOrButton(0);
@@ -485,7 +485,7 @@ public class ApplicationImpl extends BaseImpl implements ApplicationService{
 		
 		//操作日志查询
 		Module moduleOpLog = new Module();
-		moduleOpLog.setModuleId(applicationDao.generateSequence("MSTB_MODULE"));		
+//		moduleOpLog.setModuleId(applicationDao.generateSequence("MSTB_MODULE"));		
 		moduleOpLog.setModuleCode(application.getApplicationCode()+"_oplog");
 		moduleOpLog.setModuleName("操作日志查询");
 		moduleOpLog.setIsModuleOrButton(0);
@@ -502,7 +502,7 @@ public class ApplicationImpl extends BaseImpl implements ApplicationService{
 		
 		//定时报表配置
 		Module moduleTimeReport = new Module();
-		moduleTimeReport.setModuleId(applicationDao.generateSequence("MSTB_MODULE"));		
+//		moduleTimeReport.setModuleId(applicationDao.generateSequence("MSTB_MODULE"));		
 		moduleTimeReport.setModuleCode(application.getApplicationCode()+"_timereport");
 		moduleTimeReport.setModuleName("定时报表配置");
 		moduleTimeReport.setIsModuleOrButton(0);
@@ -519,7 +519,7 @@ public class ApplicationImpl extends BaseImpl implements ApplicationService{
 		
 		//定时任务配置
 		Module moduleTimeTask = new Module();
-		moduleTimeTask.setModuleId(applicationDao.generateSequence("MSTB_MODULE"));		
+//		moduleTimeTask.setModuleId(applicationDao.generateSequence("MSTB_MODULE"));		
 		moduleTimeTask.setModuleCode(application.getApplicationCode()+"_timetask");
 		moduleTimeTask.setModuleName("定时任务配置");
 		moduleTimeTask.setIsModuleOrButton(0);
@@ -567,7 +567,7 @@ public class ApplicationImpl extends BaseImpl implements ApplicationService{
 	private void setEmpNumber(Application application) {
 		if (application.getFaultHandlerEmpNumber() != null) {
 			UserProfile userProfile = new UserProfile();
-			userProfile.setUserProfileId(DataConverter.stringToLong(application.getFaultHandlerEmpNumber()));
+			userProfile.setUserProfileId((application.getFaultHandlerEmpNumber()));
 			userProfile = (UserProfile) querySingle(userProfile);
 			application.setEmpNumber(userProfile.getEmpNumber());
 		}

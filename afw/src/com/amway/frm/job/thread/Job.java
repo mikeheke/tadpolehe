@@ -16,7 +16,7 @@ import com.amway.frm.job.exception.JobSysException;
 import com.amway.frm.job.util.JobConstant;
 
 /**
- * @author huangweijin
+ * 
  *
  * 2011-9-28 上午10:22:24
  */

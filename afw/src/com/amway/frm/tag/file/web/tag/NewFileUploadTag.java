@@ -110,7 +110,7 @@ public class NewFileUploadTag extends ComponentTagSupport {
 //		
 //		TagFileUpload fileUpload = new TagFileUpload();
 //		if(DataValidater.isStrLong(appCode)){
-//			fileUpload.setApplicationId(DataConverter.stringToLong(appCode));
+//			fileUpload.setApplicationId((appCode));
 //		}
 //		//if(DataValidater.isStrLong(moduleCode)){
 //			fileUpload.setModuleId(moduleCode);
@@ -127,7 +127,7 @@ public class NewFileUploadTag extends ComponentTagSupport {
 		
 		NewFileUploadTagEntity fileUpload = new NewFileUploadTagEntity();
 		if(DataValidater.isStrLong(appCode)){
-			fileUpload.setApplicationId(DataConverter.stringToLong(appCode));
+			fileUpload.setApplicationId((appCode));
 		}
 		//if(DataValidater.isStrLong(moduleCode)){
 			fileUpload.setModuleId(moduleCode);

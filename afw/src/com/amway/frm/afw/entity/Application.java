@@ -7,13 +7,13 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
+
+import org.hibernate.annotations.GenericGenerator;
 
 import com.amway.frm.afw.util.AfwConstant;
 import com.amway.frm.base.util.AppConstant;
@@ -25,7 +25,7 @@ import com.amway.frm.base.vo.UniqueKey;
 
 /**
  * 应用系统信息表Entity
- * @author huangweijin
+ * 
  */
 @Entity(name="Application")
 @Table(name="MSTB_APPLICATION", schema=AppConstant.APP_DEAULT_SCHEMA)
@@ -35,8 +35,10 @@ public class Application implements Serializable, Comparable<Application>{
 
 	//自动生成ID
 	@Id
+	@GenericGenerator(name="systemUUID",strategy="uuid")
+	@GeneratedValue(generator="systemUUID")
 	@Column(name = "APPLICATION_ID")
-    private Long applicationId;
+    private String applicationId;
 
 	//应用编码
     @Column(name="APPLICATION_CODE")
@@ -164,20 +166,20 @@ public class Application implements Serializable, Comparable<Application>{
 	
 	public Application(){}
 	
-	public Application(String applicationCode){
-		this.applicationCode = applicationCode;
-	}
-	
-	public Application(Long applicationId){
-		this.applicationId = applicationId;
-	}
+//	public Application(String applicationCode){
+//		this.applicationCode = applicationCode;
+//	}
+//	
+//	public Application(String applicationId){
+//		this.applicationId = applicationId;
+//	}
 	
 	//get、set 方法......
-	public Long getApplicationId() {
+	public String getApplicationId() {
 		return applicationId;
 	}
 
-	public void setApplicationId(Long applicationId) {
+	public void setApplicationId(String applicationId) {
 		this.applicationId = applicationId;
 	}
 

@@ -18,7 +18,7 @@ import com.amway.frm.bds.vo.BdsXmlStructureVo;
 
 /**
  * 编辑xml数据结构属性Action
- * @author huangweijin
+ * 
  */
 public class BdsXmlStructureAction extends BdsSchemaInforAction {
 

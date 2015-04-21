@@ -2,7 +2,7 @@ package com.amway.frm.sms.entity;
 
 /**
  * Created by IntelliJ IDEA.
- * @author huangweijin
+ * 
  * Date: 2011-3-23
  * Time: 14:17:46
  * Declare：短信信息VO

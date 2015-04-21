@@ -6,7 +6,7 @@ import com.amway.frm.base.service.BaseService;
 import com.amway.frm.base.vo.ReturnMessage;
 
 /**
- * @author huangweijin
+ * 
  * Date: 2011-3-22
  * Time: 10:47:54
  * Declare：角色服务接口

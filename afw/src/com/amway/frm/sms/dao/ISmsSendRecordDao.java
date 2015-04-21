@@ -7,7 +7,7 @@ import com.amway.frm.sms.entity.SmsBasicPara;
 
 /**
  * Created by IntelliJ IDEA.
- * @author huangweijin
+ * 
  * Date: 2011-3-22
  * Time: 11:00:43
  * Declare：短信表对应的DAO，适用于操作短信表，包括SELECT,CREATE,UPDATE,DELETE各种操作

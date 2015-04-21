@@ -16,7 +16,7 @@ import com.amway.frm.base.util.AppConstant;
  * @author lenovo
  *
  */
-public class ModuleDao extends BaseDao<Module,Long> implements IModuleDao{
+public class ModuleDao extends BaseDao<Module,String> implements IModuleDao{
 
 	/* (non-Javadoc)
 	 * @see com.amway.frm.afw.dao.IRoleRightDao#getRightsByRole(com.amway.frm.afw.entity.Role)

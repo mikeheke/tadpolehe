@@ -11,7 +11,7 @@ import com.amway.frm.exception.exception.AmwaySysException;
 
 /**
  * Created by IntelliJ IDEA.
- * @author huangweijin
+ * 
  * Date: 2011-4-20
  * Time: 11:17:43
  * Declare:部门信息SERVICE
@@ -43,7 +43,7 @@ public class DepartmentImpl extends BaseImpl<Department> implements DepartmentSe
      * @param departmentId 部门id
      * @return Department
      */
-    public Department getEntityById(long departmentId) {
+    public Department getEntityById(String departmentId) {
         try {
             return departmentDao.getEntityById(departmentId);
         } catch (SQLException e) {

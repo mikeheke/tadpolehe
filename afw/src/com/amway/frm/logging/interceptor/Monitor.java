@@ -11,7 +11,7 @@ import java.lang.annotation.Target;
 import com.amway.frm.logging.util.LogConstant;
 
 /**
- * @author huangweijin
+ * 
  *
  * 2011-5-14 上午09:39:49
  */

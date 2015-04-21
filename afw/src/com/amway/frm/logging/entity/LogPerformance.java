@@ -9,13 +9,13 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import org.hibernate.annotations.GenericGenerator;
 
 import com.amway.frm.afw.entity.Application;
 import com.amway.frm.afw.entity.Module;
@@ -23,7 +23,7 @@ import com.amway.frm.base.util.AppConstant;
 
 /**
  * Created by MyElipse
- * @author huangweijin
+ * 
  * Date: 2011-3-22
  * Time: 10:47:54
  * Declare：性能日志
@@ -39,11 +39,10 @@ public class LogPerformance implements Serializable {
 
 	//主键
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="HSSQ_LOG_PERFORMANCE_OR")
-	@SequenceGenerator(name="HSSQ_LOG_PERFORMANCE_OR", sequenceName="HSSQ_LOG_PERFORMANCE", 
-			initialValue=1, allocationSize=1)
+	@GenericGenerator(name="systemUUID",strategy="uuid")
+	@GeneratedValue(generator="systemUUID")
 	@Column(name="LOG_PERFORMANCE_ID")
-	private Long logPerformanceId;
+	private String logPerformanceId;
 	
 	@Column(name="JOB_NAME")
 	private String jobName;
@@ -88,11 +87,11 @@ public class LogPerformance implements Serializable {
 	@Column(name="CREATED_USER_ID")
 	private String createdUserId;
 
-	public Long getLogPerformanceId() {
+	public String getLogPerformanceId() {
 		return logPerformanceId;
 	}
 
-	public void setLogPerformanceId(Long logPerformanceId) {
+	public void setLogPerformanceId(String logPerformanceId) {
 		this.logPerformanceId = logPerformanceId;
 	}
 

@@ -9,14 +9,14 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
+
+import org.hibernate.annotations.GenericGenerator;
 
 import com.amway.frm.base.util.AppConstant;
 import com.amway.frm.base.util.DataValidater;
@@ -24,7 +24,7 @@ import com.amway.frm.query.util.QueryConstant;
 
 /**
  * Created by MyElipse
- * @author huangweijin
+ * 
  * Date: 2011-3-22
  * Time: 10:47:54
  * Declare：选择
@@ -40,8 +40,10 @@ public class Select implements Serializable, Comparable<Select> {
 
 	//主键
 	@Id
+	@GenericGenerator(name="systemUUID",strategy="uuid")
+	@GeneratedValue(generator="systemUUID")
 	@Column(name="SELECT_ID")
-	private Long selectId;
+	private String selectId;
 	
 	//查询ID
 	@ManyToOne()
@@ -129,11 +131,11 @@ public class Select implements Serializable, Comparable<Select> {
 	@Transient
 	private String oprtFlag = QueryConstant.QRY_OPRT;
 	
-	public Long getSelectId() {
+	public String getSelectId() {
 		return selectId;
 	}
 
-	public void setSelectId(Long selectId) {
+	public void setSelectId(String selectId) {
 		this.selectId = selectId;
 	}
 

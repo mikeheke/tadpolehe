@@ -22,7 +22,7 @@ import com.opensymphony.xwork2.util.ValueStack;
 
 /**
  * 下拉标签
- * @author huangweijin
+ * 
  *
  * 2011-2-18 下午02:48:01
  */

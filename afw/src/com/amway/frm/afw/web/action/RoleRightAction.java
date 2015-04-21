@@ -23,7 +23,7 @@ import com.amway.frm.logging.util.LogFactory;
 
 /**
  * Created by MyElipse
- * @author huangweijin
+ * 
  * Date: 2011-3-22
  * Time: 10:47:54
  * Declare：角色权限Action
@@ -47,8 +47,9 @@ public class RoleRightAction extends BaseAction{
 	public String init() {
 		Application application = (Application) ServletActionContext.getRequest().getSession()
 				.getAttribute(AppConstant.APPLICATION_NAME);
-		Long appid=application.getApplicationId();
-		if(appid==1){
+		String appid=application.getApplicationId();
+		//if(appid==1){
+		if("1".equals(appid)){
 			this.setRoleRightVo(null);
 		}
 		else{
@@ -154,7 +155,7 @@ public class RoleRightAction extends BaseAction{
 			return new ArrayList<Role>();
 		}
 		Application application = new Application();
-		application.setApplicationId(DataConverter.stringToLong(applicationIdStr));
+		application.setApplicationId((applicationIdStr));
 		List<Role> roles = roleService.getRoleList(application).getReturnObjects();
 		
 		return roles;
@@ -165,7 +166,7 @@ public class RoleRightAction extends BaseAction{
 	protected Role getEntity(String roleId) {
 		
 		Role role = new Role();
-		role.setRoleId(DataConverter.stringToLong(roleId));
+		role.setRoleId((roleId));
 		
 		return role;
 	}
@@ -177,7 +178,7 @@ public class RoleRightAction extends BaseAction{
 		if (moduleIds != null) {
 			for (String moduleId : moduleIds) {
 				Module module = new Module();
-				module.setModuleId(DataConverter.stringToLong(moduleId));
+				module.setModuleId((moduleId));
 				modules.add(module);
 			}
 		}

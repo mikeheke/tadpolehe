@@ -17,7 +17,7 @@ import com.amway.frm.base.vo.ReturnMessage;
 import com.amway.frm.base.web.action.BaseAction;
 
 /**
- *  @author huangweijin
+ *  
  */
 public class ApplicationPlusAction extends BaseAction{
 	
@@ -47,7 +47,7 @@ public class ApplicationPlusAction extends BaseAction{
 		
 		ReturnMessage<ApplicationPlus> returnMessage = null;
 		
-		ApplicationPlus applicationPlus = this.getEntity(applicationIds[0]);
+		ApplicationPlus applicationPlus = this.getEntityByApplicationId(applicationIds[0]);
 		
 		returnMessage = new ReturnMessage<ApplicationPlus>();
 		returnMessage.setReturnObject(applicationPlus);
@@ -72,8 +72,8 @@ public class ApplicationPlusAction extends BaseAction{
 			return INIT_MODIFY_INPUT;
 		}
 		
-		Long applicationPlusId = DataConverter.stringToLong(applicationPlusVo.getApplicationPlusIds()[0]);
-		ApplicationPlus applicationPlus = getEntity(applicationPlusId);
+		String applicationPlusId = (applicationPlusVo.getApplicationPlusIds()[0]);
+		ApplicationPlus applicationPlus = getEntityByApplicationPlusId(applicationPlusId);
 		ReturnMessage<ApplicationPlus> returnMessage = null;
 		returnMessage = applicationPlusService.query(applicationPlus);
 		
@@ -97,7 +97,7 @@ public class ApplicationPlusAction extends BaseAction{
 		}
 		returnMessage = applicationPlusService.addCom(applicationPlus);
 		if(returnMessage.isSuccess()){
-			returnMessage.repReturnObject(getEntity(applicationVo.getApplicationId()));
+			returnMessage.repReturnObject(this.getEntityByApplicationId(applicationVo.getApplicationId()));
 		}
 		result = setReturnMessage(returnMessage, ADD_SUCCESS, ADD_INPUT);
 		
@@ -150,9 +150,9 @@ public class ApplicationPlusAction extends BaseAction{
 	protected ApplicationPlus getEntity() {
 		
 		ApplicationPlus applicationPlus = new ApplicationPlus();
-		applicationPlus.setApplicationPlusId(DataConverter.stringToLong(applicationPlusVo.getApplicationPlusId()));
+		applicationPlus.setApplicationPlusId((applicationPlusVo.getApplicationPlusId()));
 		Application application = new Application();
-		application.setApplicationId(DataConverter.stringToLong(applicationVo.getApplicationId()));
+		application.setApplicationId((applicationVo.getApplicationId()));
 		applicationPlus.setApplication(application);
 		applicationPlus.setParameterCode(applicationPlusVo.getParameterCode());
 		applicationPlus.setParameterName(applicationPlusVo.getParameterName());
@@ -174,26 +174,26 @@ public class ApplicationPlusAction extends BaseAction{
 		
 		for(String applicationPlusId: applicationPlusIds){
 			ApplicationPlus applicationPlus = new ApplicationPlus();
-			applicationPlus.setApplicationPlusId(DataConverter.stringToLong(applicationPlusId));
+			applicationPlus.setApplicationPlusId((applicationPlusId));
 			applicationPluss.add(applicationPlus);
 		}
 		
 		return applicationPluss;
 	}
 	
-	@Override
-	protected ApplicationPlus getEntity(String applicationId) {
+	//@Override
+	protected ApplicationPlus getEntityByApplicationId(String applicationId) {
 		
 		ApplicationPlus applicationPlus = new ApplicationPlus();
 		Application application = new Application();
-		application.setApplicationId(DataConverter.stringToLong(applicationId));
+		application.setApplicationId((applicationId));
 		application = (Application) applicationPlusService.querySingle(application);
 		applicationPlus.setApplication(application);
 		
 		return applicationPlus;
 	}
 	
-	protected ApplicationPlus getEntity(Long applicationPlusId) {
+	protected ApplicationPlus getEntityByApplicationPlusId(String applicationPlusId) {
 		
 		ApplicationPlus applicationPlus = new ApplicationPlus();
 		applicationPlus.setApplicationPlusId(applicationPlusId);

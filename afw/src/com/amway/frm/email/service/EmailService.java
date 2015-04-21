@@ -8,7 +8,7 @@ import com.amway.frm.email.entity.EmailBasicPara;
 
 /**
  * Created by IntelliJ IDEA.
- * @author huangweijin
+ * 
  * Date: 2011-3-17
  * Time: 18:31:31
  * To change this template use File | Settings | File Templates.

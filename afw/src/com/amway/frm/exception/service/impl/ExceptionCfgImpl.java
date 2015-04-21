@@ -16,7 +16,7 @@ import com.amway.frm.exception.service.ExceptionCfgService;
 import com.amway.frm.exception.vo.ExceptionCfgVo;
 
 /**
- * @author huangweijin
+ * 
  *
  * 2011-4-14 下午06:36:30
  */
@@ -38,7 +38,7 @@ public class ExceptionCfgImpl extends BaseImpl implements ExceptionCfgService {
 			return;
 		}
 		UserProfile userProfile = new UserProfile();
-		userProfile.setUserProfileId(DataConverter.stringToLong(userNo));
+		userProfile.setUserProfileId((userNo));
 		UserProfile userProfileRet = (UserProfile) querySingle(userProfile);
 		if(null == userProfileRet){
 			return;

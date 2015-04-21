@@ -12,7 +12,7 @@ import org.extremecomponents.table.limit.Limit;
 import com.amway.frm.query.entity.Query;
 
 /**
- * @author huangweijin
+ * 
  *
  * 2011-6-15 下午03:42:14
  */

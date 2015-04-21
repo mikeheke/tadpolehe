@@ -19,7 +19,7 @@ import com.amway.frm.logging.util.LogFactory;
 
 /**
  * 角色用户Action
- * @author huangweijin
+ * 
  *
  * 2011-5-5 下午04:17:39
  */
@@ -110,7 +110,7 @@ public class RoleUserAction extends BaseAction {
 	protected Role getEntity(String roleId) {
 		
 		Role role = new Role();
-		role.setRoleId(DataConverter.stringToLong(roleId));
+		role.setRoleId((roleId));
 		
 		return role;
 	}
@@ -119,8 +119,8 @@ public class RoleUserAction extends BaseAction {
 	protected RoleUser getEntity() {
 		
 		RoleUser roleUser = new RoleUser();
-		roleUser.setRoleId(DataConverter.stringToLong(roleUserVo.getRoleId()));
-		roleUser.setUserProfileId(DataConverter.stringToLong(roleUserVo.getUserProfileId()[1]));
+		roleUser.setRoleId((roleUserVo.getRoleId()));
+		roleUser.setUserProfileId((roleUserVo.getUserProfileId()[1]));
 		roleUser.setDisplayName(roleUserVo.getUserProfileId()[0]);
 		roleUser.setIsLocalRight(LOCAL_ROLE_USER);
 		return roleUser;
@@ -132,7 +132,7 @@ public class RoleUserAction extends BaseAction {
 		List<RoleUser> roleUsers = new ArrayList<RoleUser>();
 		for(String roleUserId: roleUserIds){
 			RoleUser roleUser = new RoleUser();
-			roleUser.setRoleUserId(DataConverter.stringToLong(roleUserId));
+			roleUser.setRoleUserId((roleUserId));
 			roleUsers.add(roleUser);
 		}
 		

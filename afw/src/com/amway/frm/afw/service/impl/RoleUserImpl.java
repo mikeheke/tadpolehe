@@ -129,7 +129,7 @@ public class RoleUserImpl extends BaseImpl implements RoleUserService {
 //		Map<String, UserProfile> userProfileMap = getAllUserProfiles();
 		
 		for(Object userCodeObj: userCodes){
-			Long userPorfileId = roleUserDao.findUserProfileIdByEmpNumber((String) userCodeObj);
+			String userPorfileId = roleUserDao.findUserProfileIdByEmpNumber((String) userCodeObj);
 			if(null == userPorfileId){
 				continue;
 			}

@@ -8,6 +8,6 @@ import com.amway.frm.base.dao.IBaseDao;
  * @author Feng Hanhao
  * Created date: 2011-5-30
  */
-public interface IApplicationPlusDao extends IBaseDao<ApplicationPlus, Long> {
+public interface IApplicationPlusDao extends IBaseDao<ApplicationPlus, String> {
 
 }

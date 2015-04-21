@@ -8,7 +8,7 @@ import com.amway.frm.query.entity.Query;
 import com.amway.frm.query.util.QueryConstant;
 
 /**
- * @author huangweijin
+ * 
  *
  * 2011-5-22 下午01:51:00
  * 

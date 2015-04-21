@@ -13,7 +13,7 @@ import com.amway.frm.base.dao.IBaseDao;
  * Time: 11:11:33
  * Declare: 配置导入 导出
  */
-public interface IExportConfigDao  extends IBaseDao<Object, Long> {
+public interface IExportConfigDao  extends IBaseDao<Object, String> {
 
 	/**
      * Declare：根据表名获得列信息

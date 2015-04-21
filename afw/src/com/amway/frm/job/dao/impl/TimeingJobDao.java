@@ -12,11 +12,11 @@ import com.amway.frm.job.dao.ITimeingJobDao;
 import com.amway.frm.job.entity.TimeingJob;
 
 /**
- * @author huangweijin
+ * 
  *
  * 2011-9-27 下午04:54:30
  */
-public class TimeingJobDao extends BaseDao<TimeingJob, Long> implements
+public class TimeingJobDao extends BaseDao<TimeingJob, String> implements
 		ITimeingJobDao {
 
 	/* (non-Javadoc)

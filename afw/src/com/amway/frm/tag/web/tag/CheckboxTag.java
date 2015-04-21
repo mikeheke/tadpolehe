@@ -9,7 +9,7 @@ import com.amway.frm.tag.util.TagConstant;
 /**
  * 复选框标签
  * 
- * @author huangweijin
+ * 
  */
 public class CheckboxTag extends RadioTag {
 

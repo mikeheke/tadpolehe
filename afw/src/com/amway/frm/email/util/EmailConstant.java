@@ -4,7 +4,7 @@ import com.amway.frm.base.util.AppConstant;
 
 /**
  * Created by IntelliJ IDEA.
- * @author huangweijin
+ * 
  * Date: 2011-3-28
  * Time: 16:01:52
  * To change this template use File | Settings | File Templates.

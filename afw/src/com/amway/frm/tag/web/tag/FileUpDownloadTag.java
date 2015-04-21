@@ -19,7 +19,7 @@ import com.opensymphony.xwork2.util.ValueStack;
 
 /**
  * 文件上传标签
- * @author huangweijin
+ * 
  */
 public class FileUpDownloadTag extends ComponentTagSupport {
 
@@ -83,7 +83,7 @@ public class FileUpDownloadTag extends ComponentTagSupport {
 		
 		TagFileUpload fileUpload = new TagFileUpload();
 		if(DataValidater.isStrLong(appCode)){
-			fileUpload.setApplicationId(DataConverter.stringToLong(appCode));
+			fileUpload.setApplicationId((appCode));
 		}
 		//if(DataValidater.isStrLong(moduleCode)){
 			fileUpload.setModuleId(moduleCode);

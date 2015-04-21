@@ -6,7 +6,7 @@ package com.amway.frm.tag.filter.impl;
 import com.amway.frm.tag.filter.TagDataFilter;
 
 /**
- * @author huangweijin
+ * 
  *
  * 2011-10-26 上午10:03:56
  */

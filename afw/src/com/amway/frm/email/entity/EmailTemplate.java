@@ -6,21 +6,21 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import org.hibernate.annotations.GenericGenerator;
 
 import com.amway.frm.afw.entity.Application;
 import com.amway.frm.base.util.AppConstant;
 
 /**
  * Created by IntelliJ IDEA.
- * @author huangweijin
+ * 
  * Date: 2011-4-12
  * Time: 11:10:03
  * Declare:
@@ -39,10 +39,9 @@ public class EmailTemplate implements Serializable{
 	//自动生成ID
 	@Column(name = "EMAIL_TEMPLATES_ID")
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "MSSQ_EMAIL_TEMPLATES_OR")
-    @SequenceGenerator(name = "MSSQ_EMAIL_TEMPLATES_OR", sequenceName = "MSSQ_EMAIL_TEMPLATES",
-            initialValue = 1, allocationSize = 1)
-    private Long emailTemplateId;
+	@GenericGenerator(name="systemUUID",strategy="uuid")
+	@GeneratedValue(generator="systemUUID")
+    private String emailTemplateId;
 
 	@Column(name = "TEMPLATES_CODE", unique=true)
     private String templateCode;
@@ -89,11 +88,11 @@ public class EmailTemplate implements Serializable{
 	@JoinColumn(name = "APPLICATION_ID")
     private Application application;
 
-	public Long getEmailTemplateId() {
+	public String getEmailTemplateId() {
 		return emailTemplateId;
 	}
 
-	public void setEmailTemplateId(Long emailTemplateId) {
+	public void setEmailTemplateId(String emailTemplateId) {
 		this.emailTemplateId = emailTemplateId;
 	}
 

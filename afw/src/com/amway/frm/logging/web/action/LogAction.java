@@ -13,7 +13,7 @@ import com.amway.frm.logging.util.LogConstant;
 import com.amway.frm.logging.vo.LogVo;
 
 /**
- * @author huangweijin
+ * 
  *
  * 2011-4-15 上午10:20:18
  */
@@ -73,7 +73,7 @@ public class LogAction extends BaseAction {
 		Application application = new Application();
 		String applicationId = logVo.getApplicationId();
 		if(DataValidater.isStrLong(applicationId)){
-			application.setApplicationId(DataConverter.stringToLong(applicationId));
+			application.setApplicationId((applicationId));
 		}
 		return application;
 	}

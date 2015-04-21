@@ -6,19 +6,19 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import org.hibernate.annotations.GenericGenerator;
 
 import com.amway.frm.base.util.AppConstant;
 import com.amway.frm.base.vo.UniqueKey;
 
 /**
  * Created by MyElipse
- * @author huangweijin
+ * 
  * Date: 2011-3-22
  * Time: 10:47:54
  * Declare：角色权限
@@ -34,18 +34,20 @@ public class RoleRight implements Serializable{
 
 	//ID
 	@Id
+	@GenericGenerator(name="systemUUID",strategy="uuid")
+	@GeneratedValue(generator="systemUUID")
 	@Column(name="ROLE_RIGHT_ID")
-	private Long roleRightId;
+	private String roleRightId;
 	
 	//角色ID
 	@Column(name="ROLE_ID")
 	@UniqueKey
-	private Long roleId;
+	private String roleId;
 	
 	//模块ID
 	@Column(name="MODULE_ID")
 	@UniqueKey
-	private Long moduleId;
+	private String moduleId;
 	
 	//流程控制标志
 	@Column(name="WORK_FLOW_TYPE")
@@ -69,27 +71,27 @@ public class RoleRight implements Serializable{
 	@Column(name="CREATED_USER_ID")
 	private String createdUserId;
 
-	public Long getRoleRightId() {
+	public String getRoleRightId() {
 		return roleRightId;
 	}
 
-	public void setRoleRightId(Long roleRightId) {
+	public void setRoleRightId(String roleRightId) {
 		this.roleRightId = roleRightId;
 	}
 
-	public Long getRoleId() {
+	public String getRoleId() {
 		return roleId;
 	}
 
-	public void setRoleId(Long roleId) {
+	public void setRoleId(String roleId) {
 		this.roleId = roleId;
 	}
 
-	public Long getModuleId() {
+	public String getModuleId() {
 		return moduleId;
 	}
 
-	public void setModuleId(Long moduleId) {
+	public void setModuleId(String moduleId) {
 		this.moduleId = moduleId;
 	}
 

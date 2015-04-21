@@ -4,7 +4,7 @@ import com.amway.frm.base.util.AppConstant;
 
 /**
  * 基础数据服务应用恒量
- * @author huangweijin
+ * 
  */
 public interface TagConstant extends AppConstant{
 	//selectTag 下拉标签<option></option>第一项的默认value值

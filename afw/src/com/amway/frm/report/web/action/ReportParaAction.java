@@ -19,7 +19,7 @@ import com.amway.frm.report.vo.ReportParaVo;
 
 
 /**
- * @author huangweijin
+ * 
  *
  * 2011-9-7 下午03:25:51
  */
@@ -178,7 +178,7 @@ public class ReportParaAction extends BaseAction {
 	protected ReportPara getEntity() {
 		
 		ReportPara reportPara = new ReportPara();
-		reportPara.setReportParaId(DataConverter.stringToLong(reportParaVo.getReportParaId()));
+		reportPara.setReportParaId((reportParaVo.getReportParaId()));
 		reportPara.setDataCoding(reportParaVo.getDataCoding());
 		reportPara.setDataType(reportParaVo.getDataType());
 		reportPara.setParaDisplayName(reportParaVo.getParaDisplayName());
@@ -186,7 +186,7 @@ public class ReportParaAction extends BaseAction {
 		reportPara.setParaName(reportParaVo.getParaName());
 		reportPara.setParaOrder(reportParaVo.getParaOrder());
 		ReportInfo reportInfo = new ReportInfo();
-		reportInfo.setReportInfoId(DataConverter.stringToLong(reportParaVo.getReportInfoId()));
+		reportInfo.setReportInfoId((reportParaVo.getReportInfoId()));
 		reportPara.setReportInfo(reportInfo);
 		reportPara.setRemark(reportParaVo.getRemark());
 		reportPara.setCreatedTime(new Date());
@@ -201,7 +201,7 @@ public class ReportParaAction extends BaseAction {
 	protected ReportPara getEntity(String id) {
 		
 		ReportPara reportPara = new ReportPara();
-		reportPara.setReportParaId(DataConverter.stringToLong(id));
+		reportPara.setReportParaId((id));
 		
 		return reportPara;
 	}
@@ -209,7 +209,7 @@ public class ReportParaAction extends BaseAction {
 	protected ReportInfo getEntity(Long id) {
 		
 		ReportInfo reportInfo = new ReportInfo();
-		reportInfo.setReportInfoId(id);
+		reportInfo.setReportInfoId(id.toString());
 		reportInfo = (ReportInfo) reportParaService.querySingle(reportInfo);
 		
 		return reportInfo;

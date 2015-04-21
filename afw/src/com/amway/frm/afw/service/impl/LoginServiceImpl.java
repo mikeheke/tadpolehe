@@ -30,7 +30,7 @@ import com.amway.frm.exception.exception.AmwayBizException;
 
 /**
  * 登录验证实现类
- * @author huangweijin
+ * 
  * 
  */
 class LoginServiceImpl extends BaseImpl implements LoginService {
@@ -133,7 +133,7 @@ class LoginServiceImpl extends BaseImpl implements LoginService {
 				if(suc != null && ((Integer)suc).intValue() == IAuthenticator.AUTHEN_SUCESS){
 					
 					UserProfile uf = new UserProfile();
-					uf.setUserProfileId(Long.valueOf(application.getMatchInnerUser()));
+					uf.setUserProfileId(application.getMatchInnerUser());
 					userProfile = userProfileService.getUniqueUserProfile(uf);
 					
 					if(userProfile != null){

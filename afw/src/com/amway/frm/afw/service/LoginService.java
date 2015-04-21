@@ -9,7 +9,7 @@ import com.amway.frm.base.vo.ReturnMessage;
 
 /**
  * 登录验证接口类
- * @author huangweijin
+ * 
  */
 
 public interface LoginService extends BaseService {

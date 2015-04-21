@@ -17,7 +17,7 @@ import com.amway.frm.query.vo.GroupByVo;
 
 /**
  * Created by MyElipse
- * @author huangweijin
+ * 
  * Date: 2011-3-22
  * Time: 10:47:54
  * Declare：分组Action类
@@ -54,7 +54,7 @@ public class GroupByAction extends ConfigAction {
 		}
 		
 		GroupBy groupBy = this.getEntity();
-		groupBy.setGroupById(System.currentTimeMillis());
+		groupBy.setGroupById(System.currentTimeMillis()+"");
 		groupBy.setOprtFlag(QueryConstant.ADD_OPRT);		//增加操作
 		
 		if(validateAddRepeat(groupBy)){
@@ -93,7 +93,7 @@ public class GroupByAction extends ConfigAction {
 			String[] groupByIdArr = groupById.split(QueryConstant.OPRT_SEP);
 			
 			GroupBy groupBy = new GroupBy();
-			groupBy.setGroupById(DataConverter.stringToLong(groupByIdArr[0]));
+			groupBy.setGroupById((groupByIdArr[0]));
 			groupBy.setOprtFlag(groupByIdArr[1]);
 			query.getGroupBys().remove(groupBy);
 			if(!QueryConstant.ADD_OPRT.equals(groupBy.getOprtFlag())){
@@ -131,7 +131,7 @@ public class GroupByAction extends ConfigAction {
 		
 		String[] groupByIdArr = groupByIds[0].split(QueryConstant.OPRT_SEP);
 		GroupBy groupBy = this.getEntity();
-		groupBy.setGroupById(DataConverter.stringToLong(groupByIdArr[0]));
+		groupBy.setGroupById((groupByIdArr[0]));
 		groupBy.setOprtFlag(groupByIdArr[1]);
 		
 		if(validateMdfRepeat(groupBy)){

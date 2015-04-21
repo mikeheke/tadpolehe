@@ -28,7 +28,7 @@ import com.amway.frm.bds.vo.BdsXmlStructureVo;
 
 /**
  * xml数据结构service实现类
- * @author huangweijin
+ * 
  * 
  */
 public class BdsXmlStructureImpl extends BaseImpl implements

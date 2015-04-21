@@ -30,7 +30,7 @@ import com.opensymphony.xwork2.util.ValueStack;
 /**
  * 权限按钮标签
  * 
- * @author huangweijin
+ * 
  *
  * 2011-5-11 下午02:44:18
  */
@@ -209,10 +209,10 @@ public class RoleRightTreeTag extends ComponentTagSupport {
 	private void appendTopNode(List<Module> modules){
 		
 		Module topNode = new Module();
-		topNode.setModuleId(DataConverter.stringToLong(RIHGT_ROOT));
+		topNode.setModuleId((RIHGT_ROOT));
 		topNode.setModuleCode(RIHGT_ROOT);
 		Module topPNode = new Module();
-		topPNode.setModuleId(DataConverter.stringToLong(RIHGT_ROOT_P));
+		topPNode.setModuleId((RIHGT_ROOT_P));
 		topPNode.setModuleCode(RIHGT_ROOT_P);
 		topNode.setParentModule(topPNode);
 		topNode.setModuleName(RIHGT_ROOT_N);
@@ -251,7 +251,7 @@ public class RoleRightTreeTag extends ComponentTagSupport {
 		String applicationId = request.getParameter(applicationIdKey);
 		if(DataValidater.isStrLong(applicationId)){
 			application = new Application();
-			application.setApplicationId(DataConverter.stringToLong(applicationId));
+			application.setApplicationId((applicationId));
 		}
 		
 		return application;
@@ -271,7 +271,7 @@ public class RoleRightTreeTag extends ComponentTagSupport {
 		Role role = new Role();
 		final String key = "roleRightVo.roleId";
 		String roldId = request.getParameter(key);
-		role.setRoleId(DataConverter.stringToLong(roldId));
+		role.setRoleId((roldId));
 		
 		return role;
 	}

@@ -11,9 +11,9 @@ import com.amway.frm.base.dao.IBaseDao;
  * @author lenovo
  *
  */
-public interface IRoleUserDao extends IBaseDao<RoleUser, Long>{
+public interface IRoleUserDao extends IBaseDao<RoleUser, String> {
 
 	int deleteRoleUsers(Role role);
 	
-	Long findUserProfileIdByEmpNumber(String empNumber);
+	String findUserProfileIdByEmpNumber(String empNumber);
 }

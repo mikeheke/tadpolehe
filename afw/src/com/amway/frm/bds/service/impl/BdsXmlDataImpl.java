@@ -22,7 +22,7 @@ import com.amway.frm.bds.util.BdsXmlUntil;
 
 /**
  * 本地数据编辑
- * @author huangweijin
+ * 
  * 
  */
 public class BdsXmlDataImpl extends BaseImpl implements BdsXmlDataService {
@@ -65,7 +65,7 @@ public class BdsXmlDataImpl extends BaseImpl implements BdsXmlDataService {
 
 		for(BdsXmlData reBdsXmlData: bdsXmlDataList) {
 			Map<String, String> map = new LinkedHashMap<String, String>();
-			map.put(BdsConstant.ID, DataConverter.LongToString(reBdsXmlData.getBdsXmlDataId()));
+			map.put(BdsConstant.ID, (reBdsXmlData.getBdsXmlDataId()));
 			map.putAll(getBdsXmlDataMap(reBdsXmlData, colNameList));
 			// 列名长度加一，用于数组第一位多存了一个xmlData的id值,供页面的增删改查
 			Object[] objs = new Object[colNameList.size() + 1];
@@ -186,7 +186,7 @@ public class BdsXmlDataImpl extends BaseImpl implements BdsXmlDataService {
 	@Transactional
 	public ReturnMessage<BdsXmlData> addBdsXmlData(BdsXmlData bdsXmlData) {
 		
-		bdsXmlData.setBdsXmlDataId(bdsXmlDataDao.generateSequence("MSTB_BDS_XML_DATA"));
+		//bdsXmlData.setBdsXmlDataId(bdsXmlDataDao.generateSequence("MSTB_BDS_XML_DATA"));
 		
 		ReturnMessage<BdsXmlData> returnMessage = addCom(bdsXmlData);
 

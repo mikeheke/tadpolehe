@@ -30,7 +30,7 @@ import com.amway.frm.query.service.ConfigService;
 import com.amway.frm.query.util.QueryConstant;
 
 /**
- * @author huangweijin
+ * 
  *
  * 2011-2-15 下午06:09:18
  */
@@ -87,7 +87,7 @@ public class ConfigImpl extends QueryImpl implements ConfigService {
 		Query queryRet = null;
 		ReturnMessage<Query> returnMessage = null;
 		if(QueryConstant.ADD_OPRT.equals(query.getOprtFlag())){
-			query.setQueryId(super.getQueryDao().generateSequence("MSTB_QUERY_INDEX"));
+			//query.setQueryId(super.getQueryDao().generateSequence("MSTB_QUERY_INDEX"));
 			returnMessage = this.add(query);
 		}else if(QueryConstant.MDF_OPRT.equals(query.getOprtFlag())){
 			returnMessage = this.update(query);
@@ -109,7 +109,7 @@ public class ConfigImpl extends QueryImpl implements ConfigService {
 			
 			ReturnMessage<Select> returnMessage = null;
 			if(QueryConstant.ADD_OPRT.equals(select.getOprtFlag())){
-				select.setSelectId(super.getQueryDao().generateSequence("MSTB_QUERY_SELECT"));
+				//select.setSelectId(super.getQueryDao().generateSequence("MSTB_QUERY_SELECT"));
 				select.setQuery(query);
 				returnMessage = this.addOrUpdate(select);
 			}else if(QueryConstant.MDF_OPRT.equals(select.getOprtFlag())){
@@ -139,7 +139,7 @@ public class ConfigImpl extends QueryImpl implements ConfigService {
 			
 			ReturnMessage<From> returnMessage = null;
 			if(QueryConstant.ADD_OPRT.equals(from.getOprtFlag())){
-				from.setFromId(super.getQueryDao().generateSequence("MSTB_QUERY_FROM"));
+				//from.setFromId(super.getQueryDao().generateSequence("MSTB_QUERY_FROM"));
 				from.setQuery(query);
 				returnMessage = this.addOrUpdate(from);
 			}else if(QueryConstant.MDF_OPRT.equals(from.getOprtFlag())){
@@ -169,7 +169,7 @@ public class ConfigImpl extends QueryImpl implements ConfigService {
 
 			ReturnMessage<Where> returnMessage = null;
 			if(QueryConstant.ADD_OPRT.equals(where.getOprtFlag())){
-				where.setWhereId(super.getQueryDao().generateSequence("MSTB_QUERY_WHERE"));
+				//where.setWhereId(super.getQueryDao().generateSequence("MSTB_QUERY_WHERE"));
 				where.setQuery(query);
 				returnMessage = this.addOrUpdate(where);
 			}else if(QueryConstant.MDF_OPRT.equals(where.getOprtFlag())){
@@ -199,7 +199,7 @@ public class ConfigImpl extends QueryImpl implements ConfigService {
 			
 			ReturnMessage<OrderBy> returnMessage = null;
 			if(QueryConstant.ADD_OPRT.equals(orderBy.getOprtFlag())){
-				orderBy.setOrderById(super.getQueryDao().generateSequence("MSTB_QUERY_ORDERBY"));
+				//orderBy.setOrderById(super.getQueryDao().generateSequence("MSTB_QUERY_ORDERBY"));
 				orderBy.setQuery(query);
 				returnMessage = this.addOrUpdate(orderBy);
 			}else if(QueryConstant.MDF_OPRT.equals(orderBy.getOprtFlag())){
@@ -229,7 +229,7 @@ public class ConfigImpl extends QueryImpl implements ConfigService {
 			
 			ReturnMessage<GroupBy> returnMessage = null;
 			if(QueryConstant.ADD_OPRT.equals(groupBy.getOprtFlag())){
-				groupBy.setGroupById(super.getQueryDao().generateSequence("MSTB_QUERY_GROUPBY"));
+				//groupBy.setGroupById(super.getQueryDao().generateSequence("MSTB_QUERY_GROUPBY"));
 				groupBy.setQuery(query);
 				returnMessage = this.addOrUpdate(groupBy);
 			}else if(QueryConstant.MDF_OPRT.equals(groupBy.getOprtFlag())){
@@ -259,7 +259,7 @@ public class ConfigImpl extends QueryImpl implements ConfigService {
 	
 			ReturnMessage<Button> returnMessage = null;
 			if(QueryConstant.ADD_OPRT.equals(button.getOprtFlag())){
-				button.setButtonId(super.getQueryDao().generateSequence("MSTB_QUERY_BUTTON"));
+				//button.setButtonId(super.getQueryDao().generateSequence("MSTB_QUERY_BUTTON"));
 				button.setQuery(query);
 				returnMessage = this.addOrUpdate(button);
 			}else if(QueryConstant.MDF_OPRT.equals(button.getOprtFlag())){
@@ -404,7 +404,7 @@ public class ConfigImpl extends QueryImpl implements ConfigService {
 		//操作标识
 		newQuery.setOprtFlag(QueryConstant.ADD_OPRT);
 		//设置对象id为null
-		newQuery.setQueryId(super.getQueryDao().generateSequence("MSTB_QUERY_INDEX"));
+		//newQuery.setQueryId(super.getQueryDao().generateSequence("MSTB_QUERY_INDEX"));
 		newQuery.setQueryCode(newQueryCode);
 		
 		newQuery.setSelects(null);
@@ -420,42 +420,42 @@ public class ConfigImpl extends QueryImpl implements ConfigService {
 		for (Select select : oldQuery.getSelects()) {
 			Select newSelect = new Select();
 			BeanUtils.copyProperties(select, newSelect);
-			newSelect.setSelectId(super.getQueryDao().generateSequence("MSTB_QUERY_SELECT"));
+			//newSelect.setSelectId(super.getQueryDao().generateSequence("MSTB_QUERY_SELECT"));
 			newSelect.setQuery(newQuery);
 			this.addOrUpdate(newSelect);
 		}
 		for (From from : oldQuery.getFroms()) {
 			From newFrom = new From();
 			BeanUtils.copyProperties(from, newFrom);
-			newFrom.setFromId(super.getQueryDao().generateSequence("MSTB_QUERY_FROM"));
+			//newFrom.setFromId(super.getQueryDao().generateSequence("MSTB_QUERY_FROM"));
 			newFrom.setQuery(newQuery);
 			this.addOrUpdate(newFrom);
 		}
 		for (Where where : oldQuery.getWheres()) {
 			Where newWhere = new Where();
 			BeanUtils.copyProperties(where, newWhere);
-			newWhere.setWhereId(super.getQueryDao().generateSequence("MSTB_QUERY_WHERE"));
+			//newWhere.setWhereId(super.getQueryDao().generateSequence("MSTB_QUERY_WHERE"));
 			newWhere.setQuery(newQuery);
 			this.addOrUpdate(newWhere);
 		}
 		for (GroupBy groupBy : oldQuery.getGroupBys()) {
 			GroupBy newGroupBy = new GroupBy();
 			BeanUtils.copyProperties(groupBy, newGroupBy);
-			newGroupBy.setGroupById(super.getQueryDao().generateSequence("MSTB_QUERY_GROUPBY"));
+			//newGroupBy.setGroupById(super.getQueryDao().generateSequence("MSTB_QUERY_GROUPBY"));
 			newGroupBy.setQuery(newQuery);
 			this.addOrUpdate(newGroupBy);
 		}
 		for (OrderBy orderBy : oldQuery.getOrderBys()) {
 			OrderBy newOrderBy = new OrderBy();
 			BeanUtils.copyProperties(orderBy, newOrderBy);
-			newOrderBy.setOrderById(super.getQueryDao().generateSequence("MSTB_QUERY_ORDERBY"));
+			//newOrderBy.setOrderById(super.getQueryDao().generateSequence("MSTB_QUERY_ORDERBY"));
 			newOrderBy.setQuery(newQuery);
 			this.addOrUpdate(newOrderBy);
 		}
 		for (Button button : oldQuery.getButtons()) {
 			Button newButton = new Button();
 			BeanUtils.copyProperties(button, newButton);
-			newButton.setButtonId(super.getQueryDao().generateSequence("MSTB_QUERY_BUTTON"));
+			//newButton.setButtonId(super.getQueryDao().generateSequence("MSTB_QUERY_BUTTON"));
 			newButton.setQuery(newQuery);
 			this.addOrUpdate(newButton);
 		}

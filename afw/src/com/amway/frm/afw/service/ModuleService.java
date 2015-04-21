@@ -9,7 +9,7 @@ import com.amway.frm.base.vo.ReturnMessage;
 
 /**
  *模块信息业务Service接口类
- *@author huangweijin
+ *
  */
 public interface ModuleService extends BaseService {
 

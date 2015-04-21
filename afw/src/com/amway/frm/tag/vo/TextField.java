@@ -9,7 +9,7 @@ import com.opensymphony.xwork2.util.ValueStack;
 
 /**
  * 单行文本输入标签
- * @author huangweijin
+ * 
  */
 public class TextField extends Component {
 

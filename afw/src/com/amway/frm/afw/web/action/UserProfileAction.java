@@ -26,7 +26,7 @@ import com.amway.frm.logging.util.LogFactory;
 
 /**
  * Created by MyElipse 
- * @author huangweijin
+ * 
  * Declare：用户Action
  */
 public class UserProfileAction extends BaseAction {
@@ -287,13 +287,14 @@ public class UserProfileAction extends BaseAction {
 	protected UserProfile getEntity() {
 		
 		UserProfile userProfile = new UserProfile();
-		userProfile.setUserProfileId(DataConverter.stringToLong(userProfileVo.getUserProfileId()));
+		userProfile.setUserProfileId((userProfileVo.getUserProfileId()));
 		userProfile.setEmpId(userProfileVo.getEmpId());
 		userProfile.setChineseName(userProfileVo.getChineseName());
 		userProfile.setAccountType(Integer.parseInt(userProfileVo.getAccountType()));
 		Department department = new Department();
 		final long _1L = 1L;
-		department.setDepartmentId(_1L);
+		//department.setDepartmentId(_1L);
+		department.setDepartmentId("_1L");
 		if(userProfileVo.getOrgUnitCode()==null){
 			department.setUnitCode(AfwConstant._1_STR);
 		}else{
@@ -333,7 +334,7 @@ public class UserProfileAction extends BaseAction {
 	protected UserProfile getEntity(String userProfileId) {
 		
 		UserProfile userProfile = new UserProfile();
-		userProfile.setUserProfileId(DataConverter.stringToLong(userProfileId));
+		userProfile.setUserProfileId((userProfileId));
 		
 		return userProfile;
 	}
@@ -345,7 +346,7 @@ public class UserProfileAction extends BaseAction {
 		
 		for(String userProfileId: userProfileIds){
 			UserProfile userProfile = new UserProfile();
-			userProfile.setUserProfileId(DataConverter.stringToLong(userProfileId));
+			userProfile.setUserProfileId((userProfileId));
 			userProfiles.add(userProfile);
 		}
 		

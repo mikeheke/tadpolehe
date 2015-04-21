@@ -8,7 +8,7 @@ import com.amway.frm.tag.entity.TagFileUpload;
 
 /**
  * 文件上传接口
- * @author huangweijin
+ * 
  */
 public interface FileUpDownloadTagService extends BaseService {
 	

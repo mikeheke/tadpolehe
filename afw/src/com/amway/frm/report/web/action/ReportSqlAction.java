@@ -18,7 +18,7 @@ import com.amway.frm.report.util.ReportConstant;
 import com.amway.frm.report.vo.ReportSqlVo;
 
 /**
- * @author huangweijin
+ * 
  *
  * 2011-9-7 下午04:38:24
  */
@@ -177,14 +177,14 @@ public class ReportSqlAction extends BaseAction {
 	protected ReportSql getEntity() {
 		
 		ReportSql reportSql = new ReportSql();
-		reportSql.setReportSqlId(DataConverter.stringToLong(reportSqlVo.getReportSqlId()));
+		reportSql.setReportSqlId((reportSqlVo.getReportSqlId()));
 		reportSql.setSqlSelect(reportSqlVo.getSqlSelect());
 		reportSql.setSqlWhere(reportSqlVo.getSqlWhere());
 		reportSql.setSqlOrder(reportSqlVo.getSqlOrder());
 		reportSql.setSqlType(reportSqlVo.getSqlType());
 		reportSql.setMapKey(reportSqlVo.getMapKey());
 		ReportInfo reportInfo = new ReportInfo();
-		reportInfo.setReportInfoId(DataConverter.stringToLong(reportSqlVo.getReportInfoId()));
+		reportInfo.setReportInfoId((reportSqlVo.getReportInfoId()));
 		reportSql.setReportInfo(reportInfo);
 		reportSql.setRemark(reportSqlVo.getRemark());
 		reportSql.setCreatedTime(new Date());
@@ -199,7 +199,7 @@ public class ReportSqlAction extends BaseAction {
 	protected ReportSql getEntity(String id) {
 		
 		ReportSql reportSql = new ReportSql();
-		reportSql.setReportSqlId(DataConverter.stringToLong(id));
+		reportSql.setReportSqlId((id));
 		
 		return reportSql;
 	}
@@ -207,7 +207,7 @@ public class ReportSqlAction extends BaseAction {
 	protected ReportInfo getEntity(Long id) {
 		
 		ReportInfo reportInfo = new ReportInfo();
-		reportInfo.setReportInfoId(id);
+		reportInfo.setReportInfoId(id.toString());
 		reportInfo = (ReportInfo) reportSqlService.querySingle(reportInfo);
 		
 		return reportInfo;

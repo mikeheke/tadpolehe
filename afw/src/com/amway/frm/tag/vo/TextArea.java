@@ -4,7 +4,7 @@ package com.amway.frm.tag.vo;
 import com.opensymphony.xwork2.util.ValueStack;
 /**
  * 多行文本输入框
- * @author huangweijin
+ * 
  */
 public class TextArea extends TextField {
 	

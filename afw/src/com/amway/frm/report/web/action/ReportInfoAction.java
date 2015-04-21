@@ -20,7 +20,7 @@ import com.amway.frm.report.vo.ReportInfoVo;
 import com.amway.frm.tag.entity.TagFileUpload;
 
 /**
- * @author huangweijin
+ * 
  *
  * 2011-9-6 下午05:14:20
  */
@@ -164,14 +164,14 @@ public class ReportInfoAction extends BaseAction {
 	protected ReportInfo getEntity() {
 		
 		ReportInfo reportInfo = new ReportInfo();
-		reportInfo.setReportInfoId(DataConverter.stringToLong(reportInfoVo.getReportInfoId()));
+		reportInfo.setReportInfoId((reportInfoVo.getReportInfoId()));
 		reportInfo.setReportCode(reportInfoVo.getReportCode());
 		reportInfo.setReportName(reportInfoVo.getReportName());
 		reportInfo.setReportType(DataConverter.stringToInteger(reportInfoVo.getReportType()));
 		reportInfo.setReportUrl(reportInfoVo.getReportUrl());
 		reportInfo.setState(DataConverter.stringToInteger(reportInfoVo.getState()));
 		Application application = new Application();
-		application.setApplicationId(DataConverter.stringToLong(reportInfoVo.getApplicationId()));
+		application.setApplicationId((reportInfoVo.getApplicationId()));
 		reportInfo.setApplication(application);
 		reportInfo.setRemark(reportInfoVo.getRemark());
 		reportInfo.setCreatedTime(new Date());
@@ -186,7 +186,7 @@ public class ReportInfoAction extends BaseAction {
 	protected ReportInfo getEntity(String id) {
 		
 		ReportInfo reportInfo = new ReportInfo();
-		reportInfo.setReportInfoId(DataConverter.stringToLong(id));
+		reportInfo.setReportInfoId((id));
 		
 		return reportInfo;
 	}
@@ -228,10 +228,10 @@ public class ReportInfoAction extends BaseAction {
 			tagFileUpload.setModuleId(moduleId.toString());
 			tagFileUpload.setState(ReportConstant.START);
 			tagFileUpload.setCreatedTime(new Date());
-			tagFileUpload.setCreatedUserId(DataConverter.LongToString(
+			tagFileUpload.setCreatedUserId((
 					getSysInfo().getUserProfile().getUserProfileId()));
 			tagFileUpload.setUpdatedTime(new Date());
-			tagFileUpload.setUpdatedUserId(DataConverter.LongToString(
+			tagFileUpload.setUpdatedUserId((
 					getSysInfo().getUserProfile().getUserProfileId()));
 
 			fileUploads.add(tagFileUpload);

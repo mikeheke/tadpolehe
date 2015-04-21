@@ -6,7 +6,7 @@ package com.amway.frm.report.vo;
 
 
 /**
- * @author huangweijin
+ * 
  *
  * 2011-9-7 下午12:15:29
  */

@@ -9,13 +9,13 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import org.hibernate.annotations.GenericGenerator;
 
 import com.amway.frm.afw.entity.Application;
 import com.amway.frm.afw.entity.Module;
@@ -23,7 +23,7 @@ import com.amway.frm.base.util.AppConstant;
 
 /**
  * Created by MyElipse
- * @author huangweijin
+ * 
  * Date: 2011-3-22
  * Time: 10:47:54
  * Declare：操作日志
@@ -39,11 +39,10 @@ public class LogOperation implements Serializable {
 
 	//主键
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="HSSQ_LOG_OPERATION_OR")
-	@SequenceGenerator(name="HSSQ_LOG_OPERATION_OR", sequenceName="HSSQ_LOG_OPERATION", 
-			initialValue=1, allocationSize=1)
+	@GenericGenerator(name="systemUUID",strategy="uuid")
+	@GeneratedValue(generator="systemUUID")
 	@Column(name="LOG_OPERATION_ID")
-	private Long logOperationId;
+	private String logOperationId;
 	
 	@Column(name="EMP_NUMBER")
 	private String empNumber;
@@ -92,11 +91,11 @@ public class LogOperation implements Serializable {
 	@Column(name="CREATED_USER_ID")
 	private String createdUserId;
 
-	public Long getLogOperationId() {
+	public String getLogOperationId() {
 		return logOperationId;
 	}
 
-	public void setLogOperationId(Long logOperationId) {
+	public void setLogOperationId(String logOperationId) {
 		this.logOperationId = logOperationId;
 	}
 

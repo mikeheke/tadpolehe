@@ -17,7 +17,7 @@ import com.amway.frm.tag.vo.Select;
 
 /**
  * 选择标签实现类
- * @author huangweijin
+ * 
  */
 public class SelectTagImpl extends BaseImpl implements SelectTagService {
 

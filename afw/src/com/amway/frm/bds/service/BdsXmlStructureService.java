@@ -9,7 +9,7 @@ import com.amway.frm.bds.vo.BdsXmlStructureVo;
 
 /**
  * xml数据结构service接口类
- * @author huangweijin
+ * 
  * 
  */
 public interface BdsXmlStructureService extends BaseService{

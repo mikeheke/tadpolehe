@@ -9,19 +9,19 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import com.amway.frm.base.util.AppConstant;
 
 /**
- * @author huangweijin
+ * 
  *
  * 2011-9-6 下午03:09:02
  */
@@ -35,11 +35,10 @@ public class ReportPara implements Serializable, Comparable<ReportPara>{
 	private static final long serialVersionUID = 1772312452143562328L;
 
 	@Id
-    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="MSSQ_REPORT_PARA_OR")
-	@SequenceGenerator(name="MSSQ_REPORT_PARA_OR", sequenceName="MSSQ_REPORT_PARA",
-			initialValue=1, allocationSize=1)
+	@GenericGenerator(name="systemUUID",strategy="uuid")
+	@GeneratedValue(generator="systemUUID")
 	@Column(name="REPORT_PARA_ID")
-	private Long reportParaId;
+	private String reportParaId;
 	
 	@ManyToOne()
 	@JoinColumn(name="REPORT_INFO_ID")
@@ -83,11 +82,11 @@ public class ReportPara implements Serializable, Comparable<ReportPara>{
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date updatedTime;
 
-	public Long getReportParaId() {
+	public String getReportParaId() {
 		return reportParaId;
 	}
 
-	public void setReportParaId(Long reportParaId) {
+	public void setReportParaId(String reportParaId) {
 		this.reportParaId = reportParaId;
 	}
 

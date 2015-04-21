@@ -12,7 +12,7 @@ import com.amway.frm.mnu.web.tag.MenuTag;
 
 /**
  * 树节点，封装对象
- * @author huangweijin
+ * 
  *
  * 2011-2-22 下午02:47:38
  */

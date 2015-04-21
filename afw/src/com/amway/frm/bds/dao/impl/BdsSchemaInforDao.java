@@ -17,10 +17,10 @@ import com.amway.frm.bds.util.BdsConstant;
 
 /**
  * 基础数据服务SchemaInfor持久化实现类
- * @author huangweijin
+ * 
  */
 
-public class BdsSchemaInforDao extends BaseDao<BdsSchemaInfor, Long> implements
+public class BdsSchemaInforDao extends BaseDao<BdsSchemaInfor, String> implements
 		IBdsSchemaInforDao {
 	/**
 	 * 以JDBC方式查询并返回List<BdsSchemaInforVo>
@@ -87,7 +87,7 @@ public class BdsSchemaInforDao extends BaseDao<BdsSchemaInfor, Long> implements
 		
 		BdsSchemaInfor bdsSchemaInfor = new BdsSchemaInfor();
 		
-		bdsSchemaInfor.setBdsSchemaInforId(jdbcHelper.getItemLongValue(BdsConstant.BDS_SCHEMAINFOR_ID));
+		bdsSchemaInfor.setBdsSchemaInforId(jdbcHelper.getItemTrueValue(BdsConstant.BDS_SCHEMAINFOR_ID));
 		bdsSchemaInfor.setBdsSchemaInforCode(jdbcHelper.getItemTrueValue(BdsConstant.BDS_SCHEMAINFOR_CODE));
 		bdsSchemaInfor.setBdsSchemaInforNameEng(jdbcHelper.getItemTrueValue(BdsConstant.BDS_SCHEMAINFOR_NAME_ENG));
 		bdsSchemaInfor.setBdsSchemaInforNameCna(jdbcHelper.getItemTrueValue(BdsConstant.BDS_SCHEMAINFOR_NAME_CNA));
@@ -107,7 +107,7 @@ public class BdsSchemaInforDao extends BaseDao<BdsSchemaInfor, Long> implements
 		bdsSchemaInfor.setUpdatedUserId(jdbcHelper.getItemTrueValue(BdsConstant.FIELD_UPDATED_USER_ID));
 		bdsSchemaInfor.setUpdatedTime(jdbcHelper.getItemDateTimeValue(BdsConstant.FIELD_UPDATED_TIME));
 		Application application = new Application();
-		application.setApplicationId(jdbcHelper.getItemLongValue(BdsConstant.FIELD_APPLICATION_ID));
+		application.setApplicationId(jdbcHelper.getItemTrueValue(BdsConstant.FIELD_APPLICATION_ID));
 		application.setApplicationName(jdbcHelper.getItemTrueValue(BdsConstant.FIELD_APPLICATION_NAME));
 		application.setApplicationCode(jdbcHelper.getItemTrueValue(BdsConstant.FIELD_APPLICATION_CODE));
 		bdsSchemaInfor.setApplication(application);

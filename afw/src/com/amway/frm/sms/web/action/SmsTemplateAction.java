@@ -17,7 +17,7 @@ import com.amway.frm.sms.vo.SmsTemplateVo;
 
 /**
  * Created by IntelliJ IDEA.
- * @author huangweijin
+ * 
  * Date: 2011-3-21
  * Time: 12:22:29
  * Declare：短信模板ACTION，适用于页面初始化，新增，修改，删除短信模板信息
@@ -152,7 +152,7 @@ public class SmsTemplateAction extends BaseAction {
 	protected SmsTemplate getEntity(String smsTemplateId) {
 		
     	SmsTemplate smsTemplate = new SmsTemplate();
-    	smsTemplate.setSmsTemplateId(DataConverter.stringToLong(smsTemplateId));
+    	smsTemplate.setSmsTemplateId((smsTemplateId));
     	
 		return smsTemplate;
 	}
@@ -162,12 +162,12 @@ public class SmsTemplateAction extends BaseAction {
 		
     	SmsTemplate smsTemplate = new SmsTemplate();
     	smsTemplate.setSmsTemplateId(
-    			DataConverter.stringToLong(smsTemplateVo.getSmsTemplateId()));
+    			(smsTemplateVo.getSmsTemplateId()));
     	smsTemplate.setTemplateCode(smsTemplateVo.getTemplateCode());
     	smsTemplate.setSmsTemplateContent(smsTemplateVo.getSmsTemplateContent());
     	Application application =  new Application();
     	application.setApplicationId(
-    			DataConverter.stringToLong(smsTemplateVo.getApplicationId()));
+    			(smsTemplateVo.getApplicationId()));
     	smsTemplate.setApplication(application);
     	smsTemplate.setState(
     			DataConverter.stringToInteger(smsTemplateVo.getState()));
@@ -188,7 +188,7 @@ public class SmsTemplateAction extends BaseAction {
 		for(String smsTemplateId: smsTemplateIds){
 			SmsTemplate smsTemplate = new SmsTemplate();
 			smsTemplate.setSmsTemplateId(
-					DataConverter.stringToLong(smsTemplateId));
+					(smsTemplateId));
 			smsTemplates.add(smsTemplate);
 		}
 		return smsTemplates;

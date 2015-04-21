@@ -4,7 +4,7 @@ import com.amway.frm.afw.authentication.principal.Credentials;
 import com.amway.frm.base.vo.ReturnMessage;
 /**
  * 验证接口类
- * @author huangweijin
+ * 
  */
 public interface IFWAuthenticator {
     /**

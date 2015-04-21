@@ -22,7 +22,7 @@ import com.amway.frm.logging.service.LogService;
 
 /**
  * Created by MyElipse
- * @author huangweijin
+ * 
  * Date: 2011-3-22
  * Time: 10:47:54
  * Declare：性能日志拦截器接口
@@ -109,7 +109,7 @@ public class LogPfmIntercetor {
 			SysInfoBean sysInfoBean = baseService.getSysInfo();
 			performance.setApplication(sysInfoBean.getApplication());
 			performance.setModule(sysInfoBean.getCurModule());
-			performance.setCreatedUserId(DataConverter.LongToString(sysInfoBean
+			performance.setCreatedUserId((sysInfoBean
 					.getUserProfile().getUserProfileId()));
 		}
 		performance.setCreatedTime(new Date());

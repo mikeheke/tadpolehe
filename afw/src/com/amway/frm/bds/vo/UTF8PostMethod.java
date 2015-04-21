@@ -8,7 +8,7 @@ import org.apache.commons.httpclient.methods.PostMethod;
 import com.amway.frm.bds.util.BdsConstant;
 
 /**
- * @author huangweijin
+ * 
  *
  * 2011-7-21 下午04:25:16
  */

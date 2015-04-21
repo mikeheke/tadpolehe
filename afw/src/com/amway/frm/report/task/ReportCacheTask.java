@@ -7,7 +7,7 @@ import com.amway.frm.base.util.ContextFactory;
 import com.amway.frm.report.service.ReportShowService;
 
 /**
- * @author huangweijin
+ * 
  *
  * 2011-10-17 下午05:35:50
  */

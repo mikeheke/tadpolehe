@@ -21,7 +21,7 @@ import com.amway.frm.logging.service.LogService;
 import com.amway.frm.logging.util.LogFactory;
 
 /**
- * @author huangweijin
+ * 
  *
  * 2011-4-13 上午10:13:34
  */

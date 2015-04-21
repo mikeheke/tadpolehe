@@ -17,7 +17,7 @@ import com.amway.frm.query.vo.ButtonVo;
 
 /**
  * Created by MyElipse
- * @author huangweijin
+ * 
  * Date: 2011-3-22
  * Time: 10:47:54
  * Declare：按钮Action类
@@ -50,7 +50,7 @@ public class ButtonAction extends ConfigAction {
 		}
 		
 		Button button = this.getEntity();
-		button.setButtonId(System.currentTimeMillis());
+		button.setButtonId(System.currentTimeMillis()+"");
 		button.setOprtFlag(QueryConstant.ADD_OPRT);		//增加操作
 		
 		if(validateAddRepeat(button)){
@@ -86,7 +86,7 @@ public class ButtonAction extends ConfigAction {
 
 			String[] buttonIdArr = buttonId.split(QueryConstant.OPRT_SEP);
 			Button button = new Button();
-			button.setButtonId(DataConverter.stringToLong(buttonIdArr[0]));
+			button.setButtonId((buttonIdArr[0]));
 			button.setOprtFlag(buttonIdArr[1]);
 			query.getButtons().remove(button);
 			if(!QueryConstant.ADD_OPRT.equals(button.getOprtFlag())){
@@ -122,7 +122,7 @@ public class ButtonAction extends ConfigAction {
 		
 		String[] buttonIdArr = buttonIds[0].split(QueryConstant.OPRT_SEP);
 		Button button = this.getEntity();
-		button.setButtonId(DataConverter.stringToLong(buttonIdArr[0]));
+		button.setButtonId((buttonIdArr[0]));
 		button.setOprtFlag(buttonIdArr[1]);
 		
 		if(validateMdfRepeat(button)){

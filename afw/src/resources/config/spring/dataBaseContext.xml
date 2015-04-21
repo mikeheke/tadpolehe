@@ -24,6 +24,7 @@
  	<context:annotation-config />
  	<tx:annotation-driven transaction-manager="transactionManager" />
  	 
+ 	 <!-- 异常切面 
  	<bean id="throwsAdvice" class="com.amway.frm.exception.advice.AmwayExceptionAdvice" />
  	<bean class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
 		<property name="beanNames">
@@ -35,6 +36,7 @@
 			<value>throwsAdvice</value>
 		 </property>
 	</bean>
+	-->
  	
  	<context:component-scan base-package="com.amway" />
  	<!-- add by Mike He 20150418 -->

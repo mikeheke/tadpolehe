@@ -20,7 +20,7 @@ import com.opensymphony.xwork2.util.ValueStack;
 
 /**
  * 菜单父标签，子类实现generateMenuControl方法
- * @author huangweijin
+ * 
  *
  * 2011-4-25 下午04:42:48
  */

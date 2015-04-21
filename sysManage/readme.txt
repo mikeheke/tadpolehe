@@ -138,5 +138,3 @@ knowledgeAction!initModify.action?knowledgeVo.knowledgeIds=$0
 	private Long logPerformanceId;
 
   	
-
-

@@ -13,7 +13,7 @@ import com.amway.frm.tag.vo.Select;
 
 /**
  *选择标签接口类
- *@author huangweijin
+ *
  */
 public interface SelectTagService extends BaseService{
 	/**

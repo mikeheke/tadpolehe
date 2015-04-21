@@ -62,7 +62,7 @@ public class BdsXMLDataAction extends BdsXmlStructureAction{
 		List<String> colNames = BdsXmlUntil.getColNamesFromXmlDoc(
 				bdsSchemaInfor.getDataStructureXml());
 		
-		BdsXmlData bdsXmlData = this.getEntity(bdsSchemaInfor.getBdsSchemaInforId());
+		BdsXmlData bdsXmlData = this.getEntityByBdsSchemaInforId(bdsSchemaInfor.getBdsSchemaInforId());
 		List<Object[]> xmlDatas = bdsXmlDataService.getXmlDataList(bdsXmlData, colNames);
 		
 		this.setMessage(XML_SCHEMA, bdsSchemaInfor);
@@ -131,8 +131,8 @@ public class BdsXMLDataAction extends BdsXmlStructureAction{
 			colAtts = BdsXmlUntil.getColAttValuesFromXmlDoc(
 					bdsSchemaInfor.getDataStructureXml());
 		
-			bdsXmlData = this.getEntity(bdsSchemaInfor.getBdsSchemaInforId());
-			bdsXmlData.setBdsXmlDataId(DataConverter.stringToLong(bdsXmlDataIds[0]));
+			bdsXmlData = this.getEntityByBdsSchemaInforId(bdsSchemaInfor.getBdsSchemaInforId());
+			bdsXmlData.setBdsXmlDataId((bdsXmlDataIds[0]));
 			bdsXmlData = bdsXmlDataService.getBdsXmlData(bdsXmlData).getReturnObject();
 			xmlDatas = bdsXmlDataService.getBdsXmlDataMap(bdsXmlData, colNames);
 			
@@ -252,7 +252,7 @@ public class BdsXMLDataAction extends BdsXmlStructureAction{
 		}
 		
 		bdsXmlData.setBdsSchemaInfor(bdsSchemaInfor);
-		bdsXmlData.setBdsXmlDataId(DataConverter.stringToLong(bdsXmlDataVo.getBdsXmlDataId()));
+		bdsXmlData.setBdsXmlDataId((bdsXmlDataVo.getBdsXmlDataId()));
 		bdsXmlData.setState(AppConstant.START);
 		bdsXmlData.setCreatedUserId(this.getSysInfo().getUserProfile().getEmpNumber());
 		bdsXmlData.setCreatedTime(new Date());
@@ -267,18 +267,18 @@ public class BdsXMLDataAction extends BdsXmlStructureAction{
 		
 		for(String bdsXmlDataId: bdsXmlDataIds){
 			BdsXmlData bdsXmlData = new BdsXmlData();
-			bdsXmlData.setBdsXmlDataId((DataConverter.stringToLong(bdsXmlDataId)));
+			bdsXmlData.setBdsXmlDataId(((bdsXmlDataId)));
 			bdsXmlDatas.add(bdsXmlData);
 		}
 		
 		return bdsXmlDatas;
 	}
 	
-	protected BdsXmlData getEntity(Long bdsSchemaInforId) {
+	protected BdsXmlData getEntityByBdsSchemaInforId(String bdsSchemaInforId) {
 
 		BdsXmlData bdsXmlData = new BdsXmlData();
 		BdsSchemaInfor bdsSchemaInfor = new BdsSchemaInfor();
-		bdsSchemaInfor.setBdsSchemaInforId(bdsSchemaInforId);
+		bdsSchemaInfor.setBdsSchemaInforId(bdsSchemaInforId+"");
 		bdsSchemaInfor.setRecordState(BdsConstant.START);
 		bdsXmlData.setBdsSchemaInfor(bdsSchemaInfor);
 		bdsXmlData.setRecordState(BdsConstant.START);

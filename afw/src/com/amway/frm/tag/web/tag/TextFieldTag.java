@@ -12,7 +12,7 @@ import com.amway.frm.tag.util.TagConstant;
 
 /**
  * 单行文本输入标签
- * @author huangweijin
+ * 
  */
 public class TextFieldTag extends BaseTag {
 

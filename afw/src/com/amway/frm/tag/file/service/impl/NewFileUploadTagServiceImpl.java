@@ -240,7 +240,7 @@ public class NewFileUploadTagServiceImpl extends BaseImpl implements NewFileUplo
 					newFileUploadTagEntityList.add(fileInDB);
 				}
 			} else {
-				newFileUploadTagEntity.setApplicationId(applicationId);
+				newFileUploadTagEntity.setApplicationId(applicationId.toString());
 				newFileUploadTagEntity.setBizId(businessTableId);
 				newFileUploadTagEntity.setCnName(cnName);
 				newFileUploadTagEntity.setFileEncryptName(fileEncryptName);

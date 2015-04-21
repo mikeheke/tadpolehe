@@ -7,7 +7,7 @@ import com.amway.frm.base.util.AppConstant;
 import com.amway.frm.bds.util.BdsConstant;
 
 /**
- * @author huangweijin
+ * 
  *
  * 2011-3-30 下午02:48:24
  */

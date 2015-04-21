@@ -17,7 +17,7 @@ import com.amway.frm.query.util.QueryConstant;
 import com.amway.frm.query.vo.QueryVo;
 
 /**
- * @author huangweijin
+ * 
  *
  * 2011-4-29 下午02:15:53
  */
@@ -52,7 +52,7 @@ public class QBaseAction extends ConfigAction {
 		Query query = this.getQueryFromContext();
 		if(null == query){
 			query = new Query();
-			query.setQueryId(System.currentTimeMillis());
+			query.setQueryId(System.currentTimeMillis()+"");
 			query.setOprtFlag(QueryConstant.ADD_OPRT);
 		}
 		//从session取得当前应用名称
@@ -83,7 +83,7 @@ public class QBaseAction extends ConfigAction {
 		
 		Query queryCxt = this.getQueryFromContext();
 		if(queryCxt!=null 
-				&& ids[0].equals(DataConverter.LongToString(queryCxt.getQueryId()))
+				&& ids[0].equals((queryCxt.getQueryId()))
 				&& QueryConstant.MDF_OPRT.equals(queryCxt.getOprtFlag())){
 			return result;
 		}
@@ -112,7 +112,7 @@ public class QBaseAction extends ConfigAction {
 		}
 		
 		Query query = this.getEntity();
-		query.setQueryId(System.currentTimeMillis());
+		query.setQueryId(System.currentTimeMillis()+"");
 		query.setOprtFlag(QueryConstant.ADD_OPRT);	//增加操作
 		
 		this.setQueryToContext(query);
@@ -139,7 +139,7 @@ public class QBaseAction extends ConfigAction {
 		}
 		
 		Query query = this.getEntity();
-		query.setQueryId(DataConverter.stringToLong(queryId));
+		query.setQueryId((queryId));
 		query.setOprtFlag(QueryConstant.MDF_OPRT);	//修改操作
 		
 		this.setQueryToContext(query);
@@ -167,7 +167,7 @@ public class QBaseAction extends ConfigAction {
 	protected Query getEntity(String queryId) {
 		
 		Query query = new Query();
-		query.setQueryId(DataConverter.stringToLong(queryId));
+		query.setQueryId((queryId));
 
 		return query;
 		
@@ -191,7 +191,7 @@ public class QBaseAction extends ConfigAction {
 		query.setQueryCode(queryVo.getQueryCode());
 		query.setQueryName(queryVo.getQueryName());
 		Application app = new Application();
-		app.setApplicationId(DataConverter.stringToLong(queryVo.getApplicationId()));
+		app.setApplicationId((queryVo.getApplicationId()));
 		app = (Application) getConfigService().querySingle(app);
 		query.setApplication(app);
 		query.setDsJndi(queryVo.getDsJndi());
@@ -291,7 +291,7 @@ public class QBaseAction extends ConfigAction {
 		
 		String[] ids = getIds();
 		Query query = new Query();
-		query.setQueryId(DataConverter.stringToLong(ids[0]));
+		query.setQueryId((ids[0]));
 		Query queryRet = getConfigService().getQueryByQuery(query).getReturnObject();
 		
 		//设置值到request中

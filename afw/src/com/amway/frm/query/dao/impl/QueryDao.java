@@ -22,11 +22,11 @@ import com.amway.frm.query.vo.Row;
 import com.amway.frm.query.vo.SQL;
 
 /**
- * @author huangweijin
+ * 
  *
  * 2011-2-16 上午11:16:38
  */
-public class QueryDao extends BaseDao<Query, Long> implements IQueryDao {
+public class QueryDao extends BaseDao<Query, String> implements IQueryDao {
 	
 	private static final String SELECT_FUNCARRAY[]={"DISTINCT"};
 	private static final String WHERE_FUNCARRAY[]={"GROUP"};

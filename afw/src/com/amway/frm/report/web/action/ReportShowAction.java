@@ -27,7 +27,7 @@ import com.amway.frm.report.service.ReportShowService;
 import com.amway.frm.report.util.ReportConstant;
 
 /**
- * @author huangweijin
+ * 
  *
  * 2011-9-16 上午11:39:52
  */

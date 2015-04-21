@@ -118,7 +118,8 @@ public class LoginAction extends BaseAction {
 			result = false;
 		}
 		
-		Application application = new Application(applicationCode);
+		Application application = new Application();
+		application.setApplicationCode(applicationCode);
 		Integer isKaptcha = ((Application) this.getSingle(application)).getIsCheckCode();
 		if(null != isKaptcha
 				&& isKaptcha.intValue() == AppConstant.YES.intValue()){

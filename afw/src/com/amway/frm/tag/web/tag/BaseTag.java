@@ -24,7 +24,7 @@ import com.opensymphony.xwork2.util.ValueStack;
 
 /**
  * 标签基础类
- * @author huangweijin
+ * 
  */
 
 public abstract class BaseTag extends ComponentTagSupport {

@@ -10,7 +10,7 @@ import com.amway.frm.base.vo.ReturnMessage;
 import com.amway.frm.job.entity.TimeingJob;
 
 /**
- * @author huangweijin
+ * 
  *
  * 2011-9-27 下午04:51:51
  */

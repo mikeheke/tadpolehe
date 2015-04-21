@@ -16,7 +16,7 @@ import com.amway.frm.logging.entity.LogPerformance;
 import com.amway.frm.logging.util.LogConstant;
 
 /**
- * @author huangweijin
+ * 
  *
  * 2011-4-14 下午02:22:07
  */

@@ -10,7 +10,7 @@ import com.amway.frm.tag.util.TagConstant;
 
 /**
  * 多行文本标签
- * @author huangweijin
+ * 
  *
  * 2011-2-18 下午02:48:01
  */

@@ -8,7 +8,7 @@ import com.amway.frm.email.entity.EmailBasicPara;
 
 /**
  * Created by IntelliJ IDEA.
- * @author huangweijin
+ * 
  * Date: 2011-3-25
  * Time: 18:26:30
  * Declare：EmailSendRecord表对应的DAO，适用于操作EmailSendRecord表，包括SELECT,CREATE,UPDATE,DELETE各种操作

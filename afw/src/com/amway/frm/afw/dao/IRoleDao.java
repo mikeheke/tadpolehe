@@ -12,7 +12,7 @@ import com.amway.frm.base.dao.IBaseDao;
  * @author lenovo
  *
  */
-public interface IRoleDao extends IBaseDao<Role, Long>{
+public interface IRoleDao extends IBaseDao<Role, String> {
 
 	/**
 	 * @param userProfile

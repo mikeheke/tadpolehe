@@ -19,7 +19,7 @@ import com.amway.frm.bds.util.BdsXmlUntil;
 
 /**
  * 基础数据服务实现类
- * @author huangweijin
+ * 
  */
 public class BdsSchemaInforImpl extends BaseImpl implements
 		BdsSchemaInforService {
@@ -89,7 +89,7 @@ public class BdsSchemaInforImpl extends BaseImpl implements
 	@Transactional
 	public ReturnMessage<BdsSchemaInfor> addBdsSchemaInfor(BdsSchemaInfor bdsSchemaInfor) {
 		
-		bdsSchemaInfor.setBdsSchemaInforId(bdsSchemaInforDao.generateSequence("MSTB_BDS_SCHEMAINFOR"));
+		//bdsSchemaInfor.setBdsSchemaInforId(bdsSchemaInforDao.generateSequence("MSTB_BDS_SCHEMAINFOR"));
 		
 		ReturnMessage<BdsSchemaInfor> returnMessage = add(bdsSchemaInfor);
 

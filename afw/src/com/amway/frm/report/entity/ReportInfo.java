@@ -9,21 +9,21 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import org.hibernate.annotations.GenericGenerator;
 
 import com.amway.frm.afw.entity.Application;
 import com.amway.frm.base.util.AppConstant;
 import com.amway.frm.base.vo.UniqueKey;
 
 /**
- * @author huangweijin
+ * 
  *
  * 2011-9-6 下午03:07:51
  */
@@ -37,11 +37,10 @@ public class ReportInfo implements Serializable {
 	private static final long serialVersionUID = -4542790545928354039L;
 	
 	@Id
-    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="MSSQ_REPORT_INFO_OR")
-	@SequenceGenerator(name="MSSQ_REPORT_INFO_OR", sequenceName="MSSQ_REPORT_INFO",
-			initialValue=1, allocationSize=1)
+	@GenericGenerator(name="systemUUID",strategy="uuid")
+	@GeneratedValue(generator="systemUUID")
 	@Column(name="REPORT_INFO_ID")
-	private Long reportInfoId;
+	private String reportInfoId;
 	
 	@Column(name="REPORT_CODE")
 	@UniqueKey
@@ -84,11 +83,11 @@ public class ReportInfo implements Serializable {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date updatedTime;
 
-	public Long getReportInfoId() {
+	public String getReportInfoId() {
 		return reportInfoId;
 	}
 
-	public void setReportInfoId(Long reportInfoId) {
+	public void setReportInfoId(String reportInfoId) {
 		this.reportInfoId = reportInfoId;
 	}
 

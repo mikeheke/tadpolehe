@@ -4,7 +4,7 @@
 package com.amway.frm.logging.vo;
 
 /**
- * @author huangweijin
+ * 
  *
  * 2011-6-1 上午11:19:23
  */

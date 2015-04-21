@@ -11,7 +11,7 @@ import com.amway.frm.mnu.vo.NodeType;
 import com.amway.frm.mnu.vo.TreeNode;
 
 /**
- * @author huangweijin
+ * 
  *
  * 2011-7-19 上午08:31:46
  */

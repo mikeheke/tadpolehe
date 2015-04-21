@@ -23,7 +23,7 @@ import com.amway.frm.query.vo.QueryVo;
 
 /**
  * Created by MyElipse
- * @author huangweijin
+ * 
  * Date: 2011-3-22
  * Time: 10:47:54
  * Declare：查询Action类
@@ -91,7 +91,7 @@ public class QueryAction extends BaseAction {
 		List<Query> queries = new ArrayList<Query>();
 		for(String queryId: queryIds){
 			Query query = new Query();
-			query.setQueryId(DataConverter.stringToLong(queryId));
+			query.setQueryId((queryId));
 			queries.add(query);
 		}
 		

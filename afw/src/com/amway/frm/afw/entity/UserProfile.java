@@ -7,22 +7,22 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
+
+import org.hibernate.annotations.GenericGenerator;
 
 import com.amway.frm.base.util.AppConstant;
 import com.amway.frm.base.vo.UniqueKey;
 
 /**
  * Created by MyElipse
- * @author huangweijin
+ * 
  * Date: 2011-3-22
  * Time: 10:47:54
  * Declare：用户
@@ -38,11 +38,10 @@ public class UserProfile  implements Serializable{
 
 	//用户ID
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="MSSQ_USERPROFILE_OR")
-	@SequenceGenerator(name="MSSQ_USERPROFILE_OR", sequenceName="MSSQ_USERPROFILE", 
-			initialValue=1, allocationSize=1)
+	@GenericGenerator(name="MSTB_USERPROFILE_systemUUID",strategy="uuid")
+	@GeneratedValue(generator="MSTB_USERPROFILE_systemUUID")
 	@Column(name="USERPROFILE_ID")
-	private Long userProfileId;
+	private String userProfileId;
 	
 	//工号
 	@Column(name="EMP_ID")
@@ -200,19 +199,19 @@ public class UserProfile  implements Serializable{
 	
 	public UserProfile(){}
 	
-	public UserProfile(Long userProfileId){
-		this.userProfileId = userProfileId;
-	}
+//	public UserProfile(Long userProfileId){
+//		this.userProfileId = userProfileId;
+//	}
 	
 	public UserProfile(String empId){
 		this.empId = empId;
 	}
 	
-	public Long getUserProfileId() {
+	public String getUserProfileId() {
 		return userProfileId;
 	}
 
-	public void setUserProfileId(Long userProfileId) {
+	public void setUserProfileId(String userProfileId) {
 		this.userProfileId = userProfileId;
 	}
 

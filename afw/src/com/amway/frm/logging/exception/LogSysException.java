@@ -6,7 +6,7 @@ package com.amway.frm.logging.exception;
 import com.amway.frm.exception.exception.AmwaySysException;
 
 /**
- * @author huangweijin
+ * 
  *
  * 2011-10-19 上午09:53:55
  */

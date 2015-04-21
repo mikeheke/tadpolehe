@@ -21,7 +21,7 @@ import com.amway.frm.job.util.JobConstant;
 import com.amway.frm.job.vo.TimeingJobVo;
 
 /**
- * @author huangweijin
+ * 
  *
  * 2011-9-27 下午04:50:04
  */
@@ -171,11 +171,11 @@ public class TimeingJobAction extends BaseAction {
 	protected TimeingJob getEntity() {
 		
 		TimeingJob timeingJob = new TimeingJob();
-		timeingJob.setTimeingJobId(DataConverter.stringToLong(timeingJobVo.getTimeingJobId()));
+		timeingJob.setTimeingJobId((timeingJobVo.getTimeingJobId()));
 		timeingJob.setTimeingJobCode(timeingJobVo.getTimeingJobCode());
 		timeingJob.setTimeingJobName(timeingJobVo.getTimeingJobName());
 		Application application = new Application();
-		application.setApplicationId(DataConverter.stringToLong(timeingJobVo.getApplicationId()));
+		application.setApplicationId((timeingJobVo.getApplicationId()));
 		timeingJob.setApplication(application);
 		timeingJob.setClassName(timeingJobVo.getClassName());
 		timeingJob.setMethodName(timeingJobVo.getMethodName());
@@ -199,7 +199,7 @@ public class TimeingJobAction extends BaseAction {
 	protected TimeingJob getEntity(String id) {
 		
 		TimeingJob timeingJob = new TimeingJob();
-		timeingJob.setTimeingJobId(DataConverter.stringToLong(id));
+		timeingJob.setTimeingJobId((id));
 		
 		return timeingJob;
 	}

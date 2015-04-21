@@ -28,7 +28,7 @@ import com.amway.frm.query.util.QueryConstant;
 import com.amway.frm.query.vo.Row;
 
 /**
- * @author huangweijin
+ * 
  *
  * 2011-6-17 下午01:19:24
  */

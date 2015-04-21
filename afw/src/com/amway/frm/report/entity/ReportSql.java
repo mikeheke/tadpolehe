@@ -9,19 +9,19 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import com.amway.frm.base.util.AppConstant;
 
 /**
- * @author huangweijin
+ * 
  *
  * 2011-9-6 下午03:08:37
  */
@@ -35,11 +35,10 @@ public class ReportSql implements Serializable {
 	private static final long serialVersionUID = -7947318486674784285L;
 
 	@Id
-    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="MSSQ_REPORT_SQL_OR")
-	@SequenceGenerator(name="MSSQ_REPORT_SQL_OR", sequenceName="MSSQ_REPORT_SQL",
-			initialValue=1, allocationSize=1)
+	@GenericGenerator(name="systemUUID",strategy="uuid")
+	@GeneratedValue(generator="systemUUID")
 	@Column(name="REPORT_SQL_ID")
-	private Long reportSqlId;
+	private String reportSqlId;
 	
 	@ManyToOne()
 	@JoinColumn(name="REPORT_INFO_ID")
@@ -80,11 +79,11 @@ public class ReportSql implements Serializable {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date updatedTime;
 
-	public Long getReportSqlId() {
+	public String getReportSqlId() {
 		return reportSqlId;
 	}
 
-	public void setReportSqlId(Long reportSqlId) {
+	public void setReportSqlId(String reportSqlId) {
 		this.reportSqlId = reportSqlId;
 	}
 

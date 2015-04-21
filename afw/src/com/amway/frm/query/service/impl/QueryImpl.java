@@ -29,7 +29,7 @@ import com.amway.frm.query.service.QueryService;
 import com.amway.frm.query.util.QueryConstant;
 
 /**
- * @author huangweijin
+ * 
  * 
  *         2011-4-30 上午09:54:13
  */

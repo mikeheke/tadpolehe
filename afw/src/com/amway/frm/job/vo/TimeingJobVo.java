@@ -5,7 +5,7 @@ package com.amway.frm.job.vo;
 
 
 /**
- * @author huangweijin
+ * 
  *
  * 2011-9-26 下午03:25:44
  */

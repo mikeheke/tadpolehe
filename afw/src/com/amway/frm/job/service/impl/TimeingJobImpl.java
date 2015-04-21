@@ -16,7 +16,7 @@ import com.amway.frm.job.service.TimeingJobService;
 import com.amway.frm.job.thread.Job;
 
 /**
- * @author huangweijin
+ * 
  *
  * 2011-9-27 下午04:52:43
  */

@@ -51,7 +51,7 @@ import com.amway.frm.query.vo.Row;
 import com.amway.frm.query.vo.SQL;
 
 /**
- * @author huangweijin
+ * 
  * Date: 2011-3-22
  * Time: 10:47:54
  * Declare：展示Service实现类
@@ -789,7 +789,7 @@ public class ShowImpl extends QueryImpl implements ShowService {
 				//add by hyc for query application
 				Application application = (Application) ServletActionContext.getRequest().getSession()
 						.getAttribute(AppConstant.APPLICATION_NAME);
-				Long appid=application.getApplicationId();
+				Long appid = DataConverter.stringToLong(application.getApplicationId());
 				addPara(para, $APPLICATION, appid+"");
 			}
 		}

@@ -6,7 +6,7 @@ package com.amway.frm.query.util;
 import com.amway.frm.base.util.DataConverter;
 
 /**
- * @author huangweijin
+ * 
  *
  * 2011-4-5 下午02:11:09
  */

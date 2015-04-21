@@ -19,7 +19,7 @@ import com.amway.frm.exception.exception.AmwaySysException;
  * @author lenovo
  *
  */
-public class RoleUserDao extends BaseDao<RoleUser, Long> implements IRoleUserDao{
+public class RoleUserDao extends BaseDao<RoleUser, String> implements IRoleUserDao{
 
 	public int deleteRoleUsers(Role role) {
 		final String jql = "delete from RoleUser where roleId = :roleId and isLocalRight = 0";
@@ -28,18 +28,18 @@ public class RoleUserDao extends BaseDao<RoleUser, Long> implements IRoleUserDao
 		return executeJpl(jql, parVals);
 	}
 	
-	public Long findUserProfileIdByEmpNumber(String empNumber) {
+	public String findUserProfileIdByEmpNumber(String empNumber) {
 		JDBCHelper jdbcHelper = null;
 		if (DataValidater.isStrEmptyOrNull(empNumber)) {
 			return null;
 		}
 		try {
-			Long userProfileId = null;
+			String userProfileId = null;
 			final String sql = "select userprofile_id from mstb_userprofile where emp_number = :empNumber";
 			jdbcHelper = new JDBCHelper(this.getDataSource());
 			boolean result = jdbcHelper.getFirstDocument(sql, new Object[]{empNumber});
 			if (result) {
-				userProfileId = jdbcHelper.getItemLongValue(AfwConstant.USER_PROFILE_ID);
+				userProfileId = jdbcHelper.getItemTrueValue((AfwConstant.USER_PROFILE_ID));
 			}
 			return userProfileId;
 		} catch (Exception e) {

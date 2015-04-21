@@ -14,7 +14,7 @@ import com.amway.frm.base.dao.impl.BaseDao;
  * @author lenovo
  *
  */
-public class RoleDao extends BaseDao<Role, Long> implements IRoleDao {
+public class RoleDao extends BaseDao<Role, String> implements IRoleDao {
 
 	/* (non-Javadoc)
 	 * @see com.amway.frm.afw.dao.IRoleDao#getRoleList(com.amway.frm.afw.entity.UserProfile)

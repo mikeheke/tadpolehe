@@ -6,19 +6,19 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
 
 import com.amway.frm.base.util.AppConstant;
 import com.amway.frm.base.vo.UniqueKey;
 
 /**
  * 应用系统黑名单信息表Entity
- * @author huangweijin
+ * 
  */
 @Entity(name="BlackList")
 @Table(name="MSTB_BLACKLIST", schema=AppConstant.APP_DEAULT_SCHEMA)
@@ -27,11 +27,10 @@ public class BlackList implements Serializable{
 	
 	//自动生成ID
 	@Id
-    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="MSSQ_BLACKLIST_OR")
-	@SequenceGenerator(name="MSSQ_BLACKLIST_OR", sequenceName="MSSQ_BLACKLIST",
-			initialValue=1, allocationSize=1)
+	@GenericGenerator(name="systemUUID",strategy="uuid")
+	@GeneratedValue(generator="systemUUID")
 	@Column(name = "BLACKLIST_ID")
-	private Long blackListId;
+	private String blackListId;
 	//应用ID
 	@ManyToOne()
 	@JoinColumn(name="APPLICATION_ID")
@@ -70,11 +69,11 @@ public class BlackList implements Serializable{
 	@Column(name = "UPDATED_TIME")
 	private Date updatedTime;
 
-	public Long getBlackListId() {
+	public String getBlackListId() {
 		return blackListId;
 	}
 
-	public void setBlackListId(Long blackListId) {
+	public void setBlackListId(String blackListId) {
 		this.blackListId = blackListId;
 	}
 

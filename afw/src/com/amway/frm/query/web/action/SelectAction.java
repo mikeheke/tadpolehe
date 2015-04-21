@@ -17,7 +17,7 @@ import com.amway.frm.query.vo.SelectVo;
 
 /**
  * Created by MyElipse
- * @author huangweijin
+ * 
  * Date: 2011-3-22
  * Time: 10:47:54
  * Declare：选择Action类
@@ -53,7 +53,7 @@ public class SelectAction extends ConfigAction {
 		}
 		
 		Select select = this.getEntity();
-		select.setSelectId(System.currentTimeMillis());
+		select.setSelectId(System.currentTimeMillis()+"");
 		select.setOprtFlag(QueryConstant.ADD_OPRT);		//增加操作
 		
 		if(validateAddRepeat(select)){
@@ -94,7 +94,7 @@ public class SelectAction extends ConfigAction {
 			String[] selectIdArr = selectId.split(QueryConstant.OPRT_SEP);
 			
 			Select select = new Select();
-			select.setSelectId(DataConverter.stringToLong(selectIdArr[0]));
+			select.setSelectId((selectIdArr[0]));
 			select.setOprtFlag(selectIdArr[1]);
 			query.getSelects().remove(select);
 			if(!QueryConstant.ADD_OPRT.equals(select.getOprtFlag())){
@@ -132,7 +132,7 @@ public class SelectAction extends ConfigAction {
 		
 		String[] selectIdArr = selectIds[0].split(QueryConstant.OPRT_SEP);
 		Select select = this.getEntity();
-		select.setSelectId(DataConverter.stringToLong(selectIdArr[0]));
+		select.setSelectId((selectIdArr[0]));
 		select.setOprtFlag(selectIdArr[1]);
 		
 		if(validateMdfRepeat(select)){

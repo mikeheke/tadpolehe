@@ -8,13 +8,13 @@ import java.util.List;
 
 /**
  * Created by IntelliJ IDEA.
- * @author huangweijin
+ * 
  * Date: 2011-4-16
  * Time: 11:10:44
  * Declare: 部门信息DAO接口
  */
 
-public interface IDepartmentDao extends IBaseDao<Department, Long> {
+public interface IDepartmentDao extends IBaseDao<Department, String> {
     //获得部门列表
     List getDepartmentList() throws SQLException;
 }

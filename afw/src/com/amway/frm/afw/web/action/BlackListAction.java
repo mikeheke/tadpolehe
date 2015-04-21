@@ -18,7 +18,7 @@ import com.amway.frm.base.web.action.BaseAction;
 
 /**
  *  应用系统黑名单信息Action
- *  @author huangweijin
+ *  
  */
 public class BlackListAction extends BaseAction{
 	
@@ -140,12 +140,12 @@ public class BlackListAction extends BaseAction{
 	protected BlackList getEntity() {
 		
 		BlackList blackList = new BlackList();
-		blackList.setBlackListId(DataConverter.stringToLong(blackListVo.getBlackListId()));
+		blackList.setBlackListId((blackListVo.getBlackListId()));
 		Application application = new Application();
-		application.setApplicationId(DataConverter.stringToLong(blackListVo.getApplicationId()));
+		application.setApplicationId((blackListVo.getApplicationId()));
 		blackList.setApplication(application);
 		UserProfile userProfile = new UserProfile();
-		userProfile.setUserProfileId(DataConverter.stringToLong(blackListVo.getUserProfileId()[1]));
+		userProfile.setUserProfileId((blackListVo.getUserProfileId()[1]));
 		blackList.setState(AppConstant.START); //设置为启用状态
 		blackList.setBlackListTime(new Date()); //黑名单设置时间
 		blackList.setUserProfile(userProfile);
@@ -165,7 +165,7 @@ public class BlackListAction extends BaseAction{
 		
 		for(String blackListId: blackListIds){
 			BlackList blackList = new BlackList();
-			blackList.setBlackListId(DataConverter.stringToLong(blackListId));
+			blackList.setBlackListId((blackListId));
 			blackLists.add(blackList);
 		}
 		
@@ -176,7 +176,7 @@ public class BlackListAction extends BaseAction{
 	protected BlackList getEntity(String blackListId) {
 
 		BlackList blackList = new BlackList();
-		blackList.setBlackListId(DataConverter.stringToLong(blackListId));
+		blackList.setBlackListId((blackListId));
 		
 		return blackList;
 	}

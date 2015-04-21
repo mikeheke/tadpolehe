@@ -7,7 +7,7 @@ import com.amway.frm.exception.exception.AmwaySysException;
 
 /**
  * Created by MyElipse
- * @author huangweijin
+ * 
  * Date: 2011-3-22
  * Time: 10:47:54
  * Declare：查询异常

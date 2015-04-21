@@ -10,7 +10,7 @@ import com.amway.frm.base.vo.ReturnMessage;
 import com.amway.frm.query.entity.Query;
 
 /**
- * @author huangweijin
+ * 
  *
  * 2011-4-30 上午09:53:25
  */

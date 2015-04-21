@@ -9,7 +9,7 @@ import java.util.List;
 import com.amway.frm.report.util.ReportConstant;
 
 /**
- * @author huangweijin
+ * 
  *
  * 2011-9-19 下午02:12:30
  */

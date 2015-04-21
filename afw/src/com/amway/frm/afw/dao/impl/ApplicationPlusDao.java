@@ -9,7 +9,7 @@ import com.amway.frm.base.dao.impl.BaseDao;
  * @author Feng Hanhao
  * Created date: 2011-5-30
  */
-public class ApplicationPlusDao extends BaseDao<ApplicationPlus, Long> implements IApplicationPlusDao {
+public class ApplicationPlusDao extends BaseDao<ApplicationPlus, String> implements IApplicationPlusDao {
 
 
 }

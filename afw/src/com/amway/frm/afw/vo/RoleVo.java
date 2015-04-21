@@ -6,7 +6,7 @@ package com.amway.frm.afw.vo;
 import com.amway.frm.afw.entity.Application;
 
 /**
- * @author huangweijin
+ * 
  *
  * 2011-5-10 下午03:47:30
  */

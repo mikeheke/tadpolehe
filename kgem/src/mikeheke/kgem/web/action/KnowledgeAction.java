@@ -49,7 +49,7 @@ public class KnowledgeAction extends BaseAction {
 		
 		Knowledge k = new Knowledge();
 		
-		//k.setKnowledgeId(DataConverter.stringToLong(knowledgeVo.getKnowledgeId()));
+		//k.setKnowledgeId((knowledgeVo.getKnowledgeId()));
 		k.setKnowledgeId(knowledgeVo.getKnowledgeId());
 		k.setTitle(knowledgeVo.getTitle());
 		k.setContent(knowledgeVo.getContent());
@@ -65,7 +65,7 @@ public class KnowledgeAction extends BaseAction {
 	protected Knowledge getEntity(String KnowledgeId) {
 		
 		Knowledge k = new Knowledge();
-		//k.setKnowledgeId(DataConverter.stringToLong(KnowledgeId));
+		//k.setKnowledgeId((KnowledgeId));
 		k.setKnowledgeId(KnowledgeId);
 		
 		return k;
@@ -78,7 +78,7 @@ public class KnowledgeAction extends BaseAction {
 		
 		for(String knowledgeId: knowledgeIds){
 			Knowledge knowledge = new Knowledge();
-			//knowledge.setKnowledgeId((DataConverter.stringToLong(knowledgeId)));
+			//knowledge.setKnowledgeId(((knowledgeId)));
 			knowledge.setKnowledgeId((knowledgeId));
 			knowledges.add(knowledge);
 		}
@@ -200,7 +200,7 @@ public class KnowledgeAction extends BaseAction {
 			return this.MDF_INPUT;
 		}
 		
-		//Knowledge qKnowledge = new Knowledge(DataConverter.stringToLong(knowledgeIds[0]));
+		//Knowledge qKnowledge = new Knowledge((knowledgeIds[0]));
 		Knowledge qKnowledge = new Knowledge(knowledgeIds[0]);
 		ReturnMessage<Knowledge> returnMessage = knowledgeService.query(qKnowledge);
 		
@@ -343,7 +343,7 @@ public class KnowledgeAction extends BaseAction {
 			return result;
 		}
 		
-		//Knowledge qKnowledge = new Knowledge(DataConverter.stringToLong(knowledgeIds[0]));
+		//Knowledge qKnowledge = new Knowledge((knowledgeIds[0]));
 		Knowledge qKnowledge = new Knowledge(knowledgeIds[0]);
 		ReturnMessage<Knowledge> returnMessage = knowledgeService.query(qKnowledge);
 		

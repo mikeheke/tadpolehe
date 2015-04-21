@@ -22,7 +22,7 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 /**
- * @author huangweijin
+ * 
  * 
  *         2011-6-1 下午02:30:45
  */

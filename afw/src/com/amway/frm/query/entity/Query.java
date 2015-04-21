@@ -12,15 +12,15 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
+
+import org.hibernate.annotations.GenericGenerator;
 
 import com.amway.frm.afw.entity.Application;
 import com.amway.frm.base.util.AppConstant;
@@ -31,7 +31,7 @@ import com.amway.frm.query.vo.Table;
 
 /**
  * Created by MyElipse
- * @author huangweijin
+ * 
  * Date: 2011-3-22
  * Time: 10:47:54
  * Declare：查询
@@ -47,8 +47,10 @@ public class Query implements Serializable {
 	
 	//主键
 	@Id
+	@GenericGenerator(name="systemUUID",strategy="uuid")
+	@GeneratedValue(generator="systemUUID")
 	@Column(name="QUERY_ID")
-	private Long queryId;
+	private String queryId;
 	
 	//查询代码
 	@Column(name="QUERY_CODE", unique=true)
@@ -144,11 +146,11 @@ public class Query implements Serializable {
 	@Transient
 	private String oprtFlag = QueryConstant.QRY_OPRT;
 
-	public Long getQueryId() {
+	public String getQueryId() {
 		return queryId;
 	}
 
-	public void setQueryId(Long queryId) {
+	public void setQueryId(String queryId) {
 		this.queryId = queryId;
 	}
 

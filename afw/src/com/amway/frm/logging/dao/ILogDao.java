@@ -11,7 +11,7 @@ import com.amway.frm.logging.entity.LogPerformance;
 
 /**
  * Created by MyElipse
- * @author huangweijin
+ * 
  * Date: 2011-3-22
  * Time: 10:47:54
  * Declare：日志Dao接口

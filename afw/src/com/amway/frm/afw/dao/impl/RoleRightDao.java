@@ -13,7 +13,7 @@ import com.amway.frm.base.dao.impl.BaseDao;
  * @author lenovo
  *
  */
-public class RoleRightDao extends BaseDao<RoleRight, Long> implements IRoleRightDao{
+public class RoleRightDao extends BaseDao<RoleRight, String> implements IRoleRightDao{
 
 	/* (non-Javadoc)
 	 * @see com.amway.frm.afw.dao.IRoleRightDao#deleteRightsByRole(com.amway.frm.afw.entity.Role)

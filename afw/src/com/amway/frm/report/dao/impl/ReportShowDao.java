@@ -16,11 +16,11 @@ import com.amway.frm.report.entity.ReportInfo;
 import com.amway.frm.report.vo.SQL;
 
 /**
- * @author huangweijin
+ * 
  *
  * 2011-9-17 下午02:56:49
  */
-public class ReportShowDao extends BaseDao<ReportInfo, Long> implements
+public class ReportShowDao extends BaseDao<ReportInfo, String> implements
 		IReportShowDao {
 
 	public List<Map<String, Object>> excuteSql(SQL sql)throws SQLException {

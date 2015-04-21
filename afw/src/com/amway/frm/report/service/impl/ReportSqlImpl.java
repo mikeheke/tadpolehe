@@ -13,7 +13,7 @@ import com.amway.frm.report.entity.ReportSql;
 import com.amway.frm.report.service.ReportSqlService;
 
 /**
- * @author huangweijin
+ * 
  *
  * 2011-9-6 下午05:28:26
  */

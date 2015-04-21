@@ -28,7 +28,7 @@ import com.amway.frm.query.vo.FromVo;
 
 /**
  * Created by MyElipse
- * @author huangweijin
+ * 
  * Date: 2011-3-22
  * Time: 10:47:54
  * Declare：来源Action类
@@ -71,7 +71,7 @@ public class FromAction extends ConfigAction {
 		}
 		
 		From from = this.getEntity();
-		from.setFromId(System.currentTimeMillis());
+		from.setFromId(System.currentTimeMillis()+"");
 		from.setOprtFlag(QueryConstant.ADD_OPRT);		//增加操作
 		
 		if(validateAddRepeat(from)){
@@ -111,7 +111,7 @@ public class FromAction extends ConfigAction {
 			
 			String[] fromIdArr = fromId.split(QueryConstant.OPRT_SEP);
 			From from = new From();
-			from.setFromId(DataConverter.stringToLong(fromIdArr[0]));
+			from.setFromId((fromIdArr[0]));
 			from.setOprtFlag(fromIdArr[1]);
 			query.getFroms().remove(from);
 			if(!QueryConstant.ADD_OPRT.equals(from.getOprtFlag())){
@@ -150,7 +150,7 @@ public class FromAction extends ConfigAction {
 		From from = this.getEntity();
 		
 		String[] fromIdArr = fromIds[0].split(QueryConstant.OPRT_SEP);
-		from.setFromId(DataConverter.stringToLong(fromIdArr[0]));
+		from.setFromId((fromIdArr[0]));
 		from.setOprtFlag(fromIdArr[1]);
 		
 		if(validateMdfRepeat(from)){

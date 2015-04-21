@@ -16,7 +16,7 @@ import com.amway.frm.sms.util.SmsConstant;
 
 /**
  * Created by IntelliJ IDEA. 
- * @author huangweijin
+ * 
  * Declare：短信表对应的DAO，适用于操作短信表，包括SELECT,CREATE,UPDATE,DELETE各种操作
  */
 public class SmsSendRecordDao extends BaseDao implements ISmsSendRecordDao {

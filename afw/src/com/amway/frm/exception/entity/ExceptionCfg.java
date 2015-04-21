@@ -11,13 +11,13 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import org.hibernate.annotations.GenericGenerator;
 
 import com.amway.frm.afw.entity.Application;
 import com.amway.frm.base.util.AppConstant;
@@ -25,7 +25,7 @@ import com.amway.frm.base.util.DataValidater;
 import com.amway.frm.exception.util.ExceptionConstant;
 
 /**
- * @author huangweijin
+ * 
  *
  * 2011-4-20 下午03:01:15
  */
@@ -40,11 +40,10 @@ public class ExceptionCfg implements Serializable {
 
 	//主键
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="MSSQ_EXCEPTION_OR")
-	@SequenceGenerator(name="MSSQ_EXCEPTION_OR", sequenceName="MSSQ_EXCEPTION", 
-			initialValue=1, allocationSize=1)
+	@GenericGenerator(name="systemUUID",strategy="uuid")
+	@GeneratedValue(generator="systemUUID")
 	@Column(name="EXCEPTION_ID")
-	private Long exceptionId;
+	private String exceptionId;
 	
 	@Column(name="EXCEPTION_CODE", unique=true)
 	private String exceptionCode;
@@ -85,11 +84,11 @@ public class ExceptionCfg implements Serializable {
 	@Column(name="CREATED_USER_ID",updatable=false)
 	private String createdUserId;
 
-	public Long getExceptionId() {
+	public String getExceptionId() {
 		return exceptionId;
 	}
 
-	public void setExceptionId(Long exceptionId) {
+	public void setExceptionId(String exceptionId) {
 		this.exceptionId = exceptionId;
 	}
 

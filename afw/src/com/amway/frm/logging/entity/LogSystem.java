@@ -8,19 +8,19 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import org.hibernate.annotations.GenericGenerator;
 
 import com.amway.frm.base.util.AppConstant;
 
 /**
  * Created by MyElipse
- * @author huangweijin
+ * 
  * Date: 2011-3-22
  * Time: 10:47:54
  * Declare：系统日志
@@ -36,11 +36,10 @@ public class LogSystem implements Serializable {
 
 	//主键
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="HSSQ_LOG_SYSTEM_OR")
-	@SequenceGenerator(name="HSSQ_LOG_SYSTEM_OR", sequenceName="HSSQ_LOG_SYSTEM", 
-			initialValue=1, allocationSize=1)
+	@GenericGenerator(name="systemUUID",strategy="uuid")
+	@GeneratedValue(generator="systemUUID")
 	@Column(name="LOG_SYSTEM_ID")
-	private Long logSystemId;
+	private String logSystemId;
 	
 	@Column(name="EMP_NUMBER")
 	private String empNumber;
@@ -66,11 +65,11 @@ public class LogSystem implements Serializable {
 	
 	@ManyToOne()
 	@JoinColumn(name="MODULE_ID")
-	private Long moduleId;
+	private String moduleId;
 	
 	@ManyToOne()
 	@JoinColumn(name="APPLICATION_ID")
-	private Long applicationId;
+	private String applicationId;
 	
 	@Column(name="REMARK")
 	private String remark;
@@ -92,11 +91,11 @@ public class LogSystem implements Serializable {
 	@Column(name="CREATED_USER_ID")
 	private String createdUserId;
 
-	public Long getLogSystemId() {
+	public String getLogSystemId() {
 		return logSystemId;
 	}
 
-	public void setLogSystemId(Long logSystemId) {
+	public void setLogSystemId(String logSystemId) {
 		this.logSystemId = logSystemId;
 	}
 
@@ -156,19 +155,19 @@ public class LogSystem implements Serializable {
 		this.logContent = logContent;
 	}
 
-	public Long getModuleId() {
+	public String getModuleId() {
 		return moduleId;
 	}
 
-	public void setModuleId(Long moduleId) {
+	public void setModuleId(String moduleId) {
 		this.moduleId = moduleId;
 	}
 
-	public Long getApplicationId() {
+	public String getApplicationId() {
 		return applicationId;
 	}
 
-	public void setApplicationId(Long applicationId) {
+	public void setApplicationId(String applicationId) {
 		this.applicationId = applicationId;
 	}
 

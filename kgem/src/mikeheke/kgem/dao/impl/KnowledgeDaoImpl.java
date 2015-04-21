@@ -10,6 +10,6 @@ import com.amway.frm.base.dao.impl.BaseDao;
  * @author mike
  *
  */
-public class KnowledgeDaoImpl extends BaseDao<Knowledge, Long> implements KnowledgeDao {
+public class KnowledgeDaoImpl extends BaseDao<Knowledge, String> implements KnowledgeDao {
 
 }

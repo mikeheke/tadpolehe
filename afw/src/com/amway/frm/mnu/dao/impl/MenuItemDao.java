@@ -27,7 +27,7 @@ public class MenuItemDao extends ModuleDao implements IMenuItemDao {
 			return true;
 		}
 		Module pModule = module.getParentModule();
-		if(pModule.getModuleId().longValue() == module.getModuleId().longValue()){
+		if(pModule.getModuleId().equals(module.getModuleId())){
 			return false;
 		}
 		

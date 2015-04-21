@@ -6,12 +6,12 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
 
 import com.amway.frm.base.util.AppConstant;
 import com.amway.frm.base.vo.UniqueKey;
@@ -28,11 +28,10 @@ public class ApplicationPlus implements java.io.Serializable {
 	private static final long serialVersionUID = 3102423902018337530L;
 	//自动生成ID
 	@Id
-    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="MSSQ_APPLICATION_OR")
-	@SequenceGenerator(name="MSSQ_APPLICATION_OR", sequenceName="MSSQ_APPLICATION_PLUS",
-			initialValue=1, allocationSize=1)
+	@GenericGenerator(name="systemUUID",strategy="uuid")
+	@GeneratedValue(generator="systemUUID")
 	@Column(name = "APPLICATION_PLUS_ID")
-	private Long applicationPlusId;
+	private String applicationPlusId;
 	
 	//所属应用
 	@ManyToOne
@@ -86,11 +85,11 @@ public class ApplicationPlus implements java.io.Serializable {
 		return application;
 	}
 
-	public Long getApplicationPlusId() {
+	public String getApplicationPlusId() {
 		return applicationPlusId;
 	}
 
-	public void setApplicationPlusId(Long applicationPlusId) {
+	public void setApplicationPlusId(String applicationPlusId) {
 		this.applicationPlusId = applicationPlusId;
 	}
 

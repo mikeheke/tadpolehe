@@ -6,7 +6,7 @@ package com.amway.frm.bds.exception;
 import com.amway.frm.exception.exception.AmwayBizException;
 
 /**
- * @author huangweijin
+ * 
  *
  * 2011-4-15 下午05:32:21
  */

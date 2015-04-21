@@ -5,12 +5,12 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
 
 import com.amway.frm.afw.entity.Application;
 import com.amway.frm.base.util.AppConstant;
@@ -19,7 +19,7 @@ import com.amway.frm.bds.util.BdsConstant;
 
 /**
  * 基础数据服务表实体类
- * @author huangweijin
+ * 
  */
 @Entity
 @Table(name = "MSTB_BDS_SCHEMAINFOR", schema = AppConstant.APP_DEAULT_SCHEMA)
@@ -29,8 +29,10 @@ public class BdsSchemaInfor implements java.io.Serializable {
 	
 	//自动生成ID
 	@Id
+	@GenericGenerator(name="systemUUID",strategy="uuid")
+	@GeneratedValue(generator="systemUUID")
 	@Column(name = "BDS_SCHEMAINFOR_ID")
-	private Long bdsSchemaInforId;
+	private String bdsSchemaInforId;
 	
 	//应用代码
 	@ManyToOne()
@@ -121,11 +123,11 @@ public class BdsSchemaInfor implements java.io.Serializable {
 	@Column(name = "UPDATED_TIME")
 	private Date updatedTime;
 
-	public Long getBdsSchemaInforId() {
+	public String getBdsSchemaInforId() {
 		return bdsSchemaInforId;
 	}
 
-	public void setBdsSchemaInforId(Long bdsSchemaInforId) {
+	public void setBdsSchemaInforId(String bdsSchemaInforId) {
 		this.bdsSchemaInforId = bdsSchemaInforId;
 	}
 

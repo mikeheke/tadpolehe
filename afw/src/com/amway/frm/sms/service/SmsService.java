@@ -8,7 +8,7 @@ import com.amway.frm.sms.entity.SmsBasicPara;
 
 /**
  * Created by IntelliJ IDEA.
- * @author huangweijin
+ * 
  * Date: 2011-3-17
  * Time: 18:31:31
  * Declare：短信Service，适用于实现业务逻辑，包括获得,保存短信记录

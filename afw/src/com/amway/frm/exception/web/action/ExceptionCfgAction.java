@@ -20,7 +20,7 @@ import com.amway.frm.exception.util.ExceptionConstant;
 import com.amway.frm.exception.vo.ExceptionCfgVo;
 
 /**
- * @author huangweijin
+ * 
  *
  * 2011-4-15 上午09:47:57
  */
@@ -156,11 +156,11 @@ public class ExceptionCfgAction extends BaseAction {
 	protected ExceptionCfg getEntity() {
 		
 		ExceptionCfg exceptionCfg = new ExceptionCfg();
-		exceptionCfg.setExceptionId(DataConverter.stringToLong(exceptionCfgVo.getExceptionId()));
+		exceptionCfg.setExceptionId((exceptionCfgVo.getExceptionId()));
 		exceptionCfg.setExceptionCode(exceptionCfgVo.getExceptionCode());
 		exceptionCfg.setExceptionName(exceptionCfgVo.getExceptionName());
 		Application app = new Application();
-		app.setApplicationId(DataConverter.stringToLong(exceptionCfgVo.getApplicationId()));
+		app.setApplicationId((exceptionCfgVo.getApplicationId()));
 		exceptionCfg.setApplication(app);
 		exceptionCfg.setIsSendEmail(DataConverter.stringToInteger(exceptionCfgVo.getIsSendEmail()));
 		exceptionCfg.setEmailUsers(exceptionCfgVo.getEmailUserArr());
@@ -180,7 +180,7 @@ public class ExceptionCfgAction extends BaseAction {
 	protected ExceptionCfg getEntity(String exceptionId) {
 		
 		ExceptionCfg exceptionCfg = new ExceptionCfg();
-		exceptionCfg.setExceptionId(DataConverter.stringToLong(exceptionId));
+		exceptionCfg.setExceptionId((exceptionId));
 		
 		return exceptionCfg;
 	}
@@ -192,7 +192,7 @@ public class ExceptionCfgAction extends BaseAction {
 		
 		for(String exceptionId: exceptionIds){
 			ExceptionCfg exceptionCfg = new ExceptionCfg();
-			exceptionCfg.setExceptionId(DataConverter.stringToLong(exceptionId));
+			exceptionCfg.setExceptionId((exceptionId));
 			exceptionCfgs.add(exceptionCfg);
 		}
 		

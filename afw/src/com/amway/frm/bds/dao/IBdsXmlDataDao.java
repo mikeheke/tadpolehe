@@ -19,9 +19,9 @@ import com.amway.frm.bds.entity.BdsXmlData;
 import com.amway.frm.bds.vo.BaseDataSourceVo;
 
 /**
- * @author huangweijin
+ * 
  */
-public interface IBdsXmlDataDao extends IBaseDao<BdsXmlData, Long> {
+public interface IBdsXmlDataDao extends IBaseDao<BdsXmlData, String> {
 
 	List<BdsXmlData> getBdsXmlDataList(BdsXmlData bdsXmlData)
 			throws SQLException;

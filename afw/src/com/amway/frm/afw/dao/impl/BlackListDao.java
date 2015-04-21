@@ -9,7 +9,7 @@ import com.amway.frm.base.dao.impl.BaseDao;
  * @author Feng Hanhao
  * Created date: 2011-5-30
  */
-public class BlackListDao extends BaseDao<BlackList, Long> implements IBlackListDao {
+public class BlackListDao extends BaseDao<BlackList, String> implements IBlackListDao {
 
 
 }

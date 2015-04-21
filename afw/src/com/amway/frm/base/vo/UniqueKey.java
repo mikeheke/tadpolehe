@@ -9,7 +9,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * @author huangweijin
+ * 
  *
  * 2011-5-14 上午09:39:49
  */

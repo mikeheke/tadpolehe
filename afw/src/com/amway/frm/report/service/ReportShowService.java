@@ -11,7 +11,7 @@ import com.amway.frm.base.vo.ReturnMessage;
 import com.amway.frm.report.entity.ReportInfo;
 
 /**
- * @author huangweijin
+ * 
  *
  * 2011-9-16 上午11:40:50
  */

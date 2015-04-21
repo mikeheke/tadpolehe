@@ -15,12 +15,12 @@ import com.amway.frm.base.util.JDBCHelper;
 
 /**
  * Created by IntelliJ IDEA.
- * @author huangweijin
+ * 
  * Date: 2011-4-6
  * Time: 15:52:42
  * Declare：MstbApplicationDao表对应的DAO，适用于操作MstbApplicationDao表，包括SELECT,CREATE,UPDATE,DELETE各种操作
  */
-public class ApplicationDao extends BaseDao<Application, Long> implements IApplicationDao {
+public class ApplicationDao extends BaseDao<Application, String> implements IApplicationDao {
 
 	/**
      * Declare：获得应用列表
@@ -92,7 +92,7 @@ public class ApplicationDao extends BaseDao<Application, Long> implements IAppli
 		Application application = new Application();
 		
 		final String APPLICATION_ID = "APPLICATION_ID";
-		long applicationId = jdbcHelper.getItemLongValue(APPLICATION_ID);
+		String applicationId = jdbcHelper.getItemTrueValue(APPLICATION_ID);
 		final String APPLICATION_CODE = "APPLICATION_CODE";
 		String applicationCode = jdbcHelper.getItemTrueValue(APPLICATION_CODE);
 		final String APPLICATION_NAME = "APPLICATION_NAME";
@@ -101,7 +101,7 @@ public class ApplicationDao extends BaseDao<Application, Long> implements IAppli
 		application.setApplicationId(applicationId);
 		application.setApplicationCode(applicationCode);
 		application.setApplicationName(applicationName);
-		application.setCode(DataConverter.LongToString(applicationId));
+		application.setCode((applicationId));
 		application.setDisplayname(applicationName);
 		
 		return application;

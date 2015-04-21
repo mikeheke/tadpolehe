@@ -6,10 +6,10 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
 
 import com.amway.frm.base.util.AppConstant;
 
@@ -29,11 +29,10 @@ public class Config implements Serializable{
 	
 	//自动生成ID
 	@Id
-    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="MSSQ_CONFIG_OR")
-	@SequenceGenerator(name="MSSQ_CONFIG_OR", sequenceName="MSSQ_CONFIG",
-			initialValue=1, allocationSize=1)
+	@GenericGenerator(name="systemUUID",strategy="uuid")
+	@GeneratedValue(generator="systemUUID")
 	@Column(name = "ID")
-	private Long id;
+	private String id;
 	
 	//key
 	@Column(name = "CFG_KEY")
@@ -60,11 +59,11 @@ public class Config implements Serializable{
 	@Column(name = "UPDATE_TIME")
 	private Date updatedTime;
 
-	public Long getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 

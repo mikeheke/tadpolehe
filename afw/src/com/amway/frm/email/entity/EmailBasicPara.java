@@ -9,7 +9,7 @@ import com.amway.frm.email.util.EmailConstant;
 
 /**
  * Created by IntelliJ IDEA.
- * @author huangweijin
+ * 
  * Date: 2011-3-23
  * Time: 14:17:46
  * Declare：邮件基本信息VO

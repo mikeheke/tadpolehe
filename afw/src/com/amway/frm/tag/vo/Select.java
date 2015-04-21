@@ -6,7 +6,7 @@ import com.opensymphony.xwork2.util.ValueStack;
 
 /**
  * 选择标签
- * @author huangweijin
+ * 
  */
 public class Select extends Component {
 

@@ -6,20 +6,20 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
+
+import org.hibernate.annotations.GenericGenerator;
 
 import com.amway.frm.base.util.AppConstant;
 import com.amway.frm.base.vo.UniqueKey;
 
 /**
  * Created by MyElipse
- * @author huangweijin
+ * 
  * Date: 2011-3-22
  * Time: 10:47:54
  * Declare：角色用户
@@ -35,19 +35,18 @@ public class RoleUser implements Serializable{
 
 	//ID
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="MSSQ_ROLE_USER_OR")
-	@SequenceGenerator(name="MSSQ_ROLE_USER_OR", sequenceName="MSSQ_ROLE_USER", 
-			initialValue=1, allocationSize=1)
+	@GenericGenerator(name="systemUUID",strategy="uuid")
+	@GeneratedValue(generator="systemUUID")
 	@Column(name="ROLE_USER_ID")
-	private Long roleUserId;
+	private String roleUserId;
 	
 	@Column(name="ROLE_ID")
 	@UniqueKey
-	private Long roleId;
+	private String roleId;
 	
 	@Column(name="USERPROFILE_ID")
 	@UniqueKey
-	private Long userProfileId;
+	private String userProfileId;
 	
 	@Column(name="RECORD_STATE")
 	@UniqueKey
@@ -81,27 +80,27 @@ public class RoleUser implements Serializable{
 		this.displayName = displayName;
 	}
 
-	public Long getRoleUserId() {
+	public String getRoleUserId() {
 		return roleUserId;
 	}
 
-	public void setRoleUserId(Long roleUserId) {
+	public void setRoleUserId(String roleUserId) {
 		this.roleUserId = roleUserId;
 	}
 
-	public Long getRoleId() {
+	public String getRoleId() {
 		return roleId;
 	}
 
-	public void setRoleId(Long roleId) {
+	public void setRoleId(String roleId) {
 		this.roleId = roleId;
 	}
 
-	public Long getUserProfileId() {
+	public String getUserProfileId() {
 		return userProfileId;
 	}
 
-	public void setUserProfileId(Long userProfileId) {
+	public void setUserProfileId(String userProfileId) {
 		this.userProfileId = userProfileId;
 	}
 

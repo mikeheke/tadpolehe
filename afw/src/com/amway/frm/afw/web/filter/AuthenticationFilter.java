@@ -37,7 +37,7 @@ import com.amway.frm.logging.util.LogFactory;
 
 /**
  * 登录验证过滤器
- * @author huangweijin
+ * 
  */
 
 public class AuthenticationFilter extends HttpServlet implements Filter {

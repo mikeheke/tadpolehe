@@ -7,7 +7,7 @@ import com.amway.frm.base.util.ContextFactory;
 import com.amway.frm.logging.service.LogService;
 
 /**
- * @author huangweijin
+ * 
  *
  * 2011-7-18 下午02:48:25
  */

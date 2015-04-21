@@ -51,7 +51,7 @@ import com.amway.frm.report.util.ReportConstant;
 import com.amway.frm.report.vo.SQL;
 
 /**
- * @author huangweijin
+ * 
  *
  * 2011-9-16 上午11:47:50
  */

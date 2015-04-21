@@ -10,7 +10,7 @@ import com.amway.frm.bds.entity.BdsXmlData;
 
 /**
  * 基础数据服务本地数据接口
- * @author huangweijin
+ * 
  * 
  */
 public interface BdsXmlDataService extends BaseService {

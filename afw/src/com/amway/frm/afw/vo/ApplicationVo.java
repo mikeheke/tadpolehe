@@ -6,7 +6,7 @@ package com.amway.frm.afw.vo;
 
 /**
  * 应用系统信息表_表单封装VO
- * @author huangweijin
+ * 
  */
 
 public class ApplicationVo {

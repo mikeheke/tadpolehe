@@ -6,7 +6,7 @@ package com.amway.frm.mnu.exception;
 import com.amway.frm.exception.exception.AmwaySysException;
 
 /**
- * @author huangweijin
+ * 
  *
  * 2011-10-19 上午10:01:56
  */

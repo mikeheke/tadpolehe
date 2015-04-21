@@ -17,7 +17,7 @@ import com.amway.frm.tag.util.TagConstant;
 
 /**
  * 自动充填标签
- * @author huangweijin
+ * 
  */
 public class AutoCompleteTag extends TextFieldTag implements TagConstant {
 	

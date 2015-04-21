@@ -6,14 +6,14 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import org.hibernate.annotations.GenericGenerator;
 
 import com.amway.frm.afw.util.AfwConstant;
 import com.amway.frm.base.util.AppConstant;
@@ -23,7 +23,7 @@ import com.amway.frm.base.vo.UniqueKey;
 
 /**
  * Created by MyElipse
- * @author huangweijin
+ * 
  * Date: 2011-3-22
  * Time: 10:47:54
  * Declare：模块
@@ -36,17 +36,19 @@ public class Module implements Serializable, Comparable<Module>{
 
 	public Module(){}
 	
-	public Module(Long moduleId){
+	public Module(String moduleId){
 		this.moduleId = moduleId;
 	}
 	
-	public Module(String moduleCode){
-		this.moduleCode = moduleCode;
-	}
+//	public Module(String moduleCode){
+//		this.moduleCode = moduleCode;
+//	}
 	//模块ID
 	@Id
+	@GenericGenerator(name="systemUUID",strategy="uuid")
+	@GeneratedValue(generator="systemUUID")
 	@Column(name="MODULE_ID")
-	private Long moduleId;
+	private String moduleId;
 	
 	//模块代码
 	@Column(name="MODULE_CODE")
@@ -126,11 +128,11 @@ public class Module implements Serializable, Comparable<Module>{
 	@JoinColumn(name="PARENT_MODULE_ID")
 	private Module parentModule;
 
-	public Long getModuleId() {
+	public String getModuleId() {
 		return moduleId;
 	}
 
-	public void setModuleId(Long moduleId) {
+	public void setModuleId(String moduleId) {
 		this.moduleId = moduleId;
 	}
 

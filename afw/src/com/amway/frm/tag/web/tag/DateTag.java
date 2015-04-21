@@ -8,7 +8,7 @@ import com.amway.frm.tag.util.TagConstant;
 
 /**
  * 日期标签
- * @author huangweijin
+ * 
  */
 public class DateTag extends TextFieldTag {
 

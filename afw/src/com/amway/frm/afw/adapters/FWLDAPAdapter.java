@@ -23,7 +23,7 @@ import com.amway.frm.bds.vo.BaseDataSourceVo;
 
 /**
  * LDAP用户验证实现类
- * @author huangweijin
+ * 
  */
 
 public class FWLDAPAdapter implements IFWAuthenticator {

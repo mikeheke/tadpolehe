@@ -26,7 +26,7 @@ public class Department implements Serializable {
 	@Id
 	@Basic(optional = false)
 	@Column(name = "DEPARTMENT_ID")
-	private Long departmentId;
+	private String departmentId;
 	@Basic(optional = false)
 	@Column(name = "UNIT_CODE")
 	private String unitCode;
@@ -103,21 +103,21 @@ public class Department implements Serializable {
 	public Department() {
 	}
 
-	public Department(Long departmentId) {
+	public Department(String departmentId) {
 		this.departmentId = departmentId;
 	}
 
-	public Department(Long departmentId, String unitCode, Integer recordState) {
+	public Department(String departmentId, String unitCode, Integer recordState) {
 		this.departmentId = departmentId;
 		this.unitCode = unitCode;
 		this.recordState = recordState;
 	}
 
-	public Long getDepartmentId() {
+	public String getDepartmentId() {
 		return departmentId;
 	}
 
-	public void setDepartmentId(Long departmentId) {
+	public void setDepartmentId(String departmentId) {
 		this.departmentId = departmentId;
 	}
 

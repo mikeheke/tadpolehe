@@ -7,7 +7,7 @@ import com.amway.frm.exception.exception.AmwayBizException;
 
 /**
  * tag模块业务异常
- * @author huangweijin
+ * 
  */
 public class TagBizException extends AmwayBizException {
 

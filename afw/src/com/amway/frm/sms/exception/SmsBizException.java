@@ -4,7 +4,7 @@ import com.amway.frm.exception.exception.AmwayBizException;
 
 /**
  * Created by IntelliJ IDEA.
- * @author huangweijin
+ * 
  * Date: 2011-4-16
  * Time: 10:52:41
  * Declare:

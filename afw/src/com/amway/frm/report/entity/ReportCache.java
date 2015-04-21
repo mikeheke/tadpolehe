@@ -9,17 +9,17 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import com.amway.frm.base.util.AppConstant;
 
 /**
- * @author huangweijin
+ * 
  *
  * 2011-9-6 下午03:07:51
  */
@@ -33,11 +33,10 @@ public class ReportCache implements Serializable {
 	private static final long serialVersionUID = -4542790545928354039L;
 	
 	@Id
-    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="MSSQ_REPORT_CACHE_OR")
-	@SequenceGenerator(name="MSSQ_REPORT_CACHE_OR", sequenceName="MSSQ_REPORT_CACHE",
-			initialValue=1, allocationSize=1)
+	@GenericGenerator(name="systemUUID",strategy="uuid")
+	@GeneratedValue(generator="systemUUID")
 	@Column(name="REPORT_CACHE_ID")
-	private Long reportCacheId;
+	private String reportCacheId;
 	
 	@Column(name="REPORT_CODE")
 	private String reportCode;
@@ -68,11 +67,11 @@ public class ReportCache implements Serializable {
 	@Column(name="FILE_R_PATH")
 	private String fileRPath;
 
-	public Long getReportCacheId() {
+	public String getReportCacheId() {
 		return reportCacheId;
 	}
 
-	public void setReportCacheId(Long reportCacheId) {
+	public void setReportCacheId(String reportCacheId) {
 		this.reportCacheId = reportCacheId;
 	}
 

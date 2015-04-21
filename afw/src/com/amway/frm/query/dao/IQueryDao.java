@@ -15,12 +15,12 @@ import com.amway.frm.query.vo.SQL;
 
 /**
  * Created by MyElipse
- * @author huangweijin
+ * 
  * Date: 2011-3-22
  * Time: 10:47:54
  * Declare：查询DAO接口
  */
-public interface IQueryDao extends IBaseDao<Query, Long> {
+public interface IQueryDao extends IBaseDao<Query, String> {
 
 	/**
 	 * 检查数据源JNDI连结

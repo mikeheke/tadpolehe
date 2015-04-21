@@ -54,7 +54,7 @@ import emailSender.ServiceResult;
 
 /**
  * Created by IntelliJ IDEA.
- * @author huangweijin
+ * 
  * Date: 2011-3-22
  * Time: 10:47:54
  * Declare：邮件服务接口类，适用于实现业务逻辑，包括发送邮件，保存发送信息

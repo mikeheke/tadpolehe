@@ -30,7 +30,7 @@ import org.w3c.dom.Element;
 
 /**
  * Help developer to access database
- * @author huangweijin
+ * 
  */
 public class JDBCHelper {
 	

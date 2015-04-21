@@ -7,7 +7,7 @@ import com.amway.frm.bds.util.BdsConstant;
 
 /**
  * xml数据结构，每一项的固定属性
- * @author huangweijin
+ * 
  */
 public class BdsXmlStructureVo {
 	

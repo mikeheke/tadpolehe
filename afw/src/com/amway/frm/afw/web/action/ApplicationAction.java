@@ -19,7 +19,7 @@ import com.amway.frm.logging.util.LogFactory;
 
 /**
  *  应用系统信息Action
- *  @author huangweijin
+ *  
  */
 public class ApplicationAction extends BaseAction {
 	
@@ -181,7 +181,7 @@ public class ApplicationAction extends BaseAction {
 	protected Application getEntity() {
 		
 		Application application = new Application();
-		application.setApplicationId(DataConverter.stringToLong(applicationVo.getApplicationId()));
+		application.setApplicationId((applicationVo.getApplicationId()));
 		application.setApplicationCode(applicationVo.getApplicationCode());
 		application.setApplicationName(applicationVo.getApplicationName());
 		final Integer depLen = 2;
@@ -239,7 +239,7 @@ public class ApplicationAction extends BaseAction {
 		
 		for(String applicationId: applicationIds){
 			Application application = new Application();
-			application.setApplicationId(DataConverter.stringToLong(applicationId));
+			application.setApplicationId((applicationId));
 			applications.add(application);
 		}
 		
@@ -249,7 +249,8 @@ public class ApplicationAction extends BaseAction {
 	@Override
 	protected Application getEntity(String applicationId) {
 
-		Application application = new Application(DataConverter.stringToLong(applicationId));
+		Application application = new Application();
+		application.setApplicationId(applicationId);
 		
 		return application;
 	}

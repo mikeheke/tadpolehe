@@ -8,7 +8,7 @@ import com.amway.frm.base.dao.IBaseDao;
  * @author lenovo
  *
  */
-public interface IUserProfileDao extends IBaseDao<UserProfile, Long>{
+public interface IUserProfileDao extends IBaseDao<UserProfile, String>{
 	
 
 }

@@ -5,21 +5,21 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import org.hibernate.annotations.GenericGenerator;
 
 import com.amway.frm.afw.entity.Application;
 import com.amway.frm.base.util.AppConstant;
 
 /**
  * Created by IntelliJ IDEA.
- * @author huangweijin
+ * 
  * Date: 2011-4-6
  * Time: 15:37:12
  * To change this template use File | Settings | File Templates.
@@ -31,10 +31,9 @@ public class SmsTemplate {
 	//自动生成ID
 	@Id
     @Column(name = "SMS_TEMPLATES_ID")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "MSSQ_SMS_TEMPLATES_OR")
-    @SequenceGenerator(name = "MSSQ_SMS_TEMPLATES_OR", sequenceName = "MSSQ_SMS_TEMPLATES",
-            initialValue = 1, allocationSize = 1)
-    private Long smsTemplateId;
+	@GenericGenerator(name="systemUUID",strategy="uuid")
+	@GeneratedValue(generator="systemUUID")
+    private String smsTemplateId;
 
 	//模板编号
 	@Column(name = "TEMPLATES_CODE", unique=true)
@@ -74,11 +73,11 @@ public class SmsTemplate {
 	@JoinColumn(name = "APPLICATION_ID")
     private Application application;
 
-	public Long getSmsTemplateId() {
+	public String getSmsTemplateId() {
 		return smsTemplateId;
 	}
 
-	public void setSmsTemplateId(Long smsTemplateId) {
+	public void setSmsTemplateId(String smsTemplateId) {
 		this.smsTemplateId = smsTemplateId;
 	}
 

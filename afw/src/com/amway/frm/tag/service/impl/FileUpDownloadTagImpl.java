@@ -20,7 +20,7 @@ import com.amway.frm.tag.util.TagConstant;
 
 /**
  * 文件上传实现类
- * @author huangweijin
+ * 
  */
 public class FileUpDownloadTagImpl extends BaseImpl implements
 		FileUpDownloadTagService {

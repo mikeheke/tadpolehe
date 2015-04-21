@@ -21,7 +21,7 @@ import com.amway.frm.exception.exception.AmwaySysException;
 
 /**
  * 模块信息业务Service实现类
- * @author huangweijin
+ * 
  */
 public class ModuleImpl extends BaseImpl implements ModuleService{
 
@@ -41,7 +41,7 @@ public class ModuleImpl extends BaseImpl implements ModuleService{
 		String[] moduleIds = moduleVo.getModuleIds();
 		Module module = null;
 		if(!DataValidater.isArrEmpty(moduleIds)){
-			module = (Module) querySingle(new Module(DataConverter.stringToLong(moduleIds[0])));
+			module = (Module) querySingle(new Module((moduleIds[0])));
 		}
 		
 		//根据不同级别按钮，设置不同初值
@@ -49,7 +49,7 @@ public class ModuleImpl extends BaseImpl implements ModuleService{
 		Module moduleRet = new Module();
 		if(AfwConstant.ADD_LEVEL_CURRENT.equals(addLevel)){
 			if(module != null 
-					&& module.getModuleId().longValue() != module.getParentModule().getModuleId().longValue()){
+					&& !module.getModuleId().equals(module.getParentModule().getModuleId())){
 				moduleRet.setParentModule(module.getParentModule());
 				moduleRet.setApplication(module.getParentModule().getApplication());
 			}
@@ -141,9 +141,9 @@ public class ModuleImpl extends BaseImpl implements ModuleService{
 	@Transactional
 	public ReturnMessage<Module> addModule(Module module){
 		
-		if(module.getModuleId()==null){
-			module.setModuleId(moduleDao.generateSequence("MSTB_MODULE"));
-		}
+//		if(module.getModuleId()==null){
+//			module.setModuleId(moduleDao.generateSequence("MSTB_MODULE"));
+//		}
 		
 		ReturnMessage<Module> returnMessage = addCom(module);
 		

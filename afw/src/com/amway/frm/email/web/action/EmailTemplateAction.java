@@ -17,7 +17,7 @@ import com.amway.frm.email.vo.EmailTemplateVo;
 
 /**
  * Created by IntelliJ IDEA.
- * @author huangweijin
+ * 
  * Date: 2011-3-21
  * Time: 12:22:29
  * Declare：邮件模板ACTION，适用于页面初始化，新增，修改，删除短信模板信息
@@ -136,7 +136,7 @@ public class EmailTemplateAction extends BaseAction {
 	protected EmailTemplate getEntity(String emailTemplateId) {
 		
     	EmailTemplate emailTemplate = new EmailTemplate();
-    	emailTemplate.setEmailTemplateId(DataConverter.stringToLong(emailTemplateId));
+    	emailTemplate.setEmailTemplateId((emailTemplateId));
     	
 		return emailTemplate;
 	}
@@ -146,14 +146,14 @@ public class EmailTemplateAction extends BaseAction {
 		
     	EmailTemplate emailTemplate = new EmailTemplate();
     	emailTemplate.setEmailTemplateId(
-    			DataConverter.stringToLong(emailTemplateVo.getEmailTemplateId()));
+    			(emailTemplateVo.getEmailTemplateId()));
     	emailTemplate.setTemplateCode(emailTemplateVo.getTemplateCode());
     	emailTemplate.setTemplateName(emailTemplateVo.getTemplateName());
     	emailTemplate.setEmailTemplateSubject(emailTemplateVo.getEmailTemplateSubject());
     	emailTemplate.setEmailTemplateContent(emailTemplateVo.getEmailTemplateContent());
     	Application application =  new Application();
     	application.setApplicationId(
-    			DataConverter.stringToLong(emailTemplateVo.getApplicationId()));
+    			(emailTemplateVo.getApplicationId()));
     	emailTemplate.setApplication(application);
     	emailTemplate.setAccessoryFlag(
     			DataConverter.stringToInteger(emailTemplateVo.getAccessoryFlag()));
@@ -179,7 +179,7 @@ public class EmailTemplateAction extends BaseAction {
 		for(String emailTemplateId: emailTemplateIds){
 			EmailTemplate emailTemplate = new EmailTemplate();
 			emailTemplate.setEmailTemplateId(
-					DataConverter.stringToLong(emailTemplateId));
+					(emailTemplateId));
 			emailTemplates.add(emailTemplate);
 		}
 		return emailTemplates;

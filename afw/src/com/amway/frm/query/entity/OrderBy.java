@@ -9,14 +9,14 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
+
+import org.hibernate.annotations.GenericGenerator;
 
 import com.amway.frm.base.util.AppConstant;
 import com.amway.frm.base.util.DataValidater;
@@ -24,7 +24,7 @@ import com.amway.frm.query.util.QueryConstant;
 
 /**
  * Created by MyElipse
- * @author huangweijin
+ * 
  * Date: 2011-3-22
  * Time: 10:47:54
  * Declare：排序
@@ -40,8 +40,10 @@ public class OrderBy implements Serializable, Comparable<OrderBy> {
 
 	//主键
 	@Id
+	@GenericGenerator(name="systemUUID",strategy="uuid")
+	@GeneratedValue(generator="systemUUID")
 	@Column(name="ORDERBY_ID")
-	private Long orderById;
+	private String orderById;
 	
 	//查询ID
 	@ManyToOne()
@@ -89,11 +91,11 @@ public class OrderBy implements Serializable, Comparable<OrderBy> {
 	@Transient
 	private String orderByName;
 
-	public Long getOrderById() {
+	public String getOrderById() {
 		return orderById;
 	}
 
-	public void setOrderById(Long orderById) {
+	public void setOrderById(String orderById) {
 		this.orderById = orderById;
 	}
 

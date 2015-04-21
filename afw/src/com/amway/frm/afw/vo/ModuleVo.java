@@ -4,7 +4,7 @@
 package com.amway.frm.afw.vo;
 
 /**
- * @author huangweijin
+ * 
  *
  * 2011-5-13 下午01:54:38
  */

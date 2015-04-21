@@ -7,7 +7,7 @@ package com.amway.frm.bds.vo;
 
 /**
  *  baseDataServicesDefine.jsp 页面表单封装对象
- *  @author huangweijin
+ *  
  */
 public class BdsSchemaInforVo {
 	

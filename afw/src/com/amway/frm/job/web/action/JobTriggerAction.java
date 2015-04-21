@@ -17,7 +17,7 @@ import com.amway.frm.job.util.JobConstant;
 
 
 /**
- * @author huangweijin
+ * 
  *
  * 2011-9-28 上午09:26:54
  */

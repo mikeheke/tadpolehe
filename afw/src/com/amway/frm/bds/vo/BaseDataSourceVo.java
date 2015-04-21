@@ -10,7 +10,7 @@ import com.amway.frm.bds.util.BdsConstant;
 
 /**
  * 供内外部调用的基础数据服务实现类中，封装的返回对象
- * @author huangweijin
+ * 
  */
 public class BaseDataSourceVo {
 	

@@ -9,7 +9,7 @@ import com.opensymphony.xwork2.util.ValueStack;
 
 /**
  * 菜单项，和页面对应
- * @author huangweijin
+ * 
  *
  * 2011-2-22 上午11:28:38
  */

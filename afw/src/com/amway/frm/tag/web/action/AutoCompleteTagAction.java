@@ -9,7 +9,7 @@ import com.opensymphony.xwork2.ActionContext;
 
 /**
  * Tag的Ajax请求，返回josn数据
- * @author huangweijin
+ * 
  */
 public class AutoCompleteTagAction extends BaseAction{
 

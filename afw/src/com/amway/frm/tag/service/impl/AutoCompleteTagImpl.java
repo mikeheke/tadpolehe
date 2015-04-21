@@ -24,7 +24,7 @@ import com.amway.frm.tag.vo.AutoComplete;
 
 /**
  * 自动充填标签实现类
- * @author huangweijin
+ * 
  */
 public class AutoCompleteTagImpl extends BaseImpl implements
 		AutoCompleteTagService {

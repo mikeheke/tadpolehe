@@ -9,14 +9,14 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import org.hibernate.annotations.GenericGenerator;
 
 import com.amway.frm.afw.entity.Application;
 import com.amway.frm.base.util.AppConstant;
@@ -24,7 +24,7 @@ import com.amway.frm.base.vo.UniqueKey;
 import com.amway.frm.job.util.JobConstant;
 
 /**
- * @author huangweijin
+ * 
  *
  * 2011-9-26 下午03:25:44
  */
@@ -38,11 +38,10 @@ public class TimeingJob implements Serializable {
 	private static final long serialVersionUID = 4606611395241860023L;
 	
 	@Id
-    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="MSSQ_TIMEING_JOB_OR")
-	@SequenceGenerator(name="MSSQ_TIMEING_JOB_OR", sequenceName="MSSQ_TIMEING_JOB",
-			initialValue=1, allocationSize=1)
+	@GenericGenerator(name="systemUUID",strategy="uuid")
+	@GeneratedValue(generator="systemUUID")
 	@Column(name="TIMEING_JOB_ID")
-	private Long timeingJobId;
+	private String timeingJobId;
 	
 	@Column(name="TIMEING_JOB_CODE")
 	@UniqueKey
@@ -122,11 +121,11 @@ public class TimeingJob implements Serializable {
 	@Column(name="RUN_STATE")
 	private Integer runState;
 
-	public Long getTimeingJobId() {
+	public String getTimeingJobId() {
 		return timeingJobId;
 	}
 
-	public void setTimeingJobId(Long timeingJobId) {
+	public void setTimeingJobId(String timeingJobId) {
 		this.timeingJobId = timeingJobId;
 	}
 

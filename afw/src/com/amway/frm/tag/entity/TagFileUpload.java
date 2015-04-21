@@ -19,7 +19,7 @@ import org.hibernate.annotations.GenericGenerator;
 import com.amway.frm.base.util.AppConstant;
 
 /**
- * @author huangweijin
+ * 
  *
  * 2011-6-23 下午07:12:17
  */
@@ -34,8 +34,8 @@ public class TagFileUpload implements Serializable {
 	
 	//自动生成ID
 	@Id
-	@GenericGenerator(name="UUID_TAG_FILEUPLOAD_OR", strategy="uuid")
-	@GeneratedValue(generator="UUID_TAG_FILEUPLOAD_OR")
+	@GenericGenerator(name="systemUUID",strategy="uuid")
+	@GeneratedValue(generator="systemUUID")
 	@Column(name="UUID")
 	private String uuid;
 	
@@ -55,7 +55,7 @@ public class TagFileUpload implements Serializable {
 	private String moduleId;
 	
 	@Column(name="APPLICATION_ID")
-	private Long applicationId;
+	private String applicationId;
 	
 	@Column(name="UPLOAD_USER")
 	private String uploadUser;
@@ -126,11 +126,11 @@ public class TagFileUpload implements Serializable {
 		this.moduleId = moduleId;
 	}
 
-	public Long getApplicationId() {
+	public String getApplicationId() {
 		return applicationId;
 	}
 
-	public void setApplicationId(Long applicationId) {
+	public void setApplicationId(String applicationId) {
 		this.applicationId = applicationId;
 	}
 

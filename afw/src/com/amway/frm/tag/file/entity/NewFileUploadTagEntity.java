@@ -48,7 +48,7 @@ public class NewFileUploadTagEntity implements Comparable  {
 	private String moduleId;
 	
 	@Column(name="APPLICATION_ID")
-	private Long applicationId;
+	private String applicationId;
 	
 	@Column(name="UPLOAD_USER")
 	private String uploadUser;
@@ -119,11 +119,11 @@ public class NewFileUploadTagEntity implements Comparable  {
 		this.moduleId = moduleId;
 	}
 
-	public Long getApplicationId() {
+	public String getApplicationId() {
 		return applicationId;
 	}
 
-	public void setApplicationId(Long applicationId) {
+	public void setApplicationId(String applicationId) {
 		this.applicationId = applicationId;
 	}
 

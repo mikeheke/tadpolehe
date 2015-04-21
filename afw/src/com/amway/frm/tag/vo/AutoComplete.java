@@ -7,7 +7,7 @@ import com.opensymphony.xwork2.util.ValueStack;
 
 /**
  * 自动充填标签VO
- * @author huangweijin
+ * 
  */
 public class AutoComplete extends TextField {
 

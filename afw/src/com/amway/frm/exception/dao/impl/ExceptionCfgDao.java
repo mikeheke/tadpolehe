@@ -8,10 +8,10 @@ import com.amway.frm.exception.dao.IExceptionCfgDao;
 import com.amway.frm.exception.entity.ExceptionCfg;
 
 /**
- * @author huangweijin
+ * 
  *
  * 2011-4-14 下午06:37:08
  */
-public class ExceptionCfgDao extends BaseDao<ExceptionCfg, Long> implements IExceptionCfgDao {
+public class ExceptionCfgDao extends BaseDao<ExceptionCfg, String> implements IExceptionCfgDao {
 
 }

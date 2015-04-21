@@ -22,7 +22,7 @@ import com.amway.frm.tag.util.TagConstant;
 
 /**
  * 文件上传Action
- * @author huangweijin
+ * 
  */
 public class FileUpDownloadAction extends BaseAction {
 

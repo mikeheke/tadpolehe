@@ -7,7 +7,7 @@ import net.sf.ehcache.Cache;
 import net.sf.ehcache.CacheManager;
 
 /**
- * @author huangweijin
+ * 
  *
  * 2011-8-30 下午05:51:14
  */

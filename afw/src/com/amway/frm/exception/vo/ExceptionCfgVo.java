@@ -7,7 +7,7 @@ import com.amway.frm.afw.entity.Application;
 import com.amway.frm.exception.util.ExceptionConstant;
 
 /**
- * @author huangweijin
+ * 
  *
  * 2011-5-11 上午10:21:18
  */

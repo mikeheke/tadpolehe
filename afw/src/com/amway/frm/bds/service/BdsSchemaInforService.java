@@ -9,7 +9,7 @@ import com.amway.frm.bds.exception.BdsBizException;
 
 /**
  * 基础数据服务接口
- * @author huangweijin
+ * 
  * 
  */
 public interface BdsSchemaInforService extends BaseService {

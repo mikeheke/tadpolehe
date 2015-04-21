@@ -50,7 +50,7 @@ public class RoleImpl extends BaseImpl<Role> implements RoleService {
 	@Transactional
 	public ReturnMessage<Role> addRole(Role role) {
 		
-		role.setRoleId(roleDao.generateSequence("MSTB_ROLE"));
+//		role.setRoleId(roleDao.generateSequence("MSTB_ROLE"));
 		
 		ReturnMessage<Role> returnMessage = addCom(role);
 		if(!returnMessage.isSuccess()){

@@ -148,11 +148,11 @@ public class RoleAction extends BaseAction{
 	protected Role getEntity() {
 		
 		Role role = new Role();
-		role.setRoleId( DataConverter.stringToLong(roleVo.getRoleId()));
+		role.setRoleId( (roleVo.getRoleId()));
 		role.setRoleCode(roleVo.getRoleCode());
 		role.setRoleName(roleVo.getRoleName());
 		Application application = new Application();
-		application.setApplicationId(DataConverter.stringToLong(roleVo.getApplicationId()));
+		application.setApplicationId((roleVo.getApplicationId()));
 		role.setApplication(application);
 		role.setState(DataConverter.stringToInteger(roleVo.getState()));
 		role.setUserSql(roleVo.getBdsCode());
@@ -173,7 +173,7 @@ public class RoleAction extends BaseAction{
 		
 		for(String roleId: roleIds){
 			Role role = new Role();
-			role.setRoleId(DataConverter.stringToLong(roleId));
+			role.setRoleId((roleId));
 			roles.add(role);
 		}
 		
@@ -184,7 +184,7 @@ public class RoleAction extends BaseAction{
 	protected Role getEntity(String roleId) {
 		
 		Role role = new Role();
-		role.setRoleId(DataConverter.stringToLong(roleId));
+		role.setRoleId((roleId));
 		
 		return role;
 	}

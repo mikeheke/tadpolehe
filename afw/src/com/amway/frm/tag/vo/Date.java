@@ -8,7 +8,7 @@ import com.opensymphony.xwork2.util.ValueStack;
 
 /**
  * 日期标签VO
- * @author huangweijin
+ * 
  */
 public class Date extends TextField {
 

@@ -401,7 +401,7 @@ public class LogImpl extends BaseImpl implements LogService {
 						.getNamedItem(LogConstant.VALUE).getNodeValue();
 
 				LogVo logVo = new LogVo();
-				logVo.setApplicationId(DataConverter.LongToString(application
+				logVo.setApplicationId((application
 						.getApplicationId()));
 				logVo.setApplicationName(application.getApplicationName());
 				logVo.setFixWay(fixWay);

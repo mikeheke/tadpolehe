@@ -8,7 +8,7 @@ import java.util.HashMap;
 import com.amway.frm.afw.util.AfwConstant;
 
 /**
- * @author huangweijin
+ * 
  *
  * 2011-6-27 下午02:11:43
  */

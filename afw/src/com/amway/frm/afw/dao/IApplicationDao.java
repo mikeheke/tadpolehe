@@ -9,12 +9,12 @@ import java.util.List;
 
 /**
  * Created by IntelliJ IDEA.
- * @author huangweijin
+ * 
  * Date: 2011-4-6
  * Time: 15:52:24
  * Declare：MstbApplicationDao表对应的DAO，适用于操作MstbApplicationDao表，包括SELECT,CREATE,UPDATE,DELETE各种操作
  */
-public interface IApplicationDao extends IBaseDao<Application, Long> {
+public interface IApplicationDao extends IBaseDao<Application, String> {
     
 	List<Application> getApplicationListJDBC(UserProfile userProfile)
 			throws SQLException;

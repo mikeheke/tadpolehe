@@ -17,7 +17,7 @@ import com.amway.frm.query.util.QueryConstant;
 import com.amway.frm.query.web.action.DefShowAction;
 
 /**
- * @author huangweijin
+ * 
  *
  * 2011-6-18 下午04:47:38
  */

@@ -7,7 +7,7 @@ import com.amway.frm.mnu.util.MnuConstant;
 import com.amway.frm.mnu.vo.TreeNode;
 
 /**
- * @author huangweijin
+ * 
  *
  * 2011-7-15 下午08:34:50
  */

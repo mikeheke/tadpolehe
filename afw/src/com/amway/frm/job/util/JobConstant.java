@@ -6,7 +6,7 @@ package com.amway.frm.job.util;
 import com.amway.frm.base.util.AppConstant;
 
 /**
- * @author huangweijin
+ * 
  *
  * 2011-9-28 上午09:23:17
  */

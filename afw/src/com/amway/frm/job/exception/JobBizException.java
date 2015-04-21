@@ -6,7 +6,7 @@ package com.amway.frm.job.exception;
 import com.amway.frm.exception.exception.AmwayBizException;
 
 /**
- * @author huangweijin
+ * 
  *
  * 2011-9-27 下午05:22:16
  */

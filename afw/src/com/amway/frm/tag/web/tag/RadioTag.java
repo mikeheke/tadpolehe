@@ -12,7 +12,7 @@ import com.amway.frm.tag.util.TagConstant;
 
 /**
  * 单选标签
- * @author huangweijin
+ * 
  */
 public class RadioTag extends SelectTag {
 

@@ -14,7 +14,7 @@ import com.amway.frm.base.util.AppConstant;
 import com.amway.frm.base.util.ContextFactory;
 
 /**
- * @author huangweijin
+ * 
  * 
  *         2011-5-9 下午02:22:30
  */
@@ -222,7 +222,7 @@ public class SysInfoBean {
 				|| null == application.getApplicationId()){
 			result = false;
 		}else if(AfwConstant.SUPER_ROLE_CODE.equals(role.getRoleCode())
-				&& role.getApplication().getApplicationId().longValue() == application.getApplicationId().longValue()){
+				&& role.getApplication().getApplicationId().equals(application.getApplicationId())){
 			result = true;
 		}
 		

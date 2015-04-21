@@ -5,7 +5,7 @@ package com.amway.frm.query.vo;
 
 
 /**
- * @author huangweijin
+ * 
  *
  * 2011-4-30 下午12:04:48
  */
