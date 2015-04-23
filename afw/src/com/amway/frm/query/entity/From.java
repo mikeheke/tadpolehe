@@ -40,8 +40,8 @@ public class From implements Serializable, Comparable<From> {
 
 	//主键
 	@Id
-	@GenericGenerator(name="systemUUID",strategy="uuid")
-	@GeneratedValue(generator="systemUUID")
+	//@GenericGenerator(name="systemUUID",strategy="uuid")
+	//@GeneratedValue(generator="systemUUID")
 	@Column(name="FROM_ID")
 	private String fromId;
 	

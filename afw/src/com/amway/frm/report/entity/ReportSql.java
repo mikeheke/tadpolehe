@@ -35,8 +35,8 @@ public class ReportSql implements Serializable {
 	private static final long serialVersionUID = -7947318486674784285L;
 
 	@Id
-	@GenericGenerator(name="systemUUID",strategy="uuid")
-	@GeneratedValue(generator="systemUUID")
+	//@GenericGenerator(name="systemUUID",strategy="uuid")
+	//@GeneratedValue(generator="systemUUID")
 	@Column(name="REPORT_SQL_ID")
 	private String reportSqlId;
 	

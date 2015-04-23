@@ -30,8 +30,8 @@ public class DataCoding implements Serializable {
 	private static final long serialVersionUID = -1467280606097799354L;
 
 	@Id
-	@GenericGenerator(name="systemUUID",strategy="uuid")
-	@GeneratedValue(generator="systemUUID")
+	//@GenericGenerator(name="systemUUID",strategy="uuid")
+	//@GeneratedValue(generator="systemUUID")
 	@Column(name = "BDS_SCHEMAINFOR_ID")
 	private String bdsSchemainforId;
 	

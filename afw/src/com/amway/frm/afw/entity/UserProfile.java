@@ -3,10 +3,10 @@ package com.amway.frm.afw.entity;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -14,8 +14,6 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
-
-import org.hibernate.annotations.GenericGenerator;
 
 import com.amway.frm.base.util.AppConstant;
 import com.amway.frm.base.vo.UniqueKey;
@@ -38,8 +36,9 @@ public class UserProfile  implements Serializable{
 
 	//用户ID
 	@Id
-	@GenericGenerator(name="MSTB_USERPROFILE_systemUUID",strategy="uuid")
-	@GeneratedValue(generator="MSTB_USERPROFILE_systemUUID")
+	////@GenericGenerator(name="MSTB_USERPROFILE_systemUUID",strategy="uuid")
+	////@GeneratedValue(generator="MSTB_USERPROFILE_systemUUID")
+	////@GenericGenerator(name = "system-uuid", strategy = "uuid")
 	@Column(name="USERPROFILE_ID")
 	private String userProfileId;
 	
@@ -112,6 +111,7 @@ public class UserProfile  implements Serializable{
 	
 	//部门编码
 	@ManyToOne(fetch = FetchType.LAZY)
+	//@ManyToOne()
 	@JoinColumn(name = "ORG_UNIT_CODE",referencedColumnName="UNIT_CODE")
 	private Department department;
 	
@@ -203,9 +203,9 @@ public class UserProfile  implements Serializable{
 //		this.userProfileId = userProfileId;
 //	}
 	
-	public UserProfile(String empId){
-		this.empId = empId;
-	}
+	//public UserProfile(String empId){
+	//	this.empId = empId;
+	//}
 	
 	public String getUserProfileId() {
 		return userProfileId;

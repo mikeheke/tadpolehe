@@ -31,7 +31,7 @@ public class ShopAuth implements java.io.Serializable {
 
 	@Id
 	@Basic(optional = false)
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "MSSQ_SA_SHOP_AUTH_OR")
+	//@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "MSSQ_SA_SHOP_AUTH_OR")
 	@SequenceGenerator(name = "MSSQ_SA_SHOP_AUTH_OR", sequenceName = "MSSQ_SA_SHOP_AUTH", initialValue = 1, allocationSize = 1)
 	@Column(name = "SHOP_AUTH_ID")
 	private Long shopAuthId;

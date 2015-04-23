@@ -40,8 +40,8 @@ public class GroupBy implements Serializable, Comparable<GroupBy> {
 
 	//主键
 	@Id
-	@GenericGenerator(name="systemUUID",strategy="uuid")
-	@GeneratedValue(generator="systemUUID")
+	//@GenericGenerator(name="systemUUID",strategy="uuid")
+	//@GeneratedValue(generator="systemUUID")
 	@Column(name="GROUPBY_ID")
 	private String groupById;
 	

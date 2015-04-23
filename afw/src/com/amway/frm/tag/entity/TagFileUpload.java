@@ -34,8 +34,8 @@ public class TagFileUpload implements Serializable {
 	
 	//自动生成ID
 	@Id
-	@GenericGenerator(name="systemUUID",strategy="uuid")
-	@GeneratedValue(generator="systemUUID")
+	//@GenericGenerator(name="systemUUID",strategy="uuid")
+	//@GeneratedValue(generator="systemUUID")
 	@Column(name="UUID")
 	private String uuid;
 	

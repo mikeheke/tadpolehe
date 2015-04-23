@@ -25,7 +25,7 @@ public class RoleRightDao extends BaseDao<RoleRight, String> implements IRoleRig
 		final String jql1 = "DELETE FROM ";
 		jql.append(jql1).append(RoleRight.class.getSimpleName());
 		final String jql2 = " WHERE roleId=";
-		jql.append(jql2).append(role.getRoleId());
+		jql.append(jql2).append("'"+role.getRoleId()+"'");//modify by Mike He 20150424
 		
 		this.executeJpl(jql.toString());
 	}

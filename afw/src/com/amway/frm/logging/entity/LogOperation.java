@@ -39,8 +39,8 @@ public class LogOperation implements Serializable {
 
 	//主键
 	@Id
-	@GenericGenerator(name="systemUUID",strategy="uuid")
-	@GeneratedValue(generator="systemUUID")
+	//@GenericGenerator(name="systemUUID",strategy="uuid")
+	//@GeneratedValue(generator="systemUUID")
 	@Column(name="LOG_OPERATION_ID")
 	private String logOperationId;
 	

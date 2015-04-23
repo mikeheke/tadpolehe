@@ -35,8 +35,8 @@ public class ReportPara implements Serializable, Comparable<ReportPara>{
 	private static final long serialVersionUID = 1772312452143562328L;
 
 	@Id
-	@GenericGenerator(name="systemUUID",strategy="uuid")
-	@GeneratedValue(generator="systemUUID")
+	//@GenericGenerator(name="systemUUID",strategy="uuid")
+	//@GeneratedValue(generator="systemUUID")
 	@Column(name="REPORT_PARA_ID")
 	private String reportParaId;
 	

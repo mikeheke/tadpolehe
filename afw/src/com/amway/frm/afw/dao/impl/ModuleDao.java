@@ -32,7 +32,7 @@ public class ModuleDao extends BaseDao<Module,String> implements IModuleDao{
 		final String jql3 = " r";
 		jql.append(jql3);
 		final String jql4 = " WHERE m.moduleId=r.moduleId AND r.roleId=";
-		jql.append(jql4).append(role.getRoleId());
+		jql.append(jql4).append("'").append(role.getRoleId()).append("'");//modify by Mike He 20150424
 		final String jql5 = " AND m.recordState=";
 		jql.append(jql5).append(AppConstant.START);
 		final String jql6 = " AND r.recordState=";

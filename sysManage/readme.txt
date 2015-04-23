@@ -1,5 +1,7 @@
 jee应用开发框架系统
 
+struts2 + spring3 + hibernate3.6
+
 1. 
 src/resources/config/jpa/persistence.xml
 <jar-file>WEB-INF/lib/afw.jar</jar-file>

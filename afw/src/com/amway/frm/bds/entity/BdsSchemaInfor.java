@@ -29,8 +29,8 @@ public class BdsSchemaInfor implements java.io.Serializable {
 	
 	//自动生成ID
 	@Id
-	@GenericGenerator(name="systemUUID",strategy="uuid")
-	@GeneratedValue(generator="systemUUID")
+	//@GenericGenerator(name="systemUUID",strategy="uuid")
+	//@GeneratedValue(generator="systemUUID")
 	@Column(name = "BDS_SCHEMAINFOR_ID")
 	private String bdsSchemaInforId;
 	

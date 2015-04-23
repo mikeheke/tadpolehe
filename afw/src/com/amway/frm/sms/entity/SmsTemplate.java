@@ -31,8 +31,8 @@ public class SmsTemplate {
 	//自动生成ID
 	@Id
     @Column(name = "SMS_TEMPLATES_ID")
-	@GenericGenerator(name="systemUUID",strategy="uuid")
-	@GeneratedValue(generator="systemUUID")
+	//@GenericGenerator(name="systemUUID",strategy="uuid")
+	//@GeneratedValue(generator="systemUUID")
     private String smsTemplateId;
 
 	//模板编号

@@ -4,12 +4,15 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.commons.lang.StringUtils;
+
 import com.amway.frm.afw.entity.Application;
 import com.amway.frm.afw.entity.Role;
 import com.amway.frm.afw.service.RoleService;
 import com.amway.frm.afw.util.AfwConstant;
 import com.amway.frm.afw.vo.RoleVo;
 import com.amway.frm.base.util.AppConstant;
+import com.amway.frm.base.util.ContextFactory;
 import com.amway.frm.base.util.DataConverter;
 import com.amway.frm.base.util.DataValidater;
 import com.amway.frm.base.vo.ReturnMessage;
@@ -80,6 +83,9 @@ public class RoleAction extends BaseAction{
 			return ADD_INPUT;
 		}
 		
+		if (StringUtils.isBlank(role.getRoleId())) {
+			role.setRoleId(ContextFactory.getUUID());
+		}
 		returnMessage = roleService.addRole(role);
 		if(returnMessage.isSuccess()){
 			returnMessage.clearReturnObjects();

@@ -203,7 +203,9 @@ public interface IBaseDao <T extends Object, PK extends Serializable> {
 	Boolean isEntityExist(T entity) throws SQLException;
 	
 	 /**
-	 * Declare：按实体条件，判断复合实体是否存在
+	 * Declare：按实体条件，判断复合实体是否存在    
+	 * 
+	 * 根据UniqueKey
 	 * 
 	 * @param entity 实体
 	 * @return Boolean 是否存在
@@ -305,5 +307,7 @@ public interface IBaseDao <T extends Object, PK extends Serializable> {
 	int executeJpl(String jql, Map<String, Object> parVals);
 	
 	//Long generateSequence(String module);
+	
+	
 }
 

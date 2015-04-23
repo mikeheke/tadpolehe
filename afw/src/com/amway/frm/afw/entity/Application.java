@@ -33,10 +33,11 @@ public class Application implements Serializable, Comparable<Application>{
 	
 	private static final long serialVersionUID = 2391373323940029292L;
 
-	//自动生成ID
+	//自动生成ID   (手工通过uuid生成)
 	@Id
-	@GenericGenerator(name="systemUUID",strategy="uuid")
-	@GeneratedValue(generator="systemUUID")
+	////@GenericGenerator(name="systemUUID",strategy="uuid")
+	////@GeneratedValue(generator="systemUUID")
+	////@GenericGenerator(name = "system-uuid", strategy = "uuid")
 	@Column(name = "APPLICATION_ID")
     private String applicationId;
 

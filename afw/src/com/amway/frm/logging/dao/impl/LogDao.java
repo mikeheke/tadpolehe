@@ -8,6 +8,7 @@ import java.sql.Timestamp;
 import java.util.Date;
 
 import com.amway.frm.base.dao.impl.BaseDao;
+import com.amway.frm.base.util.ContextFactory;
 import com.amway.frm.base.util.DataConverter;
 import com.amway.frm.base.util.JDBCHelper;
 import com.amway.frm.logging.dao.ILogDao;
@@ -31,7 +32,8 @@ public class LogDao extends BaseDao implements ILogDao {
 		JDBCHelper jdbcHelper = null;
 		try {
 			jdbcHelper = new JDBCHelper(getDataSource());
-			long id = getOperationTableRecordId(jdbcHelper);
+			//long id = getOperationTableRecordId(jdbcHelper);
+			String id = ContextFactory.getUUID();
 			Object[] val = getOperationParamValues(lopOperation);
 
 			String tableName = getOperationTableName();
@@ -47,7 +49,7 @@ public class LogDao extends BaseDao implements ILogDao {
 			final String sql5 = "UPDATED_USER_ID,CREATED_TIME,CREATED_USER_ID)" + " values(";
 			sql.append(sql5);
 			final String sql6 = ",?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-			sql.append(id).append(sql6);
+			sql.append("'"+id+"'").append(sql6);
 
 			jdbcHelper.executeUpdate(sql.toString(), val);
 			
@@ -109,7 +111,8 @@ public class LogDao extends BaseDao implements ILogDao {
 		JDBCHelper jdbcHelper = null;
 		try {
 			jdbcHelper = new JDBCHelper(getDataSource());
-			long id = getPerformanceTableRecordId(jdbcHelper);
+			//long id = getPerformanceTableRecordId(jdbcHelper);
+			String id = ContextFactory.getUUID();
 			Object[] val = getPerformanceParamValues(lopPerformance);
 
 			String tableName = getPerformanceTableName();
@@ -125,7 +128,7 @@ public class LogDao extends BaseDao implements ILogDao {
 			final String sql5 = "UPDATED_USER_ID,CREATED_TIME,CREATED_USER_ID)" + "values(";
 			sql.append(sql5);
 			final String sql6 = ",?,?,?,?,?,?,?,?,?,?,?,?,?)";
-			sql.append(id).append(sql6);
+			sql.append("'"+id+"'").append(sql6);
 
 			jdbcHelper.executeUpdate(sql.toString(), val);
 			

@@ -7,13 +7,17 @@ package com.amway.frm.afw.entity;
 
 import java.io.Serializable;
 import java.util.Date;
+
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import org.hibernate.annotations.GenericGenerator;
 
 /**
  * 
@@ -23,10 +27,13 @@ import javax.persistence.TemporalType;
 @Table(name = "MSTB_DEPARTMENT")
 public class Department implements Serializable {
 	private static final long serialVersionUID = 1L;
+	
 	@Id
 	@Basic(optional = false)
+	////@GenericGenerator(name = "system-uuid", strategy = "uuid")
 	@Column(name = "DEPARTMENT_ID")
 	private String departmentId;
+	
 	@Basic(optional = false)
 	@Column(name = "UNIT_CODE")
 	private String unitCode;

@@ -40,8 +40,8 @@ public class Select implements Serializable, Comparable<Select> {
 
 	//主键
 	@Id
-	@GenericGenerator(name="systemUUID",strategy="uuid")
-	@GeneratedValue(generator="systemUUID")
+	//@GenericGenerator(name="systemUUID",strategy="uuid")
+	//@GeneratedValue(generator="systemUUID")
 	@Column(name="SELECT_ID")
 	private String selectId;
 	

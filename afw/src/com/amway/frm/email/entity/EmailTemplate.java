@@ -39,8 +39,8 @@ public class EmailTemplate implements Serializable{
 	//自动生成ID
 	@Column(name = "EMAIL_TEMPLATES_ID")
     @Id
-	@GenericGenerator(name="systemUUID",strategy="uuid")
-	@GeneratedValue(generator="systemUUID")
+	//@GenericGenerator(name="systemUUID",strategy="uuid")
+	//@GeneratedValue(generator="systemUUID")
     private String emailTemplateId;
 
 	@Column(name = "TEMPLATES_CODE", unique=true)

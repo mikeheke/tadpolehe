@@ -47,8 +47,8 @@ public class Query implements Serializable {
 	
 	//主键
 	@Id
-	@GenericGenerator(name="systemUUID",strategy="uuid")
-	@GeneratedValue(generator="systemUUID")
+	//@GenericGenerator(name="systemUUID",strategy="uuid")
+	//@GeneratedValue(generator="systemUUID")
 	@Column(name="QUERY_ID")
 	private String queryId;
 	

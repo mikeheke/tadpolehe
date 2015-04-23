@@ -1,6 +1,6 @@
 create table MSTB_KGEM_KNOWLEDGE
 (
-	KNOWLEDGE_ID          NUMBER(8)     NOT NULL,
+	KNOWLEDGE_ID          VARCHAR2(45)     NOT NULL,
 	TITLE                 VARCHAR2(200),
 	CONTENT               VARCHAR2(2000),
 	--

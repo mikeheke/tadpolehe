@@ -32,15 +32,15 @@ public class Knowledge implements Serializable {
 	
 //	//自动生成ID
 //	@Id
-//	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="MSSQ_KGEM_KNOWLEDGE_OR")
+//	//@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="MSSQ_KGEM_KNOWLEDGE_OR")
 //	@SequenceGenerator(name="MSSQ_KGEM_KNOWLEDGE_OR", sequenceName="MSSQ_KGEM_KNOWLEDGE", initialValue=1, allocationSize=1)
 //	@Column(name = "KNOWLEDGE_ID")
 //    private String knowledgeId;
 	
 	//自动生成ID
 	@Id
-	@GenericGenerator(name="systemUUID",strategy="uuid")
-	@GeneratedValue(generator="systemUUID")
+	//@GenericGenerator(name="systemUUID",strategy="uuid")
+	//@GeneratedValue(generator="systemUUID")
 	@Column(name = "KNOWLEDGE_ID")
     private String knowledgeId;
 

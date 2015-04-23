@@ -38,8 +38,8 @@ public class TimeingJob implements Serializable {
 	private static final long serialVersionUID = 4606611395241860023L;
 	
 	@Id
-	@GenericGenerator(name="systemUUID",strategy="uuid")
-	@GeneratedValue(generator="systemUUID")
+	//@GenericGenerator(name="systemUUID",strategy="uuid")
+	//@GeneratedValue(generator="systemUUID")
 	@Column(name="TIMEING_JOB_ID")
 	private String timeingJobId;
 	

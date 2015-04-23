@@ -45,8 +45,8 @@ public class Module implements Serializable, Comparable<Module>{
 //	}
 	//模块ID
 	@Id
-	@GenericGenerator(name="systemUUID",strategy="uuid")
-	@GeneratedValue(generator="systemUUID")
+	//@GenericGenerator(name="systemUUID",strategy="uuid")
+	//@GeneratedValue(generator="systemUUID")
 	@Column(name="MODULE_ID")
 	private String moduleId;
 	

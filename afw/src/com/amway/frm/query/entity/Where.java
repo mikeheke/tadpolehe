@@ -38,8 +38,8 @@ public class Where implements Serializable, Comparable<Where> {
 
 	//主键
 	@Id
-	@GenericGenerator(name="systemUUID",strategy="uuid")
-	@GeneratedValue(generator="systemUUID")
+	//@GenericGenerator(name="systemUUID",strategy="uuid")
+	//@GeneratedValue(generator="systemUUID")
 	@Column(name="WHERE_ID")
 	private String whereId;
 	

@@ -31,10 +31,11 @@ public class Role implements Serializable{
 
 	private static final long serialVersionUID = -2212668359427388733L;
 	
-	//角色ID
+	//角色ID (手工通过uuid生成)
 	@Id
-	@GenericGenerator(name="systemUUID",strategy="uuid")
-	@GeneratedValue(generator="systemUUID")
+	////@GenericGenerator(name="systemUUID",strategy="uuid")
+	////@GeneratedValue(generator="systemUUID")
+	////@GenericGenerator(name = "system-uuid", strategy = "uuid")
 	@Column(name="ROLE_ID")
 	private String roleId;
 	

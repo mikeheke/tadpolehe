@@ -103,9 +103,11 @@ public class UserProfileImpl extends BaseImpl implements UserProfileService {
 	@Transactional
 	@Override
 	public ReturnMessage<UserProfile> updateUserProfile(UserProfile userProfile) {
+		
+		UserProfile queryUserProfile = new UserProfile();
+		queryUserProfile.setUserProfileId(userProfile.getUserProfileId());
 
-		UserProfile userProfileRet = (UserProfile) querySingle(new UserProfile(
-				userProfile.getUserProfileId()));
+		UserProfile userProfileRet = (UserProfile) querySingle(queryUserProfile);
 		userProfile.setPassword(userProfileRet.getPassword());
 		
 		ReturnMessage<UserProfile> returnMessage = update(userProfile);

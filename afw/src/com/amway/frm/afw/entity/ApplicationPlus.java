@@ -28,8 +28,8 @@ public class ApplicationPlus implements java.io.Serializable {
 	private static final long serialVersionUID = 3102423902018337530L;
 	//自动生成ID
 	@Id
-	@GenericGenerator(name="systemUUID",strategy="uuid")
-	@GeneratedValue(generator="systemUUID")
+	//@GenericGenerator(name="systemUUID",strategy="uuid")
+	//@GeneratedValue(generator="systemUUID")
 	@Column(name = "APPLICATION_PLUS_ID")
 	private String applicationPlusId;
 	

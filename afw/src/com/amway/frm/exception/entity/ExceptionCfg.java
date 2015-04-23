@@ -40,8 +40,8 @@ public class ExceptionCfg implements Serializable {
 
 	//主键
 	@Id
-	@GenericGenerator(name="systemUUID",strategy="uuid")
-	@GeneratedValue(generator="systemUUID")
+	//@GenericGenerator(name="systemUUID",strategy="uuid")
+	//@GeneratedValue(generator="systemUUID")
 	@Column(name="EXCEPTION_ID")
 	private String exceptionId;
 	

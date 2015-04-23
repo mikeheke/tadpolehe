@@ -33,8 +33,8 @@ public class ReportCache implements Serializable {
 	private static final long serialVersionUID = -4542790545928354039L;
 	
 	@Id
-	@GenericGenerator(name="systemUUID",strategy="uuid")
-	@GeneratedValue(generator="systemUUID")
+	//@GenericGenerator(name="systemUUID",strategy="uuid")
+	//@GeneratedValue(generator="systemUUID")
 	@Column(name="REPORT_CACHE_ID")
 	private String reportCacheId;
 	

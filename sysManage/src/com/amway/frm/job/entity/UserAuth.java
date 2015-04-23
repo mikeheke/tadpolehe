@@ -27,7 +27,7 @@ public class UserAuth implements java.io.Serializable {
 	@Id
 	@Basic(optional = false)
 	@Column(name = "USER_AUTH_ID", unique = true, nullable = false, precision = 8, scale = 0)
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "MSSQ_SA_USER_AUTH_IC")
+	//@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "MSSQ_SA_USER_AUTH_IC")
 	@SequenceGenerator(name = "MSSQ_SA_USER_AUTH_IC", sequenceName = "MSSQ_SA_USER_AUTH", initialValue = 1, allocationSize = 1)
 	private Long userAuthId;
 

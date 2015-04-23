@@ -40,8 +40,8 @@ public class Button implements Serializable, Comparable<Button> {
 
 	//主键
 	@Id
-	@GenericGenerator(name="systemUUID",strategy="uuid")
-	@GeneratedValue(generator="systemUUID")
+	//@GenericGenerator(name="systemUUID",strategy="uuid")
+	//@GeneratedValue(generator="systemUUID")
 	@Column(name="BUTTON_ID")
 	private String buttonId;
 	

@@ -27,8 +27,8 @@ public class NewFileUploadTagEntity implements Comparable  {
 	
 	//自动生成ID
 	@Id
-	@GenericGenerator(name="UUID_TAG_NEW_FILEUPLOAD_OR", strategy="uuid")
-	@GeneratedValue(generator="UUID_TAG_NEW_FILEUPLOAD_OR")
+	//@GenericGenerator(name="UUID_TAG_NEW_FILEUPLOAD_OR", strategy="uuid")
+	//@GeneratedValue(generator="UUID_TAG_NEW_FILEUPLOAD_OR")
 	@Column(name="UUID")
 	private String uuid;
 	

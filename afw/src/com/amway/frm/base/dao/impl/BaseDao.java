@@ -27,6 +27,9 @@ import javax.persistence.Query;
 import javax.persistence.Transient;
 import javax.sql.DataSource;
 
+import org.apache.commons.lang.StringUtils;
+
+import com.amway.frm.afw.entity.Role;
 import com.amway.frm.afw.util.AfwConstant;
 import com.amway.frm.afw.vo.SysInfoBean;
 import com.amway.frm.base.dao.IBaseDao;
@@ -34,7 +37,6 @@ import com.amway.frm.base.util.AppConstant;
 import com.amway.frm.base.util.ContextFactory;
 import com.amway.frm.base.util.JDBCHelper;
 import com.amway.frm.base.vo.UniqueKey;
-import com.amway.frm.logging.service.LogService;
 import com.amway.frm.logging.util.LogFactory;
 
 /**
@@ -238,7 +240,11 @@ public class BaseDao<T extends Object, PK extends Serializable> implements
 
 	@Override
 	public T create(T entity) throws SQLException {
-
+		
+		//id类型为String && id值为空, 通过uuid生成主键的值
+		//其他不处理
+		this.generateUUIDForEntity(entity);
+		
 		entityManager.persist(entity);
 
 		return entity;
@@ -617,7 +623,7 @@ public class BaseDao<T extends Object, PK extends Serializable> implements
 
 			fieldValue = field.get(entity);
 
-			if (null != fieldValue) {
+			if (null != fieldValue && !"".equals(fieldValue)) {//modify by Mike He 20150424
 				return true;
 			}
 		}
@@ -829,4 +835,66 @@ public class BaseDao<T extends Object, PK extends Serializable> implements
 	}
 	//-------------------------------------------------------------------------------------------------------------
 
+	
+	/**
+	 * 
+	 * @Title: generateUUIDForEntity   
+	 * @Description: 
+	 * 
+	 * 自动为Entity的主键id生成uuid值的条件
+	 * 1. id的数据类型为String
+	 * 2. id的值为空
+	 * 
+	 * add by Mike He 20150423
+	 * 
+	 * @param: @param entity      
+	 * @return: void      
+	 * @throws
+	 */
+	private void generateUUIDForEntity(T entity) {
+		//获取该实例class的字段
+		Field[] fields = entity.getClass().getDeclaredFields();
+
+		//遍历字段找id
+		for (Field field : fields) {
+
+			Id id = field.getAnnotation(Id.class);
+			if (null == id) {
+				continue;
+			}
+			
+			//获取id字段的类型
+			Class idFieldTypeCls = field.getType();
+			String idFieldTypeName = idFieldTypeCls.getSimpleName();
+			
+			if ("String".equals(idFieldTypeName)) {
+				//Object fieldValue = null;
+				field.setAccessible(true);
+				String fieldValue = null;
+				try {
+					fieldValue = (String)field.get(entity);
+					if (StringUtils.isBlank(fieldValue)) {//字段值为空
+						//生成uuid值
+						String uuid = ContextFactory.getUUID();
+						//id字段设置uuid值
+						field.set(entity, uuid);
+					}
+				} catch (IllegalArgumentException e) {
+					e.printStackTrace();
+					LogFactory.getLogger(this.getClass()).error(e.getMessage());
+				} catch (IllegalAccessException e) {
+					e.printStackTrace();
+					LogFactory.getLogger(this.getClass()).error(e.getMessage());
+				}
+			}
+		}
+	}
+
+	public static void main(String[] args) throws IllegalArgumentException, IllegalAccessException {
+		BaseDao bo = new BaseDao<Object, Serializable>();
+		Role r = new Role();
+		//r.setRoleId("aaaa");
+		bo.generateUUIDForEntity(r);
+		System.out.println(r.getRoleId());
+	}
 }
