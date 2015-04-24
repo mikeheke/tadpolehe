@@ -25,7 +25,7 @@ import com.amway.frm.logging.service.LogService;
 import com.amway.frm.logging.util.LogFactory;
 
 /**
- * Created by MyElipse 
+ *  
  * 
  * Declare：用户Action
  */
@@ -292,9 +292,10 @@ public class UserProfileAction extends BaseAction {
 		userProfile.setChineseName(userProfileVo.getChineseName());
 		userProfile.setAccountType(Integer.parseInt(userProfileVo.getAccountType()));
 		Department department = new Department();
-		final long _1L = 1L;
+		//final long _1L = 1L;
+		final String _1S = "1";  //modify by Mike He 20150424
 		//department.setDepartmentId(_1L);
-		department.setDepartmentId("_1L");
+		department.setDepartmentId(_1S);
 		if(userProfileVo.getOrgUnitCode()==null){
 			department.setUnitCode(AfwConstant._1_STR);
 		}else{

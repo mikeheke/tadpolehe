@@ -19,7 +19,7 @@ import org.hibernate.annotations.GenericGenerator;
 import com.amway.frm.base.util.AppConstant;
 
 /**
- * Created by MyElipse
+ * 
  * 
  * Date: 2011-3-22
  * Time: 10:47:54

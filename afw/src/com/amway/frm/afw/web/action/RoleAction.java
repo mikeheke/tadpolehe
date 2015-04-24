@@ -83,9 +83,10 @@ public class RoleAction extends BaseAction{
 			return ADD_INPUT;
 		}
 		
-		if (StringUtils.isBlank(role.getRoleId())) {
-			role.setRoleId(ContextFactory.getUUID());
-		}
+//		if (StringUtils.isBlank(role.getRoleId())) {
+//			role.setRoleId(ContextFactory.getUUID());
+//		}
+		
 		returnMessage = roleService.addRole(role);
 		if(returnMessage.isSuccess()){
 			returnMessage.clearReturnObjects();

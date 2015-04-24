@@ -9,7 +9,7 @@ import com.amway.frm.afw.vo.SysInfoBean;
 import com.amway.frm.base.vo.ReturnMessage;
 
 /**
- * Created by MyElipse
+ * 
  * 
  * Date: 2011-3-22
  * Time: 10:47:54

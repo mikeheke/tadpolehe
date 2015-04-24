@@ -34,9 +34,9 @@ public class ExceptionCfgImpl extends BaseImpl implements ExceptionCfgService {
 			return;
 		}
 		String userNo = application.getFaultHandlerEmpNumber();
-		if(!DataValidater.isStrLong(userNo)){
-			return;
-		}
+		//if(!DataValidater.isStrLong(userNo)){
+		//	return;
+		//}
 		UserProfile userProfile = new UserProfile();
 		userProfile.setUserProfileId((userNo));
 		UserProfile userProfileRet = (UserProfile) querySingle(userProfile);

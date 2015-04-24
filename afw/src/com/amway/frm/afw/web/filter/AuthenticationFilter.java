@@ -70,6 +70,8 @@ public class AuthenticationFilter extends HttpServlet implements Filter {
 		//System.out.println("url:" + httpRequest.getRequestURL());
 		//System.out.println("servlet:" + httpRequest.getServletPath());
 		
+		LogFactory.getLogger(this.getClass()).info("==========> reqURL: "+httpRequest.getRequestURL());
+		
 		//初始化系统信息
 		initSystemInfo(httpRequest, httpResponse);
 		

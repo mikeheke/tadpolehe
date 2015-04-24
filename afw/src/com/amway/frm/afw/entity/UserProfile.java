@@ -19,7 +19,7 @@ import com.amway.frm.base.util.AppConstant;
 import com.amway.frm.base.vo.UniqueKey;
 
 /**
- * Created by MyElipse
+ * 
  * 
  * Date: 2011-3-22
  * Time: 10:47:54
@@ -110,8 +110,8 @@ public class UserProfile  implements Serializable{
 	private String workProvince;
 	
 	//部门编码
-	@ManyToOne(fetch = FetchType.LAZY)
-	//@ManyToOne()
+	//@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne()
 	@JoinColumn(name = "ORG_UNIT_CODE",referencedColumnName="UNIT_CODE")
 	private Department department;
 	

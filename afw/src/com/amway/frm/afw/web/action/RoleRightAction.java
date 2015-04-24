@@ -3,6 +3,7 @@ package com.amway.frm.afw.web.action;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.struts2.ServletActionContext;
 
 import com.amway.frm.afw.entity.Application;
@@ -22,7 +23,7 @@ import com.amway.frm.logging.service.LogService;
 import com.amway.frm.logging.util.LogFactory;
 
 /**
- * Created by MyElipse
+ * 
  * 
  * Date: 2011-3-22
  * Time: 10:47:54
@@ -62,7 +63,8 @@ public class RoleRightAction extends BaseAction{
 
 	@Override
 	public String query() {
-		if(!DataValidater.isStrLong(roleRightVo.getApplicationId())){
+		//if(!DataValidater.isStrLong(roleRightVo.getApplicationId())){
+		if (StringUtils.isBlank(roleRightVo.getApplicationId())) { //modify by Mike He 20150424
 			final String msg = "请选择应用";
 			this.setMessage(AfwConstant.ID_MSG, msg);
 		}
@@ -72,7 +74,7 @@ public class RoleRightAction extends BaseAction{
 	@Override
 	public String popup() {
 		
-		if(!DataValidater.isStrLong(roleRightVo.getApplicationId())){
+		if (StringUtils.isBlank(roleRightVo.getApplicationId())) { //modify by Mike He 20150424
 			final String msg = "请选择应用";
 			this.setMessage(AfwConstant.ID_MSG, msg);
 		}
@@ -151,7 +153,7 @@ public class RoleRightAction extends BaseAction{
 	public List<Role> getRoles(){
 		
 		String applicationIdStr = roleRightVo.getApplicationId();
-		if(!DataValidater.isStrLong(applicationIdStr)){
+		if (StringUtils.isBlank(roleRightVo.getApplicationId())) { //modify by Mike He 20150424
 			return new ArrayList<Role>();
 		}
 		Application application = new Application();

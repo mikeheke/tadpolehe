@@ -72,9 +72,9 @@ public class LogAction extends BaseAction {
 	protected Application getEntity() {
 		Application application = new Application();
 		String applicationId = logVo.getApplicationId();
-		if(DataValidater.isStrLong(applicationId)){
+		//if(DataValidater.isStrLong(applicationId)){
 			application.setApplicationId((applicationId));
-		}
+		//}
 		return application;
 	}
 

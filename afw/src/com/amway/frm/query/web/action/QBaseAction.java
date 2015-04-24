@@ -236,10 +236,10 @@ public class QBaseAction extends ConfigAction {
 			result = false;
 		}
 		
-		if(DataValidater.isFalse(DataValidater.isStrLong(queryVo.getApplicationId()))){
-			this.setMessage(QueryConstant.APPLICATION_ID_KEY, getText(QueryConstant.YES_LONG_KEY));
-			result = false;
-		}
+//		if(DataValidater.isFalse(DataValidater.isStrLong(queryVo.getApplicationId()))){
+//			this.setMessage(QueryConstant.APPLICATION_ID_KEY, getText(QueryConstant.YES_LONG_KEY));
+//			result = false;
+//		}
 		
 		if(DataValidater.isStrEmpty(queryVo.getDsJndi())){
 			this.setMessage(QueryConstant.DS_JNDI_KEY, getText(QueryConstant.NO_EMPTY_KEY));

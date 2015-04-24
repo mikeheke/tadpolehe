@@ -32,7 +32,7 @@ public class RoleDao extends BaseDao<Role, String> implements IRoleDao {
 		final String jql4 = " WHERE r.recordState=1 AND r.state=1 AND r.roleId=u.roleId AND u.recordState=1 ";
 		jql.append(jql4);
 		final String jql5 = " AND u.userProfileId=";
-		jql.append(jql5).append(userProfile.getUserProfileId());
+		jql.append(jql5).append("'"+userProfile.getUserProfileId()+"'"); //modify by Mike He 20150424
 		
 		List<Role> roles = this.getResultList(jql.toString());
 	

@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.commons.lang.StringUtils;
+
 import com.amway.frm.afw.entity.Application;
 import com.amway.frm.afw.vo.SysInfoBean;
 import com.amway.frm.base.util.AppConstant;
@@ -212,7 +214,8 @@ public class ExceptionCfgAction extends BaseAction {
 		if(DataValidater.isStrEmpty(exceptionCfgVo.getExceptionName())){
 			result = this.setInputMessage(ExceptionConstant.EXCEPTION_NAME_KEY, getText(ExceptionConstant.NO_EMPTY_KEY));
 		}
-		if(!DataValidater.isStrLong(exceptionCfgVo.getApplicationId())){
+		//if(!DataValidater.isStrLong(exceptionCfgVo.getApplicationId())){
+		if(StringUtils.isBlank(exceptionCfgVo.getApplicationId())){//modify by Mike He 20150424
 			result = this.setInputMessage(ExceptionConstant.APPLICATION_ID_KEY, getText(ExceptionConstant.YES_LONG_KEY));
 		}
 		if(!DataValidater.isStrInteger(exceptionCfgVo.getIsSendEmail())){

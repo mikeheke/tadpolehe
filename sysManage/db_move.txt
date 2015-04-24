@@ -14,3 +14,5 @@ oracleTableField
 
 mysqlSysTable
 mysqlTableField
+
+4. 主键使用uuid生成　已经搞掂

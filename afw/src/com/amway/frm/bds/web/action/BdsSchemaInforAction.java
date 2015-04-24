@@ -266,9 +266,9 @@ public class BdsSchemaInforAction  extends BaseAction {
 	public boolean validateData() {
     	
 		boolean result = true;
-        if (!DataValidater.isStrLong(bdsSchemaInforVo.getApplicationId())) {
-        	result = setInputMessage(BdsConstant.APPLICATION_ID_KEY, BdsConstant.APPLICATION_ID_MSG);
-        }
+        //if (!DataValidater.isStrLong(bdsSchemaInforVo.getApplicationId())) {
+        //	result = setInputMessage(BdsConstant.APPLICATION_ID_KEY, BdsConstant.APPLICATION_ID_MSG);
+        //}
         if (DataValidater.isStrEmpty(bdsSchemaInforVo.getBdsSchemaInforCode())){
         	result = setInputMessage(BdsConstant.BDS_SCHEMAINFOR_CODE_KEY, BdsConstant.BDS_SCHEMAINFOR_CODE_MSG);
         }

@@ -9,6 +9,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.struts2.components.Component;
 import org.apache.struts2.views.jsp.ComponentTagSupport;
 
@@ -249,7 +250,8 @@ public class RoleRightTreeTag extends ComponentTagSupport {
 		Application application = null;
 		final String applicationIdKey = "roleRightVo.applicationId";
 		String applicationId = request.getParameter(applicationIdKey);
-		if(DataValidater.isStrLong(applicationId)){
+		//if(DataValidater.isStrLong(applicationId)){
+		if (!StringUtils.isBlank(applicationId)) { //modify by Mike He 20150424
 			application = new Application();
 			application.setApplicationId((applicationId));
 		}
