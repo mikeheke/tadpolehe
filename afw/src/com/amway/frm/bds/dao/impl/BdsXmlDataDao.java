@@ -91,7 +91,7 @@ public class BdsXmlDataDao extends BaseDao<BdsXmlData, String> implements
 			jdbcHelper = new JDBCHelper(this.getDataSource());
 			
 			Map<String, Object> params = new HashMap<String, Object>();
-			addFilterParams(filterParams, params);
+			//addFilterParams(filterParams, params);  //modify by Mike He 20150426
 			
 			List<String> pStmtValues = new ArrayList<String>();
 			pStmtValues.add((bdsSchemaInfor.getBdsSchemaInforId()));
@@ -122,60 +122,88 @@ public class BdsXmlDataDao extends BaseDao<BdsXmlData, String> implements
 			jdbcHelper.closeAll();
 		}
 		
-		//二维(表结构形式)
-		//add by Mike He 20150425
-		//从内存中过滤数据(针对xml的数据)   
-		System.out.println("bds test...");
-		if (filterParams != null && 
-			filterParams.keySet().size() > 0 && returnList.size() > 0) {
-			for (String qColName : filterParams.keySet()) {//迭代查询字段
-				String[] qColValues = filterParams.get(qColName);
-				if (qColValues == null || qColValues.length == 0) {//查询字段的值为空
-					continue;
-				}
-				//取第一个值(条件的)
-				String qColValue = qColValues[0];
-				for (BdsXmlData bds : returnList) {
-					Map<String,String> bdsXmlDataMap = bds.getBdsDataMap();
-					
-				}
-			}
-		}
+		//add by Mike He 20150426
+		//根据查询条件，从内存中过滤数据
+		returnList = this.filterBdsXmlDataList(returnList, filterParams, joinOperator);
+		
+		System.out.println("=====> returnList.size: "+returnList.size());
 		
 		return returnList;
 	}
 	
 	/**
 	 * 
-	 * @Title: bdsXmlDataToMap   
-	 * @Description: ...
+	 * @Title: filterBdsXmlDataList   
+	 * @Description: 从内存中过滤数据
 	 * 
-	 * add by Mike He 20150425
+	 * add by Mike He 20150426
 	 * 
-	 * @param: @param bdaXmlData
+	 * @param: @param returnList
+	 * @param: @param filterParams
+	 * @param: @param joinOperator
 	 * @param: @return      
-	 * @return: Map<String,String>      
+	 * @return: List<BdsXmlData>      
 	 * @throws
 	 */
-	private Map<String,String> bdsXmlDataToMap(String bdaXmlData) {
+	private List<BdsXmlData> filterBdsXmlDataList(List<BdsXmlData> returnList,
+			Map<String, String[]> filterParams, String joinOperator) {
 		
-		if (StringUtils.isBlank(bdaXmlData) && bdaXmlData.trim().length() < 10) {//空值不处理
-			return null;
-		}
-		
-		Map<String,String> dataMap = new HashMap<String, String>();
-		Document doc = BdsXmlUntil.getDocument(bdaXmlData);
-		Element root = doc.getRootElement();
-		
-		List<Element> eleList = root.getChildren();
-		for (Element e: eleList) {
-			String colName = e.getName();
-			String colVal = e.getText();
+		//二维(表结构形式)-内存中的表结构
+		//add by Mike He 20150425
+		//从内存中过滤数据(针对xml..的数据)   
+		System.out.println("bds test...");
+		if (filterParams != null && filterParams.keySet().size() > 0) {			
 			
-			dataMap.put(colName, colVal);
+			List<BdsXmlData> returnFilterList = new ArrayList<BdsXmlData>();
+			//迭代结果集(类似于游标)
+			for (BdsXmlData bds : returnList) {//每条记录
+				Map<String,String> bdsXmlDataMap = bds.getBdsDataMap();
+				boolean isOrOk = false;//标识该记录是否满足条件 or
+				boolean isAndOk = true;
+				
+				for (String qColName : filterParams.keySet()) {//迭代查询字段
+					String[] qColValues = filterParams.get(qColName);
+					if (qColValues == null || qColValues.length == 0) {//查询字段的值为空
+						continue;
+					}
+					//查询条件中-对应字段:查询的值
+					String qColValue = qColValues[0];
+					//结果集合中－对应字段：实际的值
+					String aColValue = bdsXmlDataMap.get(qColName);
+					
+					if (StringUtils.isBlank(qColValue) || StringUtils.isBlank(aColValue)) {
+						continue;
+					}
+					
+					if (BdsConstant.SQL_OR.equals(joinOperator)) {//or 查询
+						if (qColValue.equals(aColValue)) {//只要有一个条件满足就ok
+							isOrOk = true;
+						}
+					}
+					
+					if (BdsConstant.SQL_AND.equals(joinOperator)) {//and 查询
+						if (!qColValue.equals(aColValue)) {//只要有一个条件不满足
+							isAndOk = false;
+						}
+					}
+				}
+				
+				//迭代完记录
+				if (BdsConstant.SQL_OR.equals(joinOperator)) {//or 查询
+					if (isOrOk) {
+						returnFilterList.add(bds);
+					}
+				} else if (BdsConstant.SQL_AND.equals(joinOperator)) {//and 查询
+					if (isAndOk) {
+						returnFilterList.add(bds);
+					}
+				}	
+			}
+			
+			return returnFilterList;
 		}
 		
-		return dataMap;
+		return returnList;
 	}
 	
 
@@ -197,14 +225,15 @@ public class BdsXmlDataDao extends BaseDao<BdsXmlData, String> implements
 				} else if (BdsConstant.FIXED_COL_NAME_DN_TC.equalsIgnoreCase(key)) {
 					params.put(BdsConstant.DISPLAYNAME_TC, value);
 				} else {
-					StringBuffer keyTmp = new StringBuffer();
-					final String keyTmp1 = "t.bds_data.extract('//data/";
-					keyTmp.append(keyTmp1);
-					keyTmp.append(DataConverter.valueOf(key));
-					final String keyTmp2 = "/text()').getclobval()";
-					keyTmp.append(keyTmp2);
-					
-					params.put(keyTmp.toString(), value);
+					//modify by Mike He 20150426
+//					StringBuffer keyTmp = new StringBuffer();
+//					final String keyTmp1 = "t.bds_data.extract('//data/";
+//					keyTmp.append(keyTmp1);
+//					keyTmp.append(DataConverter.valueOf(key));
+//					final String keyTmp2 = "/text()').getclobval()";
+//					keyTmp.append(keyTmp2);
+//					
+//					params.put(keyTmp.toString(), value);
 				}
 			}
 		}
@@ -227,8 +256,8 @@ public class BdsXmlDataDao extends BaseDao<BdsXmlData, String> implements
 		xmlData.setUpdatedUserId(jdbcHelper.getItemTrueValue(BdsConstant.FIELD_UPDATED_USER_ID));
 		xmlData.setUpdatedTime(jdbcHelper.getItemDateTimeValue(BdsConstant.FIELD_UPDATED_TIME));
 		
-		//add by Mike He 20150425
-		xmlData.setBdsDataMap(this.bdsXmlDataToMap(xmlData.getBdsData()));
+//		//add by Mike He 20150425
+//		xmlData.setBdsDataMap(this.bdsXmlDataToMap(xmlData.getBdsData()));
 		
 		return xmlData;
 	}
@@ -564,7 +593,7 @@ public class BdsXmlDataDao extends BaseDao<BdsXmlData, String> implements
 	
 	public static void main(String[] args) {
 		BdsXmlDataDao bdao = new BdsXmlDataDao();
-		Map<String,String> dataMap = bdao.bdsXmlDataToMap("<aaa><bb>mike</bb><cc>he</cc></aaa>");
-		System.out.println(dataMap);
+		//Map<String,String> dataMap = bdao.bdsXmlDataToMap("<aaa><bb>mike</bb><cc>he</cc></aaa>");
+		//System.out.println(dataMap);
 	}
 }

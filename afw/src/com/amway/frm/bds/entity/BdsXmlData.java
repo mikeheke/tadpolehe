@@ -1,6 +1,8 @@
 package com.amway.frm.bds.entity;
 
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.persistence.Column;
@@ -14,8 +16,13 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 
+import org.apache.commons.lang.StringUtils;
+import org.jdom.Document;
+import org.jdom.Element;
+
 import com.amway.frm.base.util.AppConstant;
 import com.amway.frm.base.vo.UniqueKey;
+import com.amway.frm.bds.util.BdsXmlUntil;
 
 /**
  * 本地基础数据表实体类
@@ -88,6 +95,7 @@ public class BdsXmlData implements java.io.Serializable {
 	
 	//add by Mike He 20150425
 	//存储xml数据  key:nodeName  value:nodeText
+	//也包含了：　code,displayname,displaynameEn...值在里面
 	@Transient //表示该属性并非一个到数据库表的字段的映射,ORM框架将忽略该属性. 
 	private Map<String,String> bdsDataMap;
 
@@ -204,6 +212,28 @@ public class BdsXmlData implements java.io.Serializable {
 	}
 
 	public Map<String, String> getBdsDataMap() {
+		bdsDataMap = new HashMap<String, String>();
+		
+		bdsDataMap.put("code", this.code);
+		bdsDataMap.put("displayname", this.displayname);
+		bdsDataMap.put("displaynameEn", this.displaynameEn);
+		bdsDataMap.put("displaynameTc", this.displaynameTc);	
+		
+		if (StringUtils.isBlank(this.bdsData) && this.bdsData.trim().length() < 10) {//空值不处理
+			return bdsDataMap;
+		}
+		
+		//解析xml data to map
+		Document doc = BdsXmlUntil.getDocument(this.bdsData);
+		Element root = doc.getRootElement();
+		List<Element> eleList = root.getChildren();
+		for (Element e: eleList) {
+			String colName = e.getName();
+			String colVal = e.getText();
+			
+			bdsDataMap.put(colName, colVal);
+		}
+		
 		return bdsDataMap;
 	}
 

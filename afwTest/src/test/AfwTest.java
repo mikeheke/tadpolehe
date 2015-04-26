@@ -31,8 +31,10 @@ public class AfwTest {
 		Map<String, String[]> filterMap = new HashMap<String, String[]>();
 		filterMap.put("column1", new String[]{"aaa"});
 		filterMap.put("column2", new String[]{"dd"});
+		filterMap.put("displayname", new String[]{"33"});
+		filterMap.put("column1", new String[]{"不错哦"});
 		
-		ReturnMessage<BaseDataSourceVo> ret = s.getBdsVoData("bds1", filterMap, AppConstant.SQL_AND);
+		ReturnMessage<BaseDataSourceVo> ret = s.getBdsVoData("bds1", filterMap, AppConstant.SQL_OR);
 		
 		BaseDataSourceVo rv = ret.getReturnObject();
 		
