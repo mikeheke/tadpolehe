@@ -45,8 +45,10 @@
            <class>com.amway.frm.query.entity.OrderBy</class>
            <class>com.amway.frm.query.entity.Query</class>
            <class>com.amway.frm.query.entity.Select</class>
+           <!-- 
            <class>com.amway.frm.query.entity.SysTable</class>
            <class>com.amway.frm.query.entity.SysTableField</class>
+            -->
            <class>com.amway.frm.query.entity.Where</class>
            
             <!-- report -->

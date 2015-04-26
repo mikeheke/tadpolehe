@@ -1131,6 +1131,15 @@ public class ShowImpl extends QueryImpl implements ShowService {
 		return value;
 	}
 	
+	/**
+	 * 
+	 * @Title: getDataCodingMap   
+	 * @Description: TODO(这里用一句话描述这个方法的作用)   
+	 * @param: @param columns
+	 * @param: @return      
+	 * @return: Map<String,Map<Object,Object>>      
+	 * @throws
+	 */
 	private Map<String, Map<Object, Object>> getDataCodingMap(
 			List<Column> columns) {
 		

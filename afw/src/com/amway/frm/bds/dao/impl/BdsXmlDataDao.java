@@ -121,8 +121,63 @@ public class BdsXmlDataDao extends BaseDao<BdsXmlData, String> implements
 		} finally {
 			jdbcHelper.closeAll();
 		}
+		
+		//二维(表结构形式)
+		//add by Mike He 20150425
+		//从内存中过滤数据(针对xml的数据)   
+		System.out.println("bds test...");
+		if (filterParams != null && 
+			filterParams.keySet().size() > 0 && returnList.size() > 0) {
+			for (String qColName : filterParams.keySet()) {//迭代查询字段
+				String[] qColValues = filterParams.get(qColName);
+				if (qColValues == null || qColValues.length == 0) {//查询字段的值为空
+					continue;
+				}
+				//取第一个值(条件的)
+				String qColValue = qColValues[0];
+				for (BdsXmlData bds : returnList) {
+					Map<String,String> bdsXmlDataMap = bds.getBdsDataMap();
+					
+				}
+			}
+		}
+		
 		return returnList;
 	}
+	
+	/**
+	 * 
+	 * @Title: bdsXmlDataToMap   
+	 * @Description: ...
+	 * 
+	 * add by Mike He 20150425
+	 * 
+	 * @param: @param bdaXmlData
+	 * @param: @return      
+	 * @return: Map<String,String>      
+	 * @throws
+	 */
+	private Map<String,String> bdsXmlDataToMap(String bdaXmlData) {
+		
+		if (StringUtils.isBlank(bdaXmlData) && bdaXmlData.trim().length() < 10) {//空值不处理
+			return null;
+		}
+		
+		Map<String,String> dataMap = new HashMap<String, String>();
+		Document doc = BdsXmlUntil.getDocument(bdaXmlData);
+		Element root = doc.getRootElement();
+		
+		List<Element> eleList = root.getChildren();
+		for (Element e: eleList) {
+			String colName = e.getName();
+			String colVal = e.getText();
+			
+			dataMap.put(colName, colVal);
+		}
+		
+		return dataMap;
+	}
+	
 
 	private void addFilterParams(Map<String, String[]> filterParams,
 			Map<String, Object> params) {
@@ -133,13 +188,13 @@ public class BdsXmlDataDao extends BaseDao<BdsXmlData, String> implements
 		for (String key : filterParams.keySet()) {
 			String[] values = filterParams.get(key);
 			for(String value: values){
-				if (BdsConstant.FIXED_COL_NAME_CODE.equals(key)) {
+				if (BdsConstant.FIXED_COL_NAME_CODE.equalsIgnoreCase(key)) {//忽略大小写
 					params.put(BdsConstant.CODE, value);
-				} else if (BdsConstant.FIXED_COL_NAME_DN.equals(key)) {
+				} else if (BdsConstant.FIXED_COL_NAME_DN.equalsIgnoreCase(key)) {
 					params.put(BdsConstant.DISPLAYNAME, value);
-				} else if (BdsConstant.FIXED_COL_NAME_DN_EN.equals(key)) {
+				} else if (BdsConstant.FIXED_COL_NAME_DN_EN.equalsIgnoreCase(key)) {
 					params.put(BdsConstant.DISPLAYNAME_EN, value);
-				} else if (BdsConstant.FIXED_COL_NAME_DN_TC.equals(key)) {
+				} else if (BdsConstant.FIXED_COL_NAME_DN_TC.equalsIgnoreCase(key)) {
 					params.put(BdsConstant.DISPLAYNAME_TC, value);
 				} else {
 					StringBuffer keyTmp = new StringBuffer();
@@ -171,6 +226,9 @@ public class BdsXmlDataDao extends BaseDao<BdsXmlData, String> implements
 		xmlData.setCreatedTime(jdbcHelper.getItemDateTimeValue(BdsConstant.FIELD_CREATED_TIME));
 		xmlData.setUpdatedUserId(jdbcHelper.getItemTrueValue(BdsConstant.FIELD_UPDATED_USER_ID));
 		xmlData.setUpdatedTime(jdbcHelper.getItemDateTimeValue(BdsConstant.FIELD_UPDATED_TIME));
+		
+		//add by Mike He 20150425
+		xmlData.setBdsDataMap(this.bdsXmlDataToMap(xmlData.getBdsData()));
 		
 		return xmlData;
 	}
@@ -502,5 +560,11 @@ public class BdsXmlDataDao extends BaseDao<BdsXmlData, String> implements
 				responseXml, resRoot);
 		
 		return xmlDataMap;
+	}
+	
+	public static void main(String[] args) {
+		BdsXmlDataDao bdao = new BdsXmlDataDao();
+		Map<String,String> dataMap = bdao.bdsXmlDataToMap("<aaa><bb>mike</bb><cc>he</cc></aaa>");
+		System.out.println(dataMap);
 	}
 }

@@ -1,19 +1,18 @@
 package com.amway.frm.bds.entity;
 
 import java.util.Date;
+import java.util.Map;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-
-import org.hibernate.annotations.GenericGenerator;
+import javax.persistence.Transient;
 
 import com.amway.frm.base.util.AppConstant;
 import com.amway.frm.base.vo.UniqueKey;
@@ -86,6 +85,11 @@ public class BdsXmlData implements java.io.Serializable {
 	@JoinColumn(name = "BDS_SCHEMAINFOR_ID")
 	@UniqueKey
 	private BdsSchemaInfor bdsSchemaInfor;
+	
+	//add by Mike He 20150425
+	//存储xml数据  key:nodeName  value:nodeText
+	@Transient //表示该属性并非一个到数据库表的字段的映射,ORM框架将忽略该属性. 
+	private Map<String,String> bdsDataMap;
 
 	public String getBdsXmlDataId() {
 		return this.bdsXmlDataId;
@@ -197,6 +201,14 @@ public class BdsXmlData implements java.io.Serializable {
 
 	public void setBdsSchemaInfor(BdsSchemaInfor bdsSchemaInfor) {
 		this.bdsSchemaInfor = bdsSchemaInfor;
+	}
+
+	public Map<String, String> getBdsDataMap() {
+		return bdsDataMap;
+	}
+
+	public void setBdsDataMap(Map<String, String> bdsDataMap) {
+		this.bdsDataMap = bdsDataMap;
 	}
 
 }

@@ -16,8 +16,8 @@
 		  <property name="url">
 		   <value>jdbc:oracle:thin:@127.0.0.1:21521:XE</value>
 		  </property>
-		  <property name="username" value="amway"></property>
-		  <property name="password" value="amway"></property>
+		  <property name="username" value="amway2"></property>
+		  <property name="password" value="amway2"></property>
 	 </bean>  
 	
 	<bean id="entityManagerFactory" 

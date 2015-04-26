@@ -56,7 +56,7 @@ public class BdsSchemaInfor implements java.io.Serializable {
 	private String bdsSchemaInforType;
 	
 	//SQL
-	@Column(name = "SQL")
+	@Column(name = "BDS_SQL")
 	private String sql;
 	
 	//JNDI

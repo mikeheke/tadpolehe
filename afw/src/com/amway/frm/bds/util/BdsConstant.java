@@ -101,7 +101,8 @@ public interface BdsConstant extends AppConstant{
 	public static final String BDS_SCHEMAINFOR_NAME_ENG = "BDS_SCHEMAINFOR_NAME_ENG";
 	public static final String BDS_SCHEMAINFOR_NAME_CNA = "BDS_SCHEMAINFOR_NAME_CNA";
 	public static final String BDS_SCHEMAINFOR_TYPE = "BDS_SCHEMAINFOR_TYPE";
-	public static final String SQL = "SQL";
+	//public static final String SQL = "SQL";
+	public static final String SQL = "BDS_SQL";
 	public static final String JNDI = "JNDI";
 	public static final String WEBSERVICE_ADDRESS = "WEBSERVICE_ADDRESS";
 	public static final String WEBSERVICE_FUNCTION = "WEBSERVICE_FUNCTION";
