@@ -64,6 +64,7 @@
 		<url-pattern>*.jsp</url-pattern>
 	</filter-mapping>
  
+ <!-- XSSFilter -->
  <filter>
  		<filter-name>XSSFilter</filter-name>
  		<filter-class>com.amway.frm.afw.web.filter.XSSSecurityFilter</filter-class>
@@ -85,6 +86,7 @@
 		<filter-name>XSSFilter</filter-name>
 		<url-pattern>*.jsp</url-pattern>
 	</filter-mapping>
+ 
  
 	<filter>
 		<filter-name>StrutsPrepareFilter</filter-name>

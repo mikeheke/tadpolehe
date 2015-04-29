@@ -21,8 +21,12 @@ public class AfwTest {
 //		ApplicationContext ctx = 
 //				new FileSystemXmlApplicationContext("classpath:resources/config/spring/applicationContext.xml");
 		
+//		ApplicationContext ctx = 
+//				new FileSystemXmlApplicationContext("classpath:applicationContext_test.xml");
+		
 		ApplicationContext ctx = 
-				new FileSystemXmlApplicationContext("classpath:applicationContext_test.xml");
+				new FileSystemXmlApplicationContext("classpath:applicationContext_test_mysql.xml");
+
 		
 		LogFactory.getLogger(this.getClass()).info("=========> ctx: "+ctx);
 		

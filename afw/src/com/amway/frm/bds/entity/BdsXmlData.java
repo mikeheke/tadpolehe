@@ -59,7 +59,8 @@ public class BdsXmlData implements java.io.Serializable {
 	private String displaynameTc;
 	
 	//数据xml
-	@Column(name = "BDS_DATA")
+	//@Column(name = "BDS_DATA")
+	@Column(name = "BDS_DATA_STR")  //20150428
 	private String bdsData;
 	
 	//备注

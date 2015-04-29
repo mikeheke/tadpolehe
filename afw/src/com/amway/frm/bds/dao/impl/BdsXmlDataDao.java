@@ -62,7 +62,8 @@ public class BdsXmlDataDao extends BaseDao<BdsXmlData, String> implements
 			strSql.append(sql1);
 			final String sql2 = "DISPLAYNAME,DISPLAYNAME_EN,DISPLAYNAME_TC,";
 			strSql.append(sql2);
-			final String sql3 = "t.BDS_DATA.getclobval() xmltypeData ,REMARK,STATE,RECORD_STATE,";
+			//final String sql3 = "t.BDS_DATA.getclobval() xmltypeData ,REMARK,STATE,RECORD_STATE,";
+			final String sql3 = "t.BDS_DATA_STR xmltypeData ,REMARK,STATE,RECORD_STATE,"; //20150428
 			strSql.append(sql3);
 			final String sql4 = "CREATED_USER_ID,CREATED_TIME,UPDATED_USER_ID,UPDATED_TIME ";
 			strSql.append(sql4);
@@ -104,7 +105,8 @@ public class BdsXmlDataDao extends BaseDao<BdsXmlData, String> implements
 			sql.append(sql1);
 			final String sql2 = "DISPLAYNAME,DISPLAYNAME_EN,DISPLAYNAME_TC,";
 			sql.append(sql2);
-			final String sql3 = "t.BDS_DATA.getclobval() xmltypeData ,REMARK,STATE,RECORD_STATE,";
+			//final String sql3 = "t.BDS_DATA.getclobval() xmltypeData ,REMARK,STATE,RECORD_STATE,";
+			final String sql3 = "t.BDS_DATA_STR xmltypeData ,REMARK,STATE,RECORD_STATE,"; //20150428
 			sql.append(sql3);
 			final String sql4 = "CREATED_USER_ID,CREATED_TIME,UPDATED_USER_ID,UPDATED_TIME   from ";
 			sql.append(sql4);

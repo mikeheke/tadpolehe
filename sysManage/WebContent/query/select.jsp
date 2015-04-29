@@ -135,10 +135,10 @@
 								dictCode="${sysTableFields }" parentItem="tableName" 
 								
 								complete="setTableFieldValue();"
-								style="width: 141px;display: none" />
+								style="width: 221px;display: none" />
 							<amway:textfield id="fieldName2" name="selectVo.fieldName2" 
 								
-								style="width: 141px;display: "/>
+								style="width: 221px;display: "/>
 								
 							<input type="button" value="搜索" 
 								onclick="popupSelFieldName('${sysTableFields }','tableName')"
@@ -157,7 +157,7 @@
 						<th><s:text name="query.select.selectResult" /><font color="red">*</font>：</th>
 						<td>
 							<amway:textfield id="selectResult" name="selectVo.selectResult"  
-								value="${selectVo.selectResult }" style="width:141"
+								value="${selectVo.selectResult }" style="width:221px;"
 								dataType="Require" msg="请生成组合结果" maxLine="256"/>
 							<input type="button"  value="生成" 
 								onclick="setSelectResult();" />
@@ -178,7 +178,7 @@
 						<th><s:text name="query.select.des" /><font color="red">*</font>：</th>
 						<td>
 							<amway:textfield id="des" name="selectVo.des" value="${selectVo.des }"
-								dataType="Require" maxLine="256" msg="请填写描述" style="width:180"/>
+								dataType="Require" maxLine="256" msg="请填写描述" style="width:221px"/>
 							<div class="input_msg">${desMsg }</div>
 						</td>	
 					</tr>
@@ -196,7 +196,7 @@
 						<td>
 							<amway:autoComplete id="dataCoding" name="selectVo.dataCoding"
 								source="data_code" value="${selectVo.dataCoding }"
-								filterColNames="displayname|code" fillColKey="code" style="width:180"
+								filterColNames="displayname|code" fillColKey="code" style="width:221px;"
 							/>	
 							<div class="input_msg">${dataCodingMsg }</div>
 						</td>
@@ -213,7 +213,7 @@
 						<td>
 							<amway:select id="btnType" name="selectVo.btnType" 
 								onchange="btnTypeOnchange(this);"
-								dictCode="select_btn_type" value="${selectVo.btnType }" style="width: 180"/>
+								dictCode="select_btn_type" value="${selectVo.btnType }" style="width: 221px"/>
 							<div class="input_msg">${btnTypeMsg }</div>
 						</td>	
 					</tr>
@@ -229,7 +229,7 @@
 						<td>
 							<amway:select id="isHidden" name="selectVo.isHidden"
 								dictCode="true_or_false" value="${selectVo.isHidden }"
-								style="width:180" dataType="Require" msg="请选择是否隐藏"/>
+								style="width:221px" dataType="Require" msg="请选择是否隐藏"/>
 							<div class="input_msg">${isHiddenMsg }</div>
 						</td>
 					</tr>
@@ -244,7 +244,7 @@
 						<th><s:text name="query.select.openType" />：</th>
 						<td>
 							<amway:select id="openType" name="selectVo.openType"
-								dictCode="dlg_open_type" value="${selectVo.openType }" style="width: 180" />
+								dictCode="dlg_open_type" value="${selectVo.openType }" style="width: 221px" />
 							<div class="input_msg">${openTypeMsg }</div>
 						</td>
 					</tr>

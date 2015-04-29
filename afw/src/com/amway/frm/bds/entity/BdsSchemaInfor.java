@@ -92,7 +92,8 @@ public class BdsSchemaInfor implements java.io.Serializable {
 	private String webservicePwd;
 	
 	//数据结构xml
-	@Column(name = "DATA_STRUCTURE_XML")
+	//@Column(name = "DATA_STRUCTURE_XML")
+	@Column(name = "DATA_STRUCTURE_XML_STR")
 	private String dataStructureXml;
 	
 	//备注

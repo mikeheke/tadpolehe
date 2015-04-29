@@ -1010,7 +1010,7 @@ alter table HSTB_SMS_SEND_RECORD_201504
 
 
 
------------------------------------
+----------------------------------------------------------------------BDS Table
 create table MSTB_BDS_SCHEMAINFOR
 (
   BDS_SCHEMAINFOR_ID       varchar(45) not null,
@@ -1036,7 +1036,8 @@ create table MSTB_BDS_SCHEMAINFOR
   CACHE_TIMEOUT            int,
   WEBSERVICE_NAMESPACE     varchar(200),
   WEBSERVICE_REQ_ROOT      varchar(50),
-  WEBSERVICE_RES_ROOT      varchar(50)
+  WEBSERVICE_RES_ROOT      varchar(50),
+  DATA_STRUCTURE_XML_STR   text
 );
 alter table MSTB_BDS_SCHEMAINFOR
   add constraint MSPK_BDS_SCHEMAINFOR primary key (BDS_SCHEMAINFOR_ID);
@@ -1060,7 +1061,8 @@ create table MSTB_BDS_XML_DATA
   CREATED_USER_ID    varchar(32),
   CREATED_TIME       datetime,
   UPDATED_USER_ID    varchar(32),
-  UPDATED_TIME       datetime
+  UPDATED_TIME       datetime,
+  BDS_DATA_STR       text
 );
 alter table MSTB_BDS_XML_DATA
   add constraint MSPK_BDS_XML_DATA primary key (BDS_XML_DATA_ID);

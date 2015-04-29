@@ -921,7 +921,9 @@ public class ShowImpl extends QueryImpl implements ShowService {
 		
 		String value = valueIn;
 		String dataInput = column.getDataInput();
-		if(null != dataInput){
+		//数据输入判断 modify by Mike 20150428 
+		//exp: <input type=checkbox name='ids' value='$0' />
+		if(null != dataInput && !"".equals(dataInput)){ 
 			value = dataInput;
 			//解决$问题
 			value = replaceVarDollor(value);

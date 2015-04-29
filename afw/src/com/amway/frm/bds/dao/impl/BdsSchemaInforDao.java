@@ -46,7 +46,8 @@ public class BdsSchemaInforDao extends BaseDao<BdsSchemaInfor, String> implement
 			params.put(BdsConstant.BDS_SCHEMAINFOR_CODE, bdsSchemaInfor.getBdsSchemaInforCode());
 			whereParams = jdbcHelper.getWhereParam(params, pStmtValues);
 			StringBuffer strSql = new StringBuffer();
-			final String sql1 = " select t.*,t.DATA_STRUCTURE_XML.getclobval() xml ,";
+			//final String sql1 = " select t.*,t.DATA_STRUCTURE_XML.getclobval() xml ,";
+			final String sql1 = " select t.*,t.DATA_STRUCTURE_XML_STR xml ,"; //modify by Mike He 20150428
 			strSql.append(sql1);
 			final String sql2 = "a.APPLICATION_ID ,a.APPLICATION_CODE, a.APPLICATION_NAME  ";
 			strSql.append(sql2);

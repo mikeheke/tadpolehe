@@ -14,7 +14,8 @@ public interface AppConstant {
 	
 	//默认Schema
 	//public static final String APP_DEAULT_SCHEMA = "amway";
-	public static final String APP_DEAULT_SCHEMA = "amway2";
+	//public static final String APP_DEAULT_SCHEMA = "amway2";
+	public static final String APP_DEAULT_SCHEMA = "test"; //for mysql(database name)
 	
 	//Db2数据库用户
 	public static final String DB2_USER = "DB2ADMIN";
