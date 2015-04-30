@@ -123,7 +123,7 @@
 	
   </head>
   
-  <body style="margin: 10px" onload="initAppSelect();initQueryShow('${pageContext.request.contextPath}')">
+  <body style="margin: 0px" onload="initAppSelect();initQueryShow('${pageContext.request.contextPath}')">
   	<form id="ec" method="post">
 	<div>
 		<div>

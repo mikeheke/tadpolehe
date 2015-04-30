@@ -205,7 +205,10 @@ public class ModuleAction extends BaseAction{
 				|| moduleCode.equals(parentModuleCode)){
 			parentModule = module;
 		}else{
-			parentModule = (Module) moduleService.querySingle(new Module(moduleVo.getParentModuleCode()));
+			Module qModule = new Module();
+			qModule.setModuleCode(moduleVo.getParentModuleCode());
+			//parentModule = (Module) moduleService.querySingle(new Module(moduleVo.getParentModuleCode()));
+			parentModule = (Module) moduleService.querySingle(qModule);
 		}
 		module.setParentModule(parentModule);
 		

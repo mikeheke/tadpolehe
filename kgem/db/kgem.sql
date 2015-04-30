@@ -26,4 +26,27 @@ CREATE SEQUENCE MSSQ_KGEM_KNOWLEDGE
       
 create synonym amway.MSTB_KGEM_KNOWLEDGE for BSAAPP.MSTB_KGEM_KNOWLEDGE;      
 create synonym amway.MSSQ_KGEM_KNOWLEDGE for BSAAPP.MSSQ_KGEM_KNOWLEDGE;
+
+
+
+--MySQL
+create table MSTB_KGEM_KNOWLEDGE
+(
+	KNOWLEDGE_ID          varchar(45)     NOT NULL,
+	TITLE                 varchar(200),
+	CONTENT               varchar(2000),
+	REMARK 		          varchar(500),
+	RECORD_STATE          int	    NOT NULL,
+	CREATED_USER_ID       varchar(32),
+	CREATED_TIME          datetime,
+	UPDATED_USER_ID       varchar(32),
+	UPDATED_TIME          datetime
+);
+ALTER TABLE MSTB_KGEM_KNOWLEDGE
+   ADD CONSTRAINT MSPK_KGEM_KNOWLEDGE PRIMARY KEY (KNOWLEDGE_ID);
+
+
+
+
+
       

@@ -18,19 +18,35 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <frameset rows="115,*" frameborder="no" border="0" framespacing="0" >
-	
-	<frameset cols="*,1024,*" frameborder="no" border="0" framespacing="0">
+  
+	<frameset cols="2,*,2" frameborder="no" border="0" framespacing="0"> 
 		<frame src="about:blank" scrolling="no"></frame>
 		<frame src="<%=basePath %>/mnu/browser/top.jsp?_appContext_=${param._appContext_ }" name="top" scrolling="no" noresize id="top" ></frame>	
 		<frame src="about:blank" scrolling="no"></frame>
 	</frameset>
 	
-	<frameset id="bodyFrame" cols="*,204,18,802,*" frameborder="no" border="0" framespacing="0" >
+	<%--
+	<frameset cols="*,1024,*" frameborder="no" border="0" framespacing="0"> 
 		<frame src="about:blank" scrolling="no"></frame>
-	    <frame src="<%=basePath %>/mnu/browser/left.jsp" name="left" scrolling="auto" noresize id="left" ></frame>
+		<frame src="<%=basePath %>/mnu/browser/top.jsp?_appContext_=${param._appContext_ }" name="top" scrolling="no" noresize id="top" ></frame>	
+		<frame src="about:blank" scrolling="no"></frame>
+	</frameset>
+	 --%>
+	
+	
+	<!-- <frameset id="bodyFrame" cols="*,204,18,802,*" frameborder="no" border="0" framespacing="0" >-->
+	<frameset id="bodyFrame" cols="2,221,*,2" frameborder="no" border="0" framespacing="0" >
+		<!-- -->
+		<frame src="about:blank" scrolling="no"></frame>
+		 
+	    <frame src="<%=basePath %>/mnu/browser/left.jsp" name="left" scrolling="yes" noresize id="left" ></frame>
+	    <!-- 
 	    <frame src="<%=basePath %>/mnu/browser/leftRight.jsp" name="leftRight" scrolling="no" noresize id="leftRight" ></frame>
-	    <frame src="<%=basePath %>/mnu/common/main.jsp" name="main" scrolling="yes" noresize id="main"  ></frame>
+	    -->
+	   <frame src="<%=basePath %>/mnu/common/main.jsp" name="main" scrolling="yes" noresize id="main"  ></frame>
+	    <!-- -->
 	    <frame src="about:blank" scrolling="no"></frame>
+	     
 	</frameset>
 	
 	<!-- 

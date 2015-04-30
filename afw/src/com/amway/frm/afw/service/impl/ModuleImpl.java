@@ -41,7 +41,10 @@ public class ModuleImpl extends BaseImpl implements ModuleService{
 		String[] moduleIds = moduleVo.getModuleIds();
 		Module module = null;
 		if(!DataValidater.isArrEmpty(moduleIds)){
-			module = (Module) querySingle(new Module((moduleIds[0])));
+			Module qModule = new Module();
+			qModule.setModuleId(moduleIds[0]);
+			//module = (Module) querySingle(new Module((moduleIds[0])));
+			module = (Module) querySingle(qModule);
 		}
 		
 		//根据不同级别按钮，设置不同初值

@@ -145,21 +145,24 @@ h3{
 	
 #body{
 	margin:0 auto;
-	width:1024px;
+	/*width:1024px;*/
+	width:100%;
 	height:auto;
 }
 
 .ind1_top{
 	float:left;
-	background:url(../images/ind1_bg.jpg) no-repeat;
-	width:1024px;
+	/*background:url(../images/ind1_bg.jpg) no-repeat;*/
+	background:url(../images/index_bg_blue.jpg);
+	/*width:1024px;*/
+	width:100%;
 	height:auto;
 	padding-bottom:17px;
 	}
 
 .ind1_top_txt{
 	float:left;
-	width:979px;
+	width:90%;
 	margin:10px 45px 0px 0px;
 	height:50px;
 	text-align:right;

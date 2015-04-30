@@ -113,10 +113,10 @@ public class AuthenticationFilter extends HttpServlet implements Filter {
 	private void initSystemInfo(HttpServletRequest httpRequest,
 			HttpServletResponse httpResponse){
 		
-		//设置管理平台
+		//设置管理平台(sysManage)
 		authorization.setSysApplication(httpRequest, httpResponse);
 		
-		//设置当前应用
+		//设置当前应用(current app)
 		setContextApplication(httpRequest);	//设置上下文应用
 		
 		//设置CSS值

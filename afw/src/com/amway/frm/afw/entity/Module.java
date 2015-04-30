@@ -36,17 +36,8 @@ public class Module implements Serializable, Comparable<Module>{
 
 	public Module(){}
 	
-	public Module(String moduleId){
-		this.moduleId = moduleId;
-	}
-	
-//	public Module(String moduleCode){
-//		this.moduleCode = moduleCode;
-//	}
 	//模块ID
 	@Id
-	//@GenericGenerator(name="systemUUID",strategy="uuid")
-	//@GeneratedValue(generator="systemUUID")
 	@Column(name="MODULE_ID")
 	private String moduleId;
 	

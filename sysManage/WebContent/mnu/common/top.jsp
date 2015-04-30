@@ -3,7 +3,7 @@
 <%@ include file="/common/jsp/resInclude.jsp"%>
 
 <div class="ind1_top_txt">
-	欢迎您！
+	欢迎您, 
 	<c:if test="${_application_.authenticateType eq 2 }">
 		${_sysUser_.externalUserName }
 	</c:if>
@@ -41,8 +41,8 @@
 	</c:choose>
 </div>
 <div class="ind1_top_title">
-	<!-- modify by Mike He 20150417
+	<!-- modify by Mike He 20150417-->
 	<span class="blue s14 b">${_application_.applicationName }</span><br />
-	 -->
+	 
 	<span class="blue s12 b">&nbsp;</span>
 </div>

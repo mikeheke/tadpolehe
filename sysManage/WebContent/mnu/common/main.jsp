@@ -76,7 +76,7 @@ if(null != defaultPage && !defaultPage.equals("")){
       			</tr>
       			<tr>
         			<td align="right" bgcolor="#e4e4e4" class="td4"><strong>版本号：</strong></td>
-        			<td class="td4">v1.2011.12.28</td>
+        			<td class="td4">v1.2015</td>
       			</tr>
     		</table>
   		</div>
