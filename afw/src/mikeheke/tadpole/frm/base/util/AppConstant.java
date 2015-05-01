@@ -529,4 +529,17 @@ public interface AppConstant {
 	public static final String AUTHENTICATE_ADMIN_REMARK = "admin";
 	
 	public static final String AUTHENTICATE_SHOP_REMARK = "external_shop_id";
+	
+	
+	// add by Mike He 20150501
+	//功能菜单级别
+	public static final Integer MODULE_LEVEL_NO_1 = 1;
+	public static final Integer MODULE_LEVEL_NO_2 = 2;
+	public static final Integer MODULE_LEVEL_NO_3 = 3;
+	public static final Integer MODULE_LEVEL_NO_4 = 4;
+	public static final Integer MODULE_LEVEL_NO_5 = 5;
+	public static final Integer MODULE_LEVEL_NO_6 = 6;
+	public static final Integer MODULE_LEVEL_NO_7 = 7;
+	public static final Integer MODULE_LEVEL_NO_8 = 8;
+	
 }

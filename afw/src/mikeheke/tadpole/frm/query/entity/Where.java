@@ -20,6 +20,7 @@ import mikeheke.tadpole.frm.base.util.AppConstant;
 import mikeheke.tadpole.frm.base.util.DataValidater;
 import mikeheke.tadpole.frm.query.util.QueryConstant;
 
+import org.apache.commons.lang.StringUtils;
 import org.hibernate.annotations.GenericGenerator;
 
 /**
@@ -308,6 +309,9 @@ public class Where implements Serializable, Comparable<Where> {
 	}
 
 	public String getRegExp() {
+		if (StringUtils.isBlank(this.regExp)) {
+			this.regExp = null;
+		}
 		return regExp;
 	}
 
@@ -316,6 +320,9 @@ public class Where implements Serializable, Comparable<Where> {
 	}
 
 	public String getParTagId() {
+		if (StringUtils.isBlank(this.parTagId)) {
+			this.parTagId = null;
+		}
 		return parTagId;
 	}
 

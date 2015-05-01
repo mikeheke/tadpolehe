@@ -69,7 +69,18 @@ public class ShowImpl extends QueryImpl implements ShowService {
 		if(conSql.size()>0){
 			sql.addSql(key);
 		}
-		sql.addSql(StringUtils.join(conSql.toArray(), sep));
+		
+		List<String> conSql2 = new ArrayList<String>();
+		//去除 conSql集合中空值  20150501
+		for (String str : conSql) {
+			if (!StringUtils.isBlank(str)) {
+				conSql2.add(str);
+			}
+		}
+		
+		
+		//sql.addSql(StringUtils.join(conSql.toArray(), sep));
+		sql.addSql(StringUtils.join(conSql2.toArray(), sep));
 	}
 
 	/* 
@@ -347,7 +358,8 @@ public class ShowImpl extends QueryImpl implements ShowService {
 
 		String[] parValues = null;
 
-		if (QueryConstant.WHERE_TYPE_HIDDEN == where.getIsUserIn()) {
+		if (QueryConstant.WHERE_TYPE_HIDDEN == where.getIsUserIn() || 
+				!StringUtils.isBlank(where.getDefaultValue())) {//20150501
 			UserProfile seUser = getSysInfo().getUserProfile();
 			Application seApplication = getSysInfo().getApplication();
 

@@ -87,7 +87,8 @@ h3{
 }
 
 #login{
-	background:url(../images/login_bg.jpg) no-repeat 0px 85px;
+	/*background:url(../images/login_bg.jpg) no-repeat 0px 85px;*/
+	background:url(../images/login_bg_blue.jpg) repeat-x;
 	margin:0 auto;
 	width:1024px;
 	height:500px;
