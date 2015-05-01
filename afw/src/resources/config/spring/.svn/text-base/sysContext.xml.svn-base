@@ -6,105 +6,105 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
    
    <!-- 应用配置 -->
-   <bean id="ApplicationAction" class="com.amway.frm.afw.web.action.ApplicationAction">
+   <bean id="ApplicationAction" class="mikeheke.tadpole.frm.afw.web.action.ApplicationAction">
        <property name="applicationService" ref="ApplicationService"/>
    </bean>
-   <bean id="ApplicationService" class="com.amway.frm.afw.service.impl.ApplicationImpl"  parent="ServiceTemplate" >
+   <bean id="ApplicationService" class="mikeheke.tadpole.frm.afw.service.impl.ApplicationImpl"  parent="ServiceTemplate" >
 		<property name="applicationDao" ref="ApplicationDao"/>
        	<property name="moduleService" ref="ModuleService" />
       	<property name="roleService" ref="RoleService" />
        	<property name="applicationPlusService" ref="ApplicationPlusService" />
    </bean>
-   <bean id="ApplicationDao" class="com.amway.frm.afw.dao.impl.ApplicationDao"></bean>
+   <bean id="ApplicationDao" class="mikeheke.tadpole.frm.afw.dao.impl.ApplicationDao"></bean>
    
    <!-- 模块配置 -->
-   <bean id="ModuleAction" class="com.amway.frm.afw.web.action.ModuleAction" scope="prototype">
+   <bean id="ModuleAction" class="mikeheke.tadpole.frm.afw.web.action.ModuleAction" scope="prototype">
        <property name="moduleService" ref="ModuleService" />
    </bean>
-   <bean id="ModuleService" class="com.amway.frm.afw.service.impl.ModuleImpl"  parent="ServiceTemplate" >
+   <bean id="ModuleService" class="mikeheke.tadpole.frm.afw.service.impl.ModuleImpl"  parent="ServiceTemplate" >
    		<property name="moduleDao" ref="ModuleDao"/>
        	<property name="roleRightService" ref="RoleRightService" />
    </bean>
-   <bean id="ModuleDao" class="com.amway.frm.afw.dao.impl.ModuleDao"></bean>
+   <bean id="ModuleDao" class="mikeheke.tadpole.frm.afw.dao.impl.ModuleDao"></bean>
    
    <!-- 用户配置 -->
-   <bean id="UserProfileAction" class="com.amway.frm.afw.web.action.UserProfileAction">
+   <bean id="UserProfileAction" class="mikeheke.tadpole.frm.afw.web.action.UserProfileAction">
 		<property name="userProfileService" ref="UserProfileService" />
 		<property name="baseDataSourceService" ref="BaseDataSourceService" />
    </bean>
-   <bean id="UserProfileService" class="com.amway.frm.afw.service.impl.UserProfileImpl"  parent="ServiceTemplate" >
+   <bean id="UserProfileService" class="mikeheke.tadpole.frm.afw.service.impl.UserProfileImpl"  parent="ServiceTemplate" >
 		<property name="userProfileDao" ref="UserProfileDao" />
        	<property name="roleUserService" ref="RoleUserService" />
        	<property name="roleRightService" ref="RoleRightService" />
        	<property name="applicationService" ref="ApplicationService" />
 		<property name="baseDataSourceService" ref="BaseDataSourceService" />
    </bean>
-   <bean id="UserProfileDao" class="com.amway.frm.afw.dao.impl.UserProfileDao"></bean>
+   <bean id="UserProfileDao" class="mikeheke.tadpole.frm.afw.dao.impl.UserProfileDao"></bean>
    
    <!-- 角色配置 -->
-   <bean id="RoleAction" class="com.amway.frm.afw.web.action.RoleAction">
+   <bean id="RoleAction" class="mikeheke.tadpole.frm.afw.web.action.RoleAction">
        <property name="roleService" ref="RoleService" />
    </bean>
-   <bean id="RoleService" class="com.amway.frm.afw.service.impl.RoleImpl"  parent="ServiceTemplate" >
+   <bean id="RoleService" class="mikeheke.tadpole.frm.afw.service.impl.RoleImpl"  parent="ServiceTemplate" >
    		<property name="roleDao" ref="RoleDao" />
        	<property name="roleRightService" ref="RoleRightService" />
        	<property name="roleUserService" ref="RoleUserService" />
    </bean>
-   <bean id="RoleDao" class="com.amway.frm.afw.dao.impl.RoleDao"></bean>
+   <bean id="RoleDao" class="mikeheke.tadpole.frm.afw.dao.impl.RoleDao"></bean>
 
    <!-- 角色权限配置 -->
-   <bean id="RoleRightAction" class="com.amway.frm.afw.web.action.RoleRightAction">
+   <bean id="RoleRightAction" class="mikeheke.tadpole.frm.afw.web.action.RoleRightAction">
        <property name="roleRightService" ref="RoleRightService" />
        <property name="roleService" ref="RoleService" />
    </bean>
-   <bean id="RoleRightService" class="com.amway.frm.afw.service.impl.RoleRightImpl"  parent="ServiceTemplate" >
+   <bean id="RoleRightService" class="mikeheke.tadpole.frm.afw.service.impl.RoleRightImpl"  parent="ServiceTemplate" >
    		<property name="roleRightDao" ref="RoleRightDao" />
    		<property name="moduleDao" ref="ModuleDao" />
    </bean>
-   <bean id="RoleRightDao" class="com.amway.frm.afw.dao.impl.RoleRightDao" ></bean>
+   <bean id="RoleRightDao" class="mikeheke.tadpole.frm.afw.dao.impl.RoleRightDao" ></bean>
    
    <!-- 角色用户配置 -->
-   <bean id="RoleUserAction" class="com.amway.frm.afw.web.action.RoleUserAction">
+   <bean id="RoleUserAction" class="mikeheke.tadpole.frm.afw.web.action.RoleUserAction">
        <property name="roleUserService" ref="RoleUserService" />
    </bean>
-   <bean id="RoleUserService" class="com.amway.frm.afw.service.impl.RoleUserImpl"  parent="ServiceTemplate" >
+   <bean id="RoleUserService" class="mikeheke.tadpole.frm.afw.service.impl.RoleUserImpl"  parent="ServiceTemplate" >
    		<property name="roleUserDao" ref="RoleUserDao" />
    		<property name="roleDao" ref="RoleDao" />
    		<property name="baseDataSourceService" ref="BaseDataSourceService" />
    </bean>
-   <bean id="RoleUserDao" class="com.amway.frm.afw.dao.impl.RoleUserDao" ></bean>
+   <bean id="RoleUserDao" class="mikeheke.tadpole.frm.afw.dao.impl.RoleUserDao" ></bean>
    
    <!-- 扩展应用配置 -->
-   <bean id="ApplicationPlusAction" class="com.amway.frm.afw.web.action.ApplicationPlusAction">
+   <bean id="ApplicationPlusAction" class="mikeheke.tadpole.frm.afw.web.action.ApplicationPlusAction">
        	<property name="applicationPlusService" ref="ApplicationPlusService" />
    </bean>
-   <bean id="ApplicationPlusService" class="com.amway.frm.afw.service.impl.ApplicationPlusImpl"  parent="ServiceTemplate" >
+   <bean id="ApplicationPlusService" class="mikeheke.tadpole.frm.afw.service.impl.ApplicationPlusImpl"  parent="ServiceTemplate" >
    		<property name="applicationPlusDao" ref="ApplicationPlusDao" />
    </bean>
-   <bean id="ApplicationPlusDao" class="com.amway.frm.afw.dao.impl.ApplicationPlusDao" ></bean>
+   <bean id="ApplicationPlusDao" class="mikeheke.tadpole.frm.afw.dao.impl.ApplicationPlusDao" ></bean>
    
    <!-- 黑名单配置 -->
-   <bean id="BlackListAction" class="com.amway.frm.afw.web.action.BlackListAction">
+   <bean id="BlackListAction" class="mikeheke.tadpole.frm.afw.web.action.BlackListAction">
        	<property name="blackListService" ref="BlackListService" />
    </bean>
-   <bean id="BlackListService" class="com.amway.frm.afw.service.impl.BlackListImpl"  parent="ServiceTemplate" >
+   <bean id="BlackListService" class="mikeheke.tadpole.frm.afw.service.impl.BlackListImpl"  parent="ServiceTemplate" >
    		<property name="blackListDao" ref="BlackListDao" />
    </bean>
-   <bean id="BlackListDao" class="com.amway.frm.afw.dao.impl.BlackListDao" ></bean>
+   <bean id="BlackListDao" class="mikeheke.tadpole.frm.afw.dao.impl.BlackListDao" ></bean>
    
-   <bean id="DepartmentService" class= "com.amway.frm.afw.service.impl.DepartmentImpl"  parent="ServiceTemplate">
+   <bean id="DepartmentService" class= "mikeheke.tadpole.frm.afw.service.impl.DepartmentImpl"  parent="ServiceTemplate">
    		<property name="departmentDao" ref="DepartmentDao" />
    	</bean>
    
-   <bean id="DepartmentDao" class="com.amway.frm.afw.dao.impl.DepartmentDao" ></bean>
+   <bean id="DepartmentDao" class="mikeheke.tadpole.frm.afw.dao.impl.DepartmentDao" ></bean>
    
       <!-- 模块配置 -->
-   <bean id="ExportConfigAction" class="com.amway.frm.afw.web.action.ExportConfigAction" scope="prototype">
+   <bean id="ExportConfigAction" class="mikeheke.tadpole.frm.afw.web.action.ExportConfigAction" scope="prototype">
        <property name="exportConfigService" ref="ExportConfigService" />
    </bean>
-   <bean id="ExportConfigService" class="com.amway.frm.afw.service.impl.ExportConfigImpl"  parent="ServiceTemplate" >
+   <bean id="ExportConfigService" class="mikeheke.tadpole.frm.afw.service.impl.ExportConfigImpl"  parent="ServiceTemplate" >
    		<property name="exportConfigDao" ref="ExportConfigDao"/>
    </bean>
-   <bean id="ExportConfigDao" class="com.amway.frm.afw.dao.impl.ExportConfigDao"></bean>
+   <bean id="ExportConfigDao" class="mikeheke.tadpole.frm.afw.dao.impl.ExportConfigDao"></bean>
     
 </beans>

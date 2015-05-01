@@ -7,12 +7,12 @@
     http://www.springframework.org/schema/task   
     http://www.springframework.org/schema/task/spring-task-3.0.xsd"> 
     
-    <bean id="ShopAuthDao" class="com.amway.frm.job.dao.impl.ShopAuthDao" ></bean>
-    <bean id="ShopAuthService" class="com.amway.frm.job.service.impl.ShopAuthImpl" parent="ServiceTemplate">
+    <bean id="ShopAuthDao" class="mikeheke.tadpole.frm.job.dao.impl.ShopAuthDao" ></bean>
+    <bean id="ShopAuthService" class="mikeheke.tadpole.frm.job.service.impl.ShopAuthImpl" parent="ServiceTemplate">
     	<property name="shopAuthDao" ref="ShopAuthDao"/>
     </bean>
     
-    <bean id="mvnTemplateApp" class="com.amway.frm.job.web.action.MavenTemplateAPP"
+    <bean id="mvnTemplateApp" class="mikeheke.tadpole.frm.job.web.action.MavenTemplateAPP"
 		scope="prototype">
 		<property name="configService" ref="ConfigService"></property>
 	</bean>
@@ -20,7 +20,7 @@
 	<task:annotation-driven />
 <!-- 
 	 定时器开关  
-    <bean id="EmailSendTask" class="com.amway.frm.email.task.EmailSendTask">
+    <bean id="EmailSendTask" class="mikeheke.tadpole.frm.email.task.EmailSendTask">
   		<property name="emailService" ref="EmailService"></property>
     </bean>  
     <task:scheduled-tasks>
@@ -29,7 +29,7 @@
         <task:scheduled ref="ReportCacheTask" method="makeReportByAsynMode" cron="0 */30 * * * ?"/> 
     </task:scheduled-tasks> 
     
-    <bean id="ReportCacheTask" class="com.amway.frm.report.task.ReportCacheTask">
+    <bean id="ReportCacheTask" class="mikeheke.tadpole.frm.report.task.ReportCacheTask">
   		<property name="reportShowService" ref="ReportShowService"></property>
     </bean>
 -->

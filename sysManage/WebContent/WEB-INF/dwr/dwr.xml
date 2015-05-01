@@ -8,6 +8,6 @@
 			<include method="getRoleList" />
 		</create>-->
 		
-		<!--<convert match="com.amway.frm.afw.entity.Role" converter="bean"></convert>-->
+		<!--<convert match="mikeheke.tadpole.frm.afw.entity.Role" converter="bean"></convert>-->
 	</allow>
 </dwr>

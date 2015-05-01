@@ -6,28 +6,28 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
    
  
-   <bean id="BdsSchemaInforAction" class="com.amway.frm.bds.web.action.BdsSchemaInforAction">
+   <bean id="BdsSchemaInforAction" class="mikeheke.tadpole.frm.bds.web.action.BdsSchemaInforAction">
 		<property name="bdsSchemaInforService" ref="BdsSchemaInforService" />
    </bean>
-   <bean id="BdsSchemaInforService" class="com.amway.frm.bds.service.impl.BdsSchemaInforImpl" parent="ServiceTemplate" >
+   <bean id="BdsSchemaInforService" class="mikeheke.tadpole.frm.bds.service.impl.BdsSchemaInforImpl" parent="ServiceTemplate" >
    		<property name="bdsSchemaInforDao" ref="BdsSchemaInforDao" />
    </bean>
-   <bean id="BdsSchemaInforDao" class="com.amway.frm.bds.dao.impl.BdsSchemaInforDao"/>
+   <bean id="BdsSchemaInforDao" class="mikeheke.tadpole.frm.bds.dao.impl.BdsSchemaInforDao"/>
    
-   <bean id="BdsXmlStructureAction" class="com.amway.frm.bds.web.action.BdsXmlStructureAction" parent="BdsSchemaInforAction">
+   <bean id="BdsXmlStructureAction" class="mikeheke.tadpole.frm.bds.web.action.BdsXmlStructureAction" parent="BdsSchemaInforAction">
 		<property name="bdsXmlStructureService" ref="BdsXmlStructureService" />
    </bean>
-   <bean id="BdsXmlStructureService" class="com.amway.frm.bds.service.impl.BdsXmlStructureImpl" parent="ServiceTemplate" />
+   <bean id="BdsXmlStructureService" class="mikeheke.tadpole.frm.bds.service.impl.BdsXmlStructureImpl" parent="ServiceTemplate" />
    
-   <bean id="BdsXMLDataAction" class="com.amway.frm.bds.web.action.BdsXMLDataAction" parent="BdsXmlStructureAction">
+   <bean id="BdsXMLDataAction" class="mikeheke.tadpole.frm.bds.web.action.BdsXMLDataAction" parent="BdsXmlStructureAction">
 		<property name="bdsXmlDataService" ref="BdsXmlDataService" />
    </bean>
-   <bean id="BdsXmlDataService" class="com.amway.frm.bds.service.impl.BdsXmlDataImpl" parent="ServiceTemplate" >
+   <bean id="BdsXmlDataService" class="mikeheke.tadpole.frm.bds.service.impl.BdsXmlDataImpl" parent="ServiceTemplate" >
    		<property name="bdsXmlDataDao" ref="BdsXmlDataDao" />
    </bean>
-   <bean id="BdsXmlDataDao" class="com.amway.frm.bds.dao.impl.BdsXmlDataDao"/>
+   <bean id="BdsXmlDataDao" class="mikeheke.tadpole.frm.bds.dao.impl.BdsXmlDataDao"/>
 
-   <bean id="BaseDataSourceService" class="com.amway.frm.bds.service.impl.BaseDataSourceServiceImpl" parent="ServiceTemplate" >
+   <bean id="BaseDataSourceService" class="mikeheke.tadpole.frm.bds.service.impl.BaseDataSourceServiceImpl" parent="ServiceTemplate" >
    		<property name="bdsXmlDataDao" ref="BdsXmlDataDao"></property>
    		<property name="bdsSchemaInforService" ref="BdsSchemaInforService" />
    		<property name="bdsXmlDataService" ref="BdsXmlDataService" />

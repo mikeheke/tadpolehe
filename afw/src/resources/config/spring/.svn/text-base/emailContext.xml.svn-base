@@ -8,19 +8,19 @@
     http://www.springframework.org/schema/task/spring-task-3.0.xsd"> 
 
     <!--邮件发送-->
-    <bean id="EmailService" class="com.amway.frm.email.service.impl.EmailServiceImpl" parent="ServiceTemplate">
+    <bean id="EmailService" class="mikeheke.tadpole.frm.email.service.impl.EmailServiceImpl" parent="ServiceTemplate">
         <property name="emailSendRecordDao" ref="EmailSendRecordDao"/>
     </bean>
-    <bean id="EmailSendRecordDao" class="com.amway.frm.email.dao.impl.EmailSendRecordDao"/>
+    <bean id="EmailSendRecordDao" class="mikeheke.tadpole.frm.email.dao.impl.EmailSendRecordDao"/>
 
     <!--邮件模板-->
-    <bean id="EmailTemplateAction" class="com.amway.frm.email.web.action.EmailTemplateAction">
+    <bean id="EmailTemplateAction" class="mikeheke.tadpole.frm.email.web.action.EmailTemplateAction">
         <property name="emailTemplateService" ref="EmailTemplateService"/>
     </bean>
-    <bean id="EmailTemplateService" class="com.amway.frm.email.service.impl.EmailTemplateServiceImpl" parent="ServiceTemplate">
+    <bean id="EmailTemplateService" class="mikeheke.tadpole.frm.email.service.impl.EmailTemplateServiceImpl" parent="ServiceTemplate">
         <property name="emailTemplateDao" ref="EmailTemplateDao"/>
     </bean>
-    <bean id="EmailTemplateDao" class="com.amway.frm.email.dao.impl.EmailTemplateDao"/>
+    <bean id="EmailTemplateDao" class="mikeheke.tadpole.frm.email.dao.impl.EmailTemplateDao"/>
 
     <!--②异步线程执行器-->
     <bean id="taskExecutor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">

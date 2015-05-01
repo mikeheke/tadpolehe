@@ -13,8 +13,8 @@
 		</create>
 		
 		  
-		<convert match="com.amway.frm.query.entity.SysTableField" converter="bean"></convert>
-		<convert match="com.amway.frm.query.entity.SysTable" converter="bean"></convert>
-		<convert match="com.amway.frm.query.entity.DataCoding" converter="bean"></convert>
+		<convert match="mikeheke.tadpole.frm.query.entity.SysTableField" converter="bean"></convert>
+		<convert match="mikeheke.tadpole.frm.query.entity.SysTable" converter="bean"></convert>
+		<convert match="mikeheke.tadpole.frm.query.entity.DataCoding" converter="bean"></convert>
 	</allow>
 </dwr>

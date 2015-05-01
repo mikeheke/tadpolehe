@@ -8,4 +8,4 @@ ejb.weblogic.initial.context.factory=weblogic.jndi.WLInitialContextFactory
 ejb.weblogic.security.principal=weblogic
 ejb.weblogic.security.credentials=weblogic1
 ejb.weblogic.provider.url=t3://10.140.208.218:7003
-ejb.auth_interface_name=com.amway.frm.authentication.IAuthenticator
+ejb.auth_interface_name=mikeheke.tadpole.frm.authentication.IAuthenticator

@@ -8,7 +8,7 @@
 <tag>
     <description><![CDATA[Render a RoleRightTreeTag element]]></description>
     <name>roleRightTreeTag</name>
-    <tag-class>com.amway.frm.afw.web.tag.RoleRightTreeTag</tag-class>
+    <tag-class>mikeheke.tadpole.frm.afw.web.tag.RoleRightTreeTag</tag-class>
     <body-content>JSP</body-content>
     <attribute>
       <description><![CDATA[treeName]]></description>
@@ -38,7 +38,7 @@
   <tag>
     <description><![CDATA[Render a RButtonTag element]]></description>
     <name>rButtonTag</name>
-    <tag-class>com.amway.frm.afw.web.tag.RButtonTag</tag-class>
+    <tag-class>mikeheke.tadpole.frm.afw.web.tag.RButtonTag</tag-class>
     <body-content>JSP</body-content>
     <attribute>
       <description><![CDATA[id]]></description>

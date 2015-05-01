@@ -1,0 +1,269 @@
+package mikeheke.tadpole.frm.base.vo;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
+import mikeheke.tadpole.frm.base.util.DataValidater;
+
+/**
+ * 
+ * 
+ * Date: 2011-3-22
+ * Time: 10:47:54
+ * Declare：返回信息
+ */
+public class ReturnMessage<T> {
+	
+	//默认失败
+	public static final Integer FAIL_CODE = -1;  
+	
+	//成功码
+	public static final Integer SUCCESS_CODE = 0;  
+	
+	//查询成功
+	public static final String QRY_SUCCESS_MSG = "查询成功";
+	
+	//查询成功
+	public static final String QRY_NO_SUCCESS_MSG = "查询成功,但无满足条件的结果";
+	
+	//查询失败
+	public static final String QRY_FAIL_MSG = "查询失败";
+	
+	//增加成功
+	public static final String ADD_SUCCESS_MSG = "增加成功";
+	
+	//增加失败
+	public static final String ADD_FAIL_MSG = "增加失败";
+	
+	//删除成功
+	public static final String DEL_SUCCESS_MSG = "删除成功";
+	
+	//删除失败
+	public static final String DEL_FAIL_MSG = "删除失败";
+	
+	//修改成功
+	public static final String MDF_SUCCESS_MSG = "修改成功";
+	
+	//修改失败
+	public static final String MDF_FAIL_MSG = "修改失败";	
+	
+	//操作成功
+	public static final String OPRT_SUCCESS_MSG = "操作成功";
+	
+	//操作失败
+	public static final String OPRT_FAIL_MSG = "操作失败";
+	
+	//0 代表成功，非0表示失败,默认失败
+	private int returnCode = FAIL_CODE;		
+	
+	//返回信息
+	private StringBuffer returnMsg = new StringBuffer();		
+	
+	//返回对象
+	private List<T> returnObjects = new ArrayList<T>();
+	
+	//分组属性
+	private List<String[]> returnGroups = new ArrayList<String[]>();
+
+	/**
+	 * Declare：取得返回码
+	 * 
+	 * @param void
+	 * @return int 返回码
+	 */
+	public int getReturnCode() {
+		return returnCode;
+	}
+
+	/**
+	 * Declare：设置返回码
+	 * 
+	 * @param returnCode 返回码
+	 * @return void
+	 */
+	public void setReturnCode(int returnCode) {
+		this.returnCode = returnCode;
+	}
+
+	/**
+	 * Declare：取得返回信息
+	 * 
+	 * @param void
+	 * @return String 返回信息
+	 */
+	public String getReturnMsg() {
+		return returnMsg.toString();
+	}
+
+	/**
+	 * Declare：添加返回信息
+	 * 
+	 * @param returnMsg 返回信息
+	 * @return void
+	 */
+	public void setReturnMsg(String returnMsg) {
+		this.returnMsg.append(returnMsg);
+	}
+	
+	public void setQryReturnMsg(){
+		if(isSuccess()){
+			if(DataValidater.isCollectionEmpty(getReturnObjects())){
+				setReturnMsg(ReturnMessage.QRY_NO_SUCCESS_MSG);
+			}else{
+				setReturnMsg(ReturnMessage.QRY_SUCCESS_MSG);
+			}
+		}else{ 
+			setReturnMsg(ReturnMessage.QRY_FAIL_MSG);
+		}
+	}
+
+	/**
+	 * Declare：取得对象集合
+	 * 
+	 * @param void
+	 * @return List<T> 对象集合
+	 */
+	public List<T> getReturnObjects() {
+		return returnObjects;
+	}
+
+	/**
+	 * Declare：添加对象
+	 * 
+	 * @param object 对象
+	 * @return void
+	 */
+	public void setReturnObject(T object){
+		getReturnObjects().add(object);
+	}
+	
+	/**
+	 * Declare：清除并加对象
+	 * 
+	 * @param object 对象
+	 * @return void
+	 */
+	public void repReturnObject(T object){
+		this.clearReturnObjects();
+		this.getReturnObjects().add(object);
+	}
+	
+	/**
+	 * Declare：添加对象集合
+	 * 
+	 * @param objects 对象集合
+	 * @return void
+	 */
+	public void setReturnObjects(Collection<T> objects){
+		getReturnObjects().addAll(objects);
+	}
+	
+	/**
+	 * Declare：清除并加对象集合
+	 * 
+	 * @param objects 对象集合
+	 * @return void
+	 */
+	public void repReturnObjects(Collection<T> objects){
+		this.clearReturnObjects();
+		getReturnObjects().addAll(objects);
+	}
+	
+	/**
+	 * Declare：取得返回索引对象
+	 * 
+	 * @param index 索引
+	 * @return T 索引对象
+	 */
+	public T getReturnObjectByIndex(int index){
+		T objectRet = null;
+		int len = getReturnObjects().size();
+		if(len > index){
+			objectRet = getReturnObjects().get(index);
+		}
+		return objectRet;
+	}
+	
+	/**
+	 * Declare：取得返回对象
+	 * 
+	 * @param void
+	 * @return T 返回对象
+	 */
+	public T getReturnObject(){
+		
+		T objectRet = null;
+		int len = getReturnObjects().size();
+		if(len > 0){
+			objectRet = getReturnObjects().get(0);
+		}
+		return objectRet;
+	}
+
+	/**
+	 * Declare：是否成功
+	 * 
+	 * @param void
+	 * @return boolean 是否成功
+	 */
+	public boolean isSuccess(){
+		
+		boolean result = false;
+		if(this.returnCode == 0){
+			result = true;
+		}else{
+			result = false;
+		}
+		
+		return result;
+	}
+	
+	/**
+	 * 清除返回集合
+	 */
+	public void clearReturnObjects(){
+		this.returnObjects.clear();
+	}
+	
+	/**
+	 * 清除返回信息
+	 */
+	public void clearReturnMsg(){
+		this.returnMsg.delete(0, this.returnMsg.length());
+	}
+	
+	/**
+	 * 初始化
+	 */
+	public void reset(){
+		clearReturnObjects();
+		clearReturnMsg();
+		this.setReturnCode(FAIL_CODE);
+	}
+
+	/**
+	 * 取得组
+	 */
+	public List<String[]> getReturnGroups() {
+		return returnGroups;
+	}
+	
+	/**
+	 * 设置组
+	 * @param returnGroups
+	 */
+	public void setReturnGroups(List<String[]> returnGroups) {
+
+		this.returnGroups = returnGroups;
+	}
+	
+	/**
+	 * 添加组
+	 * @param returnGroup
+	 */
+	public void addReturnGroup(String[] returnGroup){
+		this.getReturnGroups().add(returnGroup);
+	}
+
+}

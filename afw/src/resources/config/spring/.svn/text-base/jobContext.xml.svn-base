@@ -6,14 +6,14 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
    
    <!-- 定时任务配置 -->
-   <bean id="TimeingJobAction" class="com.amway.frm.job.web.action.TimeingJobAction" scope="prototype">
+   <bean id="TimeingJobAction" class="mikeheke.tadpole.frm.job.web.action.TimeingJobAction" scope="prototype">
        	<property name="timeingJobService" ref="TimeingJobService" />
    </bean>
-   <bean id="TimeingJobService" class="com.amway.frm.job.service.impl.TimeingJobImpl"  parent="ServiceTemplate" >
+   <bean id="TimeingJobService" class="mikeheke.tadpole.frm.job.service.impl.TimeingJobImpl"  parent="ServiceTemplate" >
    		<property name="timeingJobDao" ref="TimeingJobDao" />
    </bean>
-   <bean id="TimeingJobDao" class="com.amway.frm.job.dao.impl.TimeingJobDao" ></bean>
+   <bean id="TimeingJobDao" class="mikeheke.tadpole.frm.job.dao.impl.TimeingJobDao" ></bean>
    
    <!-- 定时任务执行 -->
-   <bean id="JobTriggerAction" class="com.amway.frm.job.web.action.JobTriggerAction" parent="TimeingJobAction"></bean>
+   <bean id="JobTriggerAction" class="mikeheke.tadpole.frm.job.web.action.JobTriggerAction" parent="TimeingJobAction"></bean>
 </beans>

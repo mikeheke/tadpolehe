@@ -22,7 +22,7 @@
  	<context:annotation-config />
  	<tx:annotation-driven transaction-manager="transactionManager" />
  	 
- 	<bean id="throwsAdvice" class="com.amway.frm.exception.advice.AmwayExceptionAdvice" />
+ 	<bean id="throwsAdvice" class="mikeheke.tadpole.frm.exception.advice.AmwayExceptionAdvice" />
  	<bean class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
 		<property name="beanNames">
 			<list>
@@ -34,6 +34,6 @@
 		 </property>
 	</bean>
  	
- 	<context:component-scan base-package="com.amway" />
+ 	<context:component-scan base-package="mikeheke.tadpole" />
  	<aop:aspectj-autoproxy />
 </beans>

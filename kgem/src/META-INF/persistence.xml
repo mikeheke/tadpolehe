@@ -4,10 +4,10 @@
         
            <provider>org.hibernate.ejb.HibernatePersistence</provider>
            <!-- 
-           <class>com.amway.*</class>
+           <class>mikeheke.tadpole.*</class>
             
             
-            <class>com.amway.frm.afw.entity.Application</class>
+            <class>mikeheke.tadpole.frm.afw.entity.Application</class>
             
             <mapping-file></mapping-file>
             -->

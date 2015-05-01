@@ -12,11 +12,11 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import org.hibernate.annotations.GenericGenerator;
+import mikeheke.tadpole.frm.base.util.AppConstant;
+import mikeheke.tadpole.frm.base.util.DataValidater;
+import mikeheke.tadpole.frm.base.vo.UniqueKey;
 
-import com.amway.frm.base.util.AppConstant;
-import com.amway.frm.base.util.DataValidater;
-import com.amway.frm.base.vo.UniqueKey;
+import org.hibernate.annotations.GenericGenerator;
 
 
 /**

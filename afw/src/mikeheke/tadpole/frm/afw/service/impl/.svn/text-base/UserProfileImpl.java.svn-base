@@ -1,0 +1,342 @@
+package mikeheke.tadpole.frm.afw.service.impl;
+
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+import org.springframework.transaction.annotation.Transactional;
+
+import mikeheke.tadpole.frm.afw.dao.IUserProfileDao;
+import mikeheke.tadpole.frm.afw.entity.Application;
+import mikeheke.tadpole.frm.afw.entity.Module;
+import mikeheke.tadpole.frm.afw.entity.Role;
+import mikeheke.tadpole.frm.afw.entity.RoleUser;
+import mikeheke.tadpole.frm.afw.entity.UserProfile;
+import mikeheke.tadpole.frm.afw.service.ApplicationService;
+import mikeheke.tadpole.frm.afw.service.RoleRightService;
+import mikeheke.tadpole.frm.afw.service.RoleUserService;
+import mikeheke.tadpole.frm.afw.service.UserProfileService;
+import mikeheke.tadpole.frm.afw.util.AfwConstant;
+import mikeheke.tadpole.frm.afw.vo.RightBean;
+import mikeheke.tadpole.frm.afw.vo.SysInfoBean;
+import mikeheke.tadpole.frm.afw.vo.UserProfileVo;
+import mikeheke.tadpole.frm.base.service.impl.BaseImpl;
+import mikeheke.tadpole.frm.base.util.AppConstant;
+import mikeheke.tadpole.frm.base.util.ContextFactory;
+import mikeheke.tadpole.frm.base.util.MD5EncodeUtil;
+import mikeheke.tadpole.frm.base.vo.ReturnMessage;
+import mikeheke.tadpole.frm.bds.service.BaseDataSourceService;
+import mikeheke.tadpole.frm.bds.util.BdsConstant;
+import mikeheke.tadpole.frm.bds.vo.BaseDataSourceVo;
+import mikeheke.tadpole.frm.exception.exception.AmwaySysException;
+
+/**
+ * 
+ * @author lenovo
+ *
+ */
+public class UserProfileImpl extends BaseImpl implements UserProfileService {
+
+	private IUserProfileDao userProfileDao;
+	
+	private RoleUserService roleUserService;
+	
+	private RoleRightService roleRightService;
+	
+	private ApplicationService applicationService;
+	
+	private BaseDataSourceService baseDataSourceService;
+	
+	public RoleUserService getRoleUserService() {
+		return roleUserService;
+	}
+
+	public void setRoleUserService(RoleUserService roleUserService) {
+		this.roleUserService = roleUserService;
+	}
+	/* (non-Javadoc)
+	 * @see mikeheke.tadpole.frm.afw.services.UserProfileService#addUsersByWebService()
+	 */
+	@Override
+	public ReturnMessage<UserProfile> leadInUsersByWebService() {
+
+		return null;
+	}
+
+	/* (non-Javadoc)
+	 * @see mikeheke.tadpole.frm.afw.services.UserProfileService#modifyPwd(mikeheke.tadpole.frm.afw.entity.UserProfile)
+	 */
+	@Transactional
+	@Override
+	public ReturnMessage<UserProfile> modifyPwd(UserProfileVo userProfileVo) {
+		
+		ReturnMessage<UserProfile> returnMessage = new ReturnMessage<UserProfile>();
+		
+		UserProfile userProfile = getSysInfo().getUserProfile();
+		if(null != userProfile.getAccountType()
+				&& userProfile.getAccountType().intValue() == AfwConstant.AD_ACCOUNT.intValue()){
+			final String msg = "AD帐号不能修改密码";
+			returnMessage.setReturnMsg(msg);
+			return returnMessage;
+		}
+		if(!userProfileVo.getPassword().equals(userProfileVo.getPassword2())){
+			final String msg = "您输入的新密码、重复密码不一致";
+			returnMessage.setReturnMsg(msg);
+			return returnMessage;
+		}
+		if (!MD5EncodeUtil.MD5Encode(
+				AppConstant.MD5_KEY + userProfileVo.getOldPassword()).equals(
+						userProfile.getPassword())) {
+			final String msg = "您的原密码不正确";
+			returnMessage.setReturnMsg(msg);
+			return returnMessage;
+		}
+		
+		
+		userProfile.setPassword(MD5EncodeUtil.MD5Encode(AppConstant.MD5_KEY + userProfileVo.getPassword()));
+		returnMessage = this.update(userProfile);
+	
+		return returnMessage;
+	}
+
+	@Transactional
+	@Override
+	public ReturnMessage<UserProfile> updateUserProfile(UserProfile userProfile) {
+
+		UserProfile userProfileRet = (UserProfile) querySingle(new UserProfile(
+				userProfile.getUserProfileId()));
+		userProfile.setPassword(userProfileRet.getPassword());
+		
+		ReturnMessage<UserProfile> returnMessage = update(userProfile);
+		
+		return returnMessage;
+	}
+	
+	/* (non-Javadoc)
+	 * @see mikeheke.tadpole.frm.afw.service.UserProfileService#resetPwd(mikeheke.tadpole.frm.afw.entity.UserProfile)
+	 */
+	@Transactional
+	@Override
+	public ReturnMessage<UserProfile> resetPwd(UserProfile userProfile) {
+		
+		UserProfile userProfileRet = (UserProfile) this.querySingle(userProfile);
+		BaseDataSourceVo baseDataSourceVo = baseDataSourceService.getBdsVoData(
+				AfwConstant.DEFAULT_PASSWORD, new HashMap<String, String[]>(),
+				AfwConstant.SQL_AND).getReturnObject();
+		String dbPasswd = (String) baseDataSourceVo.getColumnSingle(BdsConstant.FIXED_COL_NAME_DN);
+		
+		userProfileRet.setPassword(MD5EncodeUtil.MD5Encode(AppConstant.MD5_KEY
+				+ dbPasswd));
+		
+		ReturnMessage<UserProfile> returnMessage = update(userProfileRet);
+		
+		return returnMessage;
+	}
+
+	/* (non-Javadoc)
+	 * @see mikeheke.tadpole.frm.afw.service.UserProfileService#changeUser(mikeheke.tadpole.frm.afw.vo.UserProfileVo)
+	 */
+	@Override
+	public ReturnMessage<Module> changeUser(UserProfileVo userProfileVo) {
+		
+		ReturnMessage<Module> returnMessage = new ReturnMessage<Module>();
+		
+		SysInfoBean sysInfoBean = SysInfoBean.getSysInfoBean();
+		if(!sysInfoBean.isChangeUser()){
+			return returnMessage;
+		}
+		
+		String userCodeOld = sysInfoBean.getUserProfile().getEmpNumber();
+		String userCode = userProfileVo.getEmpNumber();
+		
+		if(userCodeOld.equals(userCode)){
+			final String msg = "相同帐号，不能切换";
+			returnMessage.setReturnMsg(msg);
+			return returnMessage;
+		}
+		
+		sysInfoBean = getSysInfoBean(userProfileVo, sysInfoBean);
+		UserProfile userProfile = getUserProfile(userProfileVo, sysInfoBean);
+		if(null == userProfile){
+			final String msg = "账号不存在";
+			returnMessage.setReturnMsg(msg);
+			return returnMessage;
+		}
+		List<Role> roles = getRoles(userProfile, sysInfoBean.getApplication(), sysInfoBean);
+		List<Application> applications = getApplications(userProfile, roles, sysInfoBean);
+		List<Module> modules = getModules(userProfileVo, roles, sysInfoBean);
+		RightBean rights = getRights(modules);
+		
+		ContextFactory.setToSession(AppConstant.USER_NAME, userProfile);
+		ContextFactory.setToSession(AppConstant.ROLES_NAME, roles);
+		ContextFactory.setToSession(AppConstant.APPLICATION_NAMES, applications);
+		ContextFactory.setToSession(AppConstant.MODULES_NAME, modules);
+		ContextFactory.setToSession(AppConstant.RIGHTS_NAME, rights);
+		ContextFactory.setToSession(AppConstant.SYS_INFO, sysInfoBean);
+		
+		sysInfoBean.setSysInfoOld(userCode);
+		
+		returnMessage.setReturnCode(ReturnMessage.SUCCESS_CODE);
+		final String msg = "用户切换成功";
+		returnMessage.setReturnMsg(msg);
+		
+		return returnMessage;
+	}
+	
+	private SysInfoBean getSysInfoBean(UserProfileVo userProfileVo,
+			SysInfoBean sysInfoBean) {
+		
+		SysInfoBean sysInfoBeanOld = sysInfoBean.getSysInfoOld();
+		if (null != sysInfoBeanOld
+				&& userProfileVo.getEmpNumber().equals(
+						sysInfoBeanOld.getUserProfile().getEmpNumber())) {
+			return sysInfoBean.getSysInfoOld();
+		}
+		
+		return sysInfoBean;
+	}
+	
+	private List<Application> getApplications(UserProfile userProfile,
+			List<Role> roles, SysInfoBean sysInfoBean) {
+		
+		SysInfoBean sysInfoBeanOld = sysInfoBean.getSysInfoOld();
+		if (null != sysInfoBeanOld
+				&& userProfile.getEmpNumber().equals(
+						sysInfoBeanOld.getUserProfile().getEmpNumber())) {
+			return sysInfoBean.getApplicationsOld();
+		}
+		
+		List<Application> applications = null;
+		if(sysInfoBean.isSuperRole(roles)){
+			applications = applicationService.getApplicationsJDBC()
+					.getReturnObjects();
+		}else{
+			applications = applicationService.getApplicationsJDBC(userProfile)
+					.getReturnObjects();
+		}
+		
+		return applications;
+	}
+	
+	private List<Module> getModules(UserProfileVo userProfileVo,
+			List<Role> roles, SysInfoBean sysInfoBean) {
+		
+		SysInfoBean sysInfoBeanOld = sysInfoBean.getSysInfoOld();
+		if (null != sysInfoBeanOld
+				&& userProfileVo.getEmpNumber().equals(
+						sysInfoBeanOld.getUserProfile().getEmpNumber())) {
+			return sysInfoBean.getModulesOld();
+		}
+		
+		ReturnMessage<Module> returnMessage = roleRightService.getMRightList(
+				roles, sysInfoBean.getApplication());
+		
+		if(!returnMessage.isSuccess()){
+			return new ArrayList<Module>();
+		}
+		
+		return returnMessage.getReturnObjects();
+	}
+	
+	private RightBean getRights(List<Module> modules){
+		
+		RightBean rightBean = new RightBean();
+		for(Module module: modules){
+			rightBean.put(module.getModuleCode(), module);
+		}
+		return rightBean;
+	}
+	
+	private UserProfile getUserProfile(UserProfileVo userProfileVo,
+			SysInfoBean sysInfoBean) {
+		
+		SysInfoBean sysInfoBeanOld = sysInfoBean.getSysInfoOld();
+		if (null != sysInfoBeanOld
+				&& userProfileVo.getEmpNumber().equals(
+						sysInfoBeanOld.getUserProfile().getEmpNumber())) {
+			return sysInfoBean.getUserProfileOld();
+		}
+	
+		UserProfile userProfile = new UserProfile();
+		userProfile.setEmpNumber(userProfileVo.getEmpNumber());
+		
+		userProfile = (UserProfile) querySingle(userProfile);
+		
+		return userProfile;
+	}
+	
+	private List<Role> getRoles(UserProfile userProfile, Application application,
+			SysInfoBean sysInfoBean){
+		
+		SysInfoBean sysInfoBeanOld = sysInfoBean.getSysInfoOld();
+		if (null != sysInfoBeanOld
+				&& userProfile.getEmpNumber().equals(
+						sysInfoBeanOld.getUserProfile().getEmpNumber())) {
+			return sysInfoBean.getRolesOld();
+		}
+		
+		return roleUserService.getRoleList(userProfile, application)
+				.getReturnObjects();
+	}
+	
+	@Override
+	@Transactional
+	public ReturnMessage<UserProfile> logicDeleteList(List userProfiles) {
+		
+		for (Object userProfileObj : userProfiles) {
+			UserProfile userProfile = (UserProfile)userProfileObj;
+			RoleUser roleUser = new RoleUser();
+			roleUser.setUserProfileId(userProfile.getUserProfileId());
+			List<RoleUser> roleUsers = queryList(roleUser);
+			roleUserService.logicDeleteList(roleUsers);
+		}
+		
+		return super.logicDeleteList(userProfiles);
+	}
+
+	public void setUserProfileDao(IUserProfileDao userProfileDao) {
+		this.userProfileDao = userProfileDao;
+	}
+
+	public IUserProfileDao getUserProfileDao() {
+		return userProfileDao;
+	}
+
+	public void setRoleRightService(RoleRightService roleRightService) {
+		this.roleRightService = roleRightService;
+	}
+
+	public void setApplicationService(ApplicationService applicationService) {
+		this.applicationService = applicationService;
+	}
+
+	public void setBaseDataSourceService(BaseDataSourceService baseDataSourceService) {
+		this.baseDataSourceService = baseDataSourceService;
+	}
+
+	public RoleRightService getRoleRightService() {
+		return roleRightService;
+	}
+
+	public ApplicationService getApplicationService() {
+		return applicationService;
+	}
+
+	public BaseDataSourceService getBaseDataSourceService() {
+		return baseDataSourceService;
+	}
+
+	@Override
+	public UserProfile getUniqueUserProfile(
+			UserProfile userProfile) throws AmwaySysException {
+		
+		try{
+			return userProfileDao.getEntityById(userProfile.getUserProfileId());
+		}catch(SQLException e){
+			throw new AmwaySysException(e);
+		}
+		
+	}
+
+}

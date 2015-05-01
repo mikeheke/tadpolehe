@@ -1,0 +1,134 @@
+package mikeheke.tadpole.frm.afw.entity;
+
+import java.io.Serializable;
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+import mikeheke.tadpole.frm.base.util.AppConstant;
+
+/**
+ * MSTB_IDS表实体
+ * @author hyc
+ */
+@Entity(name="Sequence")
+@Table(name="MSTB_IDS", schema=AppConstant.APP_DEAULT_SCHEMA)
+public class Sequence implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4619686170907467588L;
+	
+	//自动生成ID
+	@Id
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="MSSQ_IDS_OR")
+	@SequenceGenerator(name="MSSQ_IDS_OR", sequenceName="MSSQ_IDS",
+			initialValue=1, allocationSize=1)
+	@Column(name = "ID")
+	private Long id;
+
+	@Column(name = "MODULE_NAME")
+	private String moduleName;
+	
+	@Column(name = "ENV")
+	private String env;
+	
+	@Column(name = "CURRENT_SEQUENCE")
+	private Long currentSequence;
+	
+	@Column(name = "INCREMENT_VAL")
+	private Integer incrementVal;
+
+	@Column(name = "CREATE_USER",updatable=false)
+	private String createdUserId;
+	
+	@Column(name = "CREATE_TIME",updatable=false)
+	private Date createdTime;
+	
+	@Column(name = "EDIT_USER")
+	private String updatedUserId;
+	
+	@Column(name = "UPDATE_TIME")
+	private Date updatedTime;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getModuleName() {
+		return moduleName;
+	}
+
+	public void setModuleName(String moduleName) {
+		this.moduleName = moduleName;
+	}
+
+	public String getEnv() {
+		return env;
+	}
+
+	public void setEnv(String env) {
+		this.env = env;
+	}
+
+	public Long getCurrentSequence() {
+		return currentSequence;
+	}
+
+	public void setCurrentSequence(Long currentSequence) {
+		this.currentSequence = currentSequence;
+	}
+
+	public Integer getIncrementVal() {
+		return incrementVal;
+	}
+
+	public void setIncrementVal(Integer incrementVal) {
+		this.incrementVal = incrementVal;
+	}
+
+	public String getCreatedUserId() {
+		return createdUserId;
+	}
+
+	public void setCreatedUserId(String createdUserId) {
+		this.createdUserId = createdUserId;
+	}
+
+	public Date getCreatedTime() {
+		return createdTime;
+	}
+
+	public void setCreatedTime(Date createdTime) {
+		this.createdTime = createdTime;
+	}
+
+	public String getUpdatedUserId() {
+		return updatedUserId;
+	}
+
+	public void setUpdatedUserId(String updatedUserId) {
+		this.updatedUserId = updatedUserId;
+	}
+
+	public Date getUpdatedTime() {
+		return updatedTime;
+	}
+
+	public void setUpdatedTime(Date updatedTime) {
+		this.updatedTime = updatedTime;
+	}
+
+	
+}

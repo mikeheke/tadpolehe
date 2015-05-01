@@ -180,7 +180,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						msg="输入的格式不正确" ></amway:textfield>
 					<font color="red">*</font>
 					<input type="button"  value="生成" 
-						onclick="setEleValueJson('<%=basePath %>/applicationAction!findOrderNo.action','orderNo');" />
+						onclick="setEleValueJson('<%=basePath%>/applicationAction!findOrderNo.action','orderNo');" />
 					<div class="input_msg">${orderNoMsg }</div>
 				</td>
 			</tr>

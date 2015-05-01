@@ -5,50 +5,50 @@
 	xmlns:p="http://www.springframework.org/schema/p"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
  
-   <bean id="QueryAction" class="com.amway.frm.query.web.action.QueryAction" >
+   <bean id="QueryAction" class="mikeheke.tadpole.frm.query.web.action.QueryAction" >
        <property name="queryService" ref="QueryService" />
    </bean>
-   <bean id="QueryService" class="com.amway.frm.query.service.impl.QueryImpl" parent="ServiceTemplate">
+   <bean id="QueryService" class="mikeheke.tadpole.frm.query.service.impl.QueryImpl" parent="ServiceTemplate">
 		<property name="queryDao" ref="QueryDao" />
 		<property name="baseDataSourceService" ref="BaseDataSourceService"></property>
    </bean>
-   <bean id="QueryDao" class="com.amway.frm.query.dao.impl.QueryDao" ></bean>
+   <bean id="QueryDao" class="mikeheke.tadpole.frm.query.dao.impl.QueryDao" ></bean>
    
-   <bean id="ConfigAction" class="com.amway.frm.query.web.action.ConfigAction" parent="QueryAction">
+   <bean id="ConfigAction" class="mikeheke.tadpole.frm.query.web.action.ConfigAction" parent="QueryAction">
        <property name="configService" ref="ConfigService" />
    </bean>
-   <bean id="ConfigService" class="com.amway.frm.query.service.impl.ConfigImpl" parent="QueryService" />
+   <bean id="ConfigService" class="mikeheke.tadpole.frm.query.service.impl.ConfigImpl" parent="QueryService" />
     							
-   <bean id="QBaseAction" class="com.amway.frm.query.web.action.QBaseAction" parent="ConfigAction" />
+   <bean id="QBaseAction" class="mikeheke.tadpole.frm.query.web.action.QBaseAction" parent="ConfigAction" />
    
-   <bean id="FromAction" class="com.amway.frm.query.web.action.FromAction" parent="ConfigAction">
+   <bean id="FromAction" class="mikeheke.tadpole.frm.query.web.action.FromAction" parent="ConfigAction">
    		<property name="baseDataSourceService" ref="BaseDataSourceService"></property>
    </bean>
    
-   <bean id="SelectAction" class="com.amway.frm.query.web.action.SelectAction" parent="ConfigAction" />
+   <bean id="SelectAction" class="mikeheke.tadpole.frm.query.web.action.SelectAction" parent="ConfigAction" />
 
-   <bean id="WhereAction" class="com.amway.frm.query.web.action.WhereAction" parent="ConfigAction" />
+   <bean id="WhereAction" class="mikeheke.tadpole.frm.query.web.action.WhereAction" parent="ConfigAction" />
    
-   <bean id="OrderByAction" class="com.amway.frm.query.web.action.OrderByAction" parent="ConfigAction" />
+   <bean id="OrderByAction" class="mikeheke.tadpole.frm.query.web.action.OrderByAction" parent="ConfigAction" />
       
-   <bean id="GroupByAction" class="com.amway.frm.query.web.action.GroupByAction" parent="ConfigAction" />
+   <bean id="GroupByAction" class="mikeheke.tadpole.frm.query.web.action.GroupByAction" parent="ConfigAction" />
        
-   <bean id="ButtonAction" class="com.amway.frm.query.web.action.ButtonAction" parent="ConfigAction" />
+   <bean id="ButtonAction" class="mikeheke.tadpole.frm.query.web.action.ButtonAction" parent="ConfigAction" />
    
-   <bean id="ReviewAction" class="com.amway.frm.query.web.action.ReviewAction" parent="ConfigAction" />
+   <bean id="ReviewAction" class="mikeheke.tadpole.frm.query.web.action.ReviewAction" parent="ConfigAction" />
        
-   <bean id="ShowAction" class="com.amway.frm.query.web.action.ShowAction" parent="QueryAction">
+   <bean id="ShowAction" class="mikeheke.tadpole.frm.query.web.action.ShowAction" parent="QueryAction">
        <property name="showService" ref="ShowService" />
    </bean>
-   <bean id="ShowService" class="com.amway.frm.query.service.impl.ShowImpl" parent="QueryService" />
+   <bean id="ShowService" class="mikeheke.tadpole.frm.query.service.impl.ShowImpl" parent="QueryService" />
 
-   <bean id="ExportShowAction" class="com.amway.frm.query.web.action.ExportShowAction" parent="ShowAction" />
+   <bean id="ExportShowAction" class="mikeheke.tadpole.frm.query.web.action.ExportShowAction" parent="ShowAction" />
    
-   <bean id="DefShowAction" class="com.amway.frm.query.web.action.DefShowAction" parent="ShowAction"/>
-   <!-- <bean id="DefShowDao" class="com.amway.frm.query.dao.impl.DefShowDao" /> -->
+   <bean id="DefShowAction" class="mikeheke.tadpole.frm.query.web.action.DefShowAction" parent="ShowAction"/>
+   <!-- <bean id="DefShowDao" class="mikeheke.tadpole.frm.query.dao.impl.DefShowDao" /> -->
 
 	<!-- add by Mike.He in 2013 -->
-	<bean id="ShowTwoPageAction" class="com.amway.frm.query.web.action.ShowTwoPageAction" parent="QueryAction" scope="prototype">
+	<bean id="ShowTwoPageAction" class="mikeheke.tadpole.frm.query.web.action.ShowTwoPageAction" parent="QueryAction" scope="prototype">
        <property name="showService" ref="ShowService" />
    </bean>
 

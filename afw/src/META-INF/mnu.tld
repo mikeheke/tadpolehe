@@ -8,7 +8,7 @@
 <tag>
     <description><![CDATA[Render a TreeTag element]]></description>
     <name>TreeTag</name>
-    <tag-class>com.amway.frm.mnu.web.tag.TreeTag</tag-class>
+    <tag-class>mikeheke.tadpole.frm.mnu.web.tag.TreeTag</tag-class>
     <body-content>JSP</body-content>
     <attribute>
       <description><![CDATA[user]]></description>
@@ -74,7 +74,7 @@
   <tag>
     <description><![CDATA[Render a OutlookTag element]]></description>
     <name>OutlookTag</name>
-    <tag-class>com.amway.frm.mnu.web.tag.OutlookTag</tag-class>
+    <tag-class>mikeheke.tadpole.frm.mnu.web.tag.OutlookTag</tag-class>
     <body-content>JSP</body-content>
     <attribute>
       <description><![CDATA[user]]></description>
@@ -140,7 +140,7 @@
   <tag>
     <description><![CDATA[Render a WindowTag element]]></description>
     <name>WindowTag</name>
-    <tag-class>com.amway.frm.mnu.web.tag.WindowTag</tag-class>
+    <tag-class>mikeheke.tadpole.frm.mnu.web.tag.WindowTag</tag-class>
     <body-content>JSP</body-content>
     <attribute>
       <description><![CDATA[user]]></description>
@@ -194,7 +194,7 @@
   <tag>
     <description><![CDATA[Render a TreeTag element]]></description>
     <name>ZTreeTag</name>
-    <tag-class>com.amway.frm.mnu.web.tag.ZTreeTag</tag-class>
+    <tag-class>mikeheke.tadpole.frm.mnu.web.tag.ZTreeTag</tag-class>
     <body-content>JSP</body-content>
     <attribute>
       <description><![CDATA[user]]></description>

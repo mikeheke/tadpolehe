@@ -1,8 +1,7 @@
 package mikeheke.kgem.dao;
 
 import mikeheke.kgem.entity.Knowledge;
-
-import com.amway.frm.base.dao.IBaseDao;
+import mikeheke.tadpole.frm.base.dao.IBaseDao;
 
 /**
  * 

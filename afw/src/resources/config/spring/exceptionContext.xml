@@ -5,12 +5,12 @@
 	xmlns:p="http://www.springframework.org/schema/p"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
     
-   <bean id="ExceptionCfgAction" class="com.amway.frm.exception.web.action.ExceptionCfgAction">
+   <bean id="ExceptionCfgAction" class="mikeheke.tadpole.frm.exception.web.action.ExceptionCfgAction">
        <property name="exceptionCfgService" ref="ExceptionCfgService" />
    </bean>
-   <bean id="ExceptionCfgService" class="com.amway.frm.exception.service.impl.ExceptionCfgImpl"  parent="ServiceTemplate" >
+   <bean id="ExceptionCfgService" class="mikeheke.tadpole.frm.exception.service.impl.ExceptionCfgImpl"  parent="ServiceTemplate" >
 		<property name="exceptionCfgDao" ref="ExceptionCfgDao" />
 		<property name="emailService" ref="EmailService"></property>
    </bean>
-   <bean id="ExceptionCfgDao" class="com.amway.frm.exception.dao.impl.ExceptionCfgDao" ></bean>
+   <bean id="ExceptionCfgDao" class="mikeheke.tadpole.frm.exception.dao.impl.ExceptionCfgDao" ></bean>
 </beans>

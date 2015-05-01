@@ -25,7 +25,7 @@
  	<tx:annotation-driven transaction-manager="transactionManager" />
  	 
  	 <!-- 异常切面 
- 	<bean id="throwsAdvice" class="com.amway.frm.exception.advice.AmwayExceptionAdvice" />
+ 	<bean id="throwsAdvice" class="mikeheke.tadpole.frm.exception.advice.AmwayExceptionAdvice" />
  	<bean class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
 		<property name="beanNames">
 			<list>
@@ -38,7 +38,7 @@
 	</bean>
 	-->
  	
- 	<context:component-scan base-package="com.amway" />
+ 	<context:component-scan base-package="mikeheke.tadpole" />
  	<!-- add by Mike He 20150418 -->
  	<context:component-scan base-package="mikeheke" />
  	

@@ -53,7 +53,7 @@
  
  	<filter>
  		<filter-name>CharacterEncodingFilter</filter-name>
- 		<filter-class>com.amway.frm.afw.web.filter.CharacterEncodingFilter</filter-class>
+ 		<filter-class>mikeheke.tadpole.frm.afw.web.filter.CharacterEncodingFilter</filter-class>
  	</filter>
  	<filter-mapping>
 		<filter-name>CharacterEncodingFilter</filter-name>
@@ -67,7 +67,7 @@
  <!-- XSSFilter -->
  <filter>
  		<filter-name>XSSFilter</filter-name>
- 		<filter-class>com.amway.frm.afw.web.filter.XSSSecurityFilter</filter-class>
+ 		<filter-class>mikeheke.tadpole.frm.afw.web.filter.XSSSecurityFilter</filter-class>
  		<init-param>
 			<param-name>filterXSSUrlsFileName</param-name>
 			<param-value>/resources/config/authen/XSSless.properties</param-value>
@@ -110,7 +110,7 @@
 
 	<filter>
 		<filter-name>AuthenticationFilter</filter-name>
-		<filter-class>com.amway.frm.afw.web.filter.AuthenticationFilter</filter-class>
+		<filter-class>mikeheke.tadpole.frm.afw.web.filter.AuthenticationFilter</filter-class>
 		<init-param>
 			<param-name>enable</param-name>
 			<param-value>yes</param-value>

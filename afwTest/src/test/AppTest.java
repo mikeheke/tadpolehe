@@ -1,12 +1,12 @@
 package test;
 
+import mikeheke.tadpole.frm.afw.entity.Application;
+import mikeheke.tadpole.frm.afw.service.ApplicationService;
+import mikeheke.tadpole.frm.logging.util.LogFactory;
+
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
-
-import com.amway.frm.afw.entity.Application;
-import com.amway.frm.afw.service.ApplicationService;
-import com.amway.frm.logging.util.LogFactory;
 
 public class AppTest {
 

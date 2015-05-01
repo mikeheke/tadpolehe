@@ -4,7 +4,7 @@
         
            <provider>org.hibernate.ejb.HibernatePersistence</provider>
            <!-- 
-           <class>com.amway.*</class>
+           <class>mikeheke.tadpole.*</class>
             -->
            <properties>  
 		    <property name="hibernate.dialect" value="org.hibernate.dialect.OracleDialect" />  

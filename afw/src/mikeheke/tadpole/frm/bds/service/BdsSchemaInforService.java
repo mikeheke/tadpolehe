@@ -1,0 +1,34 @@
+package mikeheke.tadpole.frm.bds.service;
+
+import java.util.List;
+
+import mikeheke.tadpole.frm.base.service.BaseService;
+import mikeheke.tadpole.frm.base.vo.ReturnMessage;
+import mikeheke.tadpole.frm.bds.entity.BdsSchemaInfor;
+import mikeheke.tadpole.frm.bds.exception.BdsBizException;
+
+/**
+ * 基础数据服务接口
+ * 
+ * 
+ */
+public interface BdsSchemaInforService extends BaseService {
+
+	/**
+	 * 根据id或者数据服务编码查找基础服务类实体
+	 * 
+	 * @param bdsSchemainforId
+	 *            基础服务类ID
+	 * @return
+	 * @throws BdsBizException
+	 * @throws Exception
+	 */
+	ReturnMessage<BdsSchemaInfor> getSchemaInforListByJDBC(BdsSchemaInfor bdsSchemaInfor);
+	
+	BdsSchemaInfor getSchemaInforByJDBC(BdsSchemaInfor bdsSchemaInfor);
+
+	List<String> getSchemaStructColNames(String bdsSchemaInforCode);
+
+	ReturnMessage<BdsSchemaInfor> addBdsSchemaInfor(
+			BdsSchemaInfor bdsSchemaInfor);
+}

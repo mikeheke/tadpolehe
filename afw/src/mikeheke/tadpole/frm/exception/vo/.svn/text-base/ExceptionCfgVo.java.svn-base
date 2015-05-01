@@ -1,0 +1,129 @@
+/**
+ * 
+ */
+package mikeheke.tadpole.frm.exception.vo;
+
+import mikeheke.tadpole.frm.afw.entity.Application;
+import mikeheke.tadpole.frm.exception.util.ExceptionConstant;
+
+/**
+ * @author huangweijin
+ *
+ * 2011-5-11 上午10:21:18
+ */
+public class ExceptionCfgVo {
+
+	private String exceptionId;
+	
+	private String [] exceptionIds;
+	
+	private String exceptionCode;
+	
+	private String exceptionName;
+	
+	private String applicationId;
+	
+	private Application application;
+	
+	private String isSendEmail;
+	
+	private String[] emailUsers;
+	
+	private String useState;
+	
+	private String remark;
+
+	
+	
+	public String getExceptionId() {
+		return exceptionId;
+	}
+
+	public void setExceptionId(String exceptionId) {
+		this.exceptionId = exceptionId;
+	}
+
+	public String[] getExceptionIds() {
+		return exceptionIds;
+	}
+
+	public void setExceptionIds(String[] exceptionIds) {
+		this.exceptionIds = exceptionIds;
+	}
+
+	public String getExceptionCode() {
+		return exceptionCode;
+	}
+
+	public void setExceptionCode(String exceptionCode) {
+		this.exceptionCode = exceptionCode;
+	}
+
+	public String getExceptionName() {
+		return exceptionName;
+	}
+
+	public void setExceptionName(String exceptionName) {
+		this.exceptionName = exceptionName;
+	}
+
+	public String getApplicationId() {
+		return applicationId;
+	}
+
+	public void setApplicationId(String applicationId) {
+		this.applicationId = applicationId;
+	}
+
+	public String getIsSendEmail() {
+		return isSendEmail;
+	}
+
+	public void setIsSendEmail(String isSendEmail) {
+		this.isSendEmail = isSendEmail;
+	}
+
+	public String[] getEmailUsers() {
+		return emailUsers;
+	}
+	
+	public String getEmailUserArr(){
+		StringBuffer emailUserArr = new StringBuffer(ExceptionConstant.EMPTY_STR);
+		if(null != emailUsers){
+			for(String emailUser: emailUsers){
+				emailUserArr.append(emailUser).append(ExceptionConstant.FEN_SIGN);
+			}
+		}
+		
+		return emailUserArr.toString();
+	}
+
+	public void setEmailUsers(String[] emailUsers) {
+		this.emailUsers = emailUsers;
+	}
+
+	public String getUseState() {
+		return useState;
+	}
+
+	public void setUseState(String useState) {
+		this.useState = useState;
+	}
+
+	public String getRemark() {
+		return remark;
+	}
+
+	public void setRemark(String remark) {
+		this.remark = remark;
+	}
+
+	public Application getApplication() {
+		return application;
+	}
+
+	public void setApplication(Application application) {
+		this.application = application;
+	}
+	
+}

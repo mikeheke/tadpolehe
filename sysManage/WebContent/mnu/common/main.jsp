@@ -1,7 +1,7 @@
 <%@ page language="java" pageEncoding="UTF-8"%>
-<%@page import="com.amway.frm.base.util.AppConstant"%>
-<%@page import="com.amway.frm.afw.entity.Application"%>
-<%@page import="com.amway.frm.afw.entity.Module"%>
+<%@page import="mikeheke.tadpole.frm.base.util.AppConstant"%>
+<%@page import="mikeheke.tadpole.frm.afw.entity.Application"%>
+<%@page import="mikeheke.tadpole.frm.afw.entity.Module"%>
 <%@page import="java.util.List"%>
 <%@ include file="/common/jsp/resInclude.jsp"%>
 

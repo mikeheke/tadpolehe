@@ -310,7 +310,7 @@
 					action="${pageContext.request.contextPath}/exportShowAction!export.action?queryCode=${param.queryCode }&_appContext_=${param._appContext_}">
 				</ec:exportXls>
 				<ec:row style="height:20px">
-					<ec:columns autoGenerateColumns="com.amway.frm.query.vo.AutoGenerateColumns" />
+					<ec:columns autoGenerateColumns="mikeheke.tadpole.frm.query.vo.AutoGenerateColumns" />
 				</ec:row>
 			</ec:table>
 		</div>

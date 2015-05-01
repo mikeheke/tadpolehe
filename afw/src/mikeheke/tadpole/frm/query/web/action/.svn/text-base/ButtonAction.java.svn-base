@@ -1,0 +1,285 @@
+/**
+ * 
+ */
+package mikeheke.tadpole.frm.query.web.action;
+
+
+import java.util.List;
+
+import mikeheke.tadpole.frm.base.util.DataConverter;
+import mikeheke.tadpole.frm.base.util.DataValidater;
+import mikeheke.tadpole.frm.query.entity.Button;
+import mikeheke.tadpole.frm.query.entity.Query;
+import mikeheke.tadpole.frm.query.util.QueryConstant;
+import mikeheke.tadpole.frm.query.vo.ButtonVo;
+
+
+
+/**
+ * Created by MyElipse
+ * @author huangweijin
+ * Date: 2011-3-22
+ * Time: 10:47:54
+ * Declare：按钮Action类
+ */
+public class ButtonAction extends ConfigAction {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5664232631030785214L;
+	
+	private ButtonVo buttonVo;
+	
+	@Override
+	public String init() {
+		return SUCCESS;
+	}
+	
+	/**
+     * Declare：点击增加按钮
+     *
+	 * @param  void
+     * @return String
+     */
+	@Override
+	public String add() {
+		
+		if(!validateData()){
+			return INPUT;
+		}
+		
+		Button button = this.getEntity();
+		button.setButtonId(System.currentTimeMillis());
+		button.setOprtFlag(QueryConstant.ADD_OPRT);		//增加操作
+		
+		if(validateAddRepeat(button)){
+			return INPUT;
+		}
+		
+		Query query = this.getQueryFromContext();
+		query.getButtons().add(button);
+		this.setQueryToContext(query);
+		
+		this.setButtonVo(null);
+		
+		return SUCCESS;
+	}
+
+	/**
+     * Declare：点击删除按钮
+     *
+	 * @param  void
+     * @return String
+     */
+	@Override
+	public String delete() {
+		
+		String[] buttonIds = buttonVo.getIds();
+		if(!validateIds(buttonIds)){
+			return INPUT;
+		}
+		
+		Query query = this.getQueryFromContext();
+		
+		for(String buttonId: buttonIds){
+
+			String[] buttonIdArr = buttonId.split(QueryConstant.OPRT_SEP);
+			Button button = new Button();
+			button.setButtonId(DataConverter.stringToLong(buttonIdArr[0]));
+			button.setOprtFlag(buttonIdArr[1]);
+			query.getButtons().remove(button);
+			if(!QueryConstant.ADD_OPRT.equals(button.getOprtFlag())){
+				button.setOprtFlag(QueryConstant.DEL_OPRT);
+				query.getButtons().add(button);
+			}
+		}
+		
+		this.setQueryToContext(query);
+		
+		this.setButtonVo(null);
+		
+		return SUCCESS;
+	}
+
+	/**
+     * Declare：点击修改按钮
+     *
+	 * @param  void
+     * @return String
+     */
+	@Override
+	public String modify() {
+		
+		String[] buttonIds = buttonVo.getIds();
+		if(!validateIds(buttonIds)){
+			return INPUT;
+		}
+		
+		if(!validateData()){
+			return INPUT;
+		}
+		
+		String[] buttonIdArr = buttonIds[0].split(QueryConstant.OPRT_SEP);
+		Button button = this.getEntity();
+		button.setButtonId(DataConverter.stringToLong(buttonIdArr[0]));
+		button.setOprtFlag(buttonIdArr[1]);
+		
+		if(validateMdfRepeat(button)){
+			return INPUT;
+		}
+		
+		Query query = this.getQueryFromContext();
+		
+		query.getButtons().remove(button);
+		if(QueryConstant.QRY_OPRT.equals(button.getOprtFlag())){
+			button.setOprtFlag(QueryConstant.MDF_OPRT);
+		}
+		query.getButtons().add(button);
+		
+		this.setQueryToContext(query);
+		
+		this.setButtonVo(null);
+		
+		return SUCCESS;
+	}
+	
+	@Override
+	public String findOrderNo() {
+		
+		Integer orderNo = 10;
+		int maxOrderNo = 0;
+		
+		List<Button> buttons = getQueryButtons();
+		for(Button button: buttons){
+			if(button.getOrderNo()>maxOrderNo){
+				maxOrderNo = button.getOrderNo();
+			}
+		}
+		orderNo += maxOrderNo;
+		
+		setJsonValue(DataConverter.IntegerToString(orderNo));
+		
+		return JSON;
+	}
+	
+	/**
+     * Declare：验证对象属性
+     *
+	 * @param  void
+     * @return boolean
+     */
+	@Override
+	protected boolean validateData() {
+		boolean result = true;
+		
+		if(DataValidater.isStrEmpty(buttonVo.getButtonNo())){
+			this.setMessage(QueryConstant.BUTTON_NO_KEY, getText(QueryConstant.NO_EMPTY_KEY));
+			result = false;
+		}
+		if(DataValidater.isStrEmpty(buttonVo.getButtonName())){
+			this.setMessage(QueryConstant.BUTTON_NAME_KEY, getText(QueryConstant.NO_EMPTY_KEY));
+			result = false;
+		}
+		if(!DataValidater.isStrInteger(buttonVo.getOrderNo())){
+			this.setMessage(QueryConstant.ORDER_NO_KEY, getText(QueryConstant.YES_INT_KEY));
+			result = false;
+		}
+		
+		return result;
+	}
+	
+	@Override
+	protected boolean validateAddRepeat(Object obj) {
+		
+		boolean result = false;
+		Button buttonIn = (Button)obj;
+		
+		List<Button> buttons = this.getQueryFromContext().getButtons();
+		for(Button button: buttons){
+			if(buttonIn.getOprtFlag().equals(button.getOprtFlag())){
+				result = validateRepeat(buttonIn, button);
+			}
+			if(result){
+				break;
+			}
+		}
+	
+		return result;
+	}
+	
+	@Override
+	protected boolean validateMdfRepeat(Object obj) {
+		
+		boolean result = false;
+		Button buttonIn = (Button)obj;
+		List<Button> buttons = this.getQueryFromContext().getButtons();
+		for(Button button: buttons){
+			if(!QueryConstant.DEL_OPRT.equals(button.getOprtFlag())
+					&& !buttonIn.getButtonId().equals(button.getButtonId())){
+				result = validateRepeat(buttonIn, button);
+			}
+			if(result){
+				break;
+			}
+		}
+	
+		return result;
+	}
+	
+	
+
+	@Override
+	protected boolean validateRepeat(Object objIn, Object obj) {
+		
+		boolean result = false;
+		
+		Button buttonIn = (Button)objIn;
+		Button button = (Button)obj;
+		
+		String buttonNoIn = buttonIn.getButtonNo();
+		
+		String buttonNo = button.getButtonNo();
+		
+		if(buttonNoIn.equals(buttonNo)){
+			final String msg = "按钮名称已存在";
+			this.setMessage(QueryConstant.BUTTON_NO_KEY, msg);
+			result = true;
+		}
+		
+		return result;
+	}
+
+	/**
+     * Declare：从上下文取得按钮对象
+     *
+	 * @param  void
+     * @return Button
+     */
+	@Override
+	protected Button getEntity() {
+		
+		Button button = new Button();
+		button.setButtonNo(buttonVo.getButtonNo());
+		button.setButtonName(buttonVo.getButtonName());
+		button.setSubUrl(buttonVo.getSubUrl());
+		button.setOpenType(DataConverter.stringToInteger(buttonVo.getOpenType()));
+		button.setExecuteJs(buttonVo.getExecuteJs());
+		button.setOrderNo(DataConverter.stringToInteger(buttonVo.getOrderNo()));
+		
+		return button;
+	}
+
+	public ButtonVo getButtonVo() {
+		return buttonVo;
+	}
+
+	public void setButtonVo(ButtonVo buttonVo) {
+		this.buttonVo = buttonVo;
+	}
+
+	@Override
+	public String getJsonValue() {
+		return super.getJsonValue();
+	}
+}

@@ -1,0 +1,25 @@
+package mikeheke.tadpole.frm.afw.service;
+
+import mikeheke.tadpole.frm.afw.entity.Application;
+import mikeheke.tadpole.frm.afw.entity.UserProfile;
+import mikeheke.tadpole.frm.base.service.BaseService;
+import mikeheke.tadpole.frm.base.vo.ReturnMessage;
+
+/**
+ * @author huangweijin
+ * Date: 2011-3-22
+ * Time: 10:47:54
+ * Declare：应用服务接口
+ */
+public interface ApplicationService extends BaseService {
+	
+	ReturnMessage<Application> getApplicationsJDBC(UserProfile userProfile);
+	
+	ReturnMessage<Application> getApplicationsJDBC();
+	
+	ReturnMessage<Application> addCom(Application application);
+	
+	ReturnMessage<Application> update(Application application);
+	
+	ReturnMessage<Application> getApplications(Application application);
+}

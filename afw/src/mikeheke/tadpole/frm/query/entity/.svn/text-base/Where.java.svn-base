@@ -1,0 +1,447 @@
+/**
+ * 
+ */
+package mikeheke.tadpole.frm.query.entity;
+
+import java.io.Serializable;
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.persistence.Transient;
+
+import mikeheke.tadpole.frm.base.util.AppConstant;
+import mikeheke.tadpole.frm.base.util.DataValidater;
+import mikeheke.tadpole.frm.query.util.QueryConstant;
+
+/**
+ * @author huangweijin
+ *
+ * 2011-2-15 下午04:13:03
+ */
+@Entity(name="query_Where")
+@javax.persistence.Table(name="MSTB_QUERY_WHERE", schema=QueryConstant.APP_DEAULT_SCHEMA)
+public class Where implements Serializable, Comparable<Where> {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8891257647997924087L;
+
+	//主键
+	@Id
+	@Column(name="WHERE_ID")
+	private Long whereId;
+	
+	//查询ID
+	@ManyToOne()
+	@JoinColumn(name="QUERY_ID")
+	private Query query;
+	
+	//查询代码
+	@Column(name="WHERE_CODE")
+	private String whereCode;
+	
+	//表名
+	@Column(name="TABLE_NAME")
+	private String tableName;
+	
+	//字段名
+	@Column(name="FIELD_NAME")
+	private String fieldName;
+	
+	//组合结果
+	@Column(name="WHERE_RESULT")
+	private String whereResult;
+	
+	//描述
+	@Column(name="DES")
+	private String des;
+	
+	//排序
+	@Column(name="ORDER_NO")
+	private Integer orderNo;
+	
+	//是否用户输入
+	@Column(name="IS_USER_IN")
+	private Integer isUserIn;
+	
+	@Column(name="IS_INNER_LINK")
+	private Integer isInnerLink;
+	
+	//控件类型
+	@Column(name="CONTROL_TYPE")
+	private Integer controlType;
+	
+	//数据转码
+	@Column(name="DATA_CODING")
+	private String dataCoding;
+	
+	//运算符
+	@Column(name="OPERATOR")
+	private Integer operator;
+	
+	//默认值
+	@Column(name="DEFAULT_VALUE")
+	private String defaultValue;
+	
+	//默认值2
+	@Transient
+	private String[] defaultValue2;
+	
+	//关联表
+	@Column(name="LINK_TABLE")
+	private String linkTable;
+	
+	//关联字段
+	@Column(name="LINK_FIELD")
+	private String linkField;
+	
+	//过滤字段
+	@Column(name="FILTER_FIELD")
+	private String filterField;
+	
+	//是否必填
+	@Column(name="IS_REQUIRED")
+	private Integer isRequired;
+	
+	//正则表达式
+	@Column(name="REG_EXP")
+	private String regExp;
+	
+	//父菜单标识
+	@Column(name="PAR_TAG_ID")
+	private String parTagId;
+	
+	//是否忽略大小定
+	@Column(name="IS_IGNORE_CASE")
+	private Integer isIgnoreCase;
+	
+	//数据类型
+	@Column(name="DATA_TYPE")
+	private String dataType;
+	
+	@Column(name="RECORD_STATE")
+	private Integer recordState = AppConstant.START;;
+	
+	@Column(name="UPDATED_TIME")
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date updatedTime;
+	
+	@Column(name="UPDATED_USER_ID")
+	private String updatedUserId;
+	
+	@Column(name="CREATED_TIME")
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date createdTime;
+	
+	@Column(name="CREATED_USER_ID")
+	private String createdUserId;
+	
+	//操作标志
+	@Transient
+	private String oprtFlag = QueryConstant.QRY_OPRT;
+	
+	@Transient
+	private String globalWhere = new String();
+
+	public Long getWhereId() {
+		return whereId;
+	}
+
+	public void setWhereId(Long whereId) {
+		this.whereId = whereId;
+	}
+
+	public Query getQuery() {
+		return query;
+	}
+
+	public void setQuery(Query query) {
+		this.query = query;
+	}
+
+	public String getWhereCode() {
+		return whereCode;
+	}
+
+	public void setWhereCode(String whereCode) {
+		this.whereCode = whereCode;
+	}
+
+	public String getTableName() {
+		return tableName;
+	}
+
+	public void setTableName(String tableName) {
+		this.tableName = tableName;
+	}
+
+	public String getFieldName() {
+		return fieldName;
+	}
+
+	public void setFieldName(String fieldName) {
+		this.fieldName = fieldName;
+	}
+
+	public String getWhereResult() {
+		return whereResult;
+	}
+
+	public void setWhereResult(String whereResult) {
+		this.whereResult = whereResult;
+	}
+
+	public String getDes() {
+		return des;
+	}
+
+	public void setDes(String des) {
+		this.des = des;
+	}
+
+	public Integer getOrderNo() {
+		return orderNo;
+	}
+
+	public void setOrderNo(Integer orderNo) {
+		this.orderNo = orderNo;
+	}
+
+	public Integer getIsUserIn() {
+		return isUserIn;
+	}
+
+	public void setIsUserIn(Integer isUserIn) {
+		this.isUserIn = isUserIn;
+	}
+
+	public Integer getIsInnerLink() {
+		return isInnerLink;
+	}
+
+	public void setIsInnerLink(Integer isInnerLink) {
+		this.isInnerLink = isInnerLink;
+	}
+
+	public Integer getControlType() {
+		return controlType;
+	}
+
+	public void setControlType(Integer controlType) {
+		this.controlType = controlType;
+	}
+
+	public String getDataCoding() {
+		return dataCoding;
+	}
+
+	public void setDataCoding(String dataCoding) {
+		this.dataCoding = dataCoding;
+	}
+
+	public Integer getOperator() {
+		return operator;
+	}
+
+	public void setOperator(Integer operator) {
+		this.operator = operator;
+	}
+
+	public String getDefaultValue() {
+		return defaultValue;
+	}
+
+	public void setDefaultValue(String defaultValue) {
+		this.defaultValue = defaultValue;
+	}
+
+	public String[] getDefaultValue2() {
+		return defaultValue2;
+	}
+
+	public void setDefaultValue2(String[] defaultValue2) {
+		this.defaultValue2 = defaultValue2;
+	}
+
+	public String getLinkTable() {
+		return linkTable;
+	}
+
+	public void setLinkTable(String linkTable) {
+		this.linkTable = linkTable;
+	}
+
+	public String getLinkField() {
+		return linkField;
+	}
+
+	public void setLinkField(String linkField) {
+		this.linkField = linkField;
+	}
+
+	public String getFilterField() {
+		return filterField;
+	}
+
+	public void setFilterField(String filterField) {
+		this.filterField = filterField;
+	}
+
+	public Integer getIsRequired() {
+		return isRequired;
+	}
+
+	public void setIsRequired(Integer isRequired) {
+		this.isRequired = isRequired;
+	}
+
+	public String getRegExp() {
+		return regExp;
+	}
+
+	public void setRegExp(String regExp) {
+		this.regExp = regExp;
+	}
+
+	public String getParTagId() {
+		return parTagId;
+	}
+
+	public void setParTagId(String parTagId) {
+		this.parTagId = parTagId;
+	}
+
+	public Integer getIsIgnoreCase() {
+		return isIgnoreCase;
+	}
+
+	public void setIsIgnoreCase(Integer isIgnoreCase) {
+		this.isIgnoreCase = isIgnoreCase;
+	}
+
+	public String getDataType() {
+		return dataType;
+	}
+
+	public void setDataType(String dataType) {
+		this.dataType = dataType;
+	}
+
+	public Integer getRecordState() {
+		return recordState;
+	}
+
+	public void setRecordState(Integer recordState) {
+		this.recordState = recordState;
+	}
+
+	public Date getUpdatedTime() {
+		return updatedTime;
+	}
+
+	public void setUpdatedTime(Date updatedTime) {
+		this.updatedTime = updatedTime;
+	}
+
+	public String getUpdatedUserId() {
+		return updatedUserId;
+	}
+
+	public void setUpdatedUserId(String updatedUserId) {
+		this.updatedUserId = updatedUserId;
+	}
+
+	public Date getCreatedTime() {
+		return createdTime;
+	}
+
+	public void setCreatedTime(Date createdTime) {
+		this.createdTime = createdTime;
+	}
+
+	public String getCreatedUserId() {
+		return createdUserId;
+	}
+
+	public void setCreatedUserId(String createdUserId) {
+		this.createdUserId = createdUserId;
+	}
+
+	public String getOprtFlag() {
+		return oprtFlag;
+	}
+
+	public void setOprtFlag(String oprtFlag) {
+		this.oprtFlag = oprtFlag;
+	}
+	
+	public String getGlobalWhere() {
+		return globalWhere;
+	}
+
+	public void setGlobalWhere(String globalWhere) {
+		this.globalWhere = globalWhere;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((oprtFlag == null) ? 0 : oprtFlag.hashCode());
+		result = prime * result + ((whereId == null) ? 0 : whereId.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj){
+			return true;
+		}
+		if (obj == null){
+			return false;
+		}
+		if (DataValidater.isFalse(getClass().equals(obj.getClass()))){
+			return false;
+		}
+		Where other = (Where) obj;
+		if (oprtFlag == null) {
+			if (other.oprtFlag != null){
+				return false;
+			}
+		} else if (!oprtFlag.equals(other.oprtFlag)){
+			return false;
+		}
+		if (whereId == null) {
+			if (other.whereId != null){
+				return false;
+			}
+		} else if (!whereId.equals(other.whereId)){
+			return false;
+		}
+		return true;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Comparable#compareTo(java.lang.Object)
+	 */
+	@Override
+	public int compareTo(Where o) {
+		
+		if(null == o){
+			return 0;
+		}
+		return this.getOrderNo().compareTo(o.getOrderNo());
+	}
+	
+}

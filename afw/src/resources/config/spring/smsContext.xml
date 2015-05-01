@@ -6,19 +6,19 @@
         xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
     <!--邮件发送-->
-    <bean id="SmsService" class="com.amway.frm.sms.service.impl.SmsServiceImpl" parent="ServiceTemplate">
+    <bean id="SmsService" class="mikeheke.tadpole.frm.sms.service.impl.SmsServiceImpl" parent="ServiceTemplate">
         <property name="smsSendRecordDao" ref="SmsSendRecordDao"/>
     </bean>
-    <bean id="SmsSendRecordDao" class="com.amway.frm.sms.dao.impl.SmsSendRecordDao"/>
+    <bean id="SmsSendRecordDao" class="mikeheke.tadpole.frm.sms.dao.impl.SmsSendRecordDao"/>
 
     <!--邮件模板-->
-    <bean id="SmsTemplateAction" class="com.amway.frm.sms.web.action.SmsTemplateAction">
+    <bean id="SmsTemplateAction" class="mikeheke.tadpole.frm.sms.web.action.SmsTemplateAction">
         <property name="smsTemplateService" ref="SmsTemplateService"/>
     </bean>
-    <bean id="SmsTemplateService" class="com.amway.frm.sms.service.impl.SmsTemplateServiceImpl" parent="ServiceTemplate">
+    <bean id="SmsTemplateService" class="mikeheke.tadpole.frm.sms.service.impl.SmsTemplateServiceImpl" parent="ServiceTemplate">
         <property name="SmsTemplateDao" ref="SmsTemplateDao"/> 
     </bean>
-	<bean id="SmsTemplateDao" class="com.amway.frm.sms.dao.impl.SmsTemplateDao"/>
+	<bean id="SmsTemplateDao" class="mikeheke.tadpole.frm.sms.dao.impl.SmsTemplateDao"/>
 
 </beans>
 

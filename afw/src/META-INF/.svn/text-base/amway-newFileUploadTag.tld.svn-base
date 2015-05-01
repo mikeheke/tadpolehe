@@ -11,7 +11,7 @@
 	<!-- 上传下载-新标签 -->
 	<tag>
 		<name>newFileUploadTag</name>
-		<tag-class>com.amway.frm.tag.file.web.tag.NewFileUploadTag</tag-class>
+		<tag-class>mikeheke.tadpole.frm.tag.file.web.tag.NewFileUploadTag</tag-class>
 		<body-content>JSP</body-content>
 		<description>Render a fileUpDownload element</description>
 		<attribute>

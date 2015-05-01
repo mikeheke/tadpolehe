@@ -4,8 +4,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import mikeheke.kgem.entity.Knowledge;
 import mikeheke.kgem.service.KnowledgeService;
-
-import com.amway.frm.base.service.impl.BaseImpl;
+import mikeheke.tadpole.frm.base.service.impl.BaseImpl;
 
 /**
  * 

@@ -8,7 +8,7 @@
  <uri>/amway-tag</uri>
  <tag>
   <name>select</name>
-  <tag-class>com.amway.frm.tag.web.tag.SelectTag</tag-class>
+  <tag-class>mikeheke.tadpole.frm.tag.web.tag.SelectTag</tag-class>
   <body-content>JSP</body-content>
   <description>Render a select element</description>
   <attribute>
@@ -176,7 +176,7 @@
  </tag>
  <tag>
   <name>radio</name>
-  <tag-class>com.amway.frm.tag.web.tag.RadioTag</tag-class>
+  <tag-class>mikeheke.tadpole.frm.tag.web.tag.RadioTag</tag-class>
   <body-content>JSP</body-content>
   <description>Render a radio element</description>
   <attribute>
@@ -317,7 +317,7 @@
  </tag>
  <tag>
   <name>checkbox</name>
-  <tag-class>com.amway.frm.tag.web.tag.CheckboxTag</tag-class>
+  <tag-class>mikeheke.tadpole.frm.tag.web.tag.CheckboxTag</tag-class>
   <body-content>JSP</body-content>
   <description>Render a checkbox element</description>
   <attribute>
@@ -415,7 +415,7 @@
  </tag>
  <tag>
   <name>textfield</name>
-  <tag-class>com.amway.frm.tag.web.tag.TextFieldTag</tag-class>
+  <tag-class>mikeheke.tadpole.frm.tag.web.tag.TextFieldTag</tag-class>
   <body-content>JSP</body-content>
   <description>Render a text element</description>
   <attribute>
@@ -561,7 +561,7 @@
  </tag>
  <tag>
   <name>textarea</name>
-  <tag-class>com.amway.frm.tag.web.tag.TextAreaTag</tag-class>
+  <tag-class>mikeheke.tadpole.frm.tag.web.tag.TextAreaTag</tag-class>
   <body-content>JSP</body-content>
   <description>Render a textarea element</description>
   <attribute>
@@ -705,7 +705,7 @@
  </tag>
  <tag>
   <name>date</name>
-  <tag-class>com.amway.frm.tag.web.tag.DateTag</tag-class>
+  <tag-class>mikeheke.tadpole.frm.tag.web.tag.DateTag</tag-class>
   <body-content>JSP</body-content>
   <description>Render a date element</description>
   <attribute>
@@ -841,7 +841,7 @@
  </tag>
  <tag>
   <name>money</name>
-  <tag-class>com.amway.frm.tag.web.tag.MoneyTag</tag-class>
+  <tag-class>mikeheke.tadpole.frm.tag.web.tag.MoneyTag</tag-class>
   <body-content>JSP</body-content>
   <description>Render a money element</description>
   <attribute>
@@ -977,7 +977,7 @@
  </tag>
  <tag>
   <name>autoComplete</name>
-  <tag-class>com.amway.frm.tag.web.tag.AutoCompleteTag</tag-class>
+  <tag-class>mikeheke.tadpole.frm.tag.web.tag.AutoCompleteTag</tag-class>
   <body-content>JSP</body-content>
   <description>Render a input element</description>
   <attribute>
@@ -1169,7 +1169,7 @@
  <!-- 上传下载tag -->
  <tag>
   <name>fileUpDownload</name>
-  <tag-class>com.amway.frm.tag.web.tag.FileUpDownloadTag</tag-class>
+  <tag-class>mikeheke.tadpole.frm.tag.web.tag.FileUpDownloadTag</tag-class>
   <body-content>JSP</body-content>
   <description>Render a fileUpDownload element</description>
   <attribute>

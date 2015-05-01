@@ -7,60 +7,60 @@
             
            <!-- ************************* entity start *************************--> 
            <!-- afw --> 
-           <class>com.amway.frm.afw.entity.Application</class>
-           <class>com.amway.frm.afw.entity.ApplicationPlus</class>
-           <class>com.amway.frm.afw.entity.BlackList</class>
-           <class>com.amway.frm.afw.entity.Config</class>
-           <class>com.amway.frm.afw.entity.Department</class>
-           <class>com.amway.frm.afw.entity.Module</class>
-           <class>com.amway.frm.afw.entity.Role</class>
-           <class>com.amway.frm.afw.entity.RoleRight</class>
-           <class>com.amway.frm.afw.entity.RoleUser</class>
-           <class>com.amway.frm.afw.entity.Sequence</class>
-           <class>com.amway.frm.afw.entity.UserProfile</class>
+           <class>mikeheke.tadpole.frm.afw.entity.Application</class>
+           <class>mikeheke.tadpole.frm.afw.entity.ApplicationPlus</class>
+           <class>mikeheke.tadpole.frm.afw.entity.BlackList</class>
+           <class>mikeheke.tadpole.frm.afw.entity.Config</class>
+           <class>mikeheke.tadpole.frm.afw.entity.Department</class>
+           <class>mikeheke.tadpole.frm.afw.entity.Module</class>
+           <class>mikeheke.tadpole.frm.afw.entity.Role</class>
+           <class>mikeheke.tadpole.frm.afw.entity.RoleRight</class>
+           <class>mikeheke.tadpole.frm.afw.entity.RoleUser</class>
+           <class>mikeheke.tadpole.frm.afw.entity.Sequence</class>
+           <class>mikeheke.tadpole.frm.afw.entity.UserProfile</class>
            
            <!-- bds -->
-           <class>com.amway.frm.bds.entity.BdsSchemaInfor</class>
-           <class>com.amway.frm.bds.entity.BdsXmlData</class>
+           <class>mikeheke.tadpole.frm.bds.entity.BdsSchemaInfor</class>
+           <class>mikeheke.tadpole.frm.bds.entity.BdsXmlData</class>
             
            <!-- email -->
-           <class>com.amway.frm.email.entity.EmailTemplate</class>
+           <class>mikeheke.tadpole.frm.email.entity.EmailTemplate</class>
             
            <!-- exception --> 
-           <class>com.amway.frm.exception.entity.ExceptionCfg</class>
+           <class>mikeheke.tadpole.frm.exception.entity.ExceptionCfg</class>
            
            <!-- TimeingJob -->
-           <class>com.amway.frm.job.entity.TimeingJob</class>
+           <class>mikeheke.tadpole.frm.job.entity.TimeingJob</class>
            
            <!-- logging -->
-           <class>com.amway.frm.logging.entity.LogOperation</class>
-           <class>com.amway.frm.logging.entity.LogPerformance</class>
-           <class>com.amway.frm.logging.entity.LogSystem</class>
+           <class>mikeheke.tadpole.frm.logging.entity.LogOperation</class>
+           <class>mikeheke.tadpole.frm.logging.entity.LogPerformance</class>
+           <class>mikeheke.tadpole.frm.logging.entity.LogSystem</class>
            
            <!-- query -->
-           <class>com.amway.frm.query.entity.Button</class>
-           <class>com.amway.frm.query.entity.DataCoding</class>
-           <class>com.amway.frm.query.entity.From</class>
-           <class>com.amway.frm.query.entity.GroupBy</class>
-           <class>com.amway.frm.query.entity.OrderBy</class>
-           <class>com.amway.frm.query.entity.Query</class>
-           <class>com.amway.frm.query.entity.Select</class>
-           <class>com.amway.frm.query.entity.SysTable</class>
-           <class>com.amway.frm.query.entity.SysTableField</class>
-           <class>com.amway.frm.query.entity.Where</class>
+           <class>mikeheke.tadpole.frm.query.entity.Button</class>
+           <class>mikeheke.tadpole.frm.query.entity.DataCoding</class>
+           <class>mikeheke.tadpole.frm.query.entity.From</class>
+           <class>mikeheke.tadpole.frm.query.entity.GroupBy</class>
+           <class>mikeheke.tadpole.frm.query.entity.OrderBy</class>
+           <class>mikeheke.tadpole.frm.query.entity.Query</class>
+           <class>mikeheke.tadpole.frm.query.entity.Select</class>
+           <class>mikeheke.tadpole.frm.query.entity.SysTable</class>
+           <class>mikeheke.tadpole.frm.query.entity.SysTableField</class>
+           <class>mikeheke.tadpole.frm.query.entity.Where</class>
            
             <!-- report -->
-            <class>com.amway.frm.report.entity.ReportCache</class>
-            <class>com.amway.frm.report.entity.ReportInfo</class>
-            <class>com.amway.frm.report.entity.ReportPara</class>
-            <class>com.amway.frm.report.entity.ReportSql</class>
+            <class>mikeheke.tadpole.frm.report.entity.ReportCache</class>
+            <class>mikeheke.tadpole.frm.report.entity.ReportInfo</class>
+            <class>mikeheke.tadpole.frm.report.entity.ReportPara</class>
+            <class>mikeheke.tadpole.frm.report.entity.ReportSql</class>
             
             <!-- sms -->
-            <class>com.amway.frm.sms.entity.SmsTemplate</class>
+            <class>mikeheke.tadpole.frm.sms.entity.SmsTemplate</class>
             
             <!-- tag -->
-            <class>com.amway.frm.tag.entity.TagFileUpload</class>
-            <class>com.amway.frm.tag.file.entity.NewFileUploadTagEntity</class>
+            <class>mikeheke.tadpole.frm.tag.entity.TagFileUpload</class>
+            <class>mikeheke.tadpole.frm.tag.file.entity.NewFileUploadTagEntity</class>
             <!-- ************************* entity end *************************--> 
             
             

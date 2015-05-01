@@ -14,7 +14,7 @@
 			<result name="mdfInput" >/email/emailTemplate.jsp</result>
 		</action>
 		<!--邮件模板 end-->
-		<action name="testEmailAction" class="com.amway.frm.email.web.action.TestEmailSendAction"></action>
+		<action name="testEmailAction" class="mikeheke.tadpole.frm.email.web.action.TestEmailSendAction"></action>
 	</package>
 
 </struts>    

@@ -2,8 +2,7 @@ package mikeheke.kgem.dao.impl;
 
 import mikeheke.kgem.dao.KnowledgeDao;
 import mikeheke.kgem.entity.Knowledge;
-
-import com.amway.frm.base.dao.impl.BaseDao;
+import mikeheke.tadpole.frm.base.dao.impl.BaseDao;
 
 /**
  * 

@@ -3,15 +3,15 @@ package test;
 import java.util.HashMap;
 import java.util.Map;
 
+import mikeheke.tadpole.frm.base.util.AppConstant;
+import mikeheke.tadpole.frm.base.vo.ReturnMessage;
+import mikeheke.tadpole.frm.bds.service.BaseDataSourceService;
+import mikeheke.tadpole.frm.bds.vo.BaseDataSourceVo;
+import mikeheke.tadpole.frm.logging.util.LogFactory;
+
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
-
-import com.amway.frm.base.util.AppConstant;
-import com.amway.frm.base.vo.ReturnMessage;
-import com.amway.frm.bds.service.BaseDataSourceService;
-import com.amway.frm.bds.vo.BaseDataSourceVo;
-import com.amway.frm.logging.util.LogFactory;
 
 public class AfwTest {
 

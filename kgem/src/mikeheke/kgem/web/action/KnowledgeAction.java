@@ -7,14 +7,13 @@ import java.util.List;
 import mikeheke.kgem.entity.Knowledge;
 import mikeheke.kgem.service.KnowledgeService;
 import mikeheke.kgem.vo.KnowledgeVo;
-
-import com.amway.frm.base.util.AppConstant;
-import com.amway.frm.base.util.DataConverter;
-import com.amway.frm.base.util.DataValidater;
-import com.amway.frm.base.vo.ReturnMessage;
-import com.amway.frm.base.web.action.BaseAction;
-import com.amway.frm.logging.service.LogService;
-import com.amway.frm.logging.util.LogFactory;
+import mikeheke.tadpole.frm.base.util.AppConstant;
+import mikeheke.tadpole.frm.base.util.DataConverter;
+import mikeheke.tadpole.frm.base.util.DataValidater;
+import mikeheke.tadpole.frm.base.vo.ReturnMessage;
+import mikeheke.tadpole.frm.base.web.action.BaseAction;
+import mikeheke.tadpole.frm.logging.service.LogService;
+import mikeheke.tadpole.frm.logging.util.LogFactory;
 
 /**
  * 

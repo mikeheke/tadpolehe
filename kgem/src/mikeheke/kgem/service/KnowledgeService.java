@@ -1,8 +1,7 @@
 package mikeheke.kgem.service;
 
 import mikeheke.kgem.entity.Knowledge;
-
-import com.amway.frm.base.service.BaseService;
+import mikeheke.tadpole.frm.base.service.BaseService;
 
 /**
  * 
