@@ -91,58 +91,76 @@
 			</table>
 		</div>
 		<div style="height:10;margin-left: 10px;" class="input_msg">${retInfo}${idMsg}</div>
+		
+		
 		<div style="width:100%;" style="margin-left: 10px;">
-			<div style="display:inline;width:25%;height:400;vertical-align: top;">
-				<table border="0"  width="100%">
-					<tr>
-						<th align="left" >应用角色信息(双击选择)</th>
-					</tr>
-					<tr>
-						<td>
-							<select id="roleId" name="roleRightVo.roleId" multiple="multiple" 
-								style="width: 100%;height:400;" ondblclick="roleOnclick(this);">
-								<s:iterator value="%{getRoles()}" var="role">
-									<c:if test="${role.roleCode != '00'}">
-										<option value="${role.roleId}" 
-											<c:if test="${roleRightVo.roleId==role.roleId}">selected</c:if>>${role.roleName}</option>
-									</c:if>
-								</s:iterator>	
-							</select>
-						</td>
-					</tr>
-				</table>
-			</div>
-		
-			<div style="display:inline;width:37%;height:400;">
-				<table border="0"  width="100%" >
-					<tr><th align="left">应用角色权限列表</th></tr>
-					<tr>
-						<td>
-							<div style="border: solid 1px silver;width: 100%;height: 396;overflow: auto;position: absolute;">
-								<a:roleRightTreeTag treeName="dc" check="true" 
-									imgPath="${pageContext.request.contextPath}/common/images/dtree" />
-							</div>
-						</td>
-					</tr>
-				</table>
-			</div>
-		
-			<div style="display:inline;width:37%;height:400">
-				<table border="0" width="100%">
-					<tr>
-						<th align="left">应用角色权限预览</th>
-					</tr>
-					<tr>
-						<td>
-							<div style="border: solid 1px silver;width: 100%;height: 396;overflow: auto;position: absolute;">
-								<a:roleRightTreeTag treeName="d" check="false" 
-									imgPath="${pageContext.request.contextPath}/common/images/dtree" />
-							</div>
-						</td>
-					</tr>
-				</table>
-			</div>
+		<table>
+			<tr>
+				<!-- 1 -->
+				<td style="vertical-align: top;">
+				<div style="display:inline;width:200;height:350;vertical-align: top;">
+					<table border="0"  width="100%">
+						<tr>
+							<th align="left" >应用角色信息(双击选择)</th>
+						</tr>
+						<tr>
+							<td>
+								<select id="roleId" name="roleRightVo.roleId" multiple="multiple" 
+									style="width: 200;height:350;" ondblclick="roleOnclick(this);">
+									<s:iterator value="%{getRoles()}" var="role">
+										<c:if test="${role.roleCode != '00'}">
+											<option value="${role.roleId}" 
+												<c:if test="${roleRightVo.roleId==role.roleId}">selected</c:if>>${role.roleName}</option>
+										</c:if>
+									</s:iterator>	
+								</select>
+							</td>
+						</tr>
+					</table>
+				</div>
+				</td>
+				
+				<!-- 2 -->
+				<td style="vertical-align: top;">
+				<div style="display:inline;width:350;height:350;">
+					<table border="0"  width="100%" >
+						<tr><th align="left">应用角色权限列表</th></tr>
+						<tr>
+							<td>
+								<div style="border: solid 1px silver;width: 350;height: 350;overflow: auto;">
+									<a:roleRightTreeTag treeName="dc" check="true" 
+										imgPath="${pageContext.request.contextPath}/common/images/dtree" />
+								</div>
+							</td>
+						</tr>
+					</table>
+				</div>
+				</td>
+				
+				<!-- 3 -->
+				<td style="vertical-align: top;">
+				<div style="display:inline;width:350;height:350">
+					<table border="0" width="100%">
+						<tr>
+							<th align="left">应用角色权限预览</th>
+						</tr>
+						<tr>
+							<td>
+								<div style="border: solid 1px silver;width: 350;height: 350;overflow: auto;">
+									<a:roleRightTreeTag treeName="d" check="false" 
+										imgPath="${pageContext.request.contextPath}/common/images/dtree" />
+								</div>
+							</td>
+						</tr>
+					</table>
+				</div>
+				</td>
+				
+			</tr>
+		</table>
 		</div>
+		
+		
 	</form>
 	</div>
   </body>
