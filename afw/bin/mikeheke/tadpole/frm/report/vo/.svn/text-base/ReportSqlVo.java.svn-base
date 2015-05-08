@@ -1,0 +1,105 @@
+/**
+ * 
+ */
+package mikeheke.tadpole.frm.report.vo;
+
+
+/**
+ * @author huangweijin
+ *
+ * 2011-9-7 下午12:15:29
+ */
+public class ReportSqlVo {
+
+	private String reportSqlId;
+	
+	private String[] reportSqlIds;
+	
+	private String reportInfoId;
+	
+	private String sqlSelect;
+	
+	private String sqlWhere;
+	
+	private String sqlOrder;
+	
+	private String sqlType;
+	
+	private String mapKey;
+	
+	private String remark;
+
+	public String getReportSqlId() {
+		return reportSqlId;
+	}
+
+	public void setReportSqlId(String reportSqlId) {
+		this.reportSqlId = reportSqlId;
+	}
+
+	public String[] getReportSqlIds() {
+		return reportSqlIds;
+	}
+
+	public void setReportSqlIds(String[] reportSqlIds) {
+		this.reportSqlIds = reportSqlIds;
+	}
+
+	public String getReportInfoId() {
+		return reportInfoId;
+	}
+
+	public void setReportInfoId(String reportInfoId) {
+		this.reportInfoId = reportInfoId;
+	}
+
+	public String getSqlSelect() {
+		return sqlSelect;
+	}
+
+	public void setSqlSelect(String sqlSelect) {
+		this.sqlSelect = sqlSelect;
+	}
+
+	public String getSqlWhere() {
+		return sqlWhere;
+	}
+
+	public void setSqlWhere(String sqlWhere) {
+		this.sqlWhere = sqlWhere;
+	}
+
+	public String getSqlOrder() {
+		return sqlOrder;
+	}
+
+	public void setSqlOrder(String sqlOrder) {
+		this.sqlOrder = sqlOrder;
+	}
+
+	public String getSqlType() {
+		return sqlType;
+	}
+
+	public void setSqlType(String sqlType) {
+		this.sqlType = sqlType;
+	}
+
+	public String getMapKey() {
+		return mapKey;
+	}
+
+	public void setMapKey(String mapKey) {
+		this.mapKey = mapKey;
+	}
+
+	public String getRemark() {
+		return remark;
+	}
+
+	public void setRemark(String remark) {
+		this.remark = remark;
+	}
+	
+	
+}

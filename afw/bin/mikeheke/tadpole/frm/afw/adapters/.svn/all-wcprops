@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/afw/adapters
+END
+FWDBAdapter.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/afw/adapters/FWDBAdapter.java
+END
+FWLDAPAdapter.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/afw/adapters/FWLDAPAdapter.java
+END
+FWSSOAdapter.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/afw/adapters/FWSSOAdapter.java
+END

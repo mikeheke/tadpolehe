@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/report/dao
+END
+IReportShowDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/report/dao/IReportShowDao.java
+END
+IReportInfoDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/report/dao/IReportInfoDao.java
+END
+IReportParaDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/report/dao/IReportParaDao.java
+END
+IReportSqlDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/report/dao/IReportSqlDao.java
+END

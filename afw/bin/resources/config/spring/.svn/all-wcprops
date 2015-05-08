@@ -1,0 +1,101 @@
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/resources/config/spring
+END
+reportContext.xml
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/resources/config/spring/reportContext.xml
+END
+mnuContext.xml
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/resources/config/spring/mnuContext.xml
+END
+bdsContext.xml
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/resources/config/spring/bdsContext.xml
+END
+baseContext.xml
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/resources/config/spring/baseContext.xml
+END
+exceptionContext.xml
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/resources/config/spring/exceptionContext.xml
+END
+sysContext.xml
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/resources/config/spring/sysContext.xml
+END
+authContext.xml
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/resources/config/spring/authContext.xml
+END
+queryContext.xml
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/resources/config/spring/queryContext.xml
+END
+loggingContext.xml
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/resources/config/spring/loggingContext.xml
+END
+coreContext.xml
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/resources/config/spring/coreContext.xml
+END
+newFileUploadTagContext.xml
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/resources/config/spring/newFileUploadTagContext.xml
+END
+jobContext.xml
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/resources/config/spring/jobContext.xml
+END
+emailContext.xml
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/resources/config/spring/emailContext.xml
+END
+dataBaseContext.xml
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/resources/config/spring/dataBaseContext.xml
+END
+tagContext.xml
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/resources/config/spring/tagContext.xml
+END
+smsContext.xml
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/resources/config/spring/smsContext.xml
+END

@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/tag/vo
+END
+Money.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/tag/vo/Money.java
+END
+Date.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/tag/vo/Date.java
+END
+TextField.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/tag/vo/TextField.java
+END
+Select.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/tag/vo/Select.java
+END
+Radio.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/tag/vo/Radio.java
+END
+TextArea.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/tag/vo/TextArea.java
+END
+AutoComplete.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/tag/vo/AutoComplete.java
+END
+Checkbox.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/tag/vo/Checkbox.java
+END

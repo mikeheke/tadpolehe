@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib version="2.0" xmlns="http://java.sun.com/xml/ns/j2ee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd">
+	<description>"amway-fileUpload"</description>
+	<display-name>"amway fileUpload"</display-name>
+	<tlib-version>2.2</tlib-version>
+	<short-name>amwayfile</short-name>
+	<uri>/amway-fileUpload</uri>
+	
+	<!-- 上传下载-新标签 -->
+	<tag>
+		<name>newFileUploadTag</name>
+		<tag-class>mikeheke.tadpole.frm.tag.file.web.tag.NewFileUploadTag</tag-class>
+		<body-content>JSP</body-content>
+		<description>Render a fileUpDownload element</description>
+		<attribute>
+			<description>name</description>
+			<name>name</name>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>value</description>
+			<name>value</name>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>size</description>
+			<name>size</name>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>appCode</description>
+			<name>appCode</name>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>moduleCode</description>
+			<name>moduleCode</name>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>userCode</description>
+			<name>userCode</name>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>bId</description>
+			<name>bId</name>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>group</description>
+			<name>group</name>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>isFileList</description>
+			<name>isFileList</name>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>path</description>
+			<name>path</name>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>isEnc</description>
+			<name>isEnc</name>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>maximumSize</description>
+			<name>maximumSize</name>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>isShowUploadUser</description>
+			<name>isShowUploadUser</name>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>isShowUploadDate</description>
+			<name>isShowUploadDate</name>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+</taglib>

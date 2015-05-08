@@ -1,0 +1,101 @@
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/resources/config/struts
+END
+sms.xml
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/resources/config/struts/sms.xml
+END
+.struts.mex
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/resources/config/struts/.struts.mex
+END
+tag.xml
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/resources/config/struts/tag.xml
+END
+email.xml
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/resources/config/struts/email.xml
+END
+newFileUploadTag.xml
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/resources/config/struts/newFileUploadTag.xml
+END
+job.xml
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/resources/config/struts/job.xml
+END
+logging.xml
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/resources/config/struts/logging.xml
+END
+core.xml
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/resources/config/struts/core.xml
+END
+.auth.mex
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/resources/config/struts/.auth.mex
+END
+auth.xml
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/resources/config/struts/auth.xml
+END
+query.xml
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/resources/config/struts/query.xml
+END
+sys.xml
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/resources/config/struts/sys.xml
+END
+exception.xml
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/resources/config/struts/exception.xml
+END
+bds.xml
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/resources/config/struts/bds.xml
+END
+mnu.xml
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/resources/config/struts/mnu.xml
+END
+report.xml
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/resources/config/struts/report.xml
+END

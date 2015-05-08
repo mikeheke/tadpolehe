@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+
+  <package name="exception" namespace="/" extends="default">
+      <action name="exceptionCfgAction" class="ExceptionCfgAction">
+	      <result name="initAddSuccess" type="dispatcher">/exception/exceptionCfg.jsp</result>
+	      <result name="initAddInput" type="dispatcher">/exception/exceptionCfg.jsp</result>
+	      <result name="initModifySuccess" type="dispatcher">/exception/exceptionCfg.jsp</result>
+	      <result name="initModifyInput" type="dispatcher">/exception/exceptionCfg.jsp</result>
+	      <result name="addSuccess" type="dispatcher">/exception/exceptionCfg.jsp</result>
+	      <result name="addInput" type="dispatcher">/exception/exceptionCfg.jsp</result>
+	      <result name="mdfSuccess" type="dispatcher">/exception/exceptionCfg.jsp</result>
+	      <result name="mdfInput" type="dispatcher">/exception/exceptionCfg.jsp</result>
+      </action>
+  </package>
+
+</struts>    

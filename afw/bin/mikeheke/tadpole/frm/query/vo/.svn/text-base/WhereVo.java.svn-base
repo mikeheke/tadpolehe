@@ -1,0 +1,266 @@
+/**
+ * 
+ */
+package mikeheke.tadpole.frm.query.vo;
+
+/**
+ * @author huangweijin
+ *
+ * 2011-4-29 下午02:23:23
+ */
+public class WhereVo {
+
+	//主键ID
+	private String id;
+	
+	//主键ID数组
+	private String[] ids;
+	
+	//条件代码
+	private String whereCode;
+	
+	//表名
+	private String tableName;
+	
+	//字段名
+	private String fieldName;
+
+	//组合结果
+	private String whereResult;
+	
+	//数据类型
+	private String dataType;
+	
+	//描述
+	private String des;
+	
+	//排序
+	private String orderNo;
+	
+	//是否用户输入
+	private String isUserIn;
+	
+	//控件类型
+	private String controlType;
+	
+	//数据转码
+	private String dataCoding;
+	
+	//是否内部联结
+	private String isInnerLink;
+	
+	//运算符
+	private String operator;
+	
+	//默认值
+	private String defaultValue;
+	
+	//关联表名
+	private String linkTable;
+	
+	//关联字段
+	private String linkField;
+	
+	//过滤字段
+	private String filterField;
+	
+	//是否必须输入
+	private String isRequired;
+	
+	//正则表达式
+	private String regExp;
+	
+	//父控件ID
+	private String parTagId;
+	
+	//是否忽略大小写
+	private String isIgnoreCase;
+	
+	//全局表达式
+	private String globalWhere;
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String[] getIds() {
+		return ids;
+	}
+
+	public void setIds(String[] ids) {
+		this.ids = ids;
+	}
+
+	public String getWhereCode() {
+		return whereCode;
+	}
+
+	public void setWhereCode(String whereCode) {
+		this.whereCode = whereCode;
+	}
+
+	public String getTableName() {
+		return tableName;
+	}
+
+	public void setTableName(String tableName) {
+		this.tableName = tableName;
+	}
+
+	public String getFieldName() {
+		return fieldName;
+	}
+
+	public void setFieldName(String fieldName) {
+		this.fieldName = fieldName;
+	}
+
+	public String getWhereResult() {
+		return whereResult;
+	}
+
+	public void setWhereResult(String whereResult) {
+		this.whereResult = whereResult;
+	}
+
+	public String getDataType() {
+		return dataType;
+	}
+
+	public void setDataType(String dataType) {
+		this.dataType = dataType;
+	}
+
+	public String getDes() {
+		return des;
+	}
+
+	public void setDes(String des) {
+		this.des = des;
+	}
+
+	public String getOrderNo() {
+		return orderNo;
+	}
+
+	public void setOrderNo(String orderNo) {
+		this.orderNo = orderNo;
+	}
+
+	public String getIsUserIn() {
+		return isUserIn;
+	}
+
+	public void setIsUserIn(String isUserIn) {
+		this.isUserIn = isUserIn;
+	}
+
+	public String getControlType() {
+		return controlType;
+	}
+
+	public void setControlType(String controlType) {
+		this.controlType = controlType;
+	}
+
+	public String getDataCoding() {
+		return dataCoding;
+	}
+
+	public void setDataCoding(String dataCoding) {
+		this.dataCoding = dataCoding;
+	}
+
+	public String getIsInnerLink() {
+		return isInnerLink;
+	}
+
+	public void setIsInnerLink(String isInnerLink) {
+		this.isInnerLink = isInnerLink;
+	}
+
+	public String getOperator() {
+		return operator;
+	}
+
+	public void setOperator(String operator) {
+		this.operator = operator;
+	}
+
+	public String getDefaultValue() {
+		return defaultValue;
+	}
+
+	public void setDefaultValue(String defaultValue) {
+		this.defaultValue = defaultValue;
+	}
+
+	public String getLinkTable() {
+		return linkTable;
+	}
+
+	public void setLinkTable(String linkTable) {
+		this.linkTable = linkTable;
+	}
+
+	public String getLinkField() {
+		return linkField;
+	}
+
+	public void setLinkField(String linkField) {
+		this.linkField = linkField;
+	}
+
+	public String getFilterField() {
+		return filterField;
+	}
+
+	public void setFilterField(String filterField) {
+		this.filterField = filterField;
+	}
+
+	public String getIsRequired() {
+		return isRequired;
+	}
+
+	public void setIsRequired(String isRequired) {
+		this.isRequired = isRequired;
+	}
+
+	public String getRegExp() {
+		return regExp;
+	}
+
+	public void setRegExp(String regExp) {
+		this.regExp = regExp;
+	}
+
+	public String getParTagId() {
+		return parTagId;
+	}
+
+	public void setParTagId(String parTagId) {
+		this.parTagId = parTagId;
+	}
+
+	public String getIsIgnoreCase() {
+		return isIgnoreCase;
+	}
+
+	public void setIsIgnoreCase(String isIgnoreCase) {
+		this.isIgnoreCase = isIgnoreCase;
+	}
+
+	public String getGlobalWhere() {
+		return globalWhere;
+	}
+
+	public void setGlobalWhere(String globalWhere) {
+		this.globalWhere = globalWhere;
+	}
+
+}

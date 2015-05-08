@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+
+	<package name="bds" namespace="/" extends="default">
+
+      <action name="bdsSchemaInforAction"  class="BdsSchemaInforAction">
+      	 <result name="initAddSuccess">/bds/schemaInfor.jsp</result>
+      	 <result name="initAddInput">/bds/schemaInfor.jsp</result>
+      	 <result name="addSuccess">/bds/schemaInfor.jsp</result>
+      	 <result name="addInput">/bds/schemaInfor.jsp</result>
+      	 <result name="initModifySuccess">/bds/schemaInfor.jsp</result>
+      	 <result name="initModifyInput">/bds/schemaInfor.jsp</result>     
+      	 <result name="mdfSuccess">/bds/schemaInfor.jsp</result>
+      	 <result name="mdfInput">/bds/schemaInfor.jsp</result>   
+      	 <result name="popupSuccess">/bds/cacheClear.jsp</result>
+      	 <result name="popupInput">/bds/cacheClear.jsp</result>   
+      	 <result name="clearSuccess">/bds/cacheClear.jsp</result>
+      	 <result name="clearInput">/bds/cacheClear.jsp</result>        	  	 
+      </action>
+      
+      <action name="bdsXMLDataAction"  class="BdsXMLDataAction">
+      	 <result name="qrySuccess">/bds/xmlData.jsp</result>
+	     <result name="qryInput">/bds/xmlData.jsp</result>
+      	 <result name="initAddSuccess">/bds/xmlDataEdit.jsp</result>
+      	 <result name="initAddInput">/bds/xmlDataEdit.jsp</result>
+      	 <result name="addSuccess">/bds/xmlDataEdit.jsp</result>
+      	 <result name="addInput">/bds/xmlDataEdit.jsp</result>
+	     <result name="initModifySuccess">/bds/xmlDataEdit.jsp</result>
+	     <result name="initModifyInput">/bds/xmlDataEdit.jsp</result>
+	     <result name="mdfSuccess">/bds/xmlDataEdit.jsp</result>
+	     <result name="mdfInput">/bds/xmlDataEdit.jsp</result>
+	     <result name="delSuccess">/bds/xmlData.jsp</result>
+	     <result name="delInput">/bds/xmlData.jsp</result>
+      </action>
+      
+      <action name="bdsXmlStructureAction"  class="BdsXmlStructureAction">
+	     <result name="success">/bds/xmlStructure.jsp</result>
+	     <result name="input">/bds/xmlStructure.jsp</result>
+      </action>
+
+	</package>
+</struts>    

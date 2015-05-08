@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/org/extremecomponents/table/calc
+END
+CalcUtils.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/org/extremecomponents/table/calc/CalcUtils.java
+END
+TotalCalc.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/org/extremecomponents/table/calc/TotalCalc.java
+END
+CalcHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/org/extremecomponents/table/calc/CalcHandler.java
+END
+Calc.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/org/extremecomponents/table/calc/Calc.java
+END
+CalcResult.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/org/extremecomponents/table/calc/CalcResult.java
+END
+AverageCalc.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/org/extremecomponents/table/calc/AverageCalc.java
+END

@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/afw/entity
+END
+Application.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/afw/entity/Application.java
+END
+UserProfile.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/afw/entity/UserProfile.java
+END
+BlackList.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/afw/entity/BlackList.java
+END
+Module.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/afw/entity/Module.java
+END
+ApplicationPlus.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/afw/entity/ApplicationPlus.java
+END
+RoleRight.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/afw/entity/RoleRight.java
+END
+Role.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/afw/entity/Role.java
+END
+Department.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/afw/entity/Department.java
+END
+Config.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/afw/entity/Config.java
+END
+RoleUser.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/afw/entity/RoleUser.java
+END
+Sequence.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/afw/entity/Sequence.java
+END

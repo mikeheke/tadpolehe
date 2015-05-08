@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/bds/web/action
+END
+BdsSchemaInforAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/bds/web/action/BdsSchemaInforAction.java
+END
+BdsXMLDataAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/bds/web/action/BdsXMLDataAction.java
+END
+BdsXmlStructureAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/bds/web/action/BdsXmlStructureAction.java
+END

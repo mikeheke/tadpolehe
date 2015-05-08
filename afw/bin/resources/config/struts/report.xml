@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	
+	<package name="report" namespace="/" extends="default">
+
+		<!-- 定时报表配置 -->
+		<action name="reportInfoAction" class="ReportInfoAction">
+			<result name="initAddSuccess">/report/reportInfo.jsp</result>
+			<result name="initAddInput">/report/reportInfo.jsp</result>
+			<result name="initModifySuccess">/report/reportInfo.jsp</result>
+			<result name="initModifyInput">/report/reportInfo.jsp</result>
+			<result name="addSuccess">/report/reportInfo.jsp</result>
+			<result name="addInput">/report/reportInfo.jsp</result>
+			<result name="mdfSuccess">/report/reportInfo.jsp</result>
+			<result name="mdfInput">/report/reportInfo.jsp</result>
+		</action>
+		
+		<!-- 定时报表参数配置 -->
+		<action name="reportParaAction" class="ReportParaAction">
+			<result name="initAddSuccess">/report/reportPara.jsp</result>
+			<result name="initAddInput">/report/reportPara.jsp</result>
+			<result name="initModifySuccess">/report/reportPara.jsp</result>
+			<result name="initModifyInput">/report/reportPara.jsp</result>
+			<result name="addSuccess">/report/reportPara.jsp</result>
+			<result name="addInput">/report/reportPara.jsp</result>
+			<result name="mdfSuccess">/report/reportPara.jsp</result>
+			<result name="mdfInput">/report/reportPara.jsp</result>
+		</action>
+		
+		<!-- 定时报表语句配置 -->
+		<action name="reportSqlAction" class="ReportSqlAction">
+			<result name="initAddSuccess">/report/reportSql.jsp</result>
+			<result name="initAddInput">/report/reportSql.jsp</result>
+			<result name="initModifySuccess">/report/reportSql.jsp</result>
+			<result name="initModifyInput">/report/reportSql.jsp</result>
+			<result name="addSuccess">/report/reportSql.jsp</result>
+			<result name="addInput">/report/reportSql.jsp</result>
+			<result name="mdfSuccess">/report/reportSql.jsp</result>
+			<result name="mdfInput">/report/reportSql.jsp</result>
+		</action>
+		
+		<!-- 定时报表查询 -->
+		<action name="reportShowAction" class="ReportShowAction">
+			<result name="success">/report/reportShow.jsp</result>
+			<result name="input">/report/reportShow.jsp</result>
+		</action>
+	</package>
+
+
+</struts>    

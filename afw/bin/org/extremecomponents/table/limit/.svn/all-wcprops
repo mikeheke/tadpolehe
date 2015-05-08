@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/org/extremecomponents/table/limit
+END
+LimitFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/org/extremecomponents/table/limit/LimitFactory.java
+END
+Sort.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/org/extremecomponents/table/limit/Sort.java
+END
+TableLimit.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/org/extremecomponents/table/limit/TableLimit.java
+END
+TableLimitFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/org/extremecomponents/table/limit/TableLimitFactory.java
+END
+Limit.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/org/extremecomponents/table/limit/Limit.java
+END
+FilterSet.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/org/extremecomponents/table/limit/FilterSet.java
+END
+Filter.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/org/extremecomponents/table/limit/Filter.java
+END
+LimitRegistry.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/org/extremecomponents/table/limit/LimitRegistry.java
+END
+ModelLimitFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/org/extremecomponents/table/limit/ModelLimitFactory.java
+END
+AbstractLimitFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/org/extremecomponents/table/limit/AbstractLimitFactory.java
+END

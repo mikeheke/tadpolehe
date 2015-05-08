@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/OA_Sappfwk_src/!svn/ver/6419/trunk/source/amway_app/amway-afw/src/com/amway/frm/email/dao/impl
+END
+EmailSendRecordDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/OA_Sappfwk_src/!svn/ver/6419/trunk/source/amway_app/amway-afw/src/com/amway/frm/email/dao/impl/EmailSendRecordDao.java
+END
+EmailTemplateDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/email/dao/impl/EmailTemplateDao.java
+END

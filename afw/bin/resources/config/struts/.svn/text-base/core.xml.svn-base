@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+
+  <package name="default" namespace="/" extends="json-default">
+  
+      <default-action-ref name="default" />
+      <global-results>
+          <result name="login" >/common/jsp/login.jsp</result>
+          <result name="exception" >/common/jsp/error.jsp</result>
+          <result name="error" >/common/jsp/error.jsp</result>
+          <result name="infoError" >/common/jsp/info.jsp</result>
+          <result name="json" type="json" />
+      </global-results>
+      
+      <global-exception-mappings>
+          <exception-mapping exception="java.lang.Exception" result="exception"/>
+          <exception-mapping exception="mikeheke.tadpole.frm.exception.exception.AmwayInfoException" result="infoError"/>
+      </global-exception-mappings>
+       
+      <action name="default">
+          <result type="redirect">/common/jsp/info.jsp</result>
+      </action>
+  </package>
+</struts>    

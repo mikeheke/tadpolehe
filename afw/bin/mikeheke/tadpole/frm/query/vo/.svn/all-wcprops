@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/query/vo
+END
+WhereVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/query/vo/WhereVo.java
+END
+GroupByVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/query/vo/GroupByVo.java
+END
+SQL.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/query/vo/SQL.java
+END
+Table.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/query/vo/Table.java
+END
+OrderByVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/query/vo/OrderByVo.java
+END
+FilterOption.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/query/vo/FilterOption.java
+END
+ButtonVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/query/vo/ButtonVo.java
+END
+Row.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/query/vo/Row.java
+END
+Parameter.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/query/vo/Parameter.java
+END
+AutoGenerateColumns.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/query/vo/AutoGenerateColumns.java
+END
+Column.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/query/vo/Column.java
+END
+SelectVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/query/vo/SelectVo.java
+END
+FromVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/query/vo/FromVo.java
+END
+QueryVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/query/vo/QueryVo.java
+END

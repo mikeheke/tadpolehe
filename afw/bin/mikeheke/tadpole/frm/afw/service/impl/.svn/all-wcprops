@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/afw/service/impl
+END
+ApplicationImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/afw/service/impl/ApplicationImpl.java
+END
+UserProfileImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/afw/service/impl/UserProfileImpl.java
+END
+BlackListImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/afw/service/impl/BlackListImpl.java
+END
+ModuleImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/afw/service/impl/ModuleImpl.java
+END
+LoginServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/afw/service/impl/LoginServiceImpl.java
+END
+ApplicationPlusImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/afw/service/impl/ApplicationPlusImpl.java
+END
+RoleRightImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/afw/service/impl/RoleRightImpl.java
+END
+RoleImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/afw/service/impl/RoleImpl.java
+END
+ExportConfigImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/afw/service/impl/ExportConfigImpl.java
+END
+DepartmentImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/afw/service/impl/DepartmentImpl.java
+END
+RoleUserImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/afw/service/impl/RoleUserImpl.java
+END

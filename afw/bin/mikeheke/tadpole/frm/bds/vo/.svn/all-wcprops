@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/bds/vo
+END
+BaseDataSourceVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/bds/vo/BaseDataSourceVo.java
+END
+BdsSchemaInforVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/bds/vo/BdsSchemaInforVo.java
+END
+BdsXmlDataVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/bds/vo/BdsXmlDataVo.java
+END
+BdsXmlStructureVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/bds/vo/BdsXmlStructureVo.java
+END
+UTF8PostMethod.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/bds/vo/UTF8PostMethod.java
+END

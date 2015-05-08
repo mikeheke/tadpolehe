@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+   
+   <!-- 定时报表配置 -->
+   <bean id="ReportInfoAction" class="mikeheke.tadpole.frm.report.web.action.ReportInfoAction">
+       	<property name="reportInfoService" ref="ReportInfoService" />
+   </bean>
+   <bean id="ReportInfoService" class="mikeheke.tadpole.frm.report.service.impl.ReportInfoImpl"  parent="ServiceTemplate" >
+   		<property name="baseDataSourceService" ref="BaseDataSourceService" />
+   		<property name="reportInfoDao" ref="ReportInfoDao" />
+   </bean>
+   <bean id="ReportInfoDao" class="mikeheke.tadpole.frm.report.dao.impl.ReportInfoDao" ></bean>
+   
+   <!-- 定时报表参数配置 -->
+   <bean id="ReportParaAction" class="mikeheke.tadpole.frm.report.web.action.ReportParaAction">
+       	<property name="reportParaService" ref="ReportParaService" />
+   </bean>
+   <bean id="ReportParaService" class="mikeheke.tadpole.frm.report.service.impl.ReportParaImpl"  parent="ServiceTemplate" >
+   		<property name="reportParaDao" ref="ReportParaDao" />
+   </bean>
+   <bean id="ReportParaDao" class="mikeheke.tadpole.frm.report.dao.impl.ReportParaDao" ></bean>
+   
+   <!-- 定时报表语句配置 -->
+   <bean id="ReportSqlAction" class="mikeheke.tadpole.frm.report.web.action.ReportSqlAction">
+       	<property name="reportSqlService" ref="ReportSqlService" />
+   </bean>
+   <bean id="ReportSqlService" class="mikeheke.tadpole.frm.report.service.impl.ReportSqlImpl"  parent="ServiceTemplate" >
+   		<property name="reportSqlDao" ref="ReportSqlDao" />
+   </bean>
+   <bean id="ReportSqlDao" class="mikeheke.tadpole.frm.report.dao.impl.ReportSqlDao" ></bean>
+   
+    <!-- 定时报表查询 -->
+   <bean id="ReportShowAction" class="mikeheke.tadpole.frm.report.web.action.ReportShowAction">
+       	<property name="reportShowService" ref="ReportShowService" />
+   </bean>
+   <bean id="ReportShowService" class="mikeheke.tadpole.frm.report.service.impl.ReportShowImpl"  parent="ServiceTemplate" >
+   		<property name="reportSqlService" ref="ReportSqlService" />
+   		<property name="reportParaService" ref="ReportParaService" />
+   		<property name="reportInfoService" ref="ReportInfoService" />
+   		<property name="emailService" ref="EmailService" />
+   		<property name="reportShowDao" ref="ReportShowDao" />
+   </bean>
+   <bean id="ReportShowDao" class="mikeheke.tadpole.frm.report.dao.impl.ReportShowDao" ></bean>
+</beans>

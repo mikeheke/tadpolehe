@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/tag/service
+END
+FileUpDownloadTagService.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/tag/service/FileUpDownloadTagService.java
+END
+SelectTagService.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/tag/service/SelectTagService.java
+END
+AutoCompleteTagService.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/OA_Sappfwk_src/!svn/ver/6383/trunk/source/amway_app/amway-afw/src/com/amway/frm/tag/service/AutoCompleteTagService.java
+END

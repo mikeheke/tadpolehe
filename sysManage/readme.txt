@@ -138,5 +138,19 @@ knowledgeAction!initModify.action?knowledgeVo.knowledgeIds=$0
 			initialValue=1, allocationSize=1)
 	@Column(name="LOG_PERFORMANCE_ID")
 	private Long logPerformanceId;
+	
+	
+20.
+tomcat中添加 javaee.jar包
+
+21.
+logback.xml 
+/home/mike/logs/sysManage/logback.xml
+
+
+	
+	
+	
+	
 
   	

@@ -1,0 +1,226 @@
+package mikeheke.tadpole.frm.email.web.action;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import mikeheke.tadpole.frm.afw.entity.Application;
+import mikeheke.tadpole.frm.base.util.AppConstant;
+import mikeheke.tadpole.frm.base.util.DataConverter;
+import mikeheke.tadpole.frm.base.util.DataValidater;
+import mikeheke.tadpole.frm.base.vo.ReturnMessage;
+import mikeheke.tadpole.frm.base.web.action.BaseAction;
+import mikeheke.tadpole.frm.email.entity.EmailTemplate;
+import mikeheke.tadpole.frm.email.service.EmailTemplateService;
+import mikeheke.tadpole.frm.email.util.EmailConstant;
+import mikeheke.tadpole.frm.email.vo.EmailTemplateVo;
+
+/**
+ * Created by IntelliJ IDEA.
+ * @author huangweijin
+ * Date: 2011-3-21
+ * Time: 12:22:29
+ * Declare：邮件模板ACTION，适用于页面初始化，新增，修改，删除短信模板信息
+ */
+public class EmailTemplateAction extends BaseAction {
+    
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 879037661518887406L;
+
+	private EmailTemplateVo emailTemplateVo;
+	
+    private EmailTemplateService emailTemplateService;
+
+    @Override
+    public String initAdd() {
+        
+    	String result = INIT_ADD_SUCCESS;
+		this.setOprt(AppConstant.ADD_OPRT);
+        
+        return result;
+    }
+
+    @Override
+    public String add() {
+    	
+    	String result = ADD_SUCCESS;
+    	this.setOprt(AppConstant.ADD_OPRT);
+    	
+		if(!validateData()){
+			return ADD_INPUT;
+		}
+		
+        EmailTemplate emailTemplate = this.getEntity();
+        
+        ReturnMessage<EmailTemplate> returnMessage = emailTemplateService.add(emailTemplate);
+        
+        result = setReturnMessage(returnMessage, ADD_SUCCESS, ADD_INPUT);
+       
+        return result;
+
+    }
+
+    @Override
+    public String initModify() {
+    	
+    	String result = INIT_MODIFY_SUCCESS;
+		this.setOprt(AppConstant.MDF_OPRT);
+		
+		String [] emailTemplateIds = null;
+		if(null != emailTemplateVo){
+			emailTemplateIds = emailTemplateVo.getEmailTemplateIds();
+		}
+		if(!validateIds0(emailTemplateIds)){
+			return INIT_MODIFY_INPUT;
+		}
+		
+		
+		EmailTemplate emailTemplate = this.getEntity(emailTemplateIds[0]);
+		ReturnMessage<EmailTemplate> returnMessage = null;
+		returnMessage = emailTemplateService.query(emailTemplate);
+		result = setReturnMessage(returnMessage, INIT_MODIFY_SUCCESS, INIT_MODIFY_INPUT);
+		
+        return result;
+    }
+
+    @Override
+    public String modify() {
+    	
+        String result = MDF_SUCCESS;
+        this.setOprt(AppConstant.MDF_OPRT);
+        
+		if(!validateData()){
+			return MDF_INPUT;
+		}
+		
+		String templateId = emailTemplateVo.getEmailTemplateId();
+		if(!validateId(templateId)){
+			return MDF_INPUT;
+		}
+		
+		EmailTemplate emailTemplate = this.getEntity();
+		
+        ReturnMessage<EmailTemplate> returnMessage = null;
+        returnMessage = emailTemplateService.update(emailTemplate);
+
+        result = setReturnMessage(returnMessage, MDF_SUCCESS, MDF_INPUT);
+
+        return result;
+    }
+
+    @Override
+    public String delete() {
+    	
+    	String result = DEL_INPUT;
+		
+		String[] emailTemplateIds = null;
+		if(null != emailTemplateVo){
+			emailTemplateIds = emailTemplateVo.getEmailTemplateIds();
+		}
+		if(validateIds(emailTemplateIds)){
+
+			List<EmailTemplate> emailTemplates = this.getEntities(emailTemplateIds);
+			ReturnMessage<EmailTemplate> returnMessage = null;
+			returnMessage = emailTemplateService.logicDeleteList(emailTemplates);
+			result = setReturnMessage(returnMessage, DEL_SUCCESS, DEL_INPUT);
+		}
+		
+		setJsonValue(result); 
+		
+		return JSON;
+    }
+
+    @Override
+	protected EmailTemplate getEntity(String emailTemplateId) {
+		
+    	EmailTemplate emailTemplate = new EmailTemplate();
+    	emailTemplate.setEmailTemplateId(DataConverter.stringToLong(emailTemplateId));
+    	
+		return emailTemplate;
+	}
+
+	@Override
+	protected EmailTemplate getEntity() {
+		
+    	EmailTemplate emailTemplate = new EmailTemplate();
+    	emailTemplate.setEmailTemplateId(
+    			DataConverter.stringToLong(emailTemplateVo.getEmailTemplateId()));
+    	emailTemplate.setTemplateCode(emailTemplateVo.getTemplateCode());
+    	emailTemplate.setTemplateName(emailTemplateVo.getTemplateName());
+    	emailTemplate.setEmailTemplateSubject(emailTemplateVo.getEmailTemplateSubject());
+    	emailTemplate.setEmailTemplateContent(emailTemplateVo.getEmailTemplateContent());
+    	Application application =  new Application();
+    	application.setApplicationId(
+    			DataConverter.stringToLong(emailTemplateVo.getApplicationId()));
+    	emailTemplate.setApplication(application);
+    	emailTemplate.setAccessoryFlag(
+    			DataConverter.stringToInteger(emailTemplateVo.getAccessoryFlag()));
+    	emailTemplate.setSendFlag(
+    			DataConverter.stringToInteger(emailTemplateVo.getSendFlag()));
+    	emailTemplate.setState(
+    			DataConverter.stringToInteger(emailTemplateVo.getState()));
+    	emailTemplate.setRemark(emailTemplateVo.getRemark());
+    	emailTemplate.setCreatedTime(new Date());
+    	emailTemplate.setCreatedUserId(getSysInfo().getUserProfile().getEmpNumber());
+    	emailTemplate.setUpdatedTime(new Date());
+    	emailTemplate.setUpdatedUserId(getSysInfo().getUserProfile().getEmpNumber());
+    	
+    	
+		return emailTemplate;
+	}
+
+    @Override
+	protected List<EmailTemplate> getEntities(String[] emailTemplateIds) {
+    	
+    	List<EmailTemplate> emailTemplates = new ArrayList<EmailTemplate>(); 
+		
+		for(String emailTemplateId: emailTemplateIds){
+			EmailTemplate emailTemplate = new EmailTemplate();
+			emailTemplate.setEmailTemplateId(
+					DataConverter.stringToLong(emailTemplateId));
+			emailTemplates.add(emailTemplate);
+		}
+		return emailTemplates;
+	}
+
+	@Override
+    protected boolean validateData() {
+    	
+    	boolean result = true;
+    	
+    	if(DataValidater.isStrEmpty(emailTemplateVo.getTemplateCode())){
+    		result = setInputMessage(EmailConstant.TEMPLATES_CODE_KEY, EmailConstant.TEMPLATES_CODE_MSG);
+        }
+        if(DataValidater.isStrEmpty(emailTemplateVo.getTemplateName())) {
+        	result = setInputMessage(EmailConstant.TEMPLATES_NAME_KEY, EmailConstant.TEMPLATES_NAME_MSG);
+        }
+        if(DataValidater.isStrEmpty(emailTemplateVo.getEmailTemplateSubject())){
+        	result = setInputMessage(EmailConstant.TEMPLATES_SUBJECT_KEY, EmailConstant.TEMPLATES_SUBJECT_MSG);
+        }
+        if(DataValidater.isStrEmpty(emailTemplateVo.getEmailTemplateContent())){
+        	result = setInputMessage(EmailConstant.TEMPLATES_CONTENT_KEY, EmailConstant.TEMPLATES_CONTENT_MSG);
+        }
+        
+        return result;
+    }
+    
+	@Override
+	public String getJsonValue() {
+		return super.getJsonValue();
+	}
+	
+	public EmailTemplateVo getEmailTemplateVo() {
+		return emailTemplateVo;
+	}
+
+	public void setEmailTemplateVo(EmailTemplateVo emailTemplateVo) {
+		this.emailTemplateVo = emailTemplateVo;
+	}
+
+	public void setEmailTemplateService(EmailTemplateService emailTemplateService) {
+		this.emailTemplateService = emailTemplateService;
+	}
+
+}

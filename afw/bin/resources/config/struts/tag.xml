@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+
+	<constant name="struts.multipart.maxSize" value="1073741824"/>
+	
+	<package name="tag" namespace="/" extends="default">
+	
+		<action name="selectTagAction" class="SelectTagAction" />
+		<action name="autoCompleteTagAction" class="AutoCompleteTagAction" />
+		
+		<action name="fileUpDownloadAction" class="FileUpDownloadAction">
+			<!--  <param name="maximumSize">2048000</param>-->
+			<result name="downloadFile" type="stream">
+				<param name="contentType">${downloadContentType}</param>
+				<param name="contentDisposition">attachment;filename="${downloadFileName}"</param>
+			</result>
+		</action>
+	</package>
+</struts>    

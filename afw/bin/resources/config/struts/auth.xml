@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+  
+  <package name="auth" namespace="/" extends="default">
+  
+      <action name="loginAction" class="LoginAction">
+		  <result name="input" type="dispatcher">/common/jsp/login.jsp</result>
+	      <result name="success" type="redirect">${goToSysUrl }</result>
+	  </action>
+  </package>
+</struts>    

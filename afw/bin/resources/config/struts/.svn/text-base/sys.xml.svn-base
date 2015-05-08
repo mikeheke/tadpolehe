@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	
+	<package name="sysManage" namespace="/" extends="default">
+
+		<!-- 菜单配置 -->
+		<action name="moduleAction" class="ModuleAction">
+			<result name="initAddSuccess">/sysManage/module.jsp</result>
+			<result name="initAddInput">/sysManage/module.jsp</result>
+			<result name="addSuccess">/sysManage/module.jsp</result>
+			<result name="addInput">/sysManage/module.jsp</result>
+			<result name="initModifySuccess">/sysManage/module.jsp</result>
+			<result name="initModifyInput">/sysManage/module.jsp</result>
+			<result name="mdfSuccess">/sysManage/module.jsp</result>
+			<result name="mdfInput">/sysManage/module.jsp</result>
+		</action>
+
+		<!-- 用户配置 -->
+		<action name="userProfileAction" class="UserProfileAction">
+			<result name="initAddSuccess">/sysManage/userProfile.jsp</result>
+			<result name="initAddInput">/sysManage/userProfile.jsp</result>
+			<result name="initModifySuccess">/sysManage/userProfile.jsp</result>
+			<result name="initModifyInput">/sysManage/userProfile.jsp</result>
+			<result name="addSuccess">/sysManage/userProfile.jsp</result>
+			<result name="addInput">/sysManage/userProfile.jsp</result>
+			<result name="mdfSuccess">/sysManage/userProfile.jsp</result>
+			<result name="mdfInput">/sysManage/userProfile.jsp</result>
+			<result name="pwdMdfInput">/sysManage/passwordModify.jsp</result>
+			<result name="pwdMdfSuccess">/sysManage/passwordModify.jsp</result>
+			<result name="popupSuccess">/sysManage/passwordModify.jsp</result>
+			<result name="popup2Success">/sysManage/userChange.jsp</result>
+			<result name="userChangeSuccess">/sysManage/userChange.jsp</result>
+			<result name="userChangeInput">/sysManage/userChange.jsp</result>
+			<result name="popup3Success">/sysManage/styleChange.jsp</result>
+			<result name="styleChangeSuccess">/sysManage/styleChange.jsp</result>
+			<result name="styleChangeInput">/sysManage/styleChange.jsp</result>
+			<result name="popup4Success">/sysManage/langChange.jsp</result>
+			<result name="langChangeSuccess">/sysManage/langChange.jsp</result>
+			<result name="langChangeInput">/sysManage/langChange.jsp</result>
+		</action>
+
+		<!-- 应用配置 -->
+		<action name="applicationAction" class="ApplicationAction">
+			<result name="initAddSuccess">/sysManage/application.jsp</result>
+			<result name="initAddInput">/sysManage/application.jsp</result>
+			<result name="initModifySuccess">/sysManage/application.jsp</result>
+			<result name="initModifyInput">/sysManage/application.jsp</result>
+			<result name="addSuccess">/sysManage/application.jsp</result>
+			<result name="addInput">/sysManage/application.jsp</result>
+			<result name="mdfSuccess">/sysManage/application.jsp</result>
+			<result name="mdfInput">/sysManage/application.jsp</result>
+			<result name="popupSuccess" >/sysManage/appPopup.jsp</result>
+			<result name="popupInput" >/sysManage/appPopup.jsp</result>
+			<result name="qrySuccess" >/sysManage/appPopup.jsp</result>
+			<result name="qryInput" >/sysManage/appPopup.jsp</result>
+		</action>
+
+		<!-- 角色配置 -->
+		<action name="roleAction" class="RoleAction">
+			<result name="initAddSuccess">/sysManage/role.jsp</result>
+			<result name="initAddInput">/sysManage/role.jsp</result>
+			<result name="initModifySuccess">/sysManage/role.jsp</result>
+			<result name="initModifyInput">/sysManage/role.jsp</result>
+			<result name="addSuccess">/sysManage/role.jsp</result>
+			<result name="addInput">/sysManage/role.jsp</result>
+			<result name="mdfSuccess">/sysManage/role.jsp</result>
+			<result name="mdfInput">/sysManage/role.jsp</result>
+		</action>
+
+		<!-- 角色权限配置 -->
+		<action name="roleRightAction" class="RoleRightAction">
+			<result name="initSuccess">/sysManage/roleRight.jsp</result>
+			<result name="qrySuccess">/sysManage/roleRight.jsp</result>
+			<result name="saveSuccess">/sysManage/roleRight.jsp</result>
+			<result name="saveInput">/sysManage/roleRight.jsp</result>
+			<result name="popupSuccess">/sysManage/rightCopy.jsp</result>
+			<result name="copySuccess">/sysManage/rightCopy.jsp</result>
+			<result name="copyInput">/sysManage/rightCopy.jsp</result>
+		</action>
+
+		<!-- 黑名单配置 -->
+		<action name="blackListAction" class="BlackListAction">
+			<result name="initAddSuccess">/sysManage/blackList.jsp</result>
+			<result name="initAddInput">/sysManage/blackList.jsp</result>
+			<result name="initModifySuccess">/sysManage/blackList.jsp</result>
+			<result name="initModifyInput">/sysManage/blackList.jsp</result>
+			<result name="addSuccess">/sysManage/blackList.jsp</result>
+			<result name="addInput">/sysManage/blackList.jsp</result>
+			<result name="mdfSuccess">/sysManage/blackList.jsp</result>
+			<result name="mdfInput">/sysManage/blackList.jsp</result>
+		</action>
+
+		<!-- 角色用户 -->
+		<action name="roleUserAction" class="RoleUserAction">
+			<result name="initAddSuccess">/sysManage/roleUser.jsp</result>
+			<result name="initAddInput">/sysManage/roleUser.jsp</result>
+			<result name="saveSuccess">/sysManage/roleUser.jsp</result>
+			<result name="saveInput">/sysManage/roleUser.jsp</result>
+		</action>
+
+		<!-- 扩展应用配置 -->
+		<action name="applicationPlusAction" class="ApplicationPlusAction">
+			<result name="initAddSuccess">/sysManage/applicationPlus.jsp</result>
+			<result name="initAddInput">/sysManage/applicationPlus.jsp</result>
+			<result name="initModifySuccess">/sysManage/applicationPlus.jsp</result>
+			<result name="initModifyInput">/sysManage/applicationPlus.jsp</result>
+			<result name="addSuccess">/sysManage/applicationPlus.jsp</result>
+			<result name="addInput">/sysManage/applicationPlus.jsp</result>
+			<result name="mdfSuccess">/sysManage/applicationPlus.jsp</result>
+			<result name="mdfInput">/sysManage/applicationPlus.jsp</result>
+		</action>
+		
+				<!-- 应用配置导出 -->
+		<action name="exportConfigAction" class="ExportConfigAction">
+			<result name="addSuccess">/export/exportResult.jsp</result>
+		</action>
+	</package>
+
+
+</struts>    
