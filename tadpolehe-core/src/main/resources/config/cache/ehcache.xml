@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache>
+<!-- 缓存数据文件创建的地方,java.io.tmpdir是默认的临时文件路径 -->
+<diskStore path="java.io.tmpdir"/>
+ 
+        <!-- Sets the path to the directory where cache .data files are created.
+              设置为缓存的地方。数据文件创建的目录的路径
+ 
+             If the path is a Java System Property it is replaced by
+             its value in the running VM.
+                            如果路径是Java系统属性中被替换其值在运行虚拟机。
+              
+              
+             The following properties are translated:下列属性换算
+             user.home - User's home directory           用户的主目录
+             user.dir - User's current working directory 用户的当前工作目录
+             java.io.tmpdir - Default temp file path     默认临时文件路径
+        <diskStore path="java.io.tmpdir"/> -->
+         
+        <!--Default Cache configuration. These will applied to caches programmatically created through
+            the CacheManager.
+        默认的缓存配置。这将适用于通过编程方式创建缓存在CacheManager。
+     
+            The following attributes are required: 下面的属性是必需的
+     
+            maxElementsInMemory            - Sets the maximum number of objects that will be created in memory
+                                                 设置对象的最大数量，将在内存中创建
+            eternal                        - Sets whether elements are eternal. If eternal,  timeouts are ignored and the
+                                             element is never expired.
+                                             设置元素是否是永恒的。如果永恒的，超时被忽略，并且元素是永远不会过期(缓存是否永远不销毁)
+            overflowToDisk                 - Sets whether elements can overflow to disk when the in-memory cache
+                                             has reached the maxInMemory limit.
+                                             设置当缓存中的数据达到最大值时,是否把缓存数据写入磁盘
+     
+            The following attributes are optional: 以下属性是可选的
+            timeToIdleSeconds              - Sets the time to idle for an element before it expires.
+                                             i.e. The maximum amount of time between accesses before an element expires
+                                             Is only used if the element is not eternal.
+                                             Optional attribute. A value of 0 means that an Element can idle for infinity.
+                                             The default value is 0.
+                                             设置 当缓存闲置指定时间,当闲置时间到达指定时间时,缓存则自动销毁,可选的属性。
+                                                 0值表示一个元素可以闲置无穷。默认值是0
+                                              
+            timeToLiveSeconds              - Sets the time to live for an element before it expires.
+                                             i.e. The maximum time between creation time and when an element expires.
+                                             Is only used if the element is not eternal.
+                                             Optional attribute. A value of 0 means that and Element can live for infinity.
+                                             The default value is 0.
+                                                 设置当缓存创建之后到达的指定时间,当缓存生存超过指定的时间,缓存则自动销毁
+                                                 可选的属性。0值表示和元素可以活无限。默认值是0
+            diskPersistent                 - Whether the disk store persists between restarts of the Virtual Machine.
+                                             The default value is false.
+                                                 无论是磁盘存储之间仍然存在的虚拟机重新启动。默认值是false
+            diskExpiryThreadIntervalSeconds- The number of seconds between runs of the disk expiry thread. The default value
+                                             is 120 seconds.
+                                                 磁盘之间的到期线程运行的秒数。默认值是120秒
+            -->
+             
+    <defaultCache
+        maxElementsInMemory="100000"
+        eternal="false"
+        overflowToDisk="true"
+        timeToIdleSeconds="60"
+        timeToLiveSeconds="120"
+        />
+	<cache name="systemCache" 
+		maxElementsInMemory="1000"
+		timeToIdleSeconds="30" 
+		timeToLiveSeconds="60" 
+		eternal="false"
+		overflowToDisk="false" />
+</ehcache>

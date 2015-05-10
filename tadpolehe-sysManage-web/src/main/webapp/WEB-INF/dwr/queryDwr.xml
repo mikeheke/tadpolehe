@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="gbk"?>
+<!DOCTYPE dwr PUBLIC "-//GetAhead Limited//DTD Direct Web Remoting 1.0//EN" "http://www.getahead.ltd.uk/dwr/dwr20.dtd">
+<dwr>
+	<allow>
+		<!--  -->
+		<create creator="spring" javascript="configService" scope="page">
+			<param name="beanName" value="ConfigService" />
+			<include method="checkDsJndi" />
+			<include method="getSysTableFields" />
+			<include method="getDataType" />
+			<include method="getSysTables" />
+			<include method="getDataCodings" />
+		</create>
+		
+		  
+		<convert match="mikeheke.tadpole.frm.query.entity.SysTableField" converter="bean"></convert>
+		<convert match="mikeheke.tadpole.frm.query.entity.SysTable" converter="bean"></convert>
+		<convert match="mikeheke.tadpole.frm.query.entity.DataCoding" converter="bean"></convert>
+	</allow>
+</dwr>

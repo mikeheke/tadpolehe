@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+  
+  <!-- 加载struts文件 -->
+  <include file="struts-default.xml"></include>
+  <include file="struts-plugin.xml"></include>
+  
+  <constant name="struts.i18n.encoding" value="UTF-8"/>
+  <constant name="struts.devMode" value="true" />
+  
+  <!-- 加i18n配置文件 -->
+  <constant name="struts.custom.i18n.resources" value="i18n.core,
+													   i18n.tag,
+													   i18n.bds,
+													   i18n.logging,
+													   i18n.exception,
+													   i18n.email,
+													   i18n.mnu,
+													   i18n.query,
+													   i18n.report,
+													   i18n.sms,
+													   i18n.job,
+													   i18n.auth,
+													   i18n.sys,
+													   i18n.messages" 
+  />
+
+  <!-- 加struts配置文件 -->
+  <include file="config/struts/core.xml"></include>
+  <include file="config/struts/sys.xml"></include>
+  <include file="config/struts/auth.xml"></include>
+  <include file="config/struts/tag.xml"></include>
+  <include file="config/struts/bds.xml"></include>
+  <include file="config/struts/mnu.xml"></include>
+  <include file="config/struts/logging.xml"></include>
+  <include file="config/struts/exception.xml"></include>
+  <include file="config/struts/email.xml"></include>
+  <include file="config/struts/sms.xml"></include>
+  <include file="config/struts/query.xml"></include>
+  <include file="config/struts/report.xml"></include>
+  <include file="config/struts/job.xml"></include>
+  <include file="config/struts/sysManage.xml"></include>
+</struts>    
