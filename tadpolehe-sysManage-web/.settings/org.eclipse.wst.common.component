@@ -7,7 +7,11 @@
         <dependent-module archiveName="tadpolehe-core-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tadpolehe-core/tadpolehe-core">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="tadpolehe-query-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tadpolehe-query/tadpolehe-query">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <property name="java-output-path" value="/tadpolehe-sysManage-web/target/classes"/>
+        <property name="component.inclusion.patterns"/>
         <property name="context-root" value="sysManage"/>
     </wb-module>
 </project-modules>

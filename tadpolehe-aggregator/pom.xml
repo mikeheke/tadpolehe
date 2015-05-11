@@ -12,15 +12,31 @@
 	<!-- 待聚合模块(注意路径) -->
 	<modules>
 		<module>../tadpolehe-core</module>
+		<module>../tadpolehe-query</module>
 		<module>../tadpolehe-sysManage-web</module>
 	</modules>
 
+	<!-- define lib version -->
 	<properties>
 		<org.springframework.version>3.0.5.RELEASE</org.springframework.version>
 		<org.struts.version>2.2.1</org.struts.version>
+		<org.struts.xwork.version>2.2.1</org.struts.xwork.version>
 		<org.hibernate.version>4.1.0.Final</org.hibernate.version>
 		<junit.version>3.8.1</junit.version>
+		<logback.version>0.9.28</logback.version>
+		<org.slf4j.version>1.6.1</org.slf4j.version>
+		<commons.lang.version>2.3</commons.lang.version>
+		<commons.lang3.version>3.0</commons.lang3.version>
 		<commons.collections.version>3.1</commons.collections.version>
+		<commons.httpclient.version>3.0.1</commons.httpclient.version>
+		<org.apache.poi.version>3.7</org.apache.poi.version>
+		<org.apache.ant.version>1.8.4</org.apache.ant.version>
+		<org.apache.velocity.version>1.7</org.apache.velocity.version>
+		<net.sf.jasperreports.version>4.0.1</net.sf.jasperreports.version>
+		<dwr.version>1.1.3</dwr.version>
+		<javassist.version>3.8.0.GA</javassist.version>
+		<javax.mail.version>1.4</javax.mail.version>
+		<ldapsdk.version>4.1</ldapsdk.version>
 	</properties>
 
 	<dependencyManagement>
@@ -47,6 +63,18 @@
 				<scope>provided</scope>
 			</dependency>
 
+			<!-- amway应用框架 -->
+			<dependency>
+				<groupId>com.amway.afw</groupId>
+				<artifactId>ExternalAuthenticatorClient</artifactId>
+				<version>1.2.1_1</version>
+			</dependency>
+			<dependency>
+				<groupId>com.amway.afw</groupId>
+				<artifactId>emialSenderWebService</artifactId>
+				<version>1.4.0_1</version>
+			</dependency>
+			<!-- amway应用框架 - END -->
 
 			<!-- add spring libraries start -->
 			<!-- spring-core -->
@@ -149,13 +177,12 @@
 			<!-- add struts2 libiary end -->
 
 
-			<!-- xwork 2.3.16 -->
+			<!-- xwork -->
 			<dependency>
 				<groupId>org.apache.struts.xwork</groupId>
 				<artifactId>xwork-core</artifactId>
-				<version>2.2.1</version>
+				<version>${org.struts.xwork.version}</version>
 			</dependency>
-			<!-- xwork -->
 
 			<dependency>
 				<groupId>com.google.code.gson</groupId>
@@ -170,63 +197,57 @@
 				<classifier>jdk15</classifier>
 			</dependency>
 
+			<!-- dwr -->
 			<dependency>
 				<groupId>dwr</groupId>
 				<artifactId>dwr</artifactId>
-				<version>1.1.3</version>
+				<version>${dwr.version}</version>
 			</dependency>
 
+			<!-- javassist -->
 			<dependency>
 				<groupId>javassist</groupId>
 				<artifactId>javassist</artifactId>
-				<version>3.8.0.GA</version>
+				<version>${javassist.version}</version>
 			</dependency>
 
+
+			<!-- logback -->
 			<dependency>
 				<groupId>ch.qos.logback</groupId>
 				<artifactId>logback-core</artifactId>
-				<version>0.9.28</version>
+				<version>${logback.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>ch.qos.logback</groupId>
 				<artifactId>logback-access</artifactId>
-				<version>0.9.28</version>
+				<version>${logback.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>ch.qos.logback</groupId>
 				<artifactId>logback-classic</artifactId>
-				<version>0.9.28</version>
+				<version>${logback.version}</version>
 			</dependency>
-
+			<!-- slf4j -->
 			<dependency>
 				<groupId>org.slf4j</groupId>
 				<artifactId>slf4j-api</artifactId>
-				<version>1.6.1</version>
+				<version>${org.slf4j.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.slf4j</groupId>
 				<artifactId>slf4j-log4j12</artifactId>
-				<version>1.6.1</version>
+				<version>${org.slf4j.version}</version>
 			</dependency>
 
-			<!-- 
-			<dependency>
-				<groupId>org.extremecomponents</groupId>
-				<artifactId>extremecomponents</artifactId>
-				<version>1.0.1</version>
-			</dependency>
-			 -->
+			<!-- 总结出经验，认真查看异常堆栈信息，找问题... Mike He 20150511 <dependency> <groupId>org.extremecomponents</groupId> 
+				<artifactId>extremecomponents</artifactId> <version>1.0.1</version> </dependency> -->
 
+			<!-- javax.mail -->
 			<dependency>
 				<groupId>javax.mail</groupId>
 				<artifactId>mail</artifactId>
-				<version>1.4</version>
-			</dependency>
-
-			<dependency>
-				<groupId>org.apache.poi</groupId>
-				<artifactId>poi</artifactId>
-				<version>3.7</version>
+				<version>${javax.mail.version}</version>
 			</dependency>
 
 			<dependency>
@@ -261,28 +282,47 @@
 			<dependency>
 				<groupId>net.sf.jasperreports</groupId>
 				<artifactId>jasperreports</artifactId>
-				<version>4.0.1</version>
+				<version>${net.sf.jasperreports.version}</version>
 			</dependency>
+
 
 			<dependency>
 				<groupId>commons-lang</groupId>
 				<artifactId>commons-lang</artifactId>
-				<version>2.3</version>
+				<version>${commons.lang.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.apache.commons</groupId>
 				<artifactId>commons-lang3</artifactId>
-				<version>3.0</version>
+				<version>${commons.lang3.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>commons-httpclient</groupId>
 				<artifactId>commons-httpclient</artifactId>
-				<version>3.0.1</version>
+				<version>${commons.httpclient.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>commons-collections</groupId>
 				<artifactId>commons-collections</artifactId>
 				<version>${commons.collections.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.apache.poi</groupId>
+				<artifactId>poi</artifactId>
+				<version>${org.apache.poi.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.apache.ant</groupId>
+				<artifactId>ant</artifactId>
+				<version>${org.apache.ant.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.apache.velocity</groupId>
+				<artifactId>velocity</artifactId>
+				<version>${org.apache.velocity.version}</version>
 			</dependency>
 
 			<dependency>
@@ -292,41 +332,16 @@
 			</dependency>
 
 			<dependency>
-				<groupId>org.apache.ant</groupId>
-				<artifactId>ant</artifactId>
-				<version>1.8.4</version>
-			</dependency>
-
-			<dependency>
 				<groupId>opensymphony</groupId>
 				<artifactId>sitemesh</artifactId>
 				<version>2.4.2</version>
 			</dependency>
 
 			<dependency>
-				<groupId>org.apache.velocity</groupId>
-				<artifactId>velocity</artifactId>
-				<version>1.7</version>
-			</dependency>
-
-			<dependency>
 				<groupId>ldapsdk</groupId>
 				<artifactId>ldapsdk</artifactId>
-				<version>4.1</version>
+				<version>${ldapsdk.version}</version>
 			</dependency>
-
-			<!-- amway应用框架 -->
-			<dependency>
-				<groupId>com.amway.afw</groupId>
-				<artifactId>ExternalAuthenticatorClient</artifactId>
-				<version>1.2.1_1</version>
-			</dependency>
-			<dependency>
-				<groupId>com.amway.afw</groupId>
-				<artifactId>emialSenderWebService</artifactId>
-				<version>1.4.0_1</version>
-			</dependency>
-			<!-- amway应用框架 - END -->
 
 			<!-- mysql driver -->
 			<dependency>
@@ -376,21 +391,22 @@
 						<encoding>UTF-8</encoding>
 					</configuration>
 				</plugin>
-				<!-- tag 
-				<plugin>
-					<artifactId>maven-jar-plugin</artifactId>
-					<configuration>
-						<classesDirectory>target/classes/</classesDirectory>
-						<archive>
-							<addMavenDescriptor>false</addMavenDescriptor>
-						</archive>
-					</configuration>
-				</plugin>
-				-->
+				<!-- tag <plugin> <artifactId>maven-jar-plugin</artifactId> <configuration> 
+					<classesDirectory>target/classes/</classesDirectory> <archive> <addMavenDescriptor>false</addMavenDescriptor> 
+					</archive> </configuration> </plugin> -->
 			</plugins>
 		</pluginManagement>
-		<!-- 
-		<resources>
+		<resources>	
+			<!-- 打包包含的资源(src/main/java)  Mike20150511 -->
+			<resource>
+				<directory>src/main/java</directory>
+				<includes>
+					<include>**/*.properties</include>
+					<include>**/*.xml</include>
+					<include>**/*.tld</include>
+				</includes>
+			</resource>
+			<!-- 打包包含的资源(src/main/resources)  Mike20150511 -->
 			<resource>
 				<directory>src/main/resources</directory>
 				<includes>
@@ -398,7 +414,6 @@
 				</includes>
 			</resource>
 		</resources>
-		 -->
 	</build>
 
 </project>
