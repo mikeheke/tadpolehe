@@ -381,11 +381,16 @@
 			</c:forEach>
 		</div>
 		<div id="oprtInfo" style="height: 10px;color: red">${retInfo }</div>
+		
+		<!-- button div start -->
 		<div style="border: buttonface 1px solid;">
 			<table>
 				<tr>
 					<td>
 						<s:iterator value="#session._query_show_.buttons"  var="button" >
+							<%-- 
+							${button.subUrl } ${button.openType } ${param._appContext_}<br />
+							 --%>
 							<input type="submit" name='${button.buttonNo }' value='${button.buttonName }'
 								style="display: ${_rights_[button.buttonNo ]}"
 								onclick="
@@ -396,10 +401,14 @@
 										}
 									</c:if>
 									<c:choose>
+									
 										<c:when test="${button.openType!=null && button.openType!='' && fn:startsWith(param._appContext_,'http:')}">
 											return buttonOnclick(this,'${button.subUrl }','${button.openType }', ${_query_show_.isRefresh});
 										</c:when>
+										<%-- Mike20150511
 										<c:when test="${button.openType!=null && button.openType!='' && param._appContext_!='' && param._appContext_!=null}">
+										--%>
+										<c:when test="${param._appContext_!='' && param._appContext_!=null}">
 											return buttonOnclick(this,'/${param._appContext_}/${button.subUrl }','${button.openType }', ${_query_show_.isRefresh});
 										</c:when>
 										<c:otherwise>
@@ -407,12 +416,22 @@
 										</c:otherwise>
 									</c:choose>
 								" />&nbsp;
-						</s:iterator>				
+						</s:iterator>	
+						<input type="button"  value="&nbsp;&nbsp;查&nbsp;&nbsp;询&nbsp;&nbsp;" onclick="clickQueryBtn();" />			
 					</td>
 				</tr>
 			</table>
 		</div>
+		<!-- button div end -->
+		
 		<div>
+			<%-- 
+			${pageContext.request.contextPath}
+			<br />
+			${_sysApplication_.goToUrl}
+			<br />
+			${_application_.goToUrl}
+			 --%>
 			<ec:table 
 				items="retObjs"
 				var = "p"
@@ -434,6 +453,8 @@
 				</ec:row>
 			</ec:table>
 		</div>
+		
+		<%-- 隐藏下面的按钮
 		<div style="border: buttonface 1px solid;">
 			<table>
 				<tr>
@@ -452,7 +473,7 @@
 										<c:when test="${button.openType!=null && button.openType!='' && fn:startsWith(param._appContext_,'http:')}">
 											return buttonOnclick(this,'${button.subUrl }','${button.openType }', ${_query_show_.isRefresh});
 										</c:when>
-										<c:when test="${button.openType!=null && button.openType!='' && param._appContext_!='' && param._appContext_!=null}">
+										<c:when test="${param._appContext_!='' && param._appContext_!=null}">
 											return buttonOnclick(this,'/${param._appContext_}/${button.subUrl }','${button.openType }', ${_query_show_.isRefresh});
 										</c:when>
 										<c:otherwise>
@@ -460,11 +481,13 @@
 										</c:otherwise>
 									</c:choose>
 								" />&nbsp;
-						</s:iterator>				
+						</s:iterator>		
+						<input type="button" value="&nbsp;查询&nbsp;" onclick="clickQueryBtn();" />			
 					</td>
 				</tr>
 			</table>
 		</div>
+		 --%>
 	</div>
 	</form>
   </body>

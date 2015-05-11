@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+  
+  
+<package name="kgem" namespace="/" extends="default">
+
+		<action name="knowledgeAction" class="knowledgeAction">
+			<!-- 增加初始化成功视图 -->
+			<result name="initAddSuccess">/kgem/knowledge.jsp</result>
+			<result name="addSuccess">/kgem/knowledge.jsp</result>
+			<result name="addInput">/kgem/knowledge.jsp</result>
+			<result name="initModifySuccess">/kgem/knowledge.jsp</result>
+			<result name="mdfSuccess">/kgem/knowledge.jsp</result>
+			<result name="mdfInput">/kgem/knowledge.jsp</result>
+			<result name="view">/kgem/knowledge.jsp</result>
+			<result name="page">/kgem/page.jsp</result>
+			
+			
+			<!-- 
+			<result name="addSuccess">/kgem/knowledge.jsp</result>
+			<result name="initModifySuccess">/kgem/knowledge.jsp</result>
+			<result name="mdfSuccess">/kgem/knowledge.jsp</result>
+			 -->
+			<!-- 
+			<result name="addInput">/sysManage/role.jsp</result>
+			<result name="initAddInput">/sysManage/role.jsp</result>
+			<result name="initModifyInput">/sysManage/role.jsp</result>
+			<result name="mdfInput">/sysManage/role.jsp</result>
+			 -->
+		</action>
+	
+
+</package>
+
+
+</struts>    

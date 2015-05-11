@@ -9,7 +9,7 @@
   <constant name="struts.i18n.encoding" value="UTF-8"/>
   <constant name="struts.devMode" value="true" />
   
-  <!-- 加i18n配置文件 -->
+    <!-- 加i18n配置文件 -->
   <constant name="struts.custom.i18n.resources" value="i18n.core,
 													   i18n.tag,
 													   i18n.bds,
@@ -25,11 +25,10 @@
 													   i18n.sys,
 													   i18n.messages" 
   />
-	
+
 
   <!-- 加struts配置文件 -->
   <include file="config/struts/struts-tadpolehe-core.xml"></include>
-  <include file="config/struts/struts-tadpolehe-query.xml"></include>
-  <include file="config/struts/sysManage.xml"></include>
-  
+  <!-- my app -->
+  <include file="config/struts/kgemStruts.xml"></include>
 </struts>    

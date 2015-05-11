@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+
+  <!-- 加i18n配置文件 -->
+  <constant name="struts.custom.i18n.resources" value="i18n.query" 
+  />
+
+  <!-- 加struts配置文件 -->
+  <include file="config/struts/query.xml"></include>
+
+</struts>    

@@ -13,14 +13,12 @@
           <result name="json" type="json" />
       </global-results>
       
-      <!-- 
+      <!-- global-exception-mappings -->
       <global-exception-mappings>
-      		
           <exception-mapping exception="java.lang.Exception" result="exception"/>
           <exception-mapping exception="mikeheke.tadpole.frm.exception.exception.AmwayInfoException" result="infoError"/>
-       
       </global-exception-mappings>
-      -->
+      
        
       <action name="default">
           <result type="redirect">/common/jsp/info.jsp</result>

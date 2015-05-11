@@ -3,15 +3,10 @@
     <persistence-unit name="DB2PU" transaction-type="RESOURCE_LOCAL">  
         <provider>org.hibernate.ejb.HibernatePersistence</provider>  
         <jta-data-source>jdbcamway</jta-data-source>
-        <!-- 
-        <jar-file>WEB-INF/lib/amway-afw-*.jar</jar-file>
-         
-         <jar-file>WEB-INF/lib/afw.jar</jar-file>
-         -->
-          <jar-file>WEB-INF/lib/tadpolehe-*.jar</jar-file>
+        <jar-file>WEB-INF/lib/tadpolehe-*.jar</jar-file>
         <properties>
             <!--<property name="hibernate.dialect" value="org.hibernate.dialect.SQLServerDialect"/>-->
-		    <property name="hibernate.show_sql" value="true"/>
+		    <property name="hibernate.show_sql" value="false"/>
 		    <property name="hibernate.format_sql" value="false"/>
 		    <!--<property name="hibernate.hbm2ddl.auto" value="update"/>-->
         </properties>

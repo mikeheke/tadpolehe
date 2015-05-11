@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+
+  <!-- 加struts配置文件 -->
+  <include file="config/struts/core.xml"></include>
+  <include file="config/struts/sys.xml"></include>
+  <include file="config/struts/auth.xml"></include>
+  <include file="config/struts/tag.xml"></include>
+  <include file="config/struts/bds.xml"></include>
+  <include file="config/struts/mnu.xml"></include>
+  <include file="config/struts/logging.xml"></include>
+  <include file="config/struts/exception.xml"></include>
+  <include file="config/struts/email.xml"></include>
+  <include file="config/struts/sms.xml"></include>
+  <include file="config/struts/report.xml"></include>
+
+</struts>    

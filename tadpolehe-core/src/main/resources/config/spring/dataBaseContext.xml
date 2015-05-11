@@ -27,7 +27,7 @@
  	<context:annotation-config />
  	<tx:annotation-driven transaction-manager="transactionManager" />
  	 
- 	 <!-- 异常切面 
+ 	<!-- 异常切面 -->
  	<bean id="throwsAdvice" class="mikeheke.tadpole.frm.exception.advice.AmwayExceptionAdvice" />
  	<bean class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
 		<property name="beanNames">
@@ -39,7 +39,7 @@
 			<value>throwsAdvice</value>
 		 </property>
 	</bean>
-	-->
+	
  	
  	<context:component-scan base-package="mikeheke.tadpole" />
  	<!-- add by Mike He 20150418 -->

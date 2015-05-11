@@ -16,6 +16,7 @@ import mikeheke.tadpole.frm.exception.exception.AmwaySysException;
 import mikeheke.tadpole.frm.exception.util.ExceptionConstant;
 import mikeheke.tadpole.frm.logging.entity.LogSystem;
 import mikeheke.tadpole.frm.logging.service.LogService;
+import mikeheke.tadpole.frm.logging.util.LogFactory;
 
 import org.springframework.aop.ThrowsAdvice;
 
@@ -32,11 +33,19 @@ public class AmwayExceptionAdvice implements ThrowsAdvice {
 	public void afterThrowing(Method method, Object[] args, Object obj,
 			AmwaySysException sysException) {
 		
+		LogFactory.getLogger(this.getClass()).error(sysException);
+		
 		this.writeLog(obj, method, sysException);
 		this.sendEmail(sysException);
 		
 		//sysException.printStackTrace();
 	}
+	
+	// 抛Exception切面方法
+//	public void afterThrowing(Method method, Object[] args, Object obj,
+//			Exception throwable) {
+//		;//throwable.printStackTrace();
+//	}
 	
 	private void sendEmail(AmwaySysException sysException){
 		
