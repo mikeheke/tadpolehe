@@ -1,0 +1,46 @@
+﻿INSERT INTO test.mstb_exception (EXCEPTION_ID,EXCEPTION_CODE,EXCEPTION_NAME,APPLICATION_ID,IS_SEND_EMAIL,EMAIL_USERS,USE_STATE,REMARK,RECORD_STATE,CREATED_USER_ID,CREATED_TIME,UPDATED_USER_ID,UPDATED_TIME) VALUES 
+('247','1100','AmwaySysException','1',0,NULL,1,NULL,1,'admin',STR_TO_DATE('2011-10-19 10:03:13','%Y-%m-%d %H:%i:%s'),'admin',STR_TO_DATE('2011-10-19 10:03:13','%Y-%m-%d %H:%i:%s'))
+,('248','1200','AmwayInfoException','1',0,NULL,1,NULL,1,'admin',STR_TO_DATE('2011-10-19 10:04:54','%Y-%m-%d %H:%i:%s'),'admin',STR_TO_DATE('2011-10-19 10:04:54','%Y-%m-%d %H:%i:%s'))
+,('249','1300','AmwayBizException','1',0,NULL,1,NULL,1,'admin',STR_TO_DATE('2011-10-19 10:05:13','%Y-%m-%d %H:%i:%s'),'admin',STR_TO_DATE('2011-10-19 10:05:13','%Y-%m-%d %H:%i:%s'))
+,('250','1101','AuthSysException','1',0,NULL,1,NULL,1,'admin',STR_TO_DATE('2011-10-19 10:05:35','%Y-%m-%d %H:%i:%s'),'admin',STR_TO_DATE('2011-10-19 10:05:35','%Y-%m-%d %H:%i:%s'))
+,('251','1201','AuthInfoException','1',0,NULL,1,NULL,1,'admin',STR_TO_DATE('2011-10-19 10:06:33','%Y-%m-%d %H:%i:%s'),'admin',STR_TO_DATE('2011-10-19 10:06:33','%Y-%m-%d %H:%i:%s'))
+,('252','1301','AuthBizException','1',0,NULL,1,NULL,1,'admin',STR_TO_DATE('2011-10-19 10:06:51','%Y-%m-%d %H:%i:%s'),'admin',STR_TO_DATE('2011-10-19 10:06:51','%Y-%m-%d %H:%i:%s'))
+,('253','1102','BdsSysException','1',0,NULL,1,NULL,1,'admin',STR_TO_DATE('2011-10-19 10:07:09','%Y-%m-%d %H:%i:%s'),'admin',STR_TO_DATE('2011-10-19 10:07:09','%Y-%m-%d %H:%i:%s'))
+,('254','1202','BdsInfoException','1',0,NULL,1,NULL,1,'admin',STR_TO_DATE('2011-10-19 10:07:55','%Y-%m-%d %H:%i:%s'),'admin',STR_TO_DATE('2011-10-19 10:07:55','%Y-%m-%d %H:%i:%s'))
+,('255','1302','BdsBizException','1',0,NULL,1,NULL,1,'admin',STR_TO_DATE('2011-10-19 10:08:11','%Y-%m-%d %H:%i:%s'),'admin',STR_TO_DATE('2011-10-19 10:08:11','%Y-%m-%d %H:%i:%s'))
+,('256','1103','EmailSysException','1',0,NULL,1,NULL,1,'admin',STR_TO_DATE('2011-10-19 10:08:35','%Y-%m-%d %H:%i:%s'),'admin',STR_TO_DATE('2011-10-19 10:08:35','%Y-%m-%d %H:%i:%s'))
+;
+INSERT INTO test.mstb_exception (EXCEPTION_ID,EXCEPTION_CODE,EXCEPTION_NAME,APPLICATION_ID,IS_SEND_EMAIL,EMAIL_USERS,USE_STATE,REMARK,RECORD_STATE,CREATED_USER_ID,CREATED_TIME,UPDATED_USER_ID,UPDATED_TIME) VALUES 
+('257','1203','EmailInfoException','1',0,NULL,1,NULL,1,'admin',STR_TO_DATE('2011-10-19 10:09:00','%Y-%m-%d %H:%i:%s'),'admin',STR_TO_DATE('2011-10-19 10:09:00','%Y-%m-%d %H:%i:%s'))
+,('258','1303','EmailBizException','1',0,NULL,1,NULL,1,'admin',STR_TO_DATE('2011-10-19 10:09:42','%Y-%m-%d %H:%i:%s'),'admin',STR_TO_DATE('2011-10-19 10:09:42','%Y-%m-%d %H:%i:%s'))
+,('259','1104','JobSysException','1',0,NULL,1,NULL,1,'admin',STR_TO_DATE('2011-10-19 10:10:01','%Y-%m-%d %H:%i:%s'),'admin',STR_TO_DATE('2011-10-19 10:10:01','%Y-%m-%d %H:%i:%s'))
+,('260','1204','JobInfoException','1',0,NULL,1,NULL,1,'admin',STR_TO_DATE('2011-10-19 10:10:27','%Y-%m-%d %H:%i:%s'),'admin',STR_TO_DATE('2011-10-19 10:10:27','%Y-%m-%d %H:%i:%s'))
+,('261','1304','JobBizException','1',1,NULL,1,NULL,1,'admin',STR_TO_DATE('2011-10-19 10:10:44','%Y-%m-%d %H:%i:%s'),'admin',STR_TO_DATE('2011-10-19 10:10:44','%Y-%m-%d %H:%i:%s'))
+,('262','1105','LogSysException','1',0,NULL,1,NULL,1,'admin',STR_TO_DATE('2011-10-19 10:11:02','%Y-%m-%d %H:%i:%s'),'admin',STR_TO_DATE('2011-10-19 10:11:02','%Y-%m-%d %H:%i:%s'))
+,('263','1205','LogInfoException','1',0,NULL,1,NULL,1,'admin',STR_TO_DATE('2011-10-19 10:11:19','%Y-%m-%d %H:%i:%s'),'admin',STR_TO_DATE('2011-10-19 10:11:19','%Y-%m-%d %H:%i:%s'))
+,('264','1305','LogBizException','1',0,NULL,1,NULL,1,'admin',STR_TO_DATE('2011-10-19 10:11:37','%Y-%m-%d %H:%i:%s'),'admin',STR_TO_DATE('2011-10-19 10:11:37','%Y-%m-%d %H:%i:%s'))
+,('265','1106','MnuSysException','1',0,NULL,1,NULL,1,'admin',STR_TO_DATE('2011-10-19 10:12:43','%Y-%m-%d %H:%i:%s'),'admin',STR_TO_DATE('2011-10-19 10:12:43','%Y-%m-%d %H:%i:%s'))
+,('266','1206','MnuInfoException','1',0,NULL,1,NULL,1,'admin',STR_TO_DATE('2011-10-19 10:13:00','%Y-%m-%d %H:%i:%s'),'admin',STR_TO_DATE('2011-10-19 10:13:00','%Y-%m-%d %H:%i:%s'))
+;
+INSERT INTO test.mstb_exception (EXCEPTION_ID,EXCEPTION_CODE,EXCEPTION_NAME,APPLICATION_ID,IS_SEND_EMAIL,EMAIL_USERS,USE_STATE,REMARK,RECORD_STATE,CREATED_USER_ID,CREATED_TIME,UPDATED_USER_ID,UPDATED_TIME) VALUES 
+('267','1306','MnuBizException','1',0,NULL,1,NULL,1,'admin',STR_TO_DATE('2011-10-19 10:13:16','%Y-%m-%d %H:%i:%s'),'admin',STR_TO_DATE('2011-10-19 10:13:16','%Y-%m-%d %H:%i:%s'))
+,('268','1107','QuerySysException','1',0,NULL,1,NULL,1,'admin',STR_TO_DATE('2011-10-19 10:13:35','%Y-%m-%d %H:%i:%s'),'admin',STR_TO_DATE('2011-10-19 10:13:35','%Y-%m-%d %H:%i:%s'))
+,('269','1207','QueryInfoException','1',0,NULL,1,NULL,1,'admin',STR_TO_DATE('2011-10-19 10:13:54','%Y-%m-%d %H:%i:%s'),'admin',STR_TO_DATE('2011-10-19 10:13:54','%Y-%m-%d %H:%i:%s'))
+,('270','1307','QueryBizException','1',0,NULL,1,NULL,1,'admin',STR_TO_DATE('2011-10-19 10:14:14','%Y-%m-%d %H:%i:%s'),'admin',STR_TO_DATE('2011-10-19 10:14:14','%Y-%m-%d %H:%i:%s'))
+,('271','1108','ReportSysException','1',0,NULL,1,NULL,1,'admin',STR_TO_DATE('2011-10-19 10:14:31','%Y-%m-%d %H:%i:%s'),'admin',STR_TO_DATE('2011-10-19 10:16:09','%Y-%m-%d %H:%i:%s'))
+,('272','1208','ReportInfoException','1',0,NULL,1,NULL,1,'admin',STR_TO_DATE('2011-10-19 10:15:43','%Y-%m-%d %H:%i:%s'),'admin',STR_TO_DATE('2011-10-19 10:15:43','%Y-%m-%d %H:%i:%s'))
+,('273','1308','ReportBizException','1',0,NULL,1,NULL,1,'admin',STR_TO_DATE('2011-10-19 10:16:54','%Y-%m-%d %H:%i:%s'),'admin',STR_TO_DATE('2011-10-19 10:16:54','%Y-%m-%d %H:%i:%s'))
+,('274','1109','SmsSysException','1',0,NULL,1,NULL,1,'admin',STR_TO_DATE('2011-10-19 10:17:16','%Y-%m-%d %H:%i:%s'),'admin',STR_TO_DATE('2011-10-19 10:17:16','%Y-%m-%d %H:%i:%s'))
+,('275','1209','SmsInfoException','1',0,NULL,1,NULL,1,'admin',STR_TO_DATE('2011-10-19 10:17:33','%Y-%m-%d %H:%i:%s'),'admin',STR_TO_DATE('2011-10-19 10:17:33','%Y-%m-%d %H:%i:%s'))
+,('276','1309','SmsBizException','1',0,NULL,1,NULL,1,'admin',STR_TO_DATE('2011-10-19 10:17:50','%Y-%m-%d %H:%i:%s'),'admin',STR_TO_DATE('2011-10-19 10:17:50','%Y-%m-%d %H:%i:%s'))
+;
+INSERT INTO test.mstb_exception (EXCEPTION_ID,EXCEPTION_CODE,EXCEPTION_NAME,APPLICATION_ID,IS_SEND_EMAIL,EMAIL_USERS,USE_STATE,REMARK,RECORD_STATE,CREATED_USER_ID,CREATED_TIME,UPDATED_USER_ID,UPDATED_TIME) VALUES 
+('277','1110','TagSysException','1',0,NULL,1,NULL,1,'admin',STR_TO_DATE('2011-10-19 10:18:08','%Y-%m-%d %H:%i:%s'),'admin',STR_TO_DATE('2011-10-19 10:18:08','%Y-%m-%d %H:%i:%s'))
+,('278','1210','TagInfoException','1',0,NULL,1,NULL,1,'admin',STR_TO_DATE('2011-10-19 10:18:24','%Y-%m-%d %H:%i:%s'),'admin',STR_TO_DATE('2011-10-19 10:18:24','%Y-%m-%d %H:%i:%s'))
+,('279','1310','TagBizException','1',0,NULL,1,NULL,1,'admin',STR_TO_DATE('2011-10-19 10:18:39','%Y-%m-%d %H:%i:%s'),'admin',STR_TO_DATE('2011-10-19 10:18:39','%Y-%m-%d %H:%i:%s'))
+,('281','6301','EBookingBizException','21',0,NULL,1,NULL,1,'admin',STR_TO_DATE('2011-10-21 18:18:50','%Y-%m-%d %H:%i:%s'),'admin',STR_TO_DATE('2011-10-21 18:18:50','%Y-%m-%d %H:%i:%s'))
+,('282','6101','EBookingSysException','21',0,NULL,1,NULL,1,'admin',STR_TO_DATE('2011-10-21 18:19:37','%Y-%m-%d %H:%i:%s'),'admin',STR_TO_DATE('2011-10-21 18:19:37','%Y-%m-%d %H:%i:%s'))
+,('283','6201','EBookingInfoException','21',0,NULL,1,NULL,1,'admin',STR_TO_DATE('2011-10-21 18:19:56','%Y-%m-%d %H:%i:%s'),'admin',STR_TO_DATE('2011-10-21 18:19:56','%Y-%m-%d %H:%i:%s'))
+,('361','5100','AmwaySiSysException','241',0,NULL,1,NULL,1,'admin',STR_TO_DATE('2012-05-10 16:34:14','%Y-%m-%d %H:%i:%s'),'admin',STR_TO_DATE('2012-05-10 16:34:14','%Y-%m-%d %H:%i:%s'))
+,('362','5200','AmwaySiInfoException','241',0,NULL,1,NULL,1,'admin',STR_TO_DATE('2012-05-10 16:34:30','%Y-%m-%d %H:%i:%s'),'admin',STR_TO_DATE('2012-05-10 16:34:30','%Y-%m-%d %H:%i:%s'))
+;
