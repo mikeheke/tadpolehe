@@ -77,11 +77,13 @@ public class AmwayExceptionAdvice implements ThrowsAdvice {
 	private LogSystem getEntity(BaseService baseService, Method method,
 			AmwaySysException sysException) {
 
+		//get current login's application from session
 		SysInfoBean sysInfo = baseService.getSysInfo();
 		LogSystem logSystem = new LogSystem();
 		if(null != sysInfo.getApplication()){
 			logSystem.setApplicationId(sysInfo.getApplication().getApplicationId());
 		}
+		//从request中获取当前访问的模块
 		if(null != sysInfo.getCurModule()){
 			logSystem.setModuleId(sysInfo.getCurModule().getModuleId());
 		}

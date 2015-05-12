@@ -3,6 +3,6 @@
 - tadpolehe-aggregator
 - tadpolehe-core
 - tadpolehe-query
-- tadpolehe-sysManage
+- tadpolehe-sysManage-web
 - tadpolehe-biz-kgem-web
 - continue...

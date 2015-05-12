@@ -61,6 +61,9 @@ public class AuthenticationFilter extends HttpServlet implements Filter {
 	private Properties noLoginAuthenUrls = new Properties();
 	private Properties noRightAuthenUrls = new Properties();
 
+	/**
+	 * 
+	 */
 	public void doFilter(ServletRequest request, ServletResponse response,
 			FilterChain chain)throws IOException, ServletException {
 		
@@ -102,6 +105,7 @@ public class AuthenticationFilter extends HttpServlet implements Filter {
 			return;
 		}
 		
+		//是否请求的是通用查询，redirect到管理系统来处理请求
 		if(isQueryContextRequest(httpRequest)){
 			redirectToPage(httpResponse, getQueryChangingPage(httpRequest));
 			return;
@@ -110,6 +114,11 @@ public class AuthenticationFilter extends HttpServlet implements Filter {
 		chain.doFilter(request, response);
 	}
 	
+	/**
+	 * 
+	 * @param httpRequest
+	 * @param httpResponse
+	 */
 	private void initSystemInfo(HttpServletRequest httpRequest,
 			HttpServletResponse httpResponse){
 		
@@ -127,6 +136,11 @@ public class AuthenticationFilter extends HttpServlet implements Filter {
 		
 	}
 	
+	/**
+	 * 
+	 * @param httpRequest
+	 * @return
+	 */
 	private String getQueryChangingPage(HttpServletRequest httpRequest){
 		
 		String servlet = httpRequest.getServletPath();
@@ -140,6 +154,11 @@ public class AuthenticationFilter extends HttpServlet implements Filter {
 		return page;
 	}
 	
+	/**
+	 * 
+	 * @param httpRequest
+	 * @return
+	 */
 	private String getQueryParams(HttpServletRequest httpRequest){
 		StringBuffer sbf = new StringBuffer(AfwConstant.QUS_SIGN);
 		Map<String, String[]> paramMap = httpRequest.getParameterMap();
@@ -157,15 +176,32 @@ public class AuthenticationFilter extends HttpServlet implements Filter {
 		return sbf.toString();
 	}
 	
+	/**
+	 * 判断请求的是否为通用查询(非管理系统的通用查询)
+	 * @param httpRequest
+	 * @return
+	 */
 	private boolean isQueryContextRequest(HttpServletRequest httpRequest){
+		//for example: kgem
 		String context = httpRequest.getContextPath()
 			.replace(AfwConstant.UNIX_SEP, AfwConstant.EMPTY_STR);
+		//for example: showAction.action
 		String servletPath = httpRequest.getServletPath()
 			.replace(AfwConstant.UNIX_SEP, AfwConstant.EMPTY_STR);
-		return !context.equals(getSysApplication(httpRequest).getContext())
-				&& AfwConstant.QUERY_SHOW_ACTION.equals(servletPath);
+		
+		
+		//get sysApp context
+		//for example: sysManage
+		String sysAppContext = getSysApplication(httpRequest).getContext();
+		
+		
+		return !(context.equals(sysAppContext) && AfwConstant.QUERY_SHOW_ACTION.equals(servletPath));
 	}
 	
+	/**
+	 * 
+	 * @param httpRequest
+	 */
 	private void setContextApplication(HttpServletRequest httpRequest){
 		Application application = (Application) httpRequest.getSession()
 				.getAttribute(AppConstant.APPLICATION_NAME);
@@ -176,6 +212,11 @@ public class AuthenticationFilter extends HttpServlet implements Filter {
 		httpRequest.setAttribute(AppConstant.CONTEXT_APP, application);
 	}
 
+	/**
+	 * 
+	 * @param httpRequest
+	 * @return
+	 */
 	private boolean needFilterRight(HttpServletRequest httpRequest) {
 		
 		boolean result = false;
@@ -187,6 +228,11 @@ public class AuthenticationFilter extends HttpServlet implements Filter {
 		return result;
 	}
 
+	/**
+	 * 
+	 * @param httpRequest
+	 * @return
+	 */
 	private boolean needFilterLogin(HttpServletRequest httpRequest) {
 		
 		boolean result = false;
@@ -198,6 +244,10 @@ public class AuthenticationFilter extends HttpServlet implements Filter {
 		return result;
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	private boolean filterEnable(){
 		
 		boolean result = true;
@@ -210,6 +260,13 @@ public class AuthenticationFilter extends HttpServlet implements Filter {
 		return result;
 	}
 	
+	/**
+	 * 
+	 * @param httpRequest
+	 * @param httpResponse
+	 * @return
+	 * @throws IOException
+	 */
 	private boolean filterLogin(HttpServletRequest httpRequest,
 			HttpServletResponse httpResponse) throws IOException {
 		
@@ -255,6 +312,12 @@ public class AuthenticationFilter extends HttpServlet implements Filter {
 	
 	}
 	
+	/**
+	 * 
+	 * @param httpRequest
+	 * @param credentials
+	 * @return
+	 */
 	private boolean isAppGoToPage(HttpServletRequest httpRequest, Credentials credentials){
 		if(DataValidater.isStrEmpty(credentials.getApplicationCode())){
 			return false;
@@ -266,6 +329,12 @@ public class AuthenticationFilter extends HttpServlet implements Filter {
 		return false;
 	}
 	
+	/**
+	 * 
+	 * @param httpRequest
+	 * @param httpResponse
+	 * @return
+	 */
 	private boolean filterRight(HttpServletRequest httpRequest,
 			HttpServletResponse httpResponse) {
 
@@ -299,17 +368,37 @@ public class AuthenticationFilter extends HttpServlet implements Filter {
 		return false;
 	}
 	
+	/**
+	 * 
+	 * @param response
+	 * @param page
+	 * @throws IOException
+	 */
 	private void redirectToPage(HttpServletResponse response, String page)
 			throws IOException {
 		response.sendRedirect(page);
 	}
 	
+	/**
+	 * 
+	 * @param request
+	 * @param response
+	 * @param page
+	 * @throws ServletException
+	 * @throws IOException
+	 */
 	private void forwardToPage(ServletRequest request,
 			ServletResponse response, String page) throws ServletException,
 			IOException {
 		request.getRequestDispatcher(page).forward(request, response);
 	}
 
+	/**
+	 * 
+	 * @param request
+	 * @param userCode
+	 * @return
+	 */
 	private Credentials getCredentials(HttpServletRequest request,
 			String userCode) {
 		
@@ -323,6 +412,11 @@ public class AuthenticationFilter extends HttpServlet implements Filter {
 		return credentials;
 	}
 	
+	/**
+	 * 
+	 * @param request
+	 * @return
+	 */
 	private Application generateApplication(HttpServletRequest request){
 		
 		Application applicationRet = null;
@@ -347,10 +441,18 @@ public class AuthenticationFilter extends HttpServlet implements Filter {
 		return applicationRet;
 	}
 	
+	/**
+	 * 
+	 * @param request
+	 * @return
+	 */
 	private Application getSysApplication(HttpServletRequest request){
 		return (Application) request.getSession().getAttribute(AppConstant.SYS_APPLICATION_NAME);
 	}
 
+	/**
+	 * 
+	 */
 	public void init(FilterConfig config) {
 		
 		LogFactory.getLogger(this.getClass()).info("init AuthenticationFilter...");
@@ -370,6 +472,9 @@ public class AuthenticationFilter extends HttpServlet implements Filter {
 		setAuthorization(authorization);
 	}
 	
+	/**
+	 * 
+	 */
 	private void loadNoAuthenUrls(){
 		
 		loadInputStream(noLoginAuthenUrls, getClass().getResourceAsStream(noAppLoginAuthen));
@@ -379,6 +484,11 @@ public class AuthenticationFilter extends HttpServlet implements Filter {
 		
 	}
 	
+	/**
+	 * 
+	 * @param noAuthenUrls
+	 * @param noAuthenIs
+	 */
 	private void loadInputStream(Properties noAuthenUrls,
 			InputStream noAuthenIs){
 		if(null == noAuthenIs){
@@ -391,11 +501,17 @@ public class AuthenticationFilter extends HttpServlet implements Filter {
 		}
 	}
 	
+	/**
+	 * 
+	 */
 	private void clearNoAuthenUrls(){
 		noLoginAuthenUrls.clear();
 		noRightAuthenUrls.clear();
 	}
 
+	/**
+	 * 
+	 */
 	public void destroy() {
 		
 		/*

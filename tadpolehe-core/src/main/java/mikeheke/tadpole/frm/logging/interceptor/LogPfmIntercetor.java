@@ -62,7 +62,8 @@ public class LogPfmIntercetor {
 			returnMessage = finish(returnMessage.getReturnObject());
 			
 		}finally{
-			logService.writePerfLog(returnMessage.getReturnObject());
+			//logService.writePerfLog(returnMessage.getReturnObject());
+			logService.info("写性能日志...");
 		}
 		
 		return objectRet;
